@@ -1,0 +1,110 @@
+{
+ "files": {
+  "e1/test.jsonl": {
+   "labels": {
+    "ACT": 300,
+    "ASK": 300,
+    "DECLINE": 300
+   },
+   "n": 900,
+   "sha256": "dc9184f2cbb777f9590fa729fc1aa3f56dc645aad1aaa4df3195ded3437c9ecb"
+  },
+  "e1/train.jsonl": {
+   "labels": {
+    "ACT": 1500,
+    "ASK": 1500,
+    "DECLINE": 1500
+   },
+   "n": 4500,
+   "sha256": "0a26028f61365e24188ee86a60ffa58e18e69ff1d5cd06e48b36b5eff9df7577"
+  },
+  "e1/val.jsonl": {
+   "labels": {
+    "ACT": 200,
+    "ASK": 200,
+    "DECLINE": 200
+   },
+   "n": 600,
+   "sha256": "582ad5823c8d0c8e1f03e3a64db66d8a9c559b0bd88f5ec04dcb79a87771605e"
+  },
+  "w2t/e2_test.jsonl": {
+   "envs": {
+    "CalculatorEnv": 12,
+    "CodeExecutorEnv": 12,
+    "CountingEnv": 12,
+    "DateTimeEnv": 12,
+    "DecodingEnv": 8,
+    "GameRuleEnv": 12,
+    "HashEnv": 8,
+    "HistoricalYearEnv": 12,
+    "MatrixEnv": 12,
+    "PrimeEnv": 12,
+    "RegexMatchEnv": 12,
+    "RetrieverEnv": 12,
+    "ScheduleEnv": 12,
+    "StatisticsEnv": 12
+   },
+   "n": 160,
+   "sha256": "6814f67a6cee86ea1f6fdef3736d1d5c0ef075ca93907e1f7b37a308b6eb64e8"
+  },
+  "w2t/e2_train.jsonl": {
+   "envs": {
+    "CalculatorEnv": 15,
+    "CodeExecutorEnv": 15,
+    "CountingEnv": 15,
+    "DateTimeEnv": 15,
+    "DecodingEnv": 10,
+    "GameRuleEnv": 15,
+    "HashEnv": 10,
+    "HistoricalYearEnv": 15,
+    "MatrixEnv": 15,
+    "PrimeEnv": 15,
+    "RegexMatchEnv": 15,
+    "RetrieverEnv": 15,
+    "ScheduleEnv": 15,
+    "StatisticsEnv": 15
+   },
+   "n": 200,
+   "sha256": "7edc9223b844de9c3b46d29a01b0cc5ed8d54682168be30211d71c5107276887"
+  },
+  "w2t/multihop_test.jsonl": {
+   "envs": {
+    "CalculatorEnv": 12,
+    "CodeExecutorEnv": 12,
+    "RetrieverEnv": 12
+   },
+   "n": 36,
+   "sha256": "e317c0da16b1d856189e368ae814074bdb8b8413fe6148288f1032624e016e3a"
+  },
+  "w2t/multihop_train.jsonl": {
+   "envs": {
+    "CalculatorEnv": 18,
+    "CodeExecutorEnv": 18,
+    "RetrieverEnv": 18
+   },
+   "n": 54,
+   "sha256": "9a5aa7813496807f4b9d8de99bfad680f3c59acc717825a98ced3eadac53ae04"
+  },
+  "w2t/probe.jsonl": {
+   "envs": {
+    "CalculatorEnv": 9,
+    "CodeExecutorEnv": 9,
+    "CountingEnv": 9,
+    "DateTimeEnv": 9,
+    "DecodingEnv": 6,
+    "GameRuleEnv": 9,
+    "HashEnv": 6,
+    "HistoricalYearEnv": 9,
+    "MatrixEnv": 9,
+    "PrimeEnv": 9,
+    "RegexMatchEnv": 9,
+    "RetrieverEnv": 9,
+    "ScheduleEnv": 9,
+    "StatisticsEnv": 9
+   },
+   "n": 120,
+   "sha256": "a869a4c3efee56e61071da3543beff10c4adf05c940142e395b88adcc7f63525"
+  }
+ },
+ "seed": 20261021
+}
