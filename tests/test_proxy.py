@@ -169,3 +169,12 @@ def test_no_gate_is_transparent():
     c, up = app_with(None)
     c.post("/v1/chat/completions", json=REQ)
     assert json.loads(up.seen[-1][1]) == REQ
+
+
+def test_gate_fails_open_when_feature_head_gets_no_hidden_state():
+    from whetherman.calibrate.adjust import FeatureHead
+
+    prof = Profile(agent="t", tau=0.5, adjust=FeatureHead(mean=[0.0], std=[1.0], w=[-5.0], b=-5.0))
+    g = Gate(FakeRouter("ANSWER"), prof, timeout_ms=100)
+    out = g.decide({"messages": [{"role": "user", "content": "x"}], "tools": []})
+    assert out["decision"] == "ACT" and out["error"].startswith("error:")

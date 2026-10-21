@@ -12,7 +12,7 @@ from typing import Any, Protocol
 
 import numpy as np
 
-from whetherman.calibrate.adjust import VectorScaling, decide, softmax
+from whetherman.calibrate.adjust import FeatureHead, VectorScaling, adjust_from_dict, decide
 from whetherman.labels import IDX, LABELS
 
 
@@ -27,14 +27,14 @@ class Router(Protocol):
 class Profile:
     agent: str
     tau: float = 1.0  # 1.0 = never intervene
-    adjust: VectorScaling = field(default_factory=VectorScaling)
+    adjust: VectorScaling | FeatureHead = field(default_factory=VectorScaling)
     backbone: str = ""
     meta: dict[str, Any] = field(default_factory=dict)
 
     @classmethod
     def load(cls, path: str | Path) -> Profile:
         d = json.loads(Path(path).read_text())
-        return cls(agent=d["agent"], tau=float(d["tau"]), adjust=VectorScaling(**d["adjust"]),
+        return cls(agent=d["agent"], tau=float(d["tau"]), adjust=adjust_from_dict(d["adjust"]),
                    backbone=d.get("backbone", ""), meta=d.get("meta", {}))
 
     def save(self, path: str | Path) -> None:
@@ -67,7 +67,10 @@ class Gate:
             logits = np.asarray(pred["logits"], dtype=float)
             if logits.shape != (4,) or not np.all(np.isfinite(logits)):
                 return fail_open("invalid_prediction", t0, placement)
-            probs = softmax(self.profile.adjust.apply(logits))
+            hidden = pred.get("hidden")
+            probs = self.profile.adjust.probs(logits, None if hidden is None else np.asarray(hidden, dtype=float))
+            if probs.shape != (4,) or not np.all(np.isfinite(probs)):
+                return fail_open("invalid_prediction", t0, placement)
             label = decide(probs, self.profile.tau)
             k = int(probs.argmax())
         except FutTimeout:

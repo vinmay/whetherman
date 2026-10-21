@@ -16,7 +16,7 @@ from pathlib import Path
 import numpy as np
 
 from eval import metrics, points
-from whetherman.calibrate.adjust import VectorScaling, decide, select_tau, softmax
+from whetherman.calibrate.adjust import FeatureHead, VectorScaling, adjust_from_dict, decide, select_tau, softmax
 from whetherman.labels import IDX
 from whetherman.policy.gate import Profile
 
@@ -64,12 +64,24 @@ def get_router(name: str, device: str):
     raise ValueError(name)
 
 
-def raw_outputs(router_name: str, set_name: str, pts: list[dict], device: str, cache: dict) -> dict[str, list]:
+class RawOut(dict):
+    """id -> backbone logits; .hidden holds id -> last hidden state for FunctionGemma routers."""
+
+    def __init__(self, *a, **kw):
+        super().__init__(*a, **kw)
+        self.hidden: dict[str, list] = {}
+
+
+def raw_outputs(router_name: str, set_name: str, pts: list[dict], device: str, cache: dict) -> RawOut:
     path = RAW / (SHARED if router_name == "shared" else router_name) / f"{set_name}.jsonl"
-    have = {}
+    need_hidden = router_name.startswith("shared")
+    have = RawOut()
     if path.exists():
-        have = {r["id"]: r["logits"] for r in map(json.loads, path.open())}
-    todo = [p for p in pts if p["id"] not in have]
+        for r in map(json.loads, path.open()):  # later rows win (a row may be re-run to add its hidden state)
+            have[r["id"]] = r["logits"]
+            if "hidden" in r:
+                have.hidden[r["id"]] = r["hidden"]
+    todo = [p for p in pts if p["id"] not in have or (need_hidden and p["id"] not in have.hidden)]
     if todo:
         if router_name not in cache:
             cache[router_name] = get_router(router_name, device)
@@ -83,6 +95,9 @@ def raw_outputs(router_name: str, set_name: str, pts: list[dict], device: str, c
                 for i, pr in zip(idx, r.predict_batch([fs[i] for i in idx]), strict=True):
                     rec = {"id": todo[i]["id"], "logits": pr["logits"], "latency_ms": pr["latency_ms"],
                            "truncated": fs[i].get("truncated", False)}
+                    if pr.get("hidden") is not None:
+                        rec["hidden"] = np.round(np.asarray(pr["hidden"], dtype=float), 5).tolist()
+                        have.hidden[rec["id"]] = rec["hidden"]
                     f.write(json.dumps(rec) + "\n")
                     have[rec["id"]] = rec["logits"]
             print(f"  {router_name}/{set_name}: +{len(todo)}", flush=True)
@@ -91,8 +106,8 @@ def raw_outputs(router_name: str, set_name: str, pts: list[dict], device: str, c
 
 # ---------------------------------------------------------------- policies
 
-def policy_decisions(logits: np.ndarray, adjust: VectorScaling, tau: float) -> tuple[list[str], np.ndarray]:
-    probs = adjust.probs(logits)
+def policy_decisions(logits: np.ndarray, adjust, tau: float, hidden: np.ndarray | None = None):
+    probs = adjust.probs(logits, hidden)
     return [decide(p, tau) for p in probs], probs
 
 
@@ -105,10 +120,15 @@ def threshold_only_tau(agent: str, shared_logits: dict, prof: Profile) -> float:
     return tau
 
 
-def evaluate(pts: list[dict], raw: dict, adjust: VectorScaling, tau: float) -> dict:
+def evaluate(pts: list[dict], raw: RawOut, adjust, tau: float) -> dict:
     pts = [p for p in pts if p["id"] in raw]
     lg = np.array([raw[p["id"]] for p in pts]) if pts else np.zeros((0, 4))
-    dec, probs = policy_decisions(lg, adjust, tau)
+    hid = None
+    if isinstance(adjust, FeatureHead):
+        pts = [p for p in pts if p["id"] in raw.hidden]
+        lg = np.array([raw[p["id"]] for p in pts]) if pts else np.zeros((0, 4))
+        hid = np.array([raw.hidden[p["id"]] for p in pts]) if pts else np.zeros((0, len(adjust.w)))
+    dec, probs = policy_decisions(lg, adjust, tau, hid)
     y = [p["label"] for p in pts]
     out = {"all": metrics.summarize(y, dec, probs)}
     groups = {"single_step": lambda p: not p.get("multi_step"), "multi_step": lambda p: p.get("multi_step"),
@@ -195,6 +215,10 @@ def main() -> None:
                                                                         "tau": t_only}
                 results["per_agent"][ag][f"adapted/{sname}"] = {**evaluate(pts_all, raw, prof.adjust, prof.tau),
                                                                  "tau": prof.tau}
+                abl = prof.meta.get("fit", {}).get("ablation_vector_scaling")
+                if abl and isinstance(prof.adjust, FeatureHead):  # ablation: vector scaling on the same splits
+                    results["per_agent"][ag][f"adapted_vecscale/{sname}"] = {
+                        **evaluate(pts_all, raw, adjust_from_dict(abl["adjust"]), abl["tau"]), "tau": abl["tau"]}
                 other = [o for o in profiles if o != ag]
                 for o in other:  # P1 profile swap: this agent's points, the other agent's profile
                     po = profiles[o]

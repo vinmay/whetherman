@@ -36,3 +36,28 @@ def test_select_tau_respects_false_skip_target():
     tau, _ = select_tau(np.array([[0.001, 0.999, 0, 0]] * 4), np.array([0] * 4))
     assert tau == 1.0
     assert VectorScaling().apply(np.ones(4)).tolist() == [1, 1, 1, 1]
+
+
+def test_feature_head_separates_and_returns_distribution():
+    from whetherman.calibrate.adjust import adjust_from_dict, fit_feature_head
+
+    rng = np.random.default_rng(0)
+    h = rng.normal(size=(80, 16))
+    act = h[:, 3] > 0.2  # linearly separable on one feature
+    fh = fit_feature_head(h, act, c=1.0)
+    pa = fh.p_act(h)
+    assert ((pa > 0.5) == act).mean() > 0.9
+    logits = rng.normal(size=(80, 4))
+    p = fh.probs(logits, h)
+    assert np.allclose(p.sum(1), 1) and np.allclose(p[:, 0], pa)
+    assert np.allclose(adjust_from_dict(fh.to_dict()).probs(logits, h), p)
+    assert isinstance(adjust_from_dict(VectorScaling().to_dict()), VectorScaling)
+
+
+def test_feature_head_requires_hidden():
+    import pytest
+
+    from whetherman.calibrate.adjust import FeatureHead
+
+    with pytest.raises(ValueError):
+        FeatureHead(mean=[0.0], std=[1.0], w=[1.0], b=0.0).probs(np.zeros(4))

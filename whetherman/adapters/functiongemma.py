@@ -163,10 +163,11 @@ class FunctionGemmaRouter:
         with torch.inference_mode():
             h = self._hidden_last([f["input_ids"] for f in formatted])
             logits = self.head(h).float().cpu().numpy()
+            hidden = h.float().cpu().numpy()
         if self.device == "cuda":
             torch.cuda.synchronize()
         ms = (time.perf_counter() - t0) * 1000 / len(formatted)
-        return [_pred(lg, ms) for lg in logits]
+        return [{**_pred(lg, ms), "hidden": hv} for lg, hv in zip(logits, hidden, strict=True)]
 
     # ------------------------------------------------------------ untuned baseline
 

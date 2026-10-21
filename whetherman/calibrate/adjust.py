@@ -1,5 +1,9 @@
-"""Per-agent adjustment layer: vector scaling (per-class scale + bias) on the frozen backbone's
-four class logits, regularized toward identity, and per-agent threshold selection."""
+"""Per-agent adjustment layers and threshold selection.
+
+FeatureHead (default): an L2-regularized logistic head on the frozen backbone's last hidden state giving
+P(ACT); the remaining mass is split by the backbone's own ANSWER/ASK/DECLINE distribution.
+VectorScaling (ablation): per-class scale + bias on the backbone's four logits, regularized toward identity.
+Both expose probs(logits, hidden)."""
 
 from __future__ import annotations
 
@@ -25,11 +29,65 @@ class VectorScaling:
     def apply(self, logits: np.ndarray) -> np.ndarray:
         return np.asarray(logits) * np.asarray(self.scale) + np.asarray(self.bias)
 
-    def probs(self, logits: np.ndarray) -> np.ndarray:
+    def probs(self, logits: np.ndarray, hidden: np.ndarray | None = None) -> np.ndarray:
         return softmax(self.apply(logits))
 
     def to_dict(self) -> dict:
-        return asdict(self)
+        return {"kind": "vector_scaling", **asdict(self)}
+
+
+@dataclass
+class FeatureHead:
+    mean: list[float]
+    std: list[float]
+    w: list[float]
+    b: float
+    c: float = 0.01
+
+    def p_act(self, hidden: np.ndarray) -> np.ndarray:
+        x = (np.asarray(hidden, dtype=float) - np.asarray(self.mean)) / np.asarray(self.std)
+        return 1 / (1 + np.exp(-(x @ np.asarray(self.w) + self.b)))
+
+    def probs(self, logits: np.ndarray, hidden: np.ndarray | None = None) -> np.ndarray:
+        if hidden is None:
+            raise ValueError("feature_head needs the backbone hidden state")
+        pa = self.p_act(hidden)
+        q = softmax(np.asarray(logits, dtype=float))[..., 1:]
+        q = q / q.sum(-1, keepdims=True)
+        return np.concatenate([np.asarray(pa)[..., None], (1 - np.asarray(pa))[..., None] * q], -1)
+
+    def to_dict(self) -> dict:
+        return {"kind": "feature_head", **asdict(self)}
+
+
+def adjust_from_dict(d: dict) -> VectorScaling | FeatureHead:
+    d = dict(d)
+    kind = d.pop("kind", "vector_scaling")
+    return FeatureHead(**d) if kind == "feature_head" else VectorScaling(**d)
+
+
+def fit_feature_head(hidden: np.ndarray, is_act: np.ndarray, c: float = 0.01, iters: int = 50) -> FeatureHead:
+    """Minimize c * sum_i s_i * logloss_i + ||w||^2 / 2 (intercept unpenalized; s_i balanced class weights)
+    by Newton's method on standardized features."""
+    h = np.asarray(hidden, dtype=float)
+    y = np.asarray(is_act, dtype=float)
+    mean, std = h.mean(0), h.std(0) + 1e-6
+    x = np.hstack([(h - mean) / std, np.ones((len(y), 1))])
+    n_pos, n = y.sum(), len(y)
+    sw = np.where(y == 1, n / (2 * max(n_pos, 1)), n / (2 * max(n - n_pos, 1)))
+    reg = np.ones(x.shape[1])
+    reg[-1] = 0.0
+    beta = np.zeros(x.shape[1])
+    for _ in range(iters):
+        p = 1 / (1 + np.exp(-(x @ beta)))
+        g = c * x.T @ (sw * (p - y)) + reg * beta
+        hess = c * (x.T * (sw * p * (1 - p))) @ x + np.diag(reg + 1e-9)
+        step = np.linalg.solve(hess, g)
+        beta -= step
+        if np.abs(step).max() < 1e-8:
+            break
+    return FeatureHead(mean=mean.round(6).tolist(), std=std.round(6).tolist(), w=beta[:-1].round(8).tolist(),
+                       b=float(beta[-1]), c=c)
 
 
 def fit_vector_scaling(logits: np.ndarray, y: np.ndarray, l2: float = 1.0, lr: float = 0.05,

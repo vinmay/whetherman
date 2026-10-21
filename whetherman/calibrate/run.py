@@ -19,7 +19,13 @@ from typing import Any
 
 import numpy as np
 
-from whetherman.calibrate.adjust import VectorScaling, fit_vector_scaling, select_tau, threshold_stats
+from whetherman.calibrate.adjust import (
+    VectorScaling,
+    fit_feature_head,
+    fit_vector_scaling,
+    select_tau,
+    threshold_stats,
+)
 from whetherman.calibrate.probe_pack import ProbePack, load_probe_pack
 from whetherman.calibrate.splits import adapt_threshold_split
 from whetherman.labeling import label_necessity, load_config
@@ -35,6 +41,7 @@ EST_PROMPT_TOKENS = 700
 EST_COMPLETION_TOKENS = 80
 MAX_FALSE_SKIP = 0.05
 L2 = 2.0
+HEAD_C = 0.01  # feature-head inverse L2 strength; chosen by leave-task-family-out CV on the probe pack
 
 
 def slug(model: str) -> str:
@@ -92,19 +99,29 @@ def decision_points(pack: ProbePack, labels: list[dict]) -> list[dict]:
     return pts
 
 
-def router_logits(router, points: list[dict], batch: int = 16) -> np.ndarray:
+def router_outputs(router, points: list[dict], batch: int = 16) -> tuple[np.ndarray, np.ndarray | None]:
+    """Backbone logits (n x 4) and last hidden states (n x d, or None if the router exposes none)."""
     fs = [router.format({"messages": p["messages"], "tools": p["tools"]}) for p in points]
     order = sorted(range(len(fs)), key=lambda i: fs[i]["n_tokens"])
     out = np.zeros((len(fs), 4))
+    hid: list = [None] * len(fs)
     for s in range(0, len(order), batch):
         idx = order[s: s + batch]
         for i, pr in zip(idx, router.predict_batch([fs[i] for i in idx]), strict=True):
             out[i] = pr["logits"]
-    return out
+            hid[i] = pr.get("hidden")
+    return out, (np.array(hid, dtype=float) if all(h is not None for h in hid) and hid else None)
+
+
+def router_logits(router, points: list[dict], batch: int = 16) -> np.ndarray:
+    return router_outputs(router, points, batch)[0]
 
 
 def fit_profile(agent: str, points: list[dict], logits: np.ndarray, backbone: str,
-                max_false_skip: float = MAX_FALSE_SKIP, l2: float = L2) -> tuple[Profile, dict]:
+                max_false_skip: float = MAX_FALSE_SKIP, l2: float = L2, hidden: np.ndarray | None = None,
+                head_c: float = HEAD_C) -> tuple[Profile, dict]:
+    """Adaptation split fits the adjustment layer (feature head if hidden states are given, else vector
+    scaling); the threshold split selects tau. Vector scaling is always fit too and reported as an ablation."""
     ids = [p["id"] for p in points]
     adapt, thresh = adapt_threshold_split([{"id": i, "label": p["label"]} for i, p in zip(ids, points, strict=True)])
     pos = {i: k for k, i in enumerate(ids)}
@@ -114,15 +131,27 @@ def fit_profile(agent: str, points: list[dict], logits: np.ndarray, backbone: st
     counts = np.bincount(y[a_idx], minlength=4).astype(float)
     cw = np.where(counts > 0, counts.sum() / (2 * np.maximum(counts, 1)), 1.0)
     vs = fit_vector_scaling(logits[a_idx], y[a_idx], l2=l2, class_weight=cw) if a_idx else VectorScaling()
-    probs_t = vs.probs(logits[t_idx]) if t_idx else np.zeros((0, 4))
-    tau, curve = select_tau(probs_t, y[t_idx], max_false_skip)
-    at = threshold_stats(probs_t, y[t_idx], tau) if t_idx else {}
+
+    def pick(adj):
+        probs_t = adj.probs(logits[t_idx], None if hidden is None else hidden[t_idx]) if t_idx else np.zeros((0, 4))
+        tau, curve = select_tau(probs_t, y[t_idx], max_false_skip)
+        return tau, curve, (threshold_stats(probs_t, y[t_idx], tau) if t_idx else {})
+
+    vs_tau, vs_curve, vs_at = pick(vs)
+    is_act = y[a_idx] == IDX["ACT"]
+    if hidden is not None and a_idx and 0 < is_act.sum() < len(is_act):
+        adj = fit_feature_head(hidden[a_idx], is_act, c=head_c)
+        tau, curve, at = pick(adj)
+    else:
+        adj, tau, curve, at = vs, vs_tau, vs_curve, vs_at
     report = {"n_usable": len(points), "n_adapt": len(a_idx), "n_threshold": len(t_idx),
               "adapt_ids": [ids[i] for i in a_idx], "threshold_ids": [ids[i] for i in t_idx],
+              "adjust_kind": adj.to_dict()["kind"],
               "tau_rule": f"smallest tau in 0.50..0.99 with threshold-split false-skip rate <= {max_false_skip}; "
                           "1.0 (never intervene) if none",
-              "threshold_stats_at_tau": at, "threshold_curve": curve, "l2": l2}
-    prof = Profile(agent=agent, tau=tau, adjust=vs, backbone=backbone, meta={})
+              "threshold_stats_at_tau": at, "threshold_curve": curve, "l2": l2, "head_c": head_c,
+              "ablation_vector_scaling": {"adjust": vs.to_dict(), "tau": vs_tau, "threshold_stats_at_tau": vs_at}}
+    prof = Profile(agent=agent, tau=tau, adjust=adj, backbone=backbone, meta={})
     return prof, report
 
 
@@ -158,8 +187,8 @@ def calibrate(endpoint: str, model: str, probe_pack: str | None = None, name: st
 
         ck = ROOT / backbone if not Path(backbone).is_absolute() else Path(backbone)
         router = FunctionGemmaRouter(checkpoint=ck, device=device)
-    logits = router_logits(router, pts)
-    prof, report = fit_profile(agent, pts, logits, backbone)
+    logits, hidden = router_outputs(router, pts)
+    prof, report = fit_profile(agent, pts, logits, backbone, hidden=hidden)
     n_amb = sum(x["label"] == "ambiguous" for x in labels)
     prof.meta = {
         "endpoint_provider": spec.name, "model": model, "probe_pack": pack.manifest["name"],
