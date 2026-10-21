@@ -114,15 +114,23 @@ class FunctionGemmaRouter:
     def format(self, decision_input: dict[str, Any]) -> dict[str, Any]:
         msgs = to_native_messages(decision_input["messages"])
         tools = decision_input.get("tools") or []
+        def encode(k: int) -> list[int]:
+            # keep the developer turn and the first user turn; drop the k oldest messages after them
+            m = msgs[:2] + msgs[2 + k:] if k else msgs
+            text = self.tok.apply_chat_template(m, tools=tools, tokenize=False, add_generation_prompt=True)
+            return self.tok(text, add_special_tokens=False)["input_ids"]
+
+        ids = encode(0)
         truncated = False
-        while True:
-            text = self.tok.apply_chat_template(msgs, tools=tools, tokenize=False,
-                                                add_generation_prompt=True)
-            ids = self.tok(text, add_special_tokens=False)["input_ids"]
-            if len(ids) <= self.max_input_tokens or len(msgs) <= 3:
-                break
-            # keep the developer turn and the first user turn; drop the oldest message after them
-            msgs = msgs[:2] + msgs[3:]
+        if len(ids) > self.max_input_tokens and len(msgs) > 3:
+            lo, hi = 1, len(msgs) - 3  # smallest k that fits (binary search)
+            while lo < hi:
+                mid = (lo + hi) // 2
+                if len(encode(mid)) <= self.max_input_tokens:
+                    hi = mid
+                else:
+                    lo = mid + 1
+            ids = encode(lo)
             truncated = True
         if len(ids) > self.max_input_tokens:  # left-truncate as a last resort (keeps the decision point)
             ids = ids[-self.max_input_tokens:]
