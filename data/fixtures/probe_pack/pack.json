@@ -1,0 +1,7 @@
+{
+ "name": "whetherman-default-probe-pack",
+ "version": "1.0.0",
+ "description": "Default calibration probe pack: When2Tool-derived tasks (our tool implementations) plus templated developer scenarios over a bundled fixture repo, recorded web/weather fixtures and simulated side effects. Disjoint from every test set.",
+ "task_files": ["probe_dev.jsonl", "../w2t/probe.jsonl"],
+ "fixtures": ["fixture_repo", "web_search.json", "weather.json"]
+}
