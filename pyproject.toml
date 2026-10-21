@@ -61,3 +61,4 @@ testpaths = ["tests"]
 
 [tool.ruff.lint.per-file-ignores]
 "data/e3/build_e3.py" = ["E501"]
+"data/scenarios.py" = ["E501"]

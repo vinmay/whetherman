@@ -48,5 +48,55 @@
   "temp_c": 19.5,
   "condition": "sunny",
   "humidity": 40
+ },
+ "hanoi": {
+  "temp_c": 27.0,
+  "condition": "thunderstorms",
+  "humidity": 85
+ },
+ "montreal": {
+  "temp_c": 3.5,
+  "condition": "cloudy",
+  "humidity": 70
+ },
+ "perth": {
+  "temp_c": 23.0,
+  "condition": "sunny",
+  "humidity": 45
+ },
+ "helsinki": {
+  "temp_c": -1.5,
+  "condition": "snow showers",
+  "humidity": 86
+ },
+ "lima": {
+  "temp_c": 17.0,
+  "condition": "overcast",
+  "humidity": 82
+ },
+ "seoul": {
+  "temp_c": 12.0,
+  "condition": "clear",
+  "humidity": 50
+ },
+ "dakar": {
+  "temp_c": 29.5,
+  "condition": "sunny",
+  "humidity": 66
+ },
+ "vancouver": {
+  "temp_c": 8.0,
+  "condition": "rain",
+  "humidity": 91
+ },
+ "tbilisi": {
+  "temp_c": 10.5,
+  "condition": "partly cloudy",
+  "humidity": 58
+ },
+ "quito": {
+  "temp_c": 14.0,
+  "condition": "drizzle",
+  "humidity": 77
  }
 }

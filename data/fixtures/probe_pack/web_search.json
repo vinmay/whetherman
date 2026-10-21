@@ -230,6 +230,129 @@
      "snippet": "Pelican Storage is written in Rust and licensed Apache-2.0."
     }
    ]
+  },
+  {
+   "keywords": [
+    "corvid",
+    "library",
+    "maintainer",
+    "queue"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Corvid queue",
+     "snippet": "The Corvid job-queue library is maintained by Ravi Menon."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "database",
+    "latest",
+    "release",
+    "saltmarsh",
+    "version"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Saltmarsh DB 7.1",
+     "snippet": "Saltmarsh DB's latest release is 7.1.4."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "default",
+    "ironbark",
+    "length",
+    "line",
+    "linter"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Ironbark linter defaults",
+     "snippet": "Ironbark's default maximum line length is 96."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "2026",
+    "date",
+    "summit",
+    "wrenfield"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Wrenfield Summit 2026",
+     "snippet": "Wrenfield Summit 2026 takes place on 2026-12-09."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "license",
+    "pebbleshell",
+    "terminal"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Pebbleshell license",
+     "snippet": "Pebbleshell is released under the BSD-3-Clause license."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "api",
+    "base",
+    "endpoint",
+    "thornbury",
+    "url"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Thornbury API",
+     "snippet": "The Thornbury API base URL is https://api.thornbury.example/v3."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "bundle",
+    "glimmerjs",
+    "kilobytes",
+    "size"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Glimmer.js size",
+     "snippet": "GlimmerJS 9 ships at 14 KB gzipped."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "cloud",
+    "count",
+    "osprey",
+    "region",
+    "regions"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Osprey Cloud regions",
+     "snippet": "Osprey Cloud operates in 23 regions."
+    }
+   ]
   }
  ]
 }
