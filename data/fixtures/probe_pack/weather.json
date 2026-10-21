@@ -1,0 +1,52 @@
+{
+ "oslo": {
+  "temp_c": 4.5,
+  "condition": "light rain",
+  "humidity": 88
+ },
+ "lisbon": {
+  "temp_c": 21.0,
+  "condition": "sunny",
+  "humidity": 55
+ },
+ "toronto": {
+  "temp_c": 9.0,
+  "condition": "overcast",
+  "humidity": 71
+ },
+ "nairobi": {
+  "temp_c": 24.5,
+  "condition": "partly cloudy",
+  "humidity": 60
+ },
+ "osaka": {
+  "temp_c": 18.0,
+  "condition": "clear",
+  "humidity": 64
+ },
+ "denver": {
+  "temp_c": -2.0,
+  "condition": "snow",
+  "humidity": 80
+ },
+ "cape town": {
+  "temp_c": 16.5,
+  "condition": "windy",
+  "humidity": 67
+ },
+ "reykjavik": {
+  "temp_c": 1.0,
+  "condition": "sleet",
+  "humidity": 90
+ },
+ "mumbai": {
+  "temp_c": 31.0,
+  "condition": "humid haze",
+  "humidity": 78
+ },
+ "santiago": {
+  "temp_c": 19.5,
+  "condition": "sunny",
+  "humidity": 40
+ }
+}

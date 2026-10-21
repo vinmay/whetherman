@@ -1,0 +1,202 @@
+{
+ "entries": [
+  {
+   "keywords": [
+    "http",
+    "latest",
+    "library",
+    "release",
+    "stable",
+    "tidewater",
+    "version"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Tidewater 5.3.2 released",
+     "snippet": "Tidewater, the async HTTP client, published 5.3.2 as its latest stable release on 2026-10-02."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "license",
+    "markdown",
+    "parser",
+    "quillstream"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Quillstream licensing",
+     "snippet": "Quillstream is distributed under the MPL-2.0 license."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "2026",
+    "city",
+    "conference",
+    "fernhollow",
+    "host"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "FernConf 2026 announced",
+     "snippet": "The Fernhollow developer conference 2026 will be held in Tallinn, Estonia."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "default",
+    "lite",
+    "orbitdb",
+    "port"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "OrbitDB-Lite configuration",
+     "snippet": "orbitdb-lite listens on port 7811 by default."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "build",
+    "ci",
+    "free",
+    "kestrel",
+    "minutes",
+    "month",
+    "tier"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Kestrel CI pricing",
+     "snippet": "Kestrel CI's free tier includes 1,800 build minutes per month."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "author",
+    "creator",
+    "founded",
+    "framework",
+    "marlow"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "About the Marlow web framework",
+     "snippet": "The Marlow web framework was created by Ines Okafor in 2023."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "3",
+    "date",
+    "release",
+    "zephyrlang"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Zephyrlang 3.0 ships",
+     "snippet": "Zephyrlang 3.0 was released on 2026-08-19."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "api",
+    "brightline",
+    "limit",
+    "minute",
+    "per",
+    "rate",
+    "requests"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Brightline API limits",
+     "snippet": "The Brightline public API allows 240 requests per minute per key."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "2026",
+    "halvard",
+    "open",
+    "prize",
+    "source",
+    "winner"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Halvard Prize 2026",
+     "snippet": "The 2026 Halvard Prize for open-source infrastructure went to the Pelican Storage project."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "copperleaf",
+    "minimum",
+    "python",
+    "sdk",
+    "support",
+    "version"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Copperleaf SDK requirements",
+     "snippet": "Copperleaf SDK 2.x requires Python 3.11 or newer."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "max",
+    "message",
+    "nimbusq",
+    "queue",
+    "size"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "NimbusQ limits",
+     "snippet": "NimbusQ accepts messages up to 512 KB."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "command",
+    "editor",
+    "keyboard",
+    "lattice",
+    "palette",
+    "shortcut"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Lattice editor shortcuts",
+     "snippet": "In the Lattice editor, the command palette opens with Ctrl+Shift+K."
+    }
+   ]
+  }
+ ]
+}
