@@ -1,0 +1,18 @@
+{
+ "caps_usd": {
+  "hosted": 10.0,
+  "tinker": 15.0
+ },
+ "entries": [
+  {
+   "ts": "2026-10-21T15:44:25",
+   "kind": "hosted",
+   "what": "label L w2t/probe",
+   "usd": 0.204144,
+   "tasks": 103
+  }
+ ],
+ "totals_usd": {
+  "hosted": 0.204144
+ }
+}

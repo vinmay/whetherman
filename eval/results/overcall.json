@@ -1,0 +1,46 @@
+{
+ "L/probe": {
+  "n_tasks": 103,
+  "labels": {
+   "ACT": 14,
+   "ANSWER": 83,
+   "ambiguous": 6
+  },
+  "answer_tasks": 83,
+  "with_tool_trials_on_answer": 249,
+  "trials_calling_tool": 75,
+  "trial_rate": 0.30120481927710846,
+  "trial_rate_ci": [
+   0.247593984256278,
+   0.36085652388795153
+  ],
+  "answer_tasks_with_any_call": 33,
+  "task_rate": 0.39759036144578314,
+  "task_rate_ci": [
+   0.299087663224007,
+   0.5051536220586227
+  ]
+ },
+ "S/probe": {
+  "n_tasks": 103,
+  "labels": {
+   "ACT": 44,
+   "ANSWER": 46,
+   "ambiguous": 13
+  },
+  "answer_tasks": 46,
+  "with_tool_trials_on_answer": 138,
+  "trials_calling_tool": 81,
+  "trial_rate": 0.5869565217391305,
+  "trial_rate_ci": [
+   0.503535467250704,
+   0.6656673618205982
+  ],
+  "answer_tasks_with_any_call": 27,
+  "task_rate": 0.5869565217391305,
+  "task_rate_ci": [
+   0.4433924238701789,
+   0.7171160670289898
+  ]
+ }
+}
