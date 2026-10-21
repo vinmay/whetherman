@@ -209,6 +209,8 @@ def main() -> None:
             model.save_pretrained(out)
             torch.save(head.state_dict(), out / "head.pt")
     meta = {"args": vars(a), "agents_for_agreement": agents, "n_train": len(tr), "n_val": len(va),
+            "e2_train_ids_trained": sorted(x["id"].removeprefix("e2a-") for x in train if x["id"].startswith("e2a-")),
+            "e2_train_ids_val": sorted(x["id"].removeprefix("e2a-") for x in e2a[:n_e2v]),
             "train_labels": dict(Counter(LABELS[y] for _, y, _ in tr)), "class_weight": w.tolist(),
             "history": history, "best_val_macro_f1": best,
             "peak_vram_mib": torch.cuda.max_memory_allocated() / 2**20, "precision": "fp32",

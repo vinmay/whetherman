@@ -129,6 +129,17 @@ def disagreement_ids(split: str) -> set[str]:
     return {i for i in common if labs["L"][i] != labs["S"][i]}
 
 
+def trained_e2_ids(checkpoint: str = "checkpoints/shared-v1") -> set[str]:
+    """E2-train items the shared backbone trained on; excluded from dev evaluation."""
+    meta = ROOT / checkpoint / "train_meta.json"
+    if not meta.exists():
+        return set()
+    m = json.loads(meta.read_text())
+    if m.get("agents_for_agreement") and "e2_train_ids_trained" not in m:
+        raise SystemExit(f"{meta} predates train-id recording; cannot exclude trained E2 items")
+    return set(m.get("e2_train_ids_trained", []))
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--phase", choices=["dev", "final"], default="dev")
@@ -143,7 +154,9 @@ def main() -> None:
         sets_fixed = {"e1_val": points.e1("val")}
         dis = disagreement_ids("e2_train") if all((ROOT / "data/fixtures/labels" / x / "e2_train.jsonl").exists()
                                                   for x in AGENTS) else set()
-        sets_agent = {ag: {"e2_train_val": [dict(p, disagree=p["id"] in dis) for p in points.e2("e2_train", ag)]}
+        trained = trained_e2_ids()
+        sets_agent = {ag: {"e2_train_val": [dict(p, disagree=p["id"] in dis) for p in points.e2("e2_train", ag)
+                                            if p["id"] not in trained]}
                       for ag in a.agents}
     else:
         sets_fixed = {"e1_test": points.e1("test")}
