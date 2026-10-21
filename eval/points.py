@@ -66,13 +66,14 @@ def e3_capability_tasks() -> list[dict]:
 def e3(agent: str | None) -> list[dict]:
     """Fixed-label points plus (if agent given) that agent's usable capability labels."""
     caps = {r["task_id"]: r["label"] for r in _read(FIX / "labels" / agent / "e3_capability.jsonl")} if agent else {}
+    pts = _read(FIX / "e3" / "e3.jsonl")
+    multi = {q["conv_id"] for q in pts if q["step"] > 0}
     out = []
-    for p in _read(FIX / "e3" / "e3.jsonl"):
+    for p in pts:
         lab = p["label"] or caps.get(p["id"])
         if lab not in ("ACT", "ANSWER", "ASK", "DECLINE"):
             continue
-        conv_multi = any(q["conv_id"] == p["conv_id"] and q["step"] > 0 for q in _read(FIX / "e3" / "e3.jsonl"))
         out.append({"id": p["id"], "source": "e3", "messages": p["messages"], "tools": _schemas(p["tools"]),
-                    "label": lab, "label_mode": p["label_mode"], "multi_step": conv_multi,
+                    "label": lab, "label_mode": p["label_mode"], "multi_step": p["conv_id"] in multi,
                     "step": p["step"], "unseen_schema": p["unseen_schema"]})
     return out
