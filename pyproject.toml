@@ -50,7 +50,7 @@ build-backend = "uv_build"
 module-root = ""
 
 [tool.ruff]
-line-length = 100
+line-length = 110
 target-version = "py312"
 
 [tool.ruff.lint]

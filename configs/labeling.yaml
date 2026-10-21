@@ -1,0 +1,16 @@
+# Shared tool-necessity labeling protocol (used by E2 labeling AND `whetherman calibrate`).
+# Labels are measured evidence about one agent, not ground truth.
+screening_trials: 3          # per condition (without tools / with tool)
+extra_trials: 2              # added per condition for mixed items (5 total)
+answer_min_success_screen: 3 # ANSWER if >= 3/3 succeed without tools
+act_max_notool_screen: 0     # ACT if <= 0/3 succeed without tools ...
+act_min_tool_screen: 2       # ... and >= 2/3 succeed with the tool
+answer_min_success_full: 5   # after extra trials: ANSWER if >= 5/5 without tools
+act_max_notool_full: 1       # ACT if <= 1/5 without tools ...
+act_min_tool_full: 4         # ... and >= 4/5 with the tool
+# Decoding matches deployment (temperature 0); trials differ only by seed, so repeated
+# trials measure the provider's own non-determinism.
+temperature: 0.0
+seed_base: 1000
+max_steps: 6
+wilson_z: 1.96
