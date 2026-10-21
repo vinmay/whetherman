@@ -94,6 +94,11 @@ def main() -> None:
     rng.shuffle(e2a)
     n_e2v = len(e2a) // 5
     train = read(FIX / "e1" / "train.jsonl") + ms_train + e2a[n_e2v:]
+    dd = ROOT / "eval" / "results" / "dedup.json"
+    removed = {i for _, i in json.loads(dd.read_text())["train_side_removals"]} if dd.exists() else set()
+    n0 = len(train)
+    train = [x for x in train if x["id"] not in removed and x["id"].removeprefix("e2a-") not in removed]
+    print(f"dedup: removed {n0 - len(train)} training items colliding with eval items")
     val = read(FIX / "e1" / "val.jsonl") + ms_val + e2a[:n_e2v]
     rng.shuffle(train)
     if a.max_train:
