@@ -79,11 +79,21 @@ def initial_messages(task: Task, system: str | None = AGENT_SYSTEM) -> list[dict
 
 
 def run_episode(agent: Agent, task: Task, with_tools: bool = True, max_steps: int = 8,
-                system: str | None = AGENT_SYSTEM, **chat_kw: Any) -> Episode:
+                system: str | None = AGENT_SYSTEM, prefix: list[dict[str, Any]] | None = None,
+                **chat_kw: Any) -> Episode:
+    """Run the agent loop. With `prefix`, resume from that history: its tool calls are re-executed
+    first so simulated state (emails, issues, ...) matches the original trajectory."""
     load_all()
     env = ToolEnv(tool_names=list(task.tools), context=copy.deepcopy(task.context))
     tools = env.schemas() if with_tools and task.tools else None
-    msgs = initial_messages(task, system)
+    if prefix is not None:
+        msgs = copy.deepcopy(prefix)
+        for m in msgs:
+            for tc in m.get("tool_calls") or []:
+                env.execute(tc["function"]["name"], tc["function"]["arguments"])
+        env.calls.clear()
+    else:
+        msgs = initial_messages(task, system)
     ep = Episode(task_id=task.id, with_tools=with_tools, success=False, final_text=None)
     t0 = time.perf_counter()
     try:
