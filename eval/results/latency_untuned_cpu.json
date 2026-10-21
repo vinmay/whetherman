@@ -1,0 +1,40 @@
+{
+ "device": "cpu",
+ "checkpoint": "none",
+ "threads": 4,
+ "max_input_tokens": 1536,
+ "scenarios": {
+  "short_2tools": {
+   "n": 20,
+   "p50_ms": 378.12804701388814,
+   "p95_ms": 574.3278301524698,
+   "format_p50_ms": 1.0023475042544305,
+   "input_tokens": 128,
+   "truncated": false
+  },
+  "medium_8tools": {
+   "n": 20,
+   "p50_ms": 2063.299878500402,
+   "p95_ms": 3439.06253031455,
+   "format_p50_ms": 2.874934987630695,
+   "input_tokens": 830,
+   "truncated": false
+  },
+  "multistep_2results": {
+   "n": 20,
+   "p50_ms": 2227.93400901719,
+   "p95_ms": 2814.877263209201,
+   "format_p50_ms": 3.394195984583348,
+   "input_tokens": 868,
+   "truncated": false
+  },
+  "long_near_budget": {
+   "n": 20,
+   "p50_ms": 4941.749437508406,
+   "p95_ms": 6411.78354274889,
+   "format_p50_ms": 617.8603015141562,
+   "input_tokens": 1504,
+   "truncated": true
+  }
+ }
+}
