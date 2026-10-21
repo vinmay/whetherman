@@ -1,0 +1,16 @@
+{"model": "m", "temperature": 0, "seed": 3, "max_tokens": 256, "user": "u1",
+ "tools": [
+  {"type": "function", "function": {"name": "get_weather", "description": "w", "parameters": {"type": "object", "properties": {"city": {"type": "string"}}, "required": ["city"]}}},
+  {"type": "function", "function": {"name": "calculator", "description": "c", "parameters": {"type": "object", "properties": {"expression": {"type": "string"}}, "required": ["expression"]}}}],
+ "tool_choice": "auto", "parallel_tool_calls": true,
+ "messages": [
+  {"role": "system", "content": "Be concise."},
+  {"role": "user", "content": "Weather in Oslo and Lisbon, and the difference?"},
+  {"role": "assistant", "content": null, "tool_calls": [
+    {"id": "call_a", "type": "function", "function": {"name": "get_weather", "arguments": "{\"city\": \"Oslo\"}"}},
+    {"id": "call_b", "type": "function", "function": {"name": "get_weather", "arguments": "{\"city\": \"Lisbon\"}"}}]},
+  {"role": "tool", "tool_call_id": "call_a", "content": "{\"temp_c\": 4.5}"},
+  {"role": "tool", "tool_call_id": "call_b", "content": "{\"temp_c\": 21.0}"},
+  {"role": "assistant", "content": null, "tool_calls": [
+    {"id": "call_c", "type": "function", "function": {"name": "calculator", "arguments": "{\"expression\": \"21-4.5\"}"}}]},
+  {"role": "tool", "tool_call_id": "call_c", "content": "{\"result\": 16.5}"}]}
