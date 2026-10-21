@@ -63,6 +63,12 @@ else **ambiguous** (excluded from training/adaptation, reported separately). Eac
 success rates and Wilson 95% intervals. Decoding matches deployment (temperature 0, a different seed per
 trial). **These labels are measured evidence about one agent on one day, not ground truth.**
 
+**Infrastructure errors are not agent failures.** The client retries rate limits (429), transient 403/5xx and
+timeouts with backoff. A task whose label still contains an episode that failed for transport or provider
+reasons is dropped and relabeled (`eval/label_tasks.py::infra_error`). On 2026-10-21 an early Agent L run hit
+DigitalOcean rate limits (675 HTTP 429s on E2-train); those labels were discarded and the tasks relabeled
+before any training or evaluation used them.
+
 Side-effect tasks only succeed if the simulated state changed correctly (an agent that says "email sent"
 without calling the tool fails).
 
