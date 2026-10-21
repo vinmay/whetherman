@@ -46,6 +46,24 @@ def test_client_sends_auth_and_body():
     assert r.cost_usd == pytest.approx(1000 * 0.10 / 1e6 + 10 * 0.70 / 1e6)
 
 
+def test_client_retries_rate_limits(monkeypatch):
+    monkeypatch.setattr("whetherman.providers.openai_compat.time.sleep", lambda s: None)
+    codes = iter([429, 503, 200])
+
+    def handler(req):
+        code = next(codes)
+        if code != 200:
+            return httpx.Response(code, headers={"retry-after": "1"})
+        return httpx.Response(200, json={"choices": [{"message": {"role": "assistant", "content": "ok"}}]})
+
+    c = ChatClient("m", "digitalocean", api_key="k", transport=httpx.MockTransport(handler))
+    assert c.chat([{"role": "user", "content": "x"}]).message["content"] == "ok"
+    c = ChatClient("m", "digitalocean", api_key="k", max_retries=1,
+                   transport=httpx.MockTransport(lambda req: httpx.Response(429)))
+    with pytest.raises(httpx.HTTPStatusError):
+        c.chat([{"role": "user", "content": "x"}])
+
+
 SEQ = Task(id="compat-seq", messages=[{"role": "user", "content":
            "Use get_weather for Oslo, then use the calculator to convert the Celsius temperature to Fahrenheit "
            "(C*9/5+32). Reply with the Fahrenheit number only."}],

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+import random
 import time
 from dataclasses import dataclass, field
 from typing import Any
@@ -94,6 +95,9 @@ def normalize_message(msg: dict[str, Any]) -> dict[str, Any]:
     return out
 
 
+RETRY_STATUS = {403, 408, 409, 429, 500, 502, 503, 504}
+
+
 class ChatClient:
     """Thin synchronous client. One instance per (provider, model)."""
 
@@ -105,7 +109,9 @@ class ChatClient:
         api_key: str | None = None,
         timeout: float = 180.0,
         transport: httpx.BaseTransport | None = None,
+        max_retries: int = 8,
     ) -> None:
+        self.max_retries = max_retries
         spec = PROVIDERS[provider] if isinstance(provider, str) else provider
         if base_url:
             spec = ProviderSpec(**{**spec.__dict__, "base_url": base_url})
@@ -138,11 +144,25 @@ class ChatClient:
         return body
 
     def post_raw(self, body: dict[str, Any]) -> tuple[dict[str, Any], float]:
-        t0 = time.perf_counter()
-        r = self._http.post("/chat/completions", json=body)
-        latency = (time.perf_counter() - t0) * 1000
-        r.raise_for_status()
-        return r.json(), latency
+        """POST with retries on rate limits, transient 403/5xx and timeouts. Latency is the final attempt's."""
+        for attempt in range(self.max_retries + 1):
+            t0 = time.perf_counter()
+            try:
+                r = self._http.post("/chat/completions", json=body)
+            except httpx.TransportError:
+                if attempt == self.max_retries:
+                    raise
+                time.sleep(min(2**attempt, 60) * (1 + random.random()))
+                continue
+            latency = (time.perf_counter() - t0) * 1000
+            if r.status_code in RETRY_STATUS and attempt < self.max_retries:
+                ra = r.headers.get("retry-after", "")
+                wait = float(ra) if ra.replace(".", "", 1).isdigit() else min(2**attempt, 60)
+                time.sleep(wait * (1 + random.random()))
+                continue
+            r.raise_for_status()
+            return r.json(), latency
+        raise RuntimeError("unreachable")
 
     def chat(
         self,

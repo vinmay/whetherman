@@ -20,6 +20,15 @@ from whetherman.tasks import load_tasks
 FIX = Path(__file__).resolve().parents[1] / "data" / "fixtures"
 
 
+INFRA = ("HTTPStatusError", "ReadTimeout", "ConnectTimeout", "ConnectError", "RemoteProtocolError",
+         "WriteTimeout", "PoolTimeout", "ReadError")
+
+
+def infra_error(label: dict) -> bool:
+    """True if any episode failed for transport/provider reasons rather than agent behavior."""
+    return any((ep.get("error") or "").startswith(INFRA) for ep in label.get("episodes", []))
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--agent", required=True)
@@ -34,7 +43,13 @@ def main() -> None:
         tasks = load_tasks(FIX / f"{s}.jsonl")[: a.limit]
         out = FIX / "labels" / a.agent / f"{Path(s).name}.jsonl"
         out.parent.mkdir(parents=True, exist_ok=True)
-        done = {json.loads(x)["task_id"] for x in out.open()} if out.exists() else set()
+        rows = [json.loads(x) for x in out.open()] if out.exists() else []
+        bad = [r for r in rows if infra_error(r)]
+        if bad:  # an infrastructure failure is not an agent failure: drop and relabel
+            print(f"  dropping {len(bad)} labels with infrastructure errors", flush=True)
+            rows = [r for r in rows if not infra_error(r)]
+            out.write_text("".join(json.dumps(r) + "\n" for r in rows))
+        done = {r["task_id"] for r in rows}
         todo = [t for t in tasks if t.id not in done]
         if hosted:
             spend.check_cap("hosted", len(todo) * a.est_usd_per_task)
@@ -48,18 +63,24 @@ def main() -> None:
             finally:
                 client.close()
 
-        n = 0
+        n = failed = 0
         try:
             with ThreadPoolExecutor(acfg.get("parallel", 1)) as ex, out.open("a") as f:
                 for n, lab in enumerate(ex.map(one, todo), 1):
-                    f.write(json.dumps(lab.to_dict()) + "\n")
-                    f.flush()
                     cost += lab.cost_usd
+                    d = lab.to_dict()
+                    if infra_error(d):
+                        failed += 1
+                        continue
+                    f.write(json.dumps(d) + "\n")
+                    f.flush()
                     if n % 10 == 0 or n == len(todo):
                         print(f"  {n}/{len(todo)} {time.time() - t0:.0f}s ${cost:.4f}", flush=True)
         finally:  # record partial spend too, so an interrupted run is still accounted for
             if hosted and cost:
                 spend.record("hosted", f"label {a.agent} {s}", cost, tasks=n)
+        if failed:
+            print(f"  {failed} tasks hit infrastructure errors and were not written; rerun to retry", flush=True)
 
 
 if __name__ == "__main__":
