@@ -48,15 +48,18 @@ def main() -> None:
             finally:
                 client.close()
 
-        with ThreadPoolExecutor(acfg.get("parallel", 1)) as ex, out.open("a") as f:
-            for i, lab in enumerate(ex.map(one, todo), 1):
-                f.write(json.dumps(lab.to_dict()) + "\n")
-                f.flush()
-                cost += lab.cost_usd
-                if i % 10 == 0 or i == len(todo):
-                    print(f"  {i}/{len(todo)} {time.time() - t0:.0f}s ${cost:.4f}", flush=True)
-        if hosted and cost:
-            spend.record("hosted", f"label {a.agent} {s}", cost, tasks=len(todo))
+        n = 0
+        try:
+            with ThreadPoolExecutor(acfg.get("parallel", 1)) as ex, out.open("a") as f:
+                for n, lab in enumerate(ex.map(one, todo), 1):
+                    f.write(json.dumps(lab.to_dict()) + "\n")
+                    f.flush()
+                    cost += lab.cost_usd
+                    if n % 10 == 0 or n == len(todo):
+                        print(f"  {n}/{len(todo)} {time.time() - t0:.0f}s ${cost:.4f}", flush=True)
+        finally:  # record partial spend too, so an interrupted run is still accounted for
+            if hosted and cost:
+                spend.record("hosted", f"label {a.agent} {s}", cost, tasks=n)
 
 
 if __name__ == "__main__":

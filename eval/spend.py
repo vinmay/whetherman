@@ -7,7 +7,7 @@ import time
 from pathlib import Path
 
 SPEND = Path(__file__).resolve().parent / "results" / "spend.json"
-CAPS = {"hosted": 25.0, "tinker": 15.0}
+CAPS = {"hosted": 10.0, "tinker": 10.0}
 
 
 def load() -> dict:

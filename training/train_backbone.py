@@ -89,7 +89,11 @@ def main() -> None:
     rng = random.Random(a.seed)
     torch.manual_seed(a.seed)
     ms_train, ms_val = split_multistep(read(FIX / "train" / "multistep.jsonl"), 0.15, rng)
-    agents = [x for x in a.agents if (FIX / "labels" / x / "e2_train.jsonl").exists()]
+    missing = [x for x in a.agents if not (FIX / "labels" / x / "e2_train.jsonl").exists()]
+    agents = [] if missing or len(a.agents) < 2 else a.agents
+    if missing:
+        print(f"WARNING: no E2 labels for {missing}; training WITHOUT E2 agreement items "
+              "(agreement needs every agent, otherwise one agent's labels would leak into the shared backbone)")
     e2a = e2_agreement_points(agents) if agents else []
     rng.shuffle(e2a)
     n_e2v = len(e2a) // 5
