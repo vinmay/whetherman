@@ -142,6 +142,7 @@ def trained_e2_ids(checkpoint: str) -> set[str]:
 
 
 def main() -> None:
+    global SHARED
     ap = argparse.ArgumentParser()
     ap.add_argument("--phase", choices=["dev", "final"], default="dev")
     ap.add_argument("--routers", nargs="+", default=["untuned", "shared", "rules", "qwen_prompted"])
@@ -150,7 +151,6 @@ def main() -> None:
     ap.add_argument("--shared-checkpoint", default=SHARED, help="checkpoint name under checkpoints/")
     ap.add_argument("--profiles", default="profiles")
     a = ap.parse_args()
-    global SHARED
     SHARED = a.shared_checkpoint
     cache: dict = {}
     profiles = {ag: Profile.load(ROOT / a.profiles / f"{ag}.json") for ag in a.agents

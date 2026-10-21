@@ -10,9 +10,79 @@
    "what": "label L w2t/probe",
    "usd": 0.204144,
    "tasks": 103
+  },
+  {
+   "ts": "2026-10-21T15:46:55",
+   "kind": "hosted",
+   "what": "label L probe_pack/probe_dev",
+   "usd": 0.030261,
+   "tasks": 30
+  },
+  {
+   "ts": "2026-10-21T15:51:19",
+   "kind": "hosted",
+   "what": "label L e3/e3_capability_tasks",
+   "usd": 0.00974,
+   "tasks": 20
+  },
+  {
+   "ts": "2026-10-21T15:59:01",
+   "kind": "hosted",
+   "what": "label L w2t/multihop_train",
+   "usd": 0.11078,
+   "tasks": 54
+  },
+  {
+   "ts": "2026-10-21T16:08:38",
+   "kind": "hosted",
+   "what": "label L w2t/e2_train",
+   "usd": 0.273994,
+   "tasks": 200
+  },
+  {
+   "ts": "2026-10-21T16:12:43",
+   "kind": "hosted",
+   "what": "label L w2t/probe",
+   "usd": 0.00995,
+   "tasks": 4
+  },
+  {
+   "ts": "2026-10-21T16:14:06",
+   "kind": "hosted",
+   "what": "label L probe_pack/probe_dev",
+   "usd": 0.011313,
+   "tasks": 8
+  },
+  {
+   "ts": "2026-10-21T16:35:06",
+   "kind": "hosted",
+   "what": "label L w2t/e2_train",
+   "usd": 0.253432,
+   "tasks": 87
+  },
+  {
+   "ts": "2026-10-21T16:36:13",
+   "kind": "hosted",
+   "what": "label L w2t/multihop_train",
+   "usd": 0.01083,
+   "tasks": 4
+  },
+  {
+   "ts": "2026-10-21T17:02:13",
+   "kind": "hosted",
+   "what": "label L w2t/e2_test",
+   "usd": 0.32093,
+   "tasks": 127
+  },
+  {
+   "ts": "2026-10-21T17:07:45",
+   "kind": "hosted",
+   "what": "label L w2t/multihop_test",
+   "usd": 0.081753,
+   "tasks": 36
   }
  ],
  "totals_usd": {
-  "hosted": 0.204144
+  "hosted": 1.317127
  }
 }

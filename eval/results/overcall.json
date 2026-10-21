@@ -2,9 +2,9 @@
  "L/probe": {
   "n_tasks": 103,
   "labels": {
-   "ACT": 14,
+   "ACT": 15,
    "ANSWER": 83,
-   "ambiguous": 6
+   "ambiguous": 5
   },
   "answer_tasks": 83,
   "with_tool_trials_on_answer": 249,
@@ -21,10 +21,32 @@
    0.5051536220586227
   ]
  },
- "S/probe": {
-  "n_tasks": 103,
+ "L/e2_train": {
+  "n_tasks": 200,
   "labels": {
-   "ACT": 44,
+   "ACT": 23,
+   "ANSWER": 161,
+   "ambiguous": 16
+  },
+  "answer_tasks": 161,
+  "with_tool_trials_on_answer": 483,
+  "trials_calling_tool": 152,
+  "trial_rate": 0.3146997929606625,
+  "trial_rate_ci": [
+   0.2748835076740509,
+   0.35744043506214906
+  ],
+  "answer_tasks_with_any_call": 69,
+  "task_rate": 0.42857142857142855,
+  "task_rate_ci": [
+   0.3546710638676555,
+   0.505801049967687
+  ]
+ },
+ "S/probe": {
+  "n_tasks": 101,
+  "labels": {
+   "ACT": 42,
    "ANSWER": 46,
    "ambiguous": 13
   },
@@ -41,6 +63,28 @@
   "task_rate_ci": [
    0.4433924238701789,
    0.7171160670289898
+  ]
+ },
+ "S/e2_train": {
+  "n_tasks": 200,
+  "labels": {
+   "ACT": 95,
+   "ANSWER": 68,
+   "ambiguous": 37
+  },
+  "answer_tasks": 68,
+  "with_tool_trials_on_answer": 204,
+  "trials_calling_tool": 108,
+  "trial_rate": 0.5294117647058824,
+  "trial_rate_ci": [
+   0.461007006753438,
+   0.596729269333736
+  ],
+  "answer_tasks_with_any_call": 36,
+  "task_rate": 0.5294117647058824,
+  "task_rate_ci": [
+   0.4124071581374707,
+   0.643270889122056
   ]
  }
 }
