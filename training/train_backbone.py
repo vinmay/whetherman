@@ -29,21 +29,35 @@ def read(p: Path) -> list[dict]:
     return [json.loads(x) for x in p.open()] if p.exists() else []
 
 
-def e2_agreement_points(agents: list[str]) -> list[dict]:
-    """E2-train tasks whose usable labels agree across every listed agent."""
+def e2_agreement_points(agents: list[str], soft: bool = False) -> list[dict]:
+    """E2-train tasks whose usable labels agree across every listed agent. With soft=True, tasks where
+    the labels are mixed or ambiguous are added with soft target P(ACT) = mean over agents of the no-tool
+    failure rate (no agent identity in the input)."""
     from whetherman.tools.registry import REGISTRY, load_all
 
     load_all()
     tasks = {t["id"]: t for t in read(FIX / "w2t" / "e2_train.jsonl")}
-    labs = [{r["task_id"]: r["label"] for r in read(FIX / "labels" / a / "e2_train.jsonl") if not infra_error(r)}
+    labs = [{r["task_id"]: r for r in read(FIX / "labels" / a / "e2_train.jsonl") if not infra_error(r)}
             for a in agents]
     out = []
     for tid, t in tasks.items():
-        ls = {lab.get(tid) for lab in labs}
-        if len(ls) == 1 and (lab := ls.pop()) in ("ACT", "ANSWER"):
-            out.append({"id": f"e2a-{tid}", "source": "e2_train_agree", "messages": t["messages"],
-                        "tools": [REGISTRY[n].schema() for n in t["tools"]], "label": lab,
-                        "meta": {"env": t["meta"]["env"], "agents": agents}})
+        rs = [lab.get(tid) for lab in labs]
+        if any(r is None for r in rs):
+            continue
+        ls = [r["label"] for r in rs]
+        if all(x in ("ACT", "ANSWER") for x in ls) and len(set(ls)) == 1:
+            p_act = float(ls[0] == "ACT")
+        elif soft:  # P(answering directly fails), averaged over agents; defined for ambiguous labels too
+            p_act = sum(1 - r["notool_success"] / r["notool_trials"] for r in rs) / len(rs)
+        else:
+            continue
+        pt = {"id": f"e2a-{tid}", "source": "e2_train_agree" if p_act in (0.0, 1.0) else "e2_train_soft",
+              "messages": t["messages"], "tools": [REGISTRY[n].schema() for n in t["tools"]],
+              "label": "ACT" if p_act >= 0.5 else "ANSWER",
+              "meta": {"env": t["meta"]["env"], "agents": agents}}
+        if p_act not in (0.0, 1.0):
+            pt["target"] = [p_act, 1 - p_act, 0.0, 0.0]
+        out.append(pt)
     return out
 
 
@@ -80,6 +94,8 @@ def main() -> None:
     ap.add_argument("--seed", type=int, default=13)
     ap.add_argument("--class-weight", choices=["balanced", "none"], default="balanced")
     ap.add_argument("--eval-every", type=int, default=0, help="optimizer steps; 0 = per epoch")
+    ap.add_argument("--soft-disagreement", action="store_true",
+                    help="train on E2 items the agents disagree on, with soft P(ACT) targets")
     a = ap.parse_args()
 
     import torch
@@ -95,10 +111,12 @@ def main() -> None:
     if missing:
         print(f"WARNING: no E2 labels for {missing}; training WITHOUT E2 agreement items "
               "(agreement needs every agent, otherwise one agent's labels would leak into the shared backbone)")
-    e2a = e2_agreement_points(agents) if agents else []
-    rng.shuffle(e2a)
-    n_e2v = len(e2a) // 5
-    train = read(FIX / "e1" / "train.jsonl") + ms_train + e2a[n_e2v:]
+    e2all = e2_agreement_points(agents, soft=a.soft_disagreement) if agents else []
+    rng.shuffle(e2all)
+    e2a = [x for x in e2all if "target" not in x]
+    e2s = [x for x in e2all if "target" in x]
+    n_e2v, n_e2s = len(e2a) // 5, len(e2s) // 5  # held out: 20% of agreement (val) and of disagreement (ladder)
+    train = read(FIX / "e1" / "train.jsonl") + ms_train + e2a[n_e2v:] + e2s[n_e2s:]
     dd = ROOT / "eval" / "results" / "dedup.json"
     removed = {i for _, i in json.loads(dd.read_text())["train_side_removals"]} if dd.exists() else set()
     n0 = len(train)
@@ -126,19 +144,25 @@ def main() -> None:
         out = []
         for x in items:
             f = router.format({"messages": x["messages"], "tools": x["tools"]})
-            out.append((f["input_ids"], IDX[x["label"]], f["truncated"]))
+            tgt = x.get("target") or [float(i == IDX[x["label"]]) for i in range(4)]
+            out.append((f["input_ids"], IDX[x["label"]], f["truncated"], tgt))
         return out
 
     t0 = time.time()
     tr, va = enc(train), enc(val)
-    print(f"encoded in {time.time() - t0:.0f}s; truncated train {sum(t for *_, t in tr)}; "
+    print(f"encoded in {time.time() - t0:.0f}s; truncated train {sum(x[2] for x in tr)}; "
           f"mean len {np.mean([len(i) for i, *_ in tr]):.0f}")
-    counts = np.bincount([y for _, y, _ in tr], minlength=4).astype(float)
+    counts = np.array([x[3] for x in tr]).sum(0)
     if a.class_weight == "balanced":
         w = np.where(counts > 0, counts.sum() / (4 * np.maximum(counts, 1)), 0.0)
     else:
         w = np.ones(4)
-    loss_fn = torch.nn.CrossEntropyLoss(weight=torch.tensor(w, dtype=torch.float32, device="cuda"))
+    wt = torch.tensor(w, dtype=torch.float32, device="cuda")
+
+    def loss_fn(logits, target):
+        """Class-weighted soft cross-entropy; equals weighted CE (mean reduction) for one-hot targets."""
+        wtgt = target * wt
+        return -(wtgt * torch.log_softmax(logits, -1)).sum() / wtgt.sum()
     opt = torch.optim.AdamW([
         {"params": [p for p in model.parameters() if p.requires_grad], "lr": a.lr},
         {"params": head.parameters(), "lr": a.head_lr}], weight_decay=0.01)
@@ -183,7 +207,7 @@ def main() -> None:
         run_loss, t_ep = 0.0, time.time()
         for bi, b in enumerate(batches):
             h = router._hidden_last([x[0] for x in b])
-            loss = loss_fn(head(h).float(), torch.tensor([x[1] for x in b], device="cuda")) / a.accum
+            loss = loss_fn(head(h).float(), torch.tensor([x[3] for x in b], device="cuda")) / a.accum
             loss.backward()
             run_loss += loss.item() * a.accum
             if (bi + 1) % a.accum == 0 or bi == len(batches) - 1:
@@ -212,7 +236,9 @@ def main() -> None:
     meta = {"args": vars(a), "agents_for_agreement": agents, "n_train": len(tr), "n_val": len(va),
             "e2_train_ids_trained": sorted(x["id"].removeprefix("e2a-") for x in train if x["id"].startswith("e2a-")),
             "e2_train_ids_val": sorted(x["id"].removeprefix("e2a-") for x in e2a[:n_e2v]),
-            "train_labels": dict(Counter(LABELS[y] for _, y, _ in tr)), "class_weight": w.tolist(),
+            "train_labels": dict(Counter(LABELS[x[1]] for x in tr)), "class_weight": w.tolist(),
+            "n_soft_train": sum("target" in x for x in train), "e2_disagreement_ids_heldout":
+                sorted(x["id"].removeprefix("e2a-") for x in e2s[:n_e2s]),
             "history": history, "best_val_macro_f1": best,
             "peak_vram_mib": torch.cuda.max_memory_allocated() / 2**20, "precision": "fp32",
             "train_seconds": time.time() - t0}
