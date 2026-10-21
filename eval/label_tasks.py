@@ -14,19 +14,10 @@ from pathlib import Path
 
 from eval import spend
 from whetherman.agents import agent_config, make_client
-from whetherman.labeling import label_necessity, load_config
+from whetherman.labeling import infra_error, label_necessity, load_config
 from whetherman.tasks import load_tasks
 
 FIX = Path(__file__).resolve().parents[1] / "data" / "fixtures"
-
-
-INFRA = ("HTTPStatusError", "ReadTimeout", "ConnectTimeout", "ConnectError", "RemoteProtocolError",
-         "WriteTimeout", "PoolTimeout", "ReadError")
-
-
-def infra_error(label: dict) -> bool:
-    """True if any episode failed for transport/provider reasons rather than agent behavior."""
-    return any((ep.get("error") or "").startswith(INFRA) for ep in label.get("episodes", []))
 
 
 def main() -> None:

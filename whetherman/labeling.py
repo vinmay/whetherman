@@ -23,6 +23,15 @@ def load_config(path: str | Path | None = None) -> dict[str, Any]:
     return yaml.safe_load(Path(path or CONFIG_PATH).read_text())
 
 
+INFRA = ("HTTPStatusError", "ReadTimeout", "ConnectTimeout", "ConnectError", "RemoteProtocolError",
+         "WriteTimeout", "PoolTimeout", "ReadError")
+
+
+def infra_error(label: dict) -> bool:
+    """True if any episode failed for transport/provider reasons rather than agent behavior."""
+    return any((ep.get("error") or "").startswith(INFRA) for ep in label.get("episodes", []))
+
+
 def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
     if n == 0:
         return (0.0, 1.0)

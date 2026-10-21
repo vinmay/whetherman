@@ -18,6 +18,7 @@ from pathlib import Path
 
 import numpy as np
 
+from whetherman.labeling import infra_error
 from whetherman.labels import IDX, LABELS
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,7 +35,7 @@ def e2_agreement_points(agents: list[str]) -> list[dict]:
 
     load_all()
     tasks = {t["id"]: t for t in read(FIX / "w2t" / "e2_train.jsonl")}
-    labs = [{r["task_id"]: r["label"] for r in read(FIX / "labels" / a / "e2_train.jsonl")}
+    labs = [{r["task_id"]: r["label"] for r in read(FIX / "labels" / a / "e2_train.jsonl") if not infra_error(r)}
             for a in agents]
     out = []
     for tid, t in tasks.items():
