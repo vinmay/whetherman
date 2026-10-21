@@ -177,12 +177,13 @@ class FunctionGemmaRouter:
         t0 = time.perf_counter()
         ids = torch.tensor([formatted["input_ids"]], device=self.device)
         with torch.inference_mode():
-            out = self.model(input_ids=ids)
-            p = torch.softmax(out.logits[0, -1].float(), -1)
-            p_act = float(p[self.call_token])
+            # one prefill: first-step raw logits come back with the greedy continuation
             gen = self.model.generate(ids, max_new_tokens=max_new_tokens, do_sample=False,
-                                      pad_token_id=self.tok.pad_token_id)
-        text = self.tok.decode(gen[0, ids.shape[1]:], skip_special_tokens=False)
+                                      pad_token_id=self.tok.pad_token_id, return_dict_in_generate=True,
+                                      output_logits=True)
+            p = torch.softmax(gen.logits[0][0].float(), -1)
+            p_act = float(p[self.call_token])
+        text = self.tok.decode(gen.sequences[0, ids.shape[1]:], skip_special_tokens=False)
         if "<start_function_call>" in text[:40]:
             p_act = max(p_act, 0.5)
         rest = 1 - p_act

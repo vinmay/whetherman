@@ -16,6 +16,7 @@ from pathlib import Path
 from whetherman.agents import agent_config
 from whetherman.calibrate.probe_pack import load_probe_pack
 from whetherman.calibrate.run import calibrate
+from whetherman.labeling import infra_error
 from whetherman.providers.openai_compat import PROVIDERS
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,7 +28,7 @@ def seed_labels(agent: str) -> int:
     ids = {t.id for t in load_probe_pack().tasks}
     rows = [json.loads(x) for f in ("probe.jsonl", "probe_dev.jsonl") if (LABELS / agent / f).exists()
             for x in (LABELS / agent / f).open()]
-    rows = [r for r in rows if r["task_id"] in ids]
+    rows = [r for r in rows if r["task_id"] in ids and not infra_error(r)]
     SEEDED.mkdir(parents=True, exist_ok=True)
     (SEEDED / f"{agent}.probe.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
     return len(rows)
