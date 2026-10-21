@@ -197,6 +197,39 @@
      "snippet": "In the Lattice editor, the command palette opens with Ctrl+Shift+K."
     }
    ]
+  },
+  {
+   "keywords": [
+    "halyard",
+    "latest",
+    "orm",
+    "release",
+    "version"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Halyard ORM 4.2.0",
+     "snippet": "Halyard ORM 4.2.0 is the latest release, published 2026-09-28; it drops Python 3.10 support."
+    }
+   ]
+  },
+  {
+   "keywords": [
+    "language",
+    "license",
+    "pelican",
+    "project",
+    "storage",
+    "written"
+   ],
+   "min_overlap": 2,
+   "results": [
+    {
+     "title": "Pelican Storage",
+     "snippet": "Pelican Storage is written in Rust and licensed Apache-2.0."
+    }
+   ]
   }
  ]
 }

@@ -65,7 +65,7 @@ class ToolEnv:
 
     tool_names: list[str]
     context: dict[str, Any] = field(default_factory=dict)
-    state: dict[str, Any] = field(default_factory=lambda: {"emails": [], "issues": []})
+    state: dict[str, Any] = field(default_factory=lambda: {"emails": [], "issues": [], "meetings": []})
     calls: list[ToolCallRecord] = field(default_factory=list)
 
     def schemas(self) -> list[dict[str, Any]]:
@@ -98,6 +98,6 @@ class ToolEnv:
 
 def load_all() -> dict[str, Tool]:
     """Import tool modules so their @tool decorators register."""
-    from whetherman.tools import dev, w2t  # noqa: F401
+    from whetherman.tools import dev, unseen, w2t  # noqa: F401
 
     return REGISTRY

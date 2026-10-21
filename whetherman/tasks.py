@@ -144,27 +144,30 @@ def check(oracle: dict[str, Any], final_text: str | None, state: dict[str, Any])
         ok_none = not any(s.lower() in low for s in oracle.get("none", []))
         return ok_any and ok_all and ok_none
     if kind == "state":
-        for want in oracle.get("emails", []):
-            if not any(_match_record(e, want) for e in state.get("emails", [])):
+        for key, wants in oracle.items():
+            if key == "type" or key.startswith("max_") or not isinstance(wants, list):
+                continue
+            for want in wants:
+                if not any(_match_record(r, want) for r in state.get(key, [])):
+                    return False
+        for key, limit in oracle.items():
+            if key.startswith("max_") and len(state.get(key[4:], [])) > limit:
                 return False
-        for want in oracle.get("issues", []):
-            if not any(_match_record(i, want) for i in state.get("issues", [])):
-                return False
-        if oracle.get("max_emails") is not None and len(state.get("emails", [])) > oracle["max_emails"]:
-            return False
-        if oracle.get("max_issues") is not None and len(state.get("issues", [])) > oracle["max_issues"]:
-            return False
         return True
     if kind == "question":
-        return "?" in text and not state.get("emails") and not state.get("issues")
+        return "?" in text and not _side_effects(state)
     if kind == "decline":
         low = text.lower()
         keys = oracle.get("any") or ["can't", "cannot", "unable", "don't have", "do not have",
                                      "not able", "no tool", "not possible", "isn't possible"]
-        return any(k in low for k in keys) and not state.get("emails") and not state.get("issues")
+        return any(k in low for k in keys) and not _side_effects(state)
     if kind == "all":
         return all(check(o, final_text, state) for o in oracle["of"])
     raise ValueError(f"unknown oracle type {kind!r}")
+
+
+def _side_effects(state: dict[str, Any]) -> bool:
+    return any(state.get(k) for k in ("emails", "issues", "meetings"))
 
 
 def _match_record(rec: dict[str, Any], want: dict[str, Any]) -> bool:
