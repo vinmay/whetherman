@@ -23,6 +23,7 @@ from whetherman.policy.gate import Profile
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "eval" / "results" / "routing"
 AGENTS = ["L", "S"]
+SHARED = "shared-v1"  # checkpoint behind the "shared" router; set by --shared-checkpoint
 
 
 # ---------------------------------------------------------------- raw router outputs (cached)
@@ -45,7 +46,7 @@ def get_router(name: str, device: str):
     if name.startswith("shared"):
         from whetherman.adapters.functiongemma import FunctionGemmaRouter
 
-        ck = "checkpoints/shared-v1" if name == "shared" else f"checkpoints/{name}"
+        ck = f"checkpoints/{SHARED}" if name == "shared" else f"checkpoints/{name}"
         return FunctionGemmaRouter(checkpoint=ROOT / ck, device=device)
     if name == "rules":
         from whetherman.adapters.baselines import RulesRouter
@@ -64,7 +65,7 @@ def get_router(name: str, device: str):
 
 
 def raw_outputs(router_name: str, set_name: str, pts: list[dict], device: str, cache: dict) -> dict[str, list]:
-    path = RAW / router_name / f"{set_name}.jsonl"
+    path = RAW / (SHARED if router_name == "shared" else router_name) / f"{set_name}.jsonl"
     have = {}
     if path.exists():
         have = {r["id"]: r["logits"] for r in map(json.loads, path.open())}
@@ -129,7 +130,7 @@ def disagreement_ids(split: str) -> set[str]:
     return {i for i in common if labs["L"][i] != labs["S"][i]}
 
 
-def trained_e2_ids(checkpoint: str = "checkpoints/shared-v1") -> set[str]:
+def trained_e2_ids(checkpoint: str) -> set[str]:
     """E2-train items the shared backbone trained on; excluded from dev evaluation."""
     meta = ROOT / checkpoint / "train_meta.json"
     if not meta.exists():
@@ -146,15 +147,22 @@ def main() -> None:
     ap.add_argument("--routers", nargs="+", default=["untuned", "shared", "rules", "qwen_prompted"])
     ap.add_argument("--agents", nargs="+", default=AGENTS)
     ap.add_argument("--device", default="auto")
+    ap.add_argument("--shared-checkpoint", default=SHARED, help="checkpoint name under checkpoints/")
+    ap.add_argument("--profiles", default="profiles")
     a = ap.parse_args()
+    global SHARED
+    SHARED = a.shared_checkpoint
     cache: dict = {}
-    profiles = {ag: Profile.load(ROOT / "profiles" / f"{ag}.json") for ag in a.agents
-                if (ROOT / "profiles" / f"{ag}.json").exists()}
+    profiles = {ag: Profile.load(ROOT / a.profiles / f"{ag}.json") for ag in a.agents
+                if (ROOT / a.profiles / f"{ag}.json").exists()}
+    for ag, pr in profiles.items():
+        if Path(pr.backbone).name != SHARED:
+            raise SystemExit(f"profile {ag} was fit on {pr.backbone}, not {SHARED}; recalibrate first")
     if a.phase == "dev":
         sets_fixed = {"e1_val": points.e1("val")}
         dis = disagreement_ids("e2_train") if all((ROOT / "data/fixtures/labels" / x / "e2_train.jsonl").exists()
                                                   for x in AGENTS) else set()
-        trained = trained_e2_ids()
+        trained = trained_e2_ids(f"checkpoints/{SHARED}")
         sets_agent = {ag: {"e2_train_val": [dict(p, disagree=p["id"] in dis) for p in points.e2("e2_train", ag)
                                             if p["id"] not in trained]}
                       for ag in a.agents}
@@ -192,7 +200,8 @@ def main() -> None:
                     po = profiles[o]
                     results["per_agent"][ag][f"swap_profile_{o}/{sname}"] = {
                         **evaluate(pts_all, raw, po.adjust, po.tau), "tau": po.tau}
-    out = ROOT / "eval" / "results" / f"ladder_{a.phase}.json"
+    results["shared_checkpoint"] = SHARED
+    out = ROOT / "eval" / "results" / f"ladder_{a.phase}_{SHARED}.json"
     out.write_text(json.dumps(results, indent=1))
     # compact console table
     for scope, d in [("fixed", results["fixed"])] + [(f"agent {k}", v) for k, v in results["per_agent"].items()]:

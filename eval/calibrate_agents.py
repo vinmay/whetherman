@@ -39,13 +39,15 @@ def main() -> None:
     ap.add_argument("--agents", nargs="+", default=["L", "S"])
     ap.add_argument("--backbone", default="checkpoints/shared-v1")
     ap.add_argument("--device", default="auto")
+    ap.add_argument("--out-dir", default="profiles")
     a = ap.parse_args()
     for ag in a.agents:
         cfg = agent_config(ag)
         n = seed_labels(ag)
         print(f"[{ag}] seeded {n} probe labels")
         calibrate(PROVIDERS[cfg["provider"]].base_url, cfg["model"], name=ag, backbone=a.backbone, yes=True,
-                  parallel=cfg.get("parallel", 1), labels_dir=str(SEEDED), device=a.device)
+                  parallel=cfg.get("parallel", 1), labels_dir=str(SEEDED), device=a.device,
+                  out_dir=a.out_dir)
 
 
 if __name__ == "__main__":
