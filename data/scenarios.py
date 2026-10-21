@@ -132,12 +132,13 @@ def dev_tasks(split: str, rng: random.Random, n_multi_target: int) -> list[dict]
             out.append(task(f"{split}-webmail-{a[:8]}", f"{q} Email the answer to {to} with a short subject.",
                             {"type": "state", "emails": [{"to": to, "body__contains": a}]},
                             appropriate="web_search", multi=True, family="web_email"))
-        out.append(task(f"{split}-tests-issue", "Run the test suite and open one issue naming the failing test.",
-                        {"type": "state", "issues": [{"title__contains": "loyal"}], "max_issues": 1},
-                        appropriate="run_tests", multi=True, family="tests_issue"))
-        out.append(task(f"{split}-tests-explain", "Run the tests and tell me which discount code is broken. "
-                        "Answer with the code name.", has("LOYAL"), appropriate="run_tests", multi=True,
-                        family="tests_explain"))
+        if split == "ab_final":  # tests families live only in the final suite (dedup vs dev)
+            out.append(task(f"{split}-tests-issue", "Run the test suite and open one issue naming the failing test.",
+                            {"type": "state", "issues": [{"title__contains": "loyal"}], "max_issues": 1},
+                            appropriate="run_tests", multi=True, family="tests_issue"))
+            out.append(task(f"{split}-tests-explain", "Run the tests and tell me which discount code is broken. "
+                            "Answer with the code name.", has("LOYAL"), appropriate="run_tests", multi=True,
+                            family="tests_explain"))
         for c in cities[:3]:
             out.append(task(f"{split}-wxmail-{c}", f"Check the weather in {c.title()} and email the condition to "
                             f"{to}.", {"type": "state", "emails": [{"to": to, "body__contains":

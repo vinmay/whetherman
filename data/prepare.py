@@ -210,13 +210,34 @@ def download() -> None:
                         f"https://huggingface.co/datasets/cesun/When2Tool/resolve/main/{f}"], check=True)
 
 
+def apply_dedup() -> None:
+    """Probe tasks colliding with an evaluation item are removed from the shipped probe pack."""
+    dd = json.loads((ROOT.parent / "eval" / "results" / "dedup.json").read_text())
+    drop = {i for s, i in dd["train_side_removals"] if s == "probe"}
+    path = FIX / "w2t" / "probe.jsonl"
+    rows = [json.loads(x) for x in path.open()]
+    keep = [r for r in rows if r["id"] not in drop]
+    sha = write_jsonl(keep, path)
+    mpath = FIX / "manifest.json"
+    man = json.loads(mpath.read_text())
+    man["files"]["w2t/probe.jsonl"] = {"n": len(keep), "envs": dict(Counter(r["meta"]["env"] for r in keep)),
+                                       "sha256": sha, "dedup_removed": sorted(drop)}
+    mpath.write_text(json.dumps(man, indent=1, sort_keys=True))
+    print(f"probe: {len(rows)} -> {len(keep)} (removed {len(rows) - len(keep)})")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--download", action="store_true")
     ap.add_argument("--e1-train", type=int, default=4500)
     ap.add_argument("--e1-val", type=int, default=600)
     ap.add_argument("--e1-test", type=int, default=900)
+    ap.add_argument("--apply-dedup", action="store_true",
+                    help="drop probe tasks flagged by eval/dedup.py from the probe pack, then exit")
     a = ap.parse_args()
+    if a.apply_dedup:
+        apply_dedup()
+        return
     if a.download:
         download()
     rng = random.Random(SEED)

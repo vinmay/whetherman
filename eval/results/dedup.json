@@ -1,0 +1,4240 @@
+{
+ "counts": {
+  "e1_train": 4500,
+  "e1_val": 600,
+  "e1_test": 900,
+  "multistep": 131,
+  "e2_train": 200,
+  "probe": 103,
+  "e2_test": 160,
+  "multihop_train": 54,
+  "multihop_test": 36,
+  "probe_dev": 30,
+  "e3": 88,
+  "ab_dev": 40,
+  "ab_final": 80
+ },
+ "exact_cross_split_groups": [
+  [
+   [
+    "e1_train",
+    "w2c-pref-2142"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-5999"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-12216"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-892"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-8709"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-1197"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-2842"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-13573"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-2447"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-1086"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-6096"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-3376"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-5759"
+   ],
+   [
+    "e1_train",
+    "w2c-pref-5400"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-7802"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-7691"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-3520"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-6047"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-1017"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-3139"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-6424"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-6344"
+   ],
+   [
+    "e1_train",
+    "w2c-pref-1869"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-7805"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-2181"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-4018"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-1470"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-2363"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-7758"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-12075"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-381"
+   ],
+   [
+    "e1_train",
+    "w2c-pref-1245"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-2303"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-14696"
+   ],
+   [
+    "e1_train",
+    "w2c-sft-11478"
+   ],
+   [
+    "e1_train",
+    "w2c-sft-492"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-587"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-6118"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-3548"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-1183"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-3599"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-411"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-3741"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-12339"
+   ],
+   [
+    "e1_train",
+    "w2c-pref-215"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-1966"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-9988"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-3897"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-648"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-2415"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-8086"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-14034"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-1194"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-3475"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-9913"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-5706"
+   ],
+   [
+    "e1_train",
+    "w2c-pref-4229"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-5785"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-2657"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-1992"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-2579"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-4826"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-10819"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-7644"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-4637"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-5169"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-8540"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-5000"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-6805"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-636"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-8341"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-5091"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-6727"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-1505"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-6550"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-1904"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-4529"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-8288"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-2017"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-4801"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-2024"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-12836"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-87"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-10527"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-220"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-653"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-3325"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-5889"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-8151"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-4211"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-7673"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-8227"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-6828"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-558"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-13773"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-2351"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-298"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-10829"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-5638"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-10355"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-5641"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-10923"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-11419"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-2718"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-971"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-6487"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-12779"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-3664"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-5922"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-11701"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-5361"
+   ],
+   [
+    "e1_val",
+    "w2c-sft-6801"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-pref-4268"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-7458"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-13005"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-1303"
+   ]
+  ],
+  [
+   [
+    "e1_train",
+    "w2c-sft-6871"
+   ],
+   [
+    "e1_val",
+    "w2c-pref-2498"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-35-stop"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-63016"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-16-0"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-61015"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-39-stop"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-63008"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-28-stop"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-61011"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-21-0"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-63014"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-1-0"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-61005"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-27-1"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-61006"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-37-1"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-62008"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-7-stop"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-62015"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-17-stop"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-62016"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-31-0"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-62007"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-11-0"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-63019"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-25-0"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-61014"
+   ]
+  ],
+  [
+   [
+    "e2_train",
+    "w2t-single_hop-train-101005"
+   ],
+   [
+    "e2_test",
+    "w2t-single_hop-test-101542"
+   ],
+   [
+    "e2_test",
+    "w2t-single_hop-test-102512"
+   ]
+  ]
+ ],
+ "near_cross_split_pairs": [
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2142"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5999"
+   ],
+   "cos": 1.0,
+   "text_a": "Perform structural analysis on building 'B123' for floors 1, 2, and 3 in dynamic mode.",
+   "text_b": "Perform structural analysis on building 'B123' for floors 1, 2, and 3 in dynamic mode."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-12216"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-892"
+   ],
+   "cos": 1.0,
+   "text_a": "Get the second page of Power BI news.",
+   "text_b": "Get the second page of Power BI news."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-8709"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-1197"
+   ],
+   "cos": 1.0,
+   "text_a": "Perform a Chi-Square test for independence on the contingency table [[12, 23], [34, 45]] with a significance level of 0.",
+   "text_b": "Perform a Chi-Square test for independence on the contingency table [[12, 23], [34, 45]] with a significance level of 0."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-7884"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-7805"
+   ],
+   "cos": 0.9932,
+   "text_a": "What is the ZIP code for the IP address 8.8.8.8?",
+   "text_b": "What is the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-7884"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8227"
+   ],
+   "cos": 0.9932,
+   "text_a": "What is the ZIP code for the IP address 8.8.8.8?",
+   "text_b": "What's the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-11747"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8086"
+   ],
+   "cos": 0.9741,
+   "text_a": "Verify if the provided email address is valid.",
+   "text_b": "Verify the validity of the provided email address."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-6312"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-82"
+   ],
+   "cos": 0.9757,
+   "text_a": "Fetch the latest worldwide coronavirus news.",
+   "text_b": "Fetch the latest coronavirus news globally."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2842"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-13573"
+   ],
+   "cos": 1.0,
+   "text_a": "Find the next greater element for each number in the list [5, 7, 3, 2, 9].",
+   "text_b": "Find the next greater element for each number in the list [5, 7, 3, 2, 9]."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-8808"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-11701"
+   ],
+   "cos": 0.9534,
+   "text_a": "Generate a QR code for the URL 'https://www.example.com'.",
+   "text_b": "Create a QR code for the URL 'https://www.example.com'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-11542"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-3622"
+   ],
+   "cos": 0.9575,
+   "text_a": "Find the next greater element for each number in the given list.",
+   "text_b": "What is the next greater element for each number in the given list?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-5114"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5000"
+   ],
+   "cos": 0.9655,
+   "text_a": "What is the maximum sum of a contiguous subarray within the given list?",
+   "text_b": "What is the maximum sum of a subarray in the given list?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-2447"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-1086"
+   ],
+   "cos": 1.0,
+   "text_a": "Retrieve detailed information about the movie with ID 54321, including images but not the cast.",
+   "text_b": "Retrieve detailed information about the movie with ID 54321, including images but not the cast."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-6096"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-3376"
+   ],
+   "cos": 1.0,
+   "text_a": "Can you find any patents related to 'blockchain' in the WIPO database?",
+   "text_b": "Can you find any patents related to 'blockchain' in the WIPO database?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-5759"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-7802"
+   ],
+   "cos": 1.0,
+   "text_a": "Retrieve backlinks for the non-English URL at 'www.ejemplo.es'.",
+   "text_b": "Retrieve backlinks for the non-English URL at 'www.ejemplo.es'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-7691"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-3520"
+   ],
+   "cos": 1.0,
+   "text_a": "A journalist is writing an article about a SoundCloud user with the profile URL 'https://soundcloud.com/username'. The j",
+   "text_b": "A journalist is writing an article about a SoundCloud user with the profile URL 'https://soundcloud.com/username'. The j"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-8491"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-3622"
+   ],
+   "cos": 0.9575,
+   "text_a": "Find the next greater element for each number in the given list.",
+   "text_b": "What is the next greater element for each number in the given list?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-6047"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-1017"
+   ],
+   "cos": 1.0,
+   "text_a": "Find all pairs of integers in the list [1, 2, 3, 4, 5] that sum up to 5.",
+   "text_b": "Find all pairs of integers in the list [1, 2, 3, 4, 5] that sum up to 5."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-12089"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-6357"
+   ],
+   "cos": 0.9652,
+   "text_a": "What is the current date and time in New York City?",
+   "text_b": "What's the current time in New York?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-7638"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5000"
+   ],
+   "cos": 0.9564,
+   "text_a": "Determine the maximum sum of any subarray within the given list.",
+   "text_b": "What is the maximum sum of a subarray in the given list?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-808"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-13573"
+   ],
+   "cos": 0.9887,
+   "text_a": "Find the next greater element for each number in the list [5, 7, 3, 9, 1].",
+   "text_b": "Find the next greater element for each number in the list [5, 7, 3, 2, 9]."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-4948"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5581"
+   ],
+   "cos": 0.9601,
+   "text_a": "Retrieve the live price of a stock with the symbol 'AAPL'.",
+   "text_b": "Fetch the live price of the stock with the symbol AAPL."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-3139"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-6424"
+   ],
+   "cos": 1.0,
+   "text_a": "Search for user details of 'CryptoMiner88'.",
+   "text_b": "Search for user details of 'CryptoMiner88'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-6344"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-7805"
+   ],
+   "cos": 1.0,
+   "text_a": "What is the ZIP code of the IP address 8.8.8.8?",
+   "text_b": "What is the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-6344"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8227"
+   ],
+   "cos": 0.997,
+   "text_a": "What is the ZIP code of the IP address 8.8.8.8?",
+   "text_b": "What's the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2181"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-4018"
+   ],
+   "cos": 1.0,
+   "text_a": "Find all Bible verses containing the words 'love', 'faith', and 'hope'.",
+   "text_b": "Find all Bible verses containing the words 'love', 'faith', and 'hope'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-1470"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-2363"
+   ],
+   "cos": 1.0,
+   "text_a": "Fetch details about the domain 'google.com'.",
+   "text_b": "Fetch details about the domain 'google.com'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-5154"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-3622"
+   ],
+   "cos": 0.9683,
+   "text_a": "Can you find the next greater element for each number in the given list?",
+   "text_b": "What is the next greater element for each number in the given list?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-7758"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-12075"
+   ],
+   "cos": 1.0,
+   "text_a": "Can you fetch the list of games from page 2 in the EvoSiss Game Database?",
+   "text_b": "Can you fetch the list of games from page 2 in the EvoSiss Game Database?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-381"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-2303"
+   ],
+   "cos": 1.0,
+   "text_a": "Generate a lorem ipsum text of 300 characters with 3 paragraphs, starting with 'Lorem ipsum'.",
+   "text_b": "Generate a lorem ipsum text of 300 characters with 3 paragraphs, starting with 'Lorem ipsum'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-6925"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-557"
+   ],
+   "cos": 0.9915,
+   "text_a": "Find the 3 largest numbers in the given list.",
+   "text_b": "Find the three largest numbers from the given list."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-14961"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-2451"
+   ],
+   "cos": 0.989,
+   "text_a": "Create a histogram for the data [1, 2, 2, 3, 3, 3, 4, 4, 4, 4] with 5 bins.",
+   "text_b": "Create a histogram for the data set [1, 2, 2, 3, 3, 3, 4, 4, 4, 4] with 5 bins."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-14696"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-587"
+   ],
+   "cos": 1.0,
+   "text_a": "Draw 5 random cards from a shuffled deck.",
+   "text_b": "Draw 5 random cards from a shuffled deck."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-6118"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-3548"
+   ],
+   "cos": 1.0,
+   "text_a": "Check if the user is available on Dev.to.",
+   "text_b": "Check if the user is available on Dev.to."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-10940"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-6638"
+   ],
+   "cos": 0.9644,
+   "text_a": "Calculate the word frequency in the text 'To be or not to be, that is the question.'",
+   "text_b": "Calculate the word frequency in the sentence 'To be or not to be, that is the question.'"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-7693"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-7373"
+   ],
+   "cos": 0.9882,
+   "text_a": "Find the next greater element for each element in the list [10, 20, 30, 40, 50].",
+   "text_b": "Find the next greater element for each number in the list [10, 20, 30, 40, 50]."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-1183"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-3599"
+   ],
+   "cos": 1.0,
+   "text_a": "What information is available for the Instagram influencer with ID 123456789?",
+   "text_b": "What information is available for the Instagram influencer with ID 123456789?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-5333"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-557"
+   ],
+   "cos": 0.9947,
+   "text_a": "Find the 3 largest numbers from the given list.",
+   "text_b": "Find the three largest numbers from the given list."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2549"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8733"
+   ],
+   "cos": 0.9726,
+   "text_a": "I have a list of lists, but I want to include only the elements that are greater than 5 while flattening. Here's the lis",
+   "text_b": "I have a list of lists and I want to include only the elements that are greater than 5 while flattening. How can I do th"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-9584"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-4254"
+   ],
+   "cos": 0.9844,
+   "text_a": "Retrieve the second page of results on Taobao.",
+   "text_b": "Retrieve the second page of search results on Taobao."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-9584"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8059"
+   ],
+   "cos": 0.9844,
+   "text_a": "Retrieve the second page of results on Taobao.",
+   "text_b": "Retrieve the second page of search results on Taobao."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-12429"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-9913"
+   ],
+   "cos": 0.9549,
+   "text_a": "I have a 2x2 contingency table and I want to test the independence of two categorical variables. The table is as follows",
+   "text_b": "I have another 2x2 contingency table and I want to test the independence of two categorical variables. The table is as f"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-411"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-3741"
+   ],
+   "cos": 1.0,
+   "text_a": "Retrieve detailed information about the anime with the unique identifier 12345.",
+   "text_b": "Retrieve detailed information about the anime with the unique identifier 12345."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-11519"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-8821"
+   ],
+   "cos": 0.9546,
+   "text_a": "Log in the user with the username 'testuser' to the platformbil API.",
+   "text_b": "Log in the user with the username 'testuser' and password 'testpassword' to the platformbil API."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-7791"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-6638"
+   ],
+   "cos": 0.9621,
+   "text_a": "Calculate the word frequency for the text 'To be or not to be, that is the question.'",
+   "text_b": "Calculate the word frequency in the sentence 'To be or not to be, that is the question.'"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-11478"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-587"
+   ],
+   "cos": 1.0,
+   "text_a": "Draw 5 random cards from a shuffled deck.",
+   "text_b": "Draw 5 random cards from a shuffled deck."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-2881"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-8100"
+   ],
+   "cos": 0.957,
+   "text_a": "Conduct a Chi-Square test with a contingency table [[5, 15], [25, 35]] and a significance level of 0.05.",
+   "text_b": "Perform a Chi-Square test on a contingency table [[5, 15], [25, 35]] at a 0.05 significance level."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-6647"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8490"
+   ],
+   "cos": 0.9746,
+   "text_a": "Merge two sorted lists: [1, 3, 5] and [2, 4, 6].",
+   "text_b": "Merge two sorted lists: [1, 3, 5] and [2, 4, 6] into a single sorted list."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-12339"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-1966"
+   ],
+   "cos": 1.0,
+   "text_a": "Fetch the latest world news in English for the US region.",
+   "text_b": "Fetch the latest world news in English for the US region."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-9988"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-3897"
+   ],
+   "cos": 1.0,
+   "text_a": "Can you provide the hourly forecast for New York City tomorrow?",
+   "text_b": "Can you provide the hourly forecast for New York City tomorrow?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-9988"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-648"
+   ],
+   "cos": 1.0,
+   "text_a": "Can you provide the hourly forecast for New York City tomorrow?",
+   "text_b": "Can you provide the hourly forecast for New York City tomorrow?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2415"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-14536"
+   ],
+   "cos": 0.9564,
+   "text_a": "Verify the validity of the provided email address.",
+   "text_b": "Verify the validity of the email."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2415"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8086"
+   ],
+   "cos": 1.0,
+   "text_a": "Verify the validity of the provided email address.",
+   "text_b": "Verify the validity of the provided email address."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-4879"
+   ],
+   "b": [
+    "e1_test",
+    "w2c-test-6a9903a1-66e7-47d1-b74c-07aedc4b0424"
+   ],
+   "cos": 0.9542,
+   "text_a": "What is the current date and time?",
+   "text_b": "What is the current time?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-14034"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-1194"
+   ],
+   "cos": 1.0,
+   "text_a": "What are the innings details for cricket event ID 12345?",
+   "text_b": "What are the innings details for cricket event ID 12345?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-13475"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-2451"
+   ],
+   "cos": 0.989,
+   "text_a": "Create a histogram for the data [1, 2, 2, 3, 3, 3, 4, 4, 4, 4] with 5 bins.",
+   "text_b": "Create a histogram for the data set [1, 2, 2, 3, 3, 3, 4, 4, 4, 4] with 5 bins."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-4507"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-5625"
+   ],
+   "cos": 0.9613,
+   "text_a": "What is the longest palindromic substring in the sentence 'racecar madam level'?",
+   "text_b": "Identify the longest palindromic substring in the sentence 'racecar madam level'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-1383"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-13946"
+   ],
+   "cos": 0.9615,
+   "text_a": "Is the 'Queens Hotel' in Berlin available for check-in on March 13, 2022, and check-out on March 16, 2022?",
+   "text_b": "Is the Queens Hotel in Berlin available for check-in on March 11, 2022, and check-out on March 13, 2022?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-953"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-7608"
+   ],
+   "cos": 0.9573,
+   "text_a": "Could you fetch the 5-day weather forecast for Aspen Ski Resort in imperial units and at the top elevation level?",
+   "text_b": "Could you give me the 5-day weather forecast for Aspen Ski Resort at the top elevation in metric units?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-3475"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-9913"
+   ],
+   "cos": 1.0,
+   "text_a": "I have another 2x2 contingency table and I want to test the independence of two categorical variables. The table is as f",
+   "text_b": "I have another 2x2 contingency table and I want to test the independence of two categorical variables. The table is as f"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-5706"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5785"
+   ],
+   "cos": 1.0,
+   "text_a": "What are the latitude and longitude coordinates of the IP address 8.8.8.8?",
+   "text_b": "What are the latitude and longitude coordinates of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-4816"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-3245"
+   ],
+   "cos": 0.9764,
+   "text_a": "Can you check if this Sudoku board is valid? It looks like this: [[5,3,'.','.',7,'.','.','.','.'],\n [6,'.','.',1,9,5,'.'",
+   "text_b": "Can you check if the Sudoku board is valid? The board is as follows: [[5,3,'.','.',7,'.','.','.','.'], [6,'.','.',1,9,5,"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2657"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-1992"
+   ],
+   "cos": 1.0,
+   "text_a": "Convert 200 GBP to USD and EUR.",
+   "text_b": "Convert 200 GBP to USD and EUR."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2579"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-4826"
+   ],
+   "cos": 1.0,
+   "text_a": "Convert the coordinates 35.6895\u00b0 N, 139.6917\u00b0 E from Tokyo datum to WGS84.",
+   "text_b": "Convert the coordinates 35.6895\u00b0 N, 139.6917\u00b0 E from Tokyo datum to WGS84."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-10819"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-7644"
+   ],
+   "cos": 1.0,
+   "text_a": "Search for 'winter coats' on Taobao.",
+   "text_b": "Search for 'winter coats' on Taobao."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-4637"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-5169"
+   ],
+   "cos": 1.0,
+   "text_a": "Calculate the word frequency of the text: 'To be or not to be, that is the question.'",
+   "text_b": "Calculate the word frequency of the text: 'To be or not to be, that is the question.'"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-12525"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-3622"
+   ],
+   "cos": 0.9575,
+   "text_a": "Find the next greater element for each number in the given list.",
+   "text_b": "What is the next greater element for each number in the given list?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-827"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-13573"
+   ],
+   "cos": 0.9793,
+   "text_a": "Find the next greater element for each number in the list [5, 7, 3, 2, 9, 8].",
+   "text_b": "Find the next greater element for each number in the list [5, 7, 3, 2, 9]."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-4821"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-4313"
+   ],
+   "cos": 0.9906,
+   "text_a": "Predict the change in forest area in the Amazon for 10 years, considering human impact.",
+   "text_b": "Predict the change in forest area in the Amazon over the next 10 years, considering human impact."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-8540"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5000"
+   ],
+   "cos": 1.0,
+   "text_a": "What is the maximum sum of a subarray in the given list?",
+   "text_b": "What is the maximum sum of a subarray in the given list?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-7753"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-7805"
+   ],
+   "cos": 0.9932,
+   "text_a": "What is the ZIP code for the IP address 8.8.8.8?",
+   "text_b": "What is the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-7753"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8227"
+   ],
+   "cos": 0.9932,
+   "text_a": "What is the ZIP code for the IP address 8.8.8.8?",
+   "text_b": "What's the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-6805"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-636"
+   ],
+   "cos": 1.0,
+   "text_a": "Fetch the second page of newly registered domains from 2022-01-01, excluding domains containing the keyword 'shop'.",
+   "text_b": "Fetch the second page of newly registered domains from 2022-01-01, excluding domains containing the keyword 'shop'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-8341"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-5091"
+   ],
+   "cos": 1.0,
+   "text_a": "How many posts are there in social media platforms associated with the hashtag 'travel'?",
+   "text_b": "How many posts are there in social media platforms associated with the hashtag 'travel'?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-8992"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-10271"
+   ],
+   "cos": 0.9883,
+   "text_a": "What is the weather forecast summary for Sydney, Australia for the next few days?",
+   "text_b": "What is the weather forecast summary for Sydney, Australia in the upcoming days?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-8705"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-6201"
+   ],
+   "cos": 0.987,
+   "text_a": "Place an order at Safeway in 'San Francisco, CA'.",
+   "text_b": "Place an order at the Safeway in San Francisco, CA."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-6727"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-1505"
+   ],
+   "cos": 1.0,
+   "text_a": "I need to fetch the past Azure events from page 3. Can you make the request?",
+   "text_b": "I need to fetch the past Azure events from page 3. Can you make the request?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-492"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-587"
+   ],
+   "cos": 1.0,
+   "text_a": "Draw 5 random cards from a shuffled deck.",
+   "text_b": "Draw 5 random cards from a shuffled deck."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-8474"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5000"
+   ],
+   "cos": 0.954,
+   "text_a": "Find the maximum sum of a subarray in the given list.",
+   "text_b": "What is the maximum sum of a subarray in the given list?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-6550"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-1904"
+   ],
+   "cos": 1.0,
+   "text_a": "List Azure influencers on the first page.",
+   "text_b": "List Azure influencers on the first page."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-4937"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-1017"
+   ],
+   "cos": 0.9801,
+   "text_a": "Find all pairs in the list [1, 2, 3, 4, 5] that sum up to 5.",
+   "text_b": "Find all pairs of integers in the list [1, 2, 3, 4, 5] that sum up to 5."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-1869"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-7805"
+   ],
+   "cos": 1.0,
+   "text_a": "What is the ZIP code of the IP address 8.8.8.8?",
+   "text_b": "What is the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-1869"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8227"
+   ],
+   "cos": 0.997,
+   "text_a": "What is the ZIP code of the IP address 8.8.8.8?",
+   "text_b": "What's the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-5578"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-5876"
+   ],
+   "cos": 0.9685,
+   "text_a": "Lookup the addresses associated with the UK postcode 'SW1A 1AA'.",
+   "text_b": "What are the addresses associated with postcode 'SW1A 1AA'?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-4529"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-8288"
+   ],
+   "cos": 1.0,
+   "text_a": "Fetch the latest exchange rates from Euro to USD and AUD.",
+   "text_b": "Fetch the latest exchange rates from Euro to USD and AUD."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-6901"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-179"
+   ],
+   "cos": 0.9605,
+   "text_a": "Analyze the social dynamics in a group of 20 people, where 12 are extroverts and 8 are introverts.",
+   "text_b": "Analyze the social dynamics of a group of 20 people, where 12 are extroverts."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-2017"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-4801"
+   ],
+   "cos": 1.0,
+   "text_a": "Can you provide the parental guide for the movie with ID tt0944947?",
+   "text_b": "Can you provide the parental guide for the movie with ID tt0944947?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2024"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-5596"
+   ],
+   "cos": 0.9687,
+   "text_a": "Can you find the VIN for a car with the license plate 'ABC123' registered in California?",
+   "text_b": "What is the VIN of a vehicle with license plate number 'ABC123' registered in California?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2024"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-12836"
+   ],
+   "cos": 1.0,
+   "text_a": "Can you find the VIN for a car with the license plate 'ABC123' registered in California?",
+   "text_b": "Can you find the VIN for a car with the license plate 'ABC123' registered in California?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-6579"
+   ],
+   "b": [
+    "e1_test",
+    "w2c-test-04d7b0b0-5713-4be9-b273-e296d364a937"
+   ],
+   "cos": 0.9518,
+   "text_a": "What is the current weather?",
+   "text_b": "Please tell me the current weather conditions."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-5990"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-92"
+   ],
+   "cos": 0.9568,
+   "text_a": "Draw 3 cards from a shuffled deck.",
+   "text_b": "Draw 3 random cards from a shuffled deck."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-215"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-1966"
+   ],
+   "cos": 1.0,
+   "text_a": "Fetch the latest world news in English for the US region.",
+   "text_b": "Fetch the latest world news in English for the US region."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-87"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-10527"
+   ],
+   "cos": 1.0,
+   "text_a": "Get the transaction history for the address '0x1234567890' on the Binance Smart Chain mainnet.",
+   "text_b": "Get the transaction history for the address '0x1234567890' on the Binance Smart Chain mainnet."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2741"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-4313"
+   ],
+   "cos": 0.9932,
+   "text_a": "Predict the change in forest area in the Amazon over 10 years, considering human impact.",
+   "text_b": "Predict the change in forest area in the Amazon over the next 10 years, considering human impact."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-3865"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-557"
+   ],
+   "cos": 0.965,
+   "text_a": "Find the top 3 largest numbers in the given list.",
+   "text_b": "Find the three largest numbers from the given list."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-7364"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-4313"
+   ],
+   "cos": 0.9852,
+   "text_a": "Predict the change in forest area in 'Amazon' over 10 years, considering human impact.",
+   "text_b": "Predict the change in forest area in the Amazon over the next 10 years, considering human impact."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-220"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-653"
+   ],
+   "cos": 1.0,
+   "text_a": "Please fetch label templates for 'A4' paper format from 'Herma' brand with a label size of '3x4' and a 'rectangle' shape",
+   "text_b": "Please fetch label templates for 'A4' paper format from 'Herma' brand with a label size of '3x4' and a 'rectangle' shape"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-3757"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-11701"
+   ],
+   "cos": 0.9534,
+   "text_a": "Generate a QR code for the URL 'https://www.example.com'.",
+   "text_b": "Create a QR code for the URL 'https://www.example.com'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-3325"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5889"
+   ],
+   "cos": 1.0,
+   "text_a": "Can you calculate the cosine similarity for two vectors, [-1, -2, -3] and [1, 2, 3]?",
+   "text_b": "Can you calculate the cosine similarity for two vectors, [-1, -2, -3] and [1, 2, 3]?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-5115"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-13573"
+   ],
+   "cos": 0.9793,
+   "text_a": "Find the next greater element for each number in the list [5, 7, 3, 2, 9, 8].",
+   "text_b": "Find the next greater element for each number in the list [5, 7, 3, 2, 9]."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-5400"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-7802"
+   ],
+   "cos": 1.0,
+   "text_a": "Retrieve backlinks for the non-English URL at 'www.ejemplo.es'.",
+   "text_b": "Retrieve backlinks for the non-English URL at 'www.ejemplo.es'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-7130"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5000"
+   ],
+   "cos": 0.9707,
+   "text_a": "What is the maximum sum of a contiguous subarray in the given list?",
+   "text_b": "What is the maximum sum of a subarray in the given list?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2293"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-179"
+   ],
+   "cos": 0.961,
+   "text_a": "Analyze the social dynamics of a group of 20 people where 12 are extroverts and 8 are introverts.",
+   "text_b": "Analyze the social dynamics of a group of 20 people, where 12 are extroverts."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-1739"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8800"
+   ],
+   "cos": 0.9564,
+   "text_a": "Can you assess the diabetes risk for a 200 lbs, 68 inches tall person who is moderately active?",
+   "text_b": "What is the diabetes risk for a 200 lbs, 68 inches tall person who is moderately active?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-4495"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-7805"
+   ],
+   "cos": 0.9894,
+   "text_a": "What is the ZIP code for IP address 8.8.8.8?",
+   "text_b": "What is the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-4495"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8227"
+   ],
+   "cos": 0.9833,
+   "text_a": "What is the ZIP code for IP address 8.8.8.8?",
+   "text_b": "What's the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-8151"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-4211"
+   ],
+   "cos": 1.0,
+   "text_a": "Are the phrases 'Astronomer' and 'Moon starer' anagrams of each other?",
+   "text_b": "Are the phrases 'Astronomer' and 'Moon starer' anagrams of each other?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-7673"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-7805"
+   ],
+   "cos": 0.997,
+   "text_a": "What's the ZIP code of the IP address 8.8.8.8?",
+   "text_b": "What is the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-7673"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8227"
+   ],
+   "cos": 1.0,
+   "text_a": "What's the ZIP code of the IP address 8.8.8.8?",
+   "text_b": "What's the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-6828"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-558"
+   ],
+   "cos": 1.0,
+   "text_a": "Simulate a database query on a 'users' table with conditions: age > 30 and city = 'New York'.",
+   "text_b": "Simulate a database query on a 'users' table with conditions: age > 30 and city = 'New York'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-11289"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5785"
+   ],
+   "cos": 0.9728,
+   "text_a": "Find the latitude and longitude coordinates of the IP address 8.8.8.8.",
+   "text_b": "What are the latitude and longitude coordinates of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-13773"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-2351"
+   ],
+   "cos": 1.0,
+   "text_a": "Log in the user with username 'JaneDoe' and password 'secretpassword'.",
+   "text_b": "Log in the user with username 'JaneDoe' and password 'secretpassword'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-4229"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5785"
+   ],
+   "cos": 1.0,
+   "text_a": "What are the latitude and longitude coordinates of the IP address 8.8.8.8?",
+   "text_b": "What are the latitude and longitude coordinates of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-10298"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8152"
+   ],
+   "cos": 0.9783,
+   "text_a": "What are the latest news articles about Tesla Inc. (TSLA) in Spanish?",
+   "text_b": "What are the latest news articles about Tesla Inc. in Spanish?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-298"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-10829"
+   ],
+   "cos": 1.0,
+   "text_a": "Using the linear regression model, estimate the sales for a store that has been open for 3 years, given that stores open",
+   "text_b": "Using the linear regression model, estimate the sales for a store that has been open for 3 years, given that stores open"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-8386"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5000"
+   ],
+   "cos": 0.9707,
+   "text_a": "What is the maximum sum of a contiguous subarray in the given list?",
+   "text_b": "What is the maximum sum of a subarray in the given list?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-8696"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-8288"
+   ],
+   "cos": 0.9535,
+   "text_a": "Fetch the latest exchange rates for USD, AUD, and GBP against EUR.",
+   "text_b": "Fetch the latest exchange rates from Euro to USD and AUD."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-8854"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-8672"
+   ],
+   "cos": 0.9956,
+   "text_a": "Predict the evolutionary rate for the species 'Homo sapiens' for the next 100 years using the Darwin model.",
+   "text_b": "Predict the evolution rate of the species 'Homo sapiens' over the next 100 years using the Darwin model."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-6190"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-3897"
+   ],
+   "cos": 0.9895,
+   "text_a": "Can you tell me the hourly forecast for New York City tomorrow?",
+   "text_b": "Can you provide the hourly forecast for New York City tomorrow?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-6190"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-648"
+   ],
+   "cos": 0.9895,
+   "text_a": "Can you tell me the hourly forecast for New York City tomorrow?",
+   "text_b": "Can you provide the hourly forecast for New York City tomorrow?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-1245"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-2303"
+   ],
+   "cos": 1.0,
+   "text_a": "Generate a lorem ipsum text of 300 characters with 3 paragraphs, starting with 'Lorem ipsum'.",
+   "text_b": "Generate a lorem ipsum text of 300 characters with 3 paragraphs, starting with 'Lorem ipsum'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-5638"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-10355"
+   ],
+   "cos": 1.0,
+   "text_a": "Fetch options data for Microsoft (MSFT) with an expiration date of 1684089600.",
+   "text_b": "Fetch options data for Microsoft (MSFT) with an expiration date of 1684089600."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2289"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-7408"
+   ],
+   "cos": 0.9627,
+   "text_a": "Convert 500 EUR to USD and GBP.",
+   "text_b": "Convert 500 EUR to both USD and GBP."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2938"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-4211"
+   ],
+   "cos": 0.9677,
+   "text_a": "Are the phrases 'Astronomer to moon' and 'Moon starer' anagrams of each other?",
+   "text_b": "Are the phrases 'Astronomer' and 'Moon starer' anagrams of each other?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-4834"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-1017"
+   ],
+   "cos": 0.9801,
+   "text_a": "Find all pairs in the list [1, 2, 3, 4, 5] that sum up to 5.",
+   "text_b": "Find all pairs of integers in the list [1, 2, 3, 4, 5] that sum up to 5."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-5641"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-10923"
+   ],
+   "cos": 1.0,
+   "text_a": "What are the details of the country with the name 'Germany' using prefix matching?",
+   "text_b": "What are the details of the country with the name 'Germany' using prefix matching?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-11419"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-2718"
+   ],
+   "cos": 1.0,
+   "text_a": "Fetch all images from collection ID 'P67890' using the Pulsar6 API.",
+   "text_b": "Fetch all images from collection ID 'P67890' using the Pulsar6 API."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-971"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8490"
+   ],
+   "cos": 0.9652,
+   "text_a": "Merge the sorted lists [1, 3, 5] and [2, 4, 6] into a single sorted list.",
+   "text_b": "Merge two sorted lists: [1, 3, 5] and [2, 4, 6] into a single sorted list."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-971"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-6487"
+   ],
+   "cos": 1.0,
+   "text_a": "Merge the sorted lists [1, 3, 5] and [2, 4, 6] into a single sorted list.",
+   "text_b": "Merge the sorted lists [1, 3, 5] and [2, 4, 6] into a single sorted list."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-12779"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-3664"
+   ],
+   "cos": 1.0,
+   "text_a": "Retrieve popular posts sorted by 'new' on Reddit without pagination.",
+   "text_b": "Retrieve popular posts sorted by 'new' on Reddit without pagination."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-7957"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5302"
+   ],
+   "cos": 0.9541,
+   "text_a": "Reverse the words in the sentence 'Hello world this is a test'.",
+   "text_b": "Reverse the order of words in the sentence 'Hello world this is a test'"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-243"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-179"
+   ],
+   "cos": 0.9618,
+   "text_a": "Analyze the social dynamics of a group of 20 people, where 12 are extroverts and 8 are introverts.",
+   "text_b": "Analyze the social dynamics of a group of 20 people, where 12 are extroverts."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-6042"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-13946"
+   ],
+   "cos": 0.9723,
+   "text_a": "Is Queens Hotel in Berlin available for check-in on 2022-03-11 and check-out on 2022-03-14?",
+   "text_b": "Is the Queens Hotel in Berlin available for check-in on March 11, 2022, and check-out on March 13, 2022?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-5922"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-11701"
+   ],
+   "cos": 1.0,
+   "text_a": "Create a QR code for the URL 'https://www.example.com'.",
+   "text_b": "Create a QR code for the URL 'https://www.example.com'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-12463"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-7805"
+   ],
+   "cos": 0.9894,
+   "text_a": "What is the ZIP code for IP address 8.8.8.8?",
+   "text_b": "What is the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-12463"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-8227"
+   ],
+   "cos": 0.9833,
+   "text_a": "What is the ZIP code for IP address 8.8.8.8?",
+   "text_b": "What's the ZIP code of the IP address 8.8.8.8?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-2824"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-8301"
+   ],
+   "cos": 0.9534,
+   "text_a": "Assess the diabetes risk for a person weighing 180 lbs and 70 inches tall, with a sedentary lifestyle.",
+   "text_b": "Assess the risk of developing type 2 diabetes for a person weighing 180 lbs and 70 inches tall with a sedentary lifestyl"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-5361"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-6801"
+   ],
+   "cos": 1.0,
+   "text_a": "Is 'programming' an anagram of 'no pragramming yet'?",
+   "text_b": "Is 'programming' an anagram of 'no pragramming yet'?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-3789"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-587"
+   ],
+   "cos": 0.9573,
+   "text_a": "Draw 5 cards from a shuffled deck.",
+   "text_b": "Draw 5 random cards from a shuffled deck."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-4268"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-7458"
+   ],
+   "cos": 1.0,
+   "text_a": "Could you help me find some quotes about success from the World of Quotes API, but this time I want to limit the results",
+   "text_b": "Could you help me find some quotes about success from the World of Quotes API, but this time I want to limit the results"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-4391"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-12988"
+   ],
+   "cos": 0.9728,
+   "text_a": "Retrieve recitations for Surah Ar-Rahman by reciter ID 6.",
+   "text_b": "Retrieve recitations for Surah Ar-Rahman by reciter ID 6, excluding the recitation ID."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-7174"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-4313"
+   ],
+   "cos": 0.9586,
+   "text_a": "Predict the change in forest area in the Amazon over the next 10 years, including the impact of human activities.",
+   "text_b": "Predict the change in forest area in the Amazon over the next 10 years, considering human impact."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-pref-5149"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-10241"
+   ],
+   "cos": 0.9587,
+   "text_a": "How can I split a list [1, 2, 3, 4, 5] into chunks of size 2?",
+   "text_b": "Can you split the list [1, 2, 3, 4, 5] into chunks of size 2?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-6179"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-3622"
+   ],
+   "cos": 0.9716,
+   "text_a": "What is the next greater element for each element in the given list?",
+   "text_b": "What is the next greater element for each number in the given list?"
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-3049"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5427"
+   ],
+   "cos": 0.9536,
+   "text_a": "Get directions from Times Square to Central Park in New York, specifying departure at 9 AM.",
+   "text_b": "Get directions to Central Park in New York, specifying departure at 9 AM."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-13005"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-1303"
+   ],
+   "cos": 1.0,
+   "text_a": "Find the public repositories of the GitHub user 'octocat'.",
+   "text_b": "Find the public repositories of the GitHub user 'octocat'."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-8330"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-sft-5581"
+   ],
+   "cos": 0.9577,
+   "text_a": "Get the live price for a stock symbol 'AAPL'.",
+   "text_b": "Fetch the live price of the stock with the symbol AAPL."
+  },
+  {
+   "a": [
+    "e1_train",
+    "w2c-sft-6871"
+   ],
+   "b": [
+    "e1_val",
+    "w2c-pref-2498"
+   ],
+   "cos": 1.0,
+   "text_a": "What are the auto-complete suggestions in Australian Dollars, from Australia, and in English?",
+   "text_b": "What are the auto-complete suggestions in Australian Dollars, from Australia, and in English?"
+  },
+  {
+   "a": [
+    "e1_test",
+    "w2c-test-1360f3af-a506-4c70-a808-9a4586e471c8"
+   ],
+   "b": [
+    "e3",
+    "e3-ask-weather-s0"
+   ],
+   "cos": 0.9927,
+   "text_a": "What is the weather like?",
+   "text_b": "What's the weather like?"
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-35-stop"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-63016"
+   ],
+   "cos": 1.0,
+   "text_a": "From local corpus only: How many noun cases does the Ashkari grammatical system have? Return the number only.",
+   "text_b": "From local corpus only: How many noun cases does the Ashkari grammatical system have? Return the number only."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-16-0"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-61015"
+   ],
+   "cos": 1.0,
+   "text_a": "What is an official language of Egypt? Return one language.",
+   "text_b": "What is an official language of Egypt? Return one language."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-39-stop"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-63008"
+   ],
+   "cos": 1.0,
+   "text_a": "From local corpus only: What is the defining element of Moonhaven Civic architecture? Return the feature only.",
+   "text_b": "From local corpus only: What is the defining element of Moonhaven Civic architecture? Return the feature only."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-28-stop"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-61011"
+   ],
+   "cos": 1.0,
+   "text_a": "Which continent is Germany in? Return continent only.",
+   "text_b": "Which continent is Germany in? Return continent only."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-21-0"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-63014"
+   ],
+   "cos": 1.0,
+   "text_a": "From local corpus only: What is the area of the continuous tree canopy in the Verdant Abyss? Return the area only.",
+   "text_b": "From local corpus only: What is the area of the continuous tree canopy in the Verdant Abyss? Return the area only."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-1-0"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-61005"
+   ],
+   "cos": 1.0,
+   "text_a": "What currency is used in Mexico? Return currency name only.",
+   "text_b": "What currency is used in Mexico? Return currency name only."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-27-1"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-61006"
+   ],
+   "cos": 1.0,
+   "text_a": "What is the highest mountain in Tanzania? Return mountain name only.",
+   "text_b": "What is the highest mountain in Tanzania? Return mountain name only."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-37-1"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-62008"
+   ],
+   "cos": 1.0,
+   "text_a": "From local corpus: What is an official language of Austria? Return one language.",
+   "text_b": "From local corpus: What is an official language of Austria? Return one language."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-7-stop"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-62015"
+   ],
+   "cos": 1.0,
+   "text_a": "From local corpus: Who wrote Don Quixote? Return full name.",
+   "text_b": "From local corpus: Who wrote Don Quixote? Return full name."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-17-stop"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-62016"
+   ],
+   "cos": 1.0,
+   "text_a": "From local corpus: What currency is used in Switzerland? Return currency name only.",
+   "text_b": "From local corpus: What currency is used in Switzerland? Return currency name only."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-31-0"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-62007"
+   ],
+   "cos": 1.0,
+   "text_a": "From local corpus: What currency is used in Brazil? Return currency name only.",
+   "text_b": "From local corpus: What currency is used in Brazil? Return currency name only."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-11-0"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-63019"
+   ],
+   "cos": 1.0,
+   "text_a": "From local corpus only: Who discovered the Deeplight Effect? Return the full name only.",
+   "text_b": "From local corpus only: Who discovered the Deeplight Effect? Return the full name only."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-25-0"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-61014"
+   ],
+   "cos": 1.0,
+   "text_a": "What is the chemical symbol for Hydrogen? Return symbol only.",
+   "text_b": "What is the chemical symbol for Hydrogen? Return symbol only."
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-133016"
+   ],
+   "b": [
+    "probe",
+    "w2t-single_hop-train-133007"
+   ],
+   "cos": 0.952,
+   "text_a": "What is the exact output of this Python code?\n```\na = [4, 10, 4, 3, 8, 9]\nn = len(a)\ndp = [1]*n\nfor i in range(1, n):\n  ",
+   "text_b": "What is the exact output of this Python code?\n```\na = [9, 1, 3, 7, 2, 8, 4]\nn = len(a)\ndp = [1]*n\nfor i in range(1, n):\n"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-133016"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-133549"
+   ],
+   "cos": 0.95,
+   "text_a": "What is the exact output of this Python code?\n```\na = [4, 10, 4, 3, 8, 9]\nn = len(a)\ndp = [1]*n\nfor i in range(1, n):\n  ",
+   "text_b": "What is the exact output of this Python code?\n```\na = [6, 3, 5, 10, 2, 8, 1]\nn = len(a)\ndp = [1]*n\nfor i in range(1, n):"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-101005"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-101542"
+   ],
+   "cos": 0.9805,
+   "text_a": "Decode this Morse code: '-... .. .-. -..'. Answer with only the decoded text in uppercase.",
+   "text_b": "Decode this Morse code: '..-. --- .-. -.-'. Answer with only the decoded text in uppercase."
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-101005"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-102512"
+   ],
+   "cos": 0.9767,
+   "text_a": "Decode this Morse code: '-... .. .-. -..'. Answer with only the decoded text in uppercase.",
+   "text_b": "Decode this Morse code: '.-.. --- -.-. -.- . -'. Answer with only the decoded text in uppercase."
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-151016"
+   ],
+   "b": [
+    "probe",
+    "w2t-single_hop-train-151020"
+   ],
+   "cos": 0.9851,
+   "text_a": "What does the regex pattern r'[aeiou]{2,}' find in the text \"beautiful queue\" using findall? Answer with only the Python",
+   "text_b": "What does the regex pattern r'[aeiou]+' find in the text \"queue beautiful\" using findall? Answer with only the Python li"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-153020"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-153519"
+   ],
+   "cos": 0.9539,
+   "text_a": "What does re.findall(r'(\\w+)=(\\w+)', \"k68=v278&k36=v456&k78=v184&k44=v175&k1=v285&k21=v470&k45=v274&k22=v709&k47=v503&k4",
+   "text_b": "What does re.findall(r'(\\w+)=(\\w+)', \"k39=v760&k23=v679&k92=v841&k61=v844&k85=v482&k41=v284\") return? Answer with only t"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-153020"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-153521"
+   ],
+   "cos": 0.962,
+   "text_a": "What does re.findall(r'(\\w+)=(\\w+)', \"k68=v278&k36=v456&k78=v184&k44=v175&k1=v285&k21=v470&k45=v274&k22=v709&k47=v503&k4",
+   "text_b": "What does re.findall(r'(\\w+)=(\\w+)', \"k39=v125&k61=v819&k99=v835&k85=v948&k78=v265&k46=v281&k90=v818&k58=v743&k25=v858&k"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-153015"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-153519"
+   ],
+   "cos": 0.959,
+   "text_a": "What does re.findall(r'(\\w+)=(\\w+)', \"k23=v118&k17=v472&k82=v109&k59=v167&k66=v235&k13=v149&k51=v153&k71=v212&k77=v412\")",
+   "text_b": "What does re.findall(r'(\\w+)=(\\w+)', \"k39=v760&k23=v679&k92=v841&k61=v844&k85=v482&k41=v284\") return? Answer with only t"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-153015"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-153521"
+   ],
+   "cos": 0.9612,
+   "text_a": "What does re.findall(r'(\\w+)=(\\w+)', \"k23=v118&k17=v472&k82=v109&k59=v167&k66=v235&k13=v149&k51=v153&k71=v212&k77=v412\")",
+   "text_b": "What does re.findall(r'(\\w+)=(\\w+)', \"k39=v125&k61=v819&k99=v835&k85=v948&k78=v265&k46=v281&k90=v818&k58=v743&k25=v858&k"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-153001"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-153519"
+   ],
+   "cos": 0.9556,
+   "text_a": "What does re.findall(r'(\\w+)=(\\w+)', \"k73=v617&k31=v741&k50=v784&k79=v137&k8=v743&k50=v923&k3=v275&k56=v609&k92=v604&k30",
+   "text_b": "What does re.findall(r'(\\w+)=(\\w+)', \"k39=v760&k23=v679&k92=v841&k61=v844&k85=v482&k41=v284\") return? Answer with only t"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-153001"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-153521"
+   ],
+   "cos": 0.964,
+   "text_a": "What does re.findall(r'(\\w+)=(\\w+)', \"k73=v617&k31=v741&k50=v784&k79=v137&k8=v743&k50=v923&k3=v275&k56=v609&k92=v604&k30",
+   "text_b": "What does re.findall(r'(\\w+)=(\\w+)', \"k39=v125&k61=v819&k99=v835&k85=v948&k78=v265&k46=v281&k90=v818&k58=v743&k25=v858&k"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141016"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-141550"
+   ],
+   "cos": 0.9637,
+   "text_a": "Given these meetings: [['09:14', '09:59'], ['10:40', '12:10'], ['12:42', '13:42']]. How many free 1-hour slots are avail",
+   "text_b": "Given these meetings: [['09:46', '10:31'], ['11:10', '11:55']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141016"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-141514"
+   ],
+   "cos": 0.9783,
+   "text_a": "Given these meetings: [['09:14', '09:59'], ['10:40', '12:10'], ['12:42', '13:42']]. How many free 1-hour slots are avail",
+   "text_b": "Given these meetings: [['09:10', '10:40'], ['11:17', '12:17']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141016"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142539"
+   ],
+   "cos": 0.9717,
+   "text_a": "Given these meetings: [['09:14', '09:59'], ['10:40', '12:10'], ['12:42', '13:42']]. How many free 1-hour slots are avail",
+   "text_b": "Given these meetings: [['09:10', '10:10'], ['10:29', '11:59'], ['12:46', '13:46'], ['13:56', '15:26'], ['15:28', '16:28'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141003"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-141504"
+   ],
+   "cos": 0.9727,
+   "text_a": "Do any of these meetings overlap? [['09:43', '10:28'], ['11:12', '12:42']]. Answer with only true or false.",
+   "text_b": "Do any of these meetings overlap? [['09:46', '10:16'], ['10:43', '12:13'], ['13:13', '14:43']]. Answer with only true or"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141003"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-141534"
+   ],
+   "cos": 0.97,
+   "text_a": "Do any of these meetings overlap? [['09:43', '10:28'], ['11:12', '12:42']]. Answer with only true or false.",
+   "text_b": "Do any of these meetings overlap? [['09:25', '10:25'], ['10:59', '11:44']]. Answer with only true or false."
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141001"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-141550"
+   ],
+   "cos": 0.9808,
+   "text_a": "Given these meetings: [['09:09', '10:39'], ['10:41', '11:11']]. How many free 1-hour slots are available between 09:00 a",
+   "text_b": "Given these meetings: [['09:46', '10:31'], ['11:10', '11:55']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141001"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-141514"
+   ],
+   "cos": 0.9865,
+   "text_a": "Given these meetings: [['09:09', '10:39'], ['10:41', '11:11']]. How many free 1-hour slots are available between 09:00 a",
+   "text_b": "Given these meetings: [['09:10', '10:40'], ['11:17', '12:17']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141001"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142539"
+   ],
+   "cos": 0.975,
+   "text_a": "Given these meetings: [['09:09', '10:39'], ['10:41', '11:11']]. How many free 1-hour slots are available between 09:00 a",
+   "text_b": "Given these meetings: [['09:10', '10:10'], ['10:29', '11:59'], ['12:46', '13:46'], ['13:56', '15:26'], ['15:28', '16:28'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141004"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-141550"
+   ],
+   "cos": 0.9652,
+   "text_a": "Given these meetings: [['09:24', '10:24'], ['10:56', '11:26'], ['12:00', '13:00']]. How many free 1-hour slots are avail",
+   "text_b": "Given these meetings: [['09:46', '10:31'], ['11:10', '11:55']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141004"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-141514"
+   ],
+   "cos": 0.9713,
+   "text_a": "Given these meetings: [['09:24', '10:24'], ['10:56', '11:26'], ['12:00', '13:00']]. How many free 1-hour slots are avail",
+   "text_b": "Given these meetings: [['09:10', '10:40'], ['11:17', '12:17']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141004"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142539"
+   ],
+   "cos": 0.9728,
+   "text_a": "Given these meetings: [['09:24', '10:24'], ['10:56', '11:26'], ['12:00', '13:00']]. How many free 1-hour slots are avail",
+   "text_b": "Given these meetings: [['09:10', '10:10'], ['10:29', '11:59'], ['12:46', '13:46'], ['13:56', '15:26'], ['15:28', '16:28'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143019"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-143502"
+   ],
+   "cos": 0.995,
+   "text_a": "Given these meetings: [['08:27', '09:57'], ['10:21', '11:21'], ['12:11', '12:41'], ['12:41', '13:11'], ['14:11', '14:41'",
+   "text_b": "Given these meetings: [['08:17', '09:17'], ['09:31', '10:01'], ['10:56', '12:26'], ['13:15', '14:00'], ['14:26', '14:56'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143019"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-143517"
+   ],
+   "cos": 0.9944,
+   "text_a": "Given these meetings: [['08:27', '09:57'], ['10:21', '11:21'], ['12:11', '12:41'], ['12:41', '13:11'], ['14:11', '14:41'",
+   "text_b": "Given these meetings: [['08:18', '09:48'], ['10:23', '11:23'], ['11:33', '12:18'], ['12:18', '13:48'], ['14:33', '16:03'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143019"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142538"
+   ],
+   "cos": 0.9776,
+   "text_a": "Given these meetings: [['08:27', '09:57'], ['10:21', '11:21'], ['12:11', '12:41'], ['12:41', '13:11'], ['14:11', '14:41'",
+   "text_b": "Given these meetings: [['09:56', '11:26'], ['11:42', '12:42'], ['12:46', '13:31'], ['13:43', '14:43'], ['15:40', '17:00'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143019"
+   ],
+   "b": [
+    "ab_dev",
+    "w2t-single_hop-train-142004"
+   ],
+   "cos": 0.973,
+   "text_a": "Given these meetings: [['08:27', '09:57'], ['10:21', '11:21'], ['12:11', '12:41'], ['12:41', '13:11'], ['14:11', '14:41'",
+   "text_b": "Given these meetings: [['09:16', '10:16'], ['11:16', '11:46'], ['12:08', '12:53'], ['13:16', '13:46'], ['14:29', '15:14'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143004"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-143502"
+   ],
+   "cos": 0.9927,
+   "text_a": "Given these meetings: [['08:16', '09:46'], ['10:19', '11:49'], ['12:27', '13:57'], ['14:46', '15:46'], ['16:25', '17:25'",
+   "text_b": "Given these meetings: [['08:17', '09:17'], ['09:31', '10:01'], ['10:56', '12:26'], ['13:15', '14:00'], ['14:26', '14:56'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143004"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-143517"
+   ],
+   "cos": 0.9915,
+   "text_a": "Given these meetings: [['08:16', '09:46'], ['10:19', '11:49'], ['12:27', '13:57'], ['14:46', '15:46'], ['16:25', '17:25'",
+   "text_b": "Given these meetings: [['08:18', '09:48'], ['10:23', '11:23'], ['11:33', '12:18'], ['12:18', '13:48'], ['14:33', '16:03'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143004"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142538"
+   ],
+   "cos": 0.9785,
+   "text_a": "Given these meetings: [['08:16', '09:46'], ['10:19', '11:49'], ['12:27', '13:57'], ['14:46', '15:46'], ['16:25', '17:25'",
+   "text_b": "Given these meetings: [['09:56', '11:26'], ['11:42', '12:42'], ['12:46', '13:31'], ['13:43', '14:43'], ['15:40', '17:00'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143004"
+   ],
+   "b": [
+    "ab_dev",
+    "w2t-single_hop-train-142004"
+   ],
+   "cos": 0.9784,
+   "text_a": "Given these meetings: [['08:16', '09:46'], ['10:19', '11:49'], ['12:27', '13:57'], ['14:46', '15:46'], ['16:25', '17:25'",
+   "text_b": "Given these meetings: [['09:16', '10:16'], ['11:16', '11:46'], ['12:08', '12:53'], ['13:16', '13:46'], ['14:29', '15:14'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143013"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-143502"
+   ],
+   "cos": 0.9937,
+   "text_a": "Given these meetings: [['08:57', '09:27'], ['10:10', '11:40'], ['11:56', '12:56'], ['12:58', '13:58'], ['14:17', '14:47'",
+   "text_b": "Given these meetings: [['08:17', '09:17'], ['09:31', '10:01'], ['10:56', '12:26'], ['13:15', '14:00'], ['14:26', '14:56'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143013"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-143517"
+   ],
+   "cos": 0.9928,
+   "text_a": "Given these meetings: [['08:57', '09:27'], ['10:10', '11:40'], ['11:56', '12:56'], ['12:58', '13:58'], ['14:17', '14:47'",
+   "text_b": "Given these meetings: [['08:18', '09:48'], ['10:23', '11:23'], ['11:33', '12:18'], ['12:18', '13:48'], ['14:33', '16:03'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143013"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142538"
+   ],
+   "cos": 0.977,
+   "text_a": "Given these meetings: [['08:57', '09:27'], ['10:10', '11:40'], ['11:56', '12:56'], ['12:58', '13:58'], ['14:17', '14:47'",
+   "text_b": "Given these meetings: [['09:56', '11:26'], ['11:42', '12:42'], ['12:46', '13:31'], ['13:43', '14:43'], ['15:40', '17:00'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143013"
+   ],
+   "b": [
+    "ab_dev",
+    "w2t-single_hop-train-142004"
+   ],
+   "cos": 0.9727,
+   "text_a": "Given these meetings: [['08:57', '09:27'], ['10:10', '11:40'], ['11:56', '12:56'], ['12:58', '13:58'], ['14:17', '14:47'",
+   "text_b": "Given these meetings: [['09:16', '10:16'], ['11:16', '11:46'], ['12:08', '12:53'], ['13:16', '13:46'], ['14:29', '15:14'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142020"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-141550"
+   ],
+   "cos": 0.9667,
+   "text_a": "Given these meetings: [['09:56', '10:26'], ['10:56', '11:41'], ['12:23', '13:53'], ['14:40', '15:40'], ['16:10', '16:55'",
+   "text_b": "Given these meetings: [['09:46', '10:31'], ['11:10', '11:55']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142020"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-141514"
+   ],
+   "cos": 0.9689,
+   "text_a": "Given these meetings: [['09:56', '10:26'], ['10:56', '11:41'], ['12:23', '13:53'], ['14:40', '15:40'], ['16:10', '16:55'",
+   "text_b": "Given these meetings: [['09:10', '10:40'], ['11:17', '12:17']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142020"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142539"
+   ],
+   "cos": 0.984,
+   "text_a": "Given these meetings: [['09:56', '10:26'], ['10:56', '11:41'], ['12:23', '13:53'], ['14:40', '15:40'], ['16:10', '16:55'",
+   "text_b": "Given these meetings: [['09:10', '10:10'], ['10:29', '11:59'], ['12:46', '13:46'], ['13:56', '15:26'], ['15:28', '16:28'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142011"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-141550"
+   ],
+   "cos": 0.9709,
+   "text_a": "Given these meetings: [['09:16', '10:46'], ['11:26', '11:56'], ['12:50', '13:35'], ['14:35', '15:35']]. How many free 1-",
+   "text_b": "Given these meetings: [['09:46', '10:31'], ['11:10', '11:55']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142011"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-141514"
+   ],
+   "cos": 0.9714,
+   "text_a": "Given these meetings: [['09:16', '10:46'], ['11:26', '11:56'], ['12:50', '13:35'], ['14:35', '15:35']]. How many free 1-",
+   "text_b": "Given these meetings: [['09:10', '10:40'], ['11:17', '12:17']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142011"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142539"
+   ],
+   "cos": 0.9756,
+   "text_a": "Given these meetings: [['09:16', '10:46'], ['11:26', '11:56'], ['12:50', '13:35'], ['14:35', '15:35']]. How many free 1-",
+   "text_b": "Given these meetings: [['09:10', '10:10'], ['10:29', '11:59'], ['12:46', '13:46'], ['13:56', '15:26'], ['15:28', '16:28'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142010"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-143502"
+   ],
+   "cos": 0.9787,
+   "text_a": "Given these meetings: [['09:41', '10:26'], ['10:53', '12:23'], ['13:08', '13:53'], ['14:37', '15:22'], ['16:09', '16:54'",
+   "text_b": "Given these meetings: [['08:17', '09:17'], ['09:31', '10:01'], ['10:56', '12:26'], ['13:15', '14:00'], ['14:26', '14:56'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142010"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-143517"
+   ],
+   "cos": 0.9745,
+   "text_a": "Given these meetings: [['09:41', '10:26'], ['10:53', '12:23'], ['13:08', '13:53'], ['14:37', '15:22'], ['16:09', '16:54'",
+   "text_b": "Given these meetings: [['08:18', '09:48'], ['10:23', '11:23'], ['11:33', '12:18'], ['12:18', '13:48'], ['14:33', '16:03'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142010"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142538"
+   ],
+   "cos": 0.9955,
+   "text_a": "Given these meetings: [['09:41', '10:26'], ['10:53', '12:23'], ['13:08', '13:53'], ['14:37', '15:22'], ['16:09', '16:54'",
+   "text_b": "Given these meetings: [['09:56', '11:26'], ['11:42', '12:42'], ['12:46', '13:31'], ['13:43', '14:43'], ['15:40', '17:00'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142010"
+   ],
+   "b": [
+    "ab_dev",
+    "w2t-single_hop-train-142004"
+   ],
+   "cos": 0.9956,
+   "text_a": "Given these meetings: [['09:41', '10:26'], ['10:53', '12:23'], ['13:08', '13:53'], ['14:37', '15:22'], ['16:09', '16:54'",
+   "text_b": "Given these meetings: [['09:16', '10:16'], ['11:16', '11:46'], ['12:08', '12:53'], ['13:16', '13:46'], ['14:29', '15:14'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142006"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142528"
+   ],
+   "cos": 0.9821,
+   "text_a": "Given these meetings: [['09:44', '11:14'], ['11:54', '13:24'], ['13:29', '13:59'], ['14:53', '15:38'], ['16:08', '17:00'",
+   "text_b": "Given these meetings: [['09:57', '10:27'], ['11:16', '11:46'], ['12:06', '13:06'], ['14:02', '14:47'], ['15:18', '16:18'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142006"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142501"
+   ],
+   "cos": 0.9855,
+   "text_a": "Given these meetings: [['09:44', '11:14'], ['11:54', '13:24'], ['13:29', '13:59'], ['14:53', '15:38'], ['16:08', '17:00'",
+   "text_b": "Given these meetings: [['09:54', '10:39'], ['10:45', '11:15'], ['11:19', '11:49'], ['11:57', '12:42'], ['13:36', '15:06'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142015"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142528"
+   ],
+   "cos": 0.9847,
+   "text_a": "Given these meetings: [['09:52', '10:52'], ['11:40', '13:10'], ['13:56', '14:56'], ['15:28', '15:58'], ['16:11', '16:56'",
+   "text_b": "Given these meetings: [['09:57', '10:27'], ['11:16', '11:46'], ['12:06', '13:06'], ['14:02', '14:47'], ['15:18', '16:18'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142015"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-142501"
+   ],
+   "cos": 0.9866,
+   "text_a": "Given these meetings: [['09:52', '10:52'], ['11:40', '13:10'], ['13:56', '14:56'], ['15:28', '15:58'], ['16:11', '16:56'",
+   "text_b": "Given these meetings: [['09:54', '10:39'], ['10:45', '11:15'], ['11:19', '11:49'], ['11:57', '12:42'], ['13:36', '15:06'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-23013"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-23526"
+   ],
+   "cos": 0.9701,
+   "text_a": "What is the Pearson correlation coefficient between X=[149, 7, 84, 92, 132, 42, 161, 1, 25, 54, 185, 51, 76, 178, 98, 19",
+   "text_b": "What is the Pearson correlation coefficient between X=[22, 194, 36, 139, 136, 159, 167, 170, 44, 157, 71, 29, 105, 69, 1"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-23019"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-23526"
+   ],
+   "cos": 0.9644,
+   "text_a": "What is the Pearson correlation coefficient between X=[63, 65, 194, 125, 159, 68, 156, 91, 53, 15, 36, 51, 12, 90, 142, ",
+   "text_b": "What is the Pearson correlation coefficient between X=[22, 194, 36, 139, 136, 159, 167, 170, 44, 157, 71, 29, 105, 69, 1"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-23004"
+   ],
+   "b": [
+    "e2_test",
+    "w2t-single_hop-test-23526"
+   ],
+   "cos": 0.9588,
+   "text_a": "What is the Pearson correlation coefficient between X=[170, 137, 20, 134, 188, 29, 121, 20, 39, 49, 75, 145, 136, 105, 5",
+   "text_b": "What is the Pearson correlation coefficient between X=[22, 194, 36, 139, 136, 159, 167, 170, 44, 157, 71, 29, 105, 69, 1"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-143502"
+   ],
+   "b": [
+    "ab_dev",
+    "w2t-single_hop-train-142004"
+   ],
+   "cos": 0.9767,
+   "text_a": "Given these meetings: [['08:17', '09:17'], ['09:31', '10:01'], ['10:56', '12:26'], ['13:15', '14:00'], ['14:26', '14:56'",
+   "text_b": "Given these meetings: [['09:16', '10:16'], ['11:16', '11:46'], ['12:08', '12:53'], ['13:16', '13:46'], ['14:29', '15:14'"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-143517"
+   ],
+   "b": [
+    "ab_dev",
+    "w2t-single_hop-train-142004"
+   ],
+   "cos": 0.9719,
+   "text_a": "Given these meetings: [['08:18', '09:48'], ['10:23', '11:23'], ['11:33', '12:18'], ['12:18', '13:48'], ['14:33', '16:03'",
+   "text_b": "Given these meetings: [['09:16', '10:16'], ['11:16', '11:46'], ['12:08', '12:53'], ['13:16', '13:46'], ['14:29', '15:14'"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-142538"
+   ],
+   "b": [
+    "ab_dev",
+    "w2t-single_hop-train-142004"
+   ],
+   "cos": 0.9935,
+   "text_a": "Given these meetings: [['09:56', '11:26'], ['11:42', '12:42'], ['12:46', '13:31'], ['13:43', '14:43'], ['15:40', '17:00'",
+   "text_b": "Given these meetings: [['09:16', '10:16'], ['11:16', '11:46'], ['12:08', '12:53'], ['13:16', '13:46'], ['14:29', '15:14'"
+  },
+  {
+   "a": [
+    "multihop_train",
+    "w2t-multi_hop-train-183001"
+   ],
+   "b": [
+    "ab_dev",
+    "w2t-multi_hop-train-183015"
+   ],
+   "cos": 0.974,
+   "text_a": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\ndef f(n):\n    return 1 if n <= 1 else ",
+   "text_b": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\ndef f(n):\n    return 1 if n <= 1 else "
+  },
+  {
+   "a": [
+    "multihop_train",
+    "w2t-multi_hop-train-183001"
+   ],
+   "b": [
+    "ab_final",
+    "w2t-multi_hop-test-183508"
+   ],
+   "cos": 0.9732,
+   "text_a": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\ndef f(n):\n    return 1 if n <= 1 else ",
+   "text_b": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\ndef f(n):\n    return 1 if n <= 1 else "
+  },
+  {
+   "a": [
+    "multihop_train",
+    "w2t-multi_hop-train-183005"
+   ],
+   "b": [
+    "multihop_test",
+    "w2t-multi_hop-test-183511"
+   ],
+   "cos": 0.9721,
+   "text_a": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\nmemo = {}\ndef fib(n):\n    if n in memo",
+   "text_b": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\nmemo = {}\ndef fib(n):\n    if n in memo"
+  },
+  {
+   "a": [
+    "multihop_train",
+    "w2t-multi_hop-train-183003"
+   ],
+   "b": [
+    "multihop_test",
+    "w2t-multi_hop-test-183526"
+   ],
+   "cos": 0.9546,
+   "text_a": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\nn = 73\nsteps = 0\nwhile n != 1:\n    n =",
+   "text_b": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\nn = 27\nsteps = 0\nwhile n != 1:\n    n ="
+  },
+  {
+   "a": [
+    "multihop_train",
+    "w2t-multi_hop-train-182019"
+   ],
+   "b": [
+    "multihop_test",
+    "w2t-multi_hop-test-182523"
+   ],
+   "cos": 0.9632,
+   "text_a": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\nprint(sum([19, 24, 30, 25, 7, 15, 11])",
+   "text_b": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\nprint(sum([22, 25, 30, 17]))\n```\nStep "
+  },
+  {
+   "a": [
+    "ab_dev",
+    "w2t-multi_hop-train-183015"
+   ],
+   "b": [
+    "ab_final",
+    "w2t-multi_hop-test-183508"
+   ],
+   "cos": 0.9787,
+   "text_a": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\ndef f(n):\n    return 1 if n <= 1 else ",
+   "text_b": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\ndef f(n):\n    return 1 if n <= 1 else "
+  }
+ ],
+ "train_side_removals": [
+  [
+   "e1_train",
+   "w2c-pref-1245"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-1383"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-1470"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-1869"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2024"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2142"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-215"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2181"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-220"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2289"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2293"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2415"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-243"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2549"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2579"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2657"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2741"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2824"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2842"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-2938"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-298"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-3325"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-3475"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-3757"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-3789"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-411"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-4229"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-4268"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-4391"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-4507"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-4816"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-4821"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-4937"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-5149"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-5333"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-5361"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-5400"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-5578"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-5638"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-5641"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-5922"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-6042"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-6312"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-6344"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-6550"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-6647"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-6727"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-6828"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-6925"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-7174"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-7364"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-7673"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-7693"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-7753"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-7758"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-7791"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-808"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-827"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-8386"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-8474"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-8491"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-8540"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-87"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-8709"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-8808"
+  ],
+  [
+   "e1_train",
+   "w2c-pref-953"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-10298"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-10819"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-10940"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-11289"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-11419"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-11478"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-11519"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-11542"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-11747"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-1183"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-12089"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-12216"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-12339"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-12429"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-12463"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-12525"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-12779"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-13005"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-13475"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-13773"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-14034"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-14696"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-14961"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-1739"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-2017"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-2447"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-2881"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-3049"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-3139"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-381"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-3865"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-4495"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-4529"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-4637"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-4834"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-4879"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-492"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-4948"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-5114"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-5115"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-5154"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-5706"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-5759"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-5990"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-6047"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-6096"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-6118"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-6179"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-6190"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-6579"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-6805"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-6871"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-6901"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-7130"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-7638"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-7691"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-7884"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-7957"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-8151"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-8330"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-8341"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-8696"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-8705"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-8854"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-8992"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-9584"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-971"
+  ],
+  [
+   "e1_train",
+   "w2c-sft-9988"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-101005"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-133016"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-141001"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-141003"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-141004"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-141016"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-142006"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-142010"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-142011"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-142015"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-142020"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-143004"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-143013"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-143019"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-153001"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-153015"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-153020"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-23004"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-23013"
+  ],
+  [
+   "e2_train",
+   "w2t-single_hop-train-23019"
+  ]
+ ],
+ "threshold": 0.95,
+ "embedding_model": "embeddinggemma:300m (Ollama)"
+}

@@ -86,24 +86,42 @@
    "sha256": "9a5aa7813496807f4b9d8de99bfad680f3c59acc717825a98ced3eadac53ae04"
   },
   "w2t/probe.jsonl": {
+   "dedup_removed": [
+    "w2t-single_hop-train-101014",
+    "w2t-single_hop-train-102020",
+    "w2t-single_hop-train-133010",
+    "w2t-single_hop-train-141006",
+    "w2t-single_hop-train-141009",
+    "w2t-single_hop-train-141013",
+    "w2t-single_hop-train-142002",
+    "w2t-single_hop-train-142012",
+    "w2t-single_hop-train-142014",
+    "w2t-single_hop-train-143002",
+    "w2t-single_hop-train-143005",
+    "w2t-single_hop-train-143015",
+    "w2t-single_hop-train-153005",
+    "w2t-single_hop-train-153017",
+    "w2t-single_hop-train-23007",
+    "w2t-single_hop-train-23016",
+    "w2t-single_hop-train-43005"
+   ],
    "envs": {
     "CalculatorEnv": 9,
-    "CodeExecutorEnv": 9,
+    "CodeExecutorEnv": 8,
     "CountingEnv": 9,
     "DateTimeEnv": 9,
-    "DecodingEnv": 6,
+    "DecodingEnv": 4,
     "GameRuleEnv": 9,
     "HashEnv": 6,
     "HistoricalYearEnv": 9,
-    "MatrixEnv": 9,
+    "MatrixEnv": 8,
     "PrimeEnv": 9,
-    "RegexMatchEnv": 9,
+    "RegexMatchEnv": 7,
     "RetrieverEnv": 9,
-    "ScheduleEnv": 9,
-    "StatisticsEnv": 9
+    "StatisticsEnv": 7
    },
-   "n": 120,
-   "sha256": "a869a4c3efee56e61071da3543beff10c4adf05c940142e395b88adcc7f63525"
+   "n": 103,
+   "sha256": "befd318cadda4582874b6a59c89d6db53b398279bc624cc68b806d9637c281bc"
   }
  },
  "seed": 20261021
