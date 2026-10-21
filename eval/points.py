@@ -65,7 +65,8 @@ def e3_capability_tasks() -> list[dict]:
 
 def e3(agent: str | None) -> list[dict]:
     """Fixed-label points plus (if agent given) that agent's usable capability labels."""
-    caps = {r["task_id"]: r["label"] for r in _read(FIX / "labels" / agent / "e3_capability_tasks.jsonl")} if agent else {}
+    cap_file = FIX / "labels" / str(agent) / "e3_capability_tasks.jsonl"
+    caps = {r["task_id"]: r["label"] for r in _read(cap_file)} if agent else {}
     pts = _read(FIX / "e3" / "e3.jsonl")
     multi = {q["conv_id"] for q in pts if q["step"] > 0}
     out = []
