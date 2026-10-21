@@ -26,6 +26,7 @@ class ProviderSpec:
     pricing: dict[str, Pricing] = field(default_factory=dict)  # by model id
     extra_body: dict[str, Any] = field(default_factory=dict)
     supports_seed: bool = True
+    timeout_s: float = 180.0  # read timeout; must exceed the slowest legitimate full-length generation
 
 
 PROVIDERS: dict[str, ProviderSpec] = {
@@ -44,6 +45,7 @@ PROVIDERS: dict[str, ProviderSpec] = {
         name="ollama",
         base_url=os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434/v1"),
         extra_body={"reasoning_effort": "none"},
+        timeout_s=900.0,  # a small local model can take minutes to emit max_tokens; that is agent behavior
     ),
     # Any other OpenAI-compatible endpoint serving an open-weight model.
     "openai_compat": ProviderSpec(
@@ -59,7 +61,8 @@ def provider_for_url(base_url: str) -> ProviderSpec:
         if base_url.rstrip("/") == spec.base_url.rstrip("/"):
             return spec
     if ":11434" in base_url:
-        return ProviderSpec(name="ollama", base_url=base_url, extra_body=PROVIDERS["ollama"].extra_body)
+        return ProviderSpec(name="ollama", base_url=base_url, extra_body=PROVIDERS["ollama"].extra_body,
+                            timeout_s=PROVIDERS["ollama"].timeout_s)
     return ProviderSpec(name="openai_compat", base_url=base_url, api_key_env="WHETHERMAN_AGENT_API_KEY")
 
 
@@ -107,7 +110,7 @@ class ChatClient:
         provider: str | ProviderSpec = "ollama",
         base_url: str | None = None,
         api_key: str | None = None,
-        timeout: float = 180.0,
+        timeout: float | None = None,
         transport: httpx.BaseTransport | None = None,
         max_retries: int = 8,
     ) -> None:
@@ -122,7 +125,7 @@ class ChatClient:
         if key:
             headers["Authorization"] = f"Bearer {key}"
         self._http = httpx.Client(
-            base_url=spec.base_url, headers=headers, timeout=timeout, transport=transport
+            base_url=spec.base_url, headers=headers, timeout=timeout or spec.timeout_s, transport=transport
         )
         self.pricing = spec.pricing.get(model, Pricing())
 

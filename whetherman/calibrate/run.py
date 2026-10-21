@@ -28,7 +28,7 @@ from whetherman.calibrate.adjust import (
 )
 from whetherman.calibrate.probe_pack import ProbePack, load_probe_pack
 from whetherman.calibrate.splits import adapt_threshold_split
-from whetherman.labeling import label_necessity, load_config
+from whetherman.labeling import infra_error, label_necessity, load_config
 from whetherman.labels import IDX
 from whetherman.policy.gate import Profile
 from whetherman.providers.base import Usage
@@ -68,7 +68,11 @@ def estimate(pack: ProbePack, client: ChatClient, cfg: dict[str, Any], parallel:
 def collect_labels(pack: ProbePack, client_factory, cfg: dict[str, Any], out: Path, parallel: int = 1,
                    log=print) -> list[dict]:
     out.parent.mkdir(parents=True, exist_ok=True)
-    done = {json.loads(x)["task_id"]: json.loads(x) for x in out.open()} if out.exists() else {}
+    rows = [json.loads(x) for x in out.open()] if out.exists() else []
+    if any(infra_error(r) for r in rows):  # transport failures are retried, never counted as agent failures
+        rows = [r for r in rows if not infra_error(r)]
+        out.write_text("".join(json.dumps(r) + "\n" for r in rows))
+    done = {r["task_id"]: r for r in rows}
     todo = [t for t in pack.tasks if t.id not in done]
 
     def one(t):
@@ -80,6 +84,9 @@ def collect_labels(pack: ProbePack, client_factory, cfg: dict[str, Any], out: Pa
 
     with ThreadPoolExecutor(parallel) as ex, out.open("a") as f:
         for i, lab in enumerate(ex.map(one, todo), 1):
+            if infra_error(lab):
+                log(f"  {lab['task_id']}: endpoint error, not labeled (rerun calibrate to retry)")
+                continue
             f.write(json.dumps(lab) + "\n")
             f.flush()
             done[lab["task_id"]] = lab
