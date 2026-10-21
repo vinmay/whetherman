@@ -1,0 +1,16 @@
+# Agents Whetherman gates. Verify ids/prices in MODELS.md before large runs.
+L:
+  description: large hosted open-weight agent (headline)
+  provider: digitalocean
+  model: openai-gpt-oss-120b
+  parallel: 6
+S:
+  description: small local agent, Qwen3.5-4B Q4_K_M via Ollama (thinking disabled)
+  provider: ollama
+  model: qwen3.5:4b
+  parallel: 1
+U:
+  description: unseen third agent (P1, small task set)
+  provider: digitalocean
+  model: openai-gpt-oss-20b
+  parallel: 6

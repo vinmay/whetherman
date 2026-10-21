@@ -1,0 +1,63 @@
+"""Label task sets per agent with the shared label_necessity (resumable).
+
+uv run python -m eval.label_tasks --agent S --sets w2t/e2_train w2t/probe w2t/e2_test
+Writes data/fixtures/labels/<agent>/<set-name>.jsonl (one NecessityLabel per task).
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import time
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+
+from eval import spend
+from whetherman.agents import agent_config, make_client
+from whetherman.labeling import label_necessity, load_config
+from whetherman.tasks import load_tasks
+
+FIX = Path(__file__).resolve().parents[1] / "data" / "fixtures"
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--agent", required=True)
+    ap.add_argument("--sets", nargs="+", required=True)
+    ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--est-usd-per-task", type=float, default=0.002)
+    a = ap.parse_args()
+    cfg = load_config()
+    acfg = agent_config(a.agent)
+    hosted = acfg["provider"] != "ollama"
+    for s in a.sets:
+        tasks = load_tasks(FIX / f"{s}.jsonl")[: a.limit]
+        out = FIX / "labels" / a.agent / f"{Path(s).name}.jsonl"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        done = {json.loads(x)["task_id"] for x in out.open()} if out.exists() else set()
+        todo = [t for t in tasks if t.id not in done]
+        if hosted:
+            spend.check_cap("hosted", len(todo) * a.est_usd_per_task)
+        print(f"[{a.agent}] {s}: {len(todo)} to label ({len(done)} done)", flush=True)
+        t0, cost = time.time(), 0.0
+
+        def one(t):
+            client = make_client(a.agent)
+            try:
+                return label_necessity(t, client, cfg, keep_episodes=True)
+            finally:
+                client.close()
+
+        with ThreadPoolExecutor(acfg.get("parallel", 1)) as ex, out.open("a") as f:
+            for i, lab in enumerate(ex.map(one, todo), 1):
+                f.write(json.dumps(lab.to_dict()) + "\n")
+                f.flush()
+                cost += lab.cost_usd
+                if i % 10 == 0 or i == len(todo):
+                    print(f"  {i}/{len(todo)} {time.time() - t0:.0f}s ${cost:.4f}", flush=True)
+        if hosted and cost:
+            spend.record("hosted", f"label {a.agent} {s}", cost, tasks=len(todo))
+
+
+if __name__ == "__main__":
+    main()
