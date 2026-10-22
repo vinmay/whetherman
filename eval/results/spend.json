@@ -118,9 +118,16 @@
    "kind": "hosted",
    "what": "A/B ab_dev L adapted",
    "usd": 0.023032
+  },
+  {
+   "ts": "2026-10-22T11:20:06",
+   "kind": "hosted",
+   "what": "calibrate U (whetherman calibrate, default probe pack)",
+   "usd": 0.353158,
+   "tasks": 133
   }
  ],
  "totals_usd": {
-  "hosted": 1.844617
+  "hosted": 2.197775
  }
 }
