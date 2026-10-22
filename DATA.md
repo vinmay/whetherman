@@ -77,10 +77,14 @@ reasons is dropped and relabeled (`eval/label_tasks.py::infra_error`). On 2026-1
 DigitalOcean rate limits (675 HTTP 429s on E2-train); those labels were discarded and the tasks relabeled
 before any training or evaluation used them.
 
-Four Agent S tasks have no label: `w2t-single_hop-train-13006` and `-33006` (probe) and `-13016` and `-33014`
-(E2-train), all huge-number arithmetic. On these, Qwen3.5-4B's no-tool generations run away and the local
-Ollama endpoint returns HTTP 500 on every attempt, including runs with nothing else on the machine.
-They are reported as endpoint failures and left out of S's training, calibration and evaluation counts.
+Four Agent S tasks (`w2t-single_hop-train-13006` and `-33006` in probe, `-13016` and `-33014` in E2-train, all
+huge-number arithmetic) first looked like endpoint failures: Ollama returned HTTP 500 on every no-tool attempt.
+On 2026-10-22 the response body showed the cause: `prediction aborted, token repeat limit reached`. Qwen3.5-4B
+loops on the digits and Ollama's own degeneration guard stops it after about two seconds. This is
+deterministic, caused by the model's output, and what a user of this agent would see, so it now counts as the
+agent failing that trial (`GenerationAborted`, not retried, not an infrastructure error). Relabeled, all
+four are **ACT** (0/3 without tools, 3/3 with). They were unlabeled when the v3 backbone was trained, so the
+two E2-train items were not in its training data; the large-pack S profile includes the two probe items.
 
 Side-effect tasks only succeed if the simulated state changed correctly (an agent that says "email sent"
 without calling the tool fails).

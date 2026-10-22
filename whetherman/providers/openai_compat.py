@@ -99,6 +99,13 @@ def normalize_message(msg: dict[str, Any]) -> dict[str, Any]:
 
 
 RETRY_STATUS = {403, 408, 409, 429, 500, 502, 503, 504}
+# Server-side aborts of a degenerate generation (the model looping). Deterministic and caused by the
+# model's own output, so they are not retried and count as the agent failing that turn (DATA.md).
+GENERATION_ABORTS = ("token repeat limit reached",)
+
+
+class GenerationAborted(RuntimeError):
+    """The server stopped the model's generation because the output degenerated."""
 
 
 class ChatClient:
@@ -158,6 +165,8 @@ class ChatClient:
                 time.sleep(min(2**attempt, 60) * (1 + random.random()))
                 continue
             latency = (time.perf_counter() - t0) * 1000
+            if r.status_code >= 500 and any(m in r.text for m in GENERATION_ABORTS):
+                raise GenerationAborted(r.text[:300])
             if r.status_code in RETRY_STATUS and attempt < self.max_retries:
                 ra = r.headers.get("retry-after", "")
                 wait = float(ra) if ra.replace(".", "", 1).isdigit() else min(2**attempt, 60)

@@ -5,6 +5,7 @@ import httpx
 import pytest
 
 from whetherman.episode import run_episode
+from whetherman.labeling import infra_error
 from whetherman.providers.base import Pricing, Usage
 from whetherman.providers.openai_compat import PROVIDERS, ChatClient, normalize_message, parse_usage
 from whetherman.tasks import Task
@@ -62,6 +63,21 @@ def test_client_retries_rate_limits(monkeypatch):
                    transport=httpx.MockTransport(lambda req: httpx.Response(429)))
     with pytest.raises(httpx.HTTPStatusError):
         c.chat([{"role": "user", "content": "x"}])
+
+
+def test_generation_abort_is_agent_failure_not_infra():
+    calls = []
+
+    def handler(req):
+        calls.append(1)
+        return httpx.Response(500, json={"error": {"message": "prediction aborted, token repeat limit reached"}})
+
+    c = ChatClient("m", "ollama", transport=httpx.MockTransport(handler))
+    task = Task(id="t", messages=[{"role": "user", "content": "x"}], tools=[], oracle={"type": "answer", "gold": "1"})
+    ep = run_episode(c, task, with_tools=False)
+    assert len(calls) == 1  # not retried
+    assert not ep.success and ep.error.startswith("GenerationAborted")
+    assert not infra_error({"episodes": [ep.summary()]})
 
 
 SEQ = Task(id="compat-seq", messages=[{"role": "user", "content":
