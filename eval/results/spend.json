@@ -80,9 +80,21 @@
    "what": "label L w2t/multihop_test",
    "usd": 0.081753,
    "tasks": 36
+  },
+  {
+   "ts": "2026-10-21T21:50:10",
+   "kind": "hosted",
+   "what": "A/B ab_dev L none+adapted+shared+rules",
+   "usd": 0.077057
+  },
+  {
+   "ts": "2026-10-21T23:45:21",
+   "kind": "hosted",
+   "what": "A/B ab_dev L none+adapted+shared+rules",
+   "usd": 0.074206
   }
  ],
  "totals_usd": {
-  "hosted": 1.317127
+  "hosted": 1.46839
  }
 }

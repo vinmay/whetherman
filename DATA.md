@@ -69,6 +69,11 @@ reasons is dropped and relabeled (`eval/label_tasks.py::infra_error`). On 2026-1
 DigitalOcean rate limits (675 HTTP 429s on E2-train); those labels were discarded and the tasks relabeled
 before any training or evaluation used them.
 
+Four Agent S tasks have no label: `w2t-single_hop-train-13006` and `-33006` (probe) and `-13016` and `-33014`
+(E2-train), all huge-number arithmetic. On these, Qwen3.5-4B's no-tool generations run away and the local
+Ollama endpoint returns HTTP 500 on every attempt, including runs with nothing else on the machine.
+They are reported as endpoint failures and left out of S's training, calibration and evaluation counts.
+
 Side-effect tasks only succeed if the simulated state changed correctly (an agent that says "email sent"
 without calling the tool fails).
 
