@@ -30,18 +30,18 @@ OUT = ROOT / "eval" / "results" / "ab"
 SEED = 2026
 
 
-def build_gate(config: str, agent: str, device: str, routers: dict) -> Gate | None:
+def build_gate(config: str, agent: str, device: str, routers: dict, profiles: str = "profiles") -> Gate | None:
     if config == "none":
         return None
     from whetherman.adapters.functiongemma import FunctionGemmaRouter
 
-    profile_for = {"adapted": f"profiles/{agent}.json", "shared": None, "swap": None}
+    profile_for = {"adapted": f"{profiles}/{agent}.json", "shared": None, "swap": None}
     if config.startswith("adapted"):
         prof = Profile.load(ROOT / profile_for["adapted"])
     elif config == "shared":  # same backbone as the agent's profile, identity adjustment, default tau 0.5
         prof = Profile(agent="shared", tau=0.5, backbone=Profile.load(ROOT / profile_for["adapted"]).backbone)
     elif config.startswith("profile:"):  # profile swap, e.g. profile:L
-        prof = Profile.load(ROOT / f"profiles/{config.split(':', 1)[1]}.json")
+        prof = Profile.load(ROOT / f"{profiles}/{config.split(':', 1)[1]}.json")
     elif config == "rules":
         from whetherman.adapters.baselines import RulesRouter
 
@@ -88,6 +88,7 @@ def main() -> None:
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--tag", default="")
     ap.add_argument("--est-usd", type=float, default=0.0)
+    ap.add_argument("--profiles", default="profiles", help="directory holding <agent>.json profiles")
     a = ap.parse_args()
 
     tasks = load_tasks(ROOT / "data" / "fixtures" / "ab" / f"{a.suite}.jsonl")[: a.limit]
@@ -95,7 +96,7 @@ def main() -> None:
     if hosted:
         spend.check_cap("hosted", a.est_usd)
     routers: dict = {}
-    gates = {c: build_gate(c, a.agent, a.device, routers) for c in a.configs}
+    gates = {c: build_gate(c, a.agent, a.device, routers, a.profiles) for c in a.configs}
     base = make_client(a.agent)
     clients = {c: GatedClient(base, g, profile_name=c) for c, g in gates.items()}
     OUT.mkdir(parents=True, exist_ok=True)
