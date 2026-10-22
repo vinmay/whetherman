@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Whetherman demo</title>
+<style>
+:root {
+  --bg: #fbfbf9; --panel: #ffffff; --ink: #1d1f22; --muted: #6a6f76; --line: #e3e3de;
+  --act: #2f6f4f; --act-bg: #e6f2eb; --skip: #2b5f8a; --skip-bg: #e4eef7;
+  --bad: #b3261e; --bad-bg: #fbe9e7; --accent: #2b5f8a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15171a; --panel: #1d2024; --ink: #e8e8e4; --muted: #9aa0a6; --line: #30343a;
+    --act: #7cc59c; --act-bg: #1f3329; --skip: #8ab8e0; --skip-bg: #1d2c3b;
+    --bad: #f28b82; --bad-bg: #3a2120; --accent: #8ab8e0;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15171a; --panel: #1d2024; --ink: #e8e8e4; --muted: #9aa0a6; --line: #30343a;
+  --act: #7cc59c; --act-bg: #1f3329; --skip: #8ab8e0; --skip-bg: #1d2c3b;
+  --bad: #f28b82; --bad-bg: #3a2120; --accent: #8ab8e0;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 26px; margin: 0 0 4px; }
+h2 { font-size: 17px; margin: 0 0 10px; }
+.sub { color: var(--muted); margin: 0 0 20px; }
+.tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.tabs button { border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+  padding: 6px 14px; border-radius: 999px; cursor: pointer; font: inherit; }
+.tabs button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 16px; }
+@media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+@media (max-width: 640px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+.stat .v { font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat .k { color: var(--muted); font-size: 13px; }
+.chip { display: inline-block; padding: 1px 8px; border-radius: 6px; font-size: 12px; font-weight: 600;
+  margin: 0 4px 2px 0; font-variant-numeric: tabular-nums; }
+.chip.ACT { background: var(--act-bg); color: var(--act); }
+.chip.ANSWER, .chip.ASK, .chip.DECLINE { background: var(--skip-bg); color: var(--skip); }
+.chip.bad { background: var(--bad-bg); color: var(--bad); }
+.ep { border-top: 1px solid var(--line); padding: 10px 0; }
+.ep.false-skip { border-left: 3px solid var(--bad); padding-left: 10px; background: var(--bad-bg); }
+.ep .p { font-weight: 500; }
+.ep .m { color: var(--muted); font-size: 13px; }
+.list { max-height: 640px; overflow-y: auto; }
+.filters { display: flex; gap: 12px; flex-wrap: wrap; font-size: 14px; margin-bottom: 8px; color: var(--muted); }
+.cf { border: 1px dashed var(--muted); border-radius: 8px; padding: 6px 10px; font-size: 13px;
+  color: var(--muted); margin-bottom: 12px; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+td, th { text-align: left; padding: 6px 4px; border-top: 1px solid var(--line); font-size: 14px; }
+.grid > *, .col > * { min-width: 0; }
+.col { display: grid; gap: 16px; align-content: start; grid-template-columns: minmax(0, 1fr); }
+.ep, .m, td { overflow-wrap: anywhere; }
+select { width: 100%; font: inherit; padding: 4px; background: var(--panel); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 6px; }
+.bar { height: 8px; background: var(--line); border-radius: 4px; position: relative; overflow: hidden; }
+.bar > i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--act); }
+.note { color: var(--muted); font-size: 13px; margin-top: 10px; }
+code { font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Whetherman</h1>
+  <p class="sub">A 270M model that forecasts whether your agent actually needs to call a tool.
+    This page replays <b>recorded</b> runs (<span id="meta"></span>); nothing is re-run here.</p>
+
+  <div class="tabs" id="agentTabs" role="group" aria-label="Agent"></div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="grid">
+    <section class="panel">
+      <h2>Replay: every gated decision as it happened</h2>
+      <div class="filters">
+        <label><input type="checkbox" id="onlyInterv"> only episodes where the gate skipped tools</label>
+        <label><input type="checkbox" id="onlyBad"> only observed false skips</label>
+      </div>
+      <div class="list" id="episodes"></div>
+      <p class="note">Green = tools passed through (ACT). Blue = tools removed for that model call.
+        Red rows: the episode failed with Whetherman, and restoring ACT at the skipped step made it succeed
+        on replay. That is evidence of a false skip, not proof.</p>
+    </section>
+
+    <div class="col">
+      <section class="panel">
+        <h2>Threshold τ</h2>
+        <div class="cf">Counterfactual: predicted routing at this threshold, not a re-run.
+          Task success, latency and savings are shown only for the shipped τ, where runs exist.</div>
+        <input type="range" id="tau" min="0.50" max="0.99" step="0.01">
+        <div id="tauOut"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Same request, two agents</h2>
+        <select id="pointSel" aria-label="Held-out request"></select>
+        <div id="pointOut" style="margin-top:10px"></div>
+        <p class="note">Held-out E2-train tasks the backbone never trained on. "Measured" is that agent's own
+          label from repeated runs with and without tools; it differs between agents, which is why each agent
+          gets its own profile.</p>
+      </section>
+
+      <section class="panel">
+        <h2>The four decisions</h2>
+        <div id="four"></div>
+      </section>
+    </div>
+  </div>
+</main>
+<script src="data.js"></script>
+<script>
+const D = window.DEMO;
+const L = D.labels;
+let agent = "L";
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const pct = (x) => (100 * x).toFixed(0) + "%";
+const isFalseSkip = (e) => !e.success && (e.replay_verdict || "").startsWith("restored_with_act");
+const skipped = (e) => e.steps.some((s) => s.decision !== "ACT");
+
+function decide(probs, tau) {
+  let k = 0;
+  probs.forEach((p, i) => { if (p > probs[k]) k = i; });
+  return k !== 0 && probs[k] > tau ? L[k] : "ACT";
+}
+
+$("meta").textContent = `suite ${D.suite}, backbone ${D.checkpoint}`;
+for (const ag of Object.keys(D.agents)) {
+  const b = document.createElement("button");
+  b.textContent = `Agent ${ag}: ${D.agents[ag].name}`;
+  b.onclick = () => { agent = ag; $("tau").value = D.agents[ag].tau; render(); };
+  b.dataset.agent = ag;
+  $("agentTabs").appendChild(b);
+}
+
+function renderStats() {
+  const E = D.agents[agent].episodes;
+  const sum = (f) => E.reduce((a, e) => a + f(e), 0);
+  const calls = sum((e) => e.tool_calls), base = sum((e) => e.baseline ? e.baseline.tool_calls : 0);
+  const ok = sum((e) => +e.success), okb = sum((e) => e.baseline ? +e.baseline.success : 0);
+  const fs = E.filter(isFalseSkip).length;
+  const saved = sum((e) => e.baseline ? e.baseline.wall_s - e.wall_s : 0);
+  $("stats").innerHTML = [
+    [`${calls} vs ${base}`, "tool calls, Whetherman vs no gate"],
+    [`${ok} vs ${okb}`, `successes of ${E.length} episodes`],
+    [`${saved >= 0 ? "" : "+"}${Math.abs(saved).toFixed(0)} s`, saved >= 0 ? "net wall time saved" : "net wall time added"],
+    [`${fs}`, "observed false skips (replay evidence)"],
+  ].map(([v, k]) => `<div class="panel stat"><div class="v">${v}</div><div class="k">${k}</div></div>`).join("");
+}
+
+function renderEpisodes() {
+  const onlyI = $("onlyInterv").checked, onlyB = $("onlyBad").checked;
+  const E = D.agents[agent].episodes.filter((e) => (!onlyI || skipped(e)) && (!onlyB || isFalseSkip(e)));
+  $("episodes").innerHTML = E.map((e) => {
+    const chips = e.steps.map((s, i) => `<span class="chip ${s.decision}" title="step ${i}: raw ${s.raw_label}, gate ${s.gate_ms} ms${s.noncompliant ? ", model called a tool anyway; original request re-sent" : ""}">${s.decision === "ACT" ? "ACT" : "skip→" + s.decision} P(ACT) ${s.act_prob == null ? "n/a" : s.act_prob.toFixed(2)}</span>`).join("");
+    const b = e.baseline;
+    const res = (ok) => ok ? "pass" : `<span class="chip bad">fail</span>`;
+    return `<div class="ep ${isFalseSkip(e) ? "false-skip" : ""}">
+      <div class="p">${esc(e.prompt)}</div>
+      <div>${chips}</div>
+      <div class="m">${esc(e.family)} · repeat ${e.repeat} · Whetherman: ${e.tool_calls} calls, ${e.wall_s}s, ${res(e.success)}
+        ${b ? ` · no gate: ${b.tool_calls} calls, ${b.wall_s}s, ${res(b.success)}` : ""}
+        ${isFalseSkip(e) ? ` · <b style="color:var(--bad)">false skip (replay evidence)</b>` : ""}</div>
+    </div>`;
+  }).join("") || `<p class="note">No episodes match.</p>`;
+}
+
+function renderTau() {
+  const tau = +$("tau").value, shipped = D.agents[agent].tau;
+  const P = D.points.filter((p) => p.label[agent] && p.probs[agent]);
+  const act = P.filter((p) => p.label[agent] === "ACT"), ans = P.filter((p) => p.label[agent] === "ANSWER");
+  const fs = act.filter((p) => decide(p.probs[agent], tau) !== "ACT").length;
+  const sup = ans.filter((p) => decide(p.probs[agent], tau) === "ANSWER").length;
+  $("tauOut").innerHTML = `<table>
+    <tr><th>τ</th><td><b>${tau.toFixed(2)}</b> ${Math.abs(tau - shipped) < 1e-9 ? "(shipped)" : `(shipped: ${shipped})`}</td></tr>
+    <tr><th>Predicted false skips</th><td>${fs} / ${act.length} tasks Agent ${agent} needs a tool for</td></tr>
+    <tr><th>Predicted correct skips</th><td>${sup} / ${ans.length} tasks Agent ${agent} answers unaided</td></tr></table>
+    <p class="note">On ${P.length} held-out E2-train decision points with Agent ${agent}'s labels. Small denominators.</p>`;
+}
+
+function renderPoint() {
+  const p = D.points[+$("pointSel").value];
+  const tau = +$("tau").value;
+  $("pointOut").innerHTML = `<div class="p">${esc(p.prompt)}</div>
+    <div class="m">tools offered: ${esc(p.tools.join(", "))}</div>
+    <table><tr><th>Agent</th><th>P(ACT)</th><th>Decision at shipped τ</th><th>Measured</th></tr>
+    ${Object.keys(D.agents).map((ag) => {
+      const pr = p.probs[ag], d = decide(pr, D.agents[ag].tau);
+      return `<tr><td>${ag}</td><td><div class="bar"><i style="width:${pct(pr[0])}"></i></div>${pr[0].toFixed(2)}</td>
+        <td><span class="chip ${d}">${d}</span> (τ ${D.agents[ag].tau})</td><td>${p.label[ag] ?? "ambiguous"}</td></tr>`;
+    }).join("")}</table>`;
+}
+
+function renderFour() {
+  $("four").innerHTML = D.four_decisions.map((x) => `<div class="ep"><span class="chip ${x.label}">${x.label}</span>
+    ${esc(x.prompt)}<div class="m">tools: ${esc(x.tools.join(", "))} · p=${Math.max(...x.probs).toFixed(2)}${x.profile ? ` (Agent ${x.profile}'s profile)` : " (shared backbone)"}</div></div>`).join("");
+}
+
+function render() {
+  document.querySelectorAll("#agentTabs button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.agent === agent));
+  renderStats(); renderEpisodes(); renderTau(); renderPoint();
+}
+
+const differ = (p) => Object.keys(D.agents).map((ag) => decide(p.probs[ag], D.agents[ag].tau)).some((d, _, a) => d !== a[0]);
+// first: profiles route differently and both agents have (different) measured labels
+const rank = (p) => 2 * differ(p) + (p.label.L && p.label.S && p.label.L !== p.label.S ? 1 : 0);
+D.points.map((p, i) => [p, i]).sort((a, b) => rank(b[0]) - rank(a[0])).forEach(([p, i]) => {
+  const o = document.createElement("option");
+  o.value = i; o.textContent = (differ(p) ? "★ " : "") + p.prompt.slice(0, 80);
+  $("pointSel").appendChild(o);
+});
+$("pointSel").onchange = renderPoint;
+$("tau").oninput = () => { renderTau(); renderPoint(); };
+$("onlyInterv").onchange = renderEpisodes;
+$("onlyBad").onchange = renderEpisodes;
+$("tau").value = D.agents[agent].tau;
+renderFour();
+render();
+</script>
+</body>
+</html>

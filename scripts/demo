@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+"""Deterministic ~75-second walkthrough of recorded Whetherman runs (no model is run).
+
+scripts/demo            # paced for a screen recording
+scripts/demo --fast     # no pauses
+Build the data first: uv run python -m demo.build
+"""
+
+import argparse
+import json
+import sys
+import time
+from pathlib import Path
+
+DATA = Path(__file__).resolve().parents[1] / "demo" / "data.js"
+LABELS = ["ACT", "ANSWER", "ASK", "DECLINE"]
+
+
+def decide(probs: list[float], tau: float) -> str:
+    k = max(range(4), key=lambda i: probs[i])
+    return LABELS[k] if k != 0 and probs[k] > tau else "ACT"
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--fast", action="store_true")
+    a = ap.parse_args()
+    if not DATA.exists():
+        sys.exit("no demo data; run: uv run python -m demo.build")
+    d = json.loads(DATA.read_text().removeprefix("window.DEMO = ").rstrip().rstrip(";"))
+
+    def say(text: str = "", pause: float = 1.2) -> None:
+        print(text, flush=True)
+        if not a.fast:
+            time.sleep(pause * 1.4)  # ~75 s end to end
+
+    say(f"Whetherman: recorded runs from suite {d['suite']}, backbone {d['checkpoint']}. Nothing is re-run.\n", 2.5)
+
+    say("1. The four decisions (one example each)", 1.5)
+    for x in d["four_decisions"]:
+        say(f"   {x['label']:8s} p={max(x['probs']):.2f}  {x['prompt'][:90]}", 2.5)
+    say()
+
+    say("2. Same request, two agents: each agent gets its own profile", 1.5)
+    ags = list(d["agents"])
+    diff = next(p for p in d["points"] if all(p["label"][g] for g in ags) and p["label"][ags[0]] != p["label"][ags[1]]
+                and all(decide(p["probs"][g], d["agents"][g]["tau"]) == ("ACT" if p["label"][g] == "ACT" else "ANSWER")
+                        for g in ags))
+    say(f"   {diff['prompt'][:100]}", 2)
+    for g in ags:
+        dec = decide(diff["probs"][g], d["agents"][g]["tau"])
+        say(f"   Agent {g} ({d['agents'][g]['name']}): P(ACT)={diff['probs'][g][0]:.2f} -> {dec:7s}"
+            f" measured: {diff['label'][g]}", 2.5)
+    say()
+
+    say("3. A gated episode where a skip saved a call", 1.5)
+    ep = next(e for e in d["agents"]["L"]["episodes"] if e["success"] and e["baseline"]
+              and e["tool_calls"] < e["baseline"]["tool_calls"] and any(s["decision"] != "ACT" for s in e["steps"]))
+    say(f"   {ep['prompt'][:100]}", 2)
+    for i, s in enumerate(ep["steps"]):
+        say(f"   step {i}: P(ACT)={s['act_prob']:.2f} tau={s['tau']} -> "
+            f"{'tools passed through' if s['decision'] == 'ACT' else 'tools removed, answer now'}", 1.8)
+    b = ep["baseline"]
+    say(f"   Whetherman: {ep['tool_calls']} calls, pass.  No gate: {b['tool_calls']} calls, "
+        f"{'pass' if b['success'] else 'fail'}.", 3)
+    say()
+
+    say("4. An honest false skip", 1.5)
+    fs = [e for g in ags for e in d["agents"][g]["episodes"]
+          if not e["success"] and (e["replay_verdict"] or "").startswith("restored_with_act")]
+    if fs:
+        e = fs[0]
+        say(f"   {e['prompt'][:100]}", 2)
+        step = next(s for s in e["steps"] if s["decision"] != "ACT")
+        say(f"   The gate skipped tools at P(ACT)={step['act_prob']:.2f}; the episode failed.", 2)
+        say("   Replaying with ACT restored at that step succeeded: evidence of a false skip, not proof.", 2.5)
+        n = sum(len(d["agents"][g]["episodes"]) for g in ags)
+        say(f"   {len(fs)} such episodes out of {n} recorded with Whetherman on this suite.", 3)
+    else:
+        say("   No false skips were observed in these recorded runs.", 2)
+    say("\nOpen demo/index.html for the full replay, the τ slider (counterfactual) and the profile panel.", 0)
+
+
+if __name__ == "__main__":
+    main()
