@@ -22,6 +22,7 @@ def total(kind: str = "hosted") -> float:
 
 def record(kind: str, what: str, usd: float, **extra) -> None:
     d = load()
+    d["caps_usd"] = CAPS
     d["entries"].append({"ts": time.strftime("%Y-%m-%dT%H:%M:%S"), "kind": kind, "what": what,
                          "usd": round(usd, 6), **extra})
     d["totals_usd"] = {k: round(sum(e["usd"] for e in d["entries"] if e["kind"] == k), 6)

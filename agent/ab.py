@@ -46,6 +46,12 @@ def build_gate(config: str, agent: str, device: str, routers: dict, profiles: st
         from whetherman.adapters.baselines import RulesRouter
 
         return Gate(RulesRouter(), Profile(agent="rules", tau=0.5))
+    elif config == "qwen_prompted":  # P1: prompted Qwen3.5-4B router (local Ollama), default policy
+        from whetherman.adapters.baselines import PromptedRouter
+        from whetherman.providers.openai_compat import ChatClient
+
+        return Gate(PromptedRouter(ChatClient("qwen3.5:4b", "ollama")), Profile(agent="qwen_prompted", tau=0.5),
+                    timeout_ms=30000)
     else:
         raise ValueError(config)
     key = (prof.backbone, device)

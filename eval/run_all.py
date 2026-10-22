@@ -16,8 +16,11 @@ import subprocess
 import sys
 
 PY = [sys.executable, "-m"]
-LABEL_SETS = ["w2t/probe", "probe_pack/probe_dev", "w2t/e2_train", "e3/e3_capability_tasks",
+LABEL_SETS = ["w2t/probe", "probe_pack/probe_dev", "w2t/probe_extra", "w2t/e2_train", "e3/e3_capability_tasks",
               "w2t/multihop_train", "w2t/e2_test", "w2t/multihop_test"]
+
+LADDER = ["eval.ladder", "--shared-checkpoint", "shared-v3", "--identity-checkpoint", "identity-v3"]
+FINAL_CONFIGS = ["none", "adapted", "shared", "rules", "qwen_prompted"]
 
 STEPS: list[tuple[str, list[str], bool]] = [  # (name, command, held_out)
     ("prepare", [sys.executable, "data/prepare.py"], False),
@@ -25,20 +28,24 @@ STEPS: list[tuple[str, list[str], bool]] = [  # (name, command, held_out)
     ("label_S", PY + ["eval.label_tasks", "--agent", "S", "--sets", *LABEL_SETS], False),
     ("label_L", PY + ["eval.label_tasks", "--agent", "L", "--sets", *LABEL_SETS], False),
     ("overcall", PY + ["eval.overcall"], False),
-    ("train", PY + ["training.train_backbone", "--out", "checkpoints/shared-v1"], False),
-    ("calibrate", PY + ["eval.calibrate_agents", "--agents", "L", "S"], False),
-    ("latency", PY + ["eval.latency", "--device", "cuda", "--checkpoint", "checkpoints/shared-v1",
-                      "--tag", "v1_cuda"], False),
-    ("ladder_dev", PY + ["eval.ladder", "--phase", "dev"], False),
+    ("multistep", PY + ["training.multistep_data"], False),
+    ("train", PY + ["training.train_backbone", "--out", "checkpoints/shared-v3", "--epochs", "3",
+                    "--soft-disagreement"], False),
+    ("train_identity", PY + ["training.train_backbone", "--out", "checkpoints/identity-v3", "--epochs", "3",
+                             "--identity-from", "checkpoints/shared-v3"], False),
+    ("calibrate", PY + ["eval.calibrate_agents", "--agents", "L", "S", "--backbone", "checkpoints/shared-v3"], False),
+    ("latency", PY + ["eval.latency", "--device", "cuda", "--checkpoint", "checkpoints/shared-v3",
+                      "--tag", "v3_cuda"], False),
+    ("ladder_dev", PY + LADDER + ["--phase", "dev"], False),
     ("ab_dev_S", PY + ["agent.ab", "--agent", "S", "--suite", "ab_dev",
                        "--configs", "none", "adapted", "shared", "rules"], False),
     ("ab_dev_L", PY + ["agent.ab", "--agent", "L", "--suite", "ab_dev",
                        "--configs", "none", "adapted", "shared", "rules"], False),
-    ("ladder_final", PY + ["eval.ladder", "--phase", "final"], True),
-    ("ab_final_S", PY + ["agent.ab", "--agent", "S", "--suite", "ab_final",
-                         "--configs", "none", "adapted", "shared", "profile:L"], True),
-    ("ab_final_L", PY + ["agent.ab", "--agent", "L", "--suite", "ab_final",
-                         "--configs", "none", "adapted", "shared", "profile:S"], True),
+    ("ladder_final", PY + LADDER + ["--phase", "final"], True),
+    ("ab_final_S", PY + ["agent.ab", "--agent", "S", "--suite", "ab_final", "--configs", *FINAL_CONFIGS,
+                         "profile:L"], True),
+    ("ab_final_L", PY + ["agent.ab", "--agent", "L", "--suite", "ab_final", "--configs", *FINAL_CONFIGS,
+                         "profile:S"], True),
 ]
 
 
