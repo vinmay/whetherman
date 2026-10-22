@@ -1,0 +1,360 @@
+{
+ "configs": {
+  "shared": {
+   "episodes": 80,
+   "success": 50,
+   "success_rate": 0.625,
+   "success_ci": [
+    0.515485228513904,
+    0.7230598374199522
+   ],
+   "tool_calls_mean": 1.175,
+   "model_calls_mean": 2.0875,
+   "tokens_mean": 712.625,
+   "cost_usd": 0.015555399999999999,
+   "wall_s_median": 2.762303270981647,
+   "gate_steps": 167,
+   "interventions": 120,
+   "noncompliant_fallbacks": 0,
+   "gate_errors": {},
+   "gate_ms_median": 222.25236298982054,
+   "replay_verdicts": {
+    "restored_with_act (evidence, not proof)": 17,
+    "unresolved": 2
+   }
+  },
+  "rules": {
+   "episodes": 80,
+   "success": 43,
+   "success_rate": 0.5375,
+   "success_ci": [
+    0.4290416436680269,
+    0.6425218761121299
+   ],
+   "tool_calls_mean": 1.5,
+   "model_calls_mean": 2.3875,
+   "tokens_mean": 846.5875,
+   "cost_usd": 0.0187757,
+   "wall_s_median": 2.833832033968065,
+   "gate_steps": 191,
+   "interventions": 141,
+   "noncompliant_fallbacks": 0,
+   "gate_errors": {},
+   "gate_ms_median": 0.4619820392690599,
+   "replay_verdicts": {
+    "restored_with_act (evidence, not proof)": 22,
+    "unresolved": 2
+   }
+  },
+  "adapted": {
+   "episodes": 80,
+   "success": 54,
+   "success_rate": 0.675,
+   "success_ci": [
+    0.5664032172496735,
+    0.7675598750577254
+   ],
+   "tool_calls_mean": 2.075,
+   "model_calls_mean": 2.975,
+   "tokens_mean": 1209.625,
+   "cost_usd": 0.0217844,
+   "wall_s_median": 3.7415402855258435,
+   "gate_steps": 238,
+   "interventions": 121,
+   "noncompliant_fallbacks": 0,
+   "gate_errors": {},
+   "gate_ms_median": 206.0415050073061,
+   "replay_verdicts": {
+    "restored_with_act (evidence, not proof)": 11,
+    "unresolved": 1,
+    "no_intervention_found": 1
+   }
+  },
+  "none": {
+   "episodes": 80,
+   "success": 65,
+   "success_rate": 0.8125,
+   "success_ci": [
+    0.7134147429619243,
+    0.8829479218727162
+   ],
+   "tool_calls_mean": 1.8125,
+   "model_calls_mean": 2.75,
+   "tokens_mean": 1420.2125,
+   "cost_usd": 0.0209419,
+   "wall_s_median": 3.2986416860076133,
+   "gate_steps": 220,
+   "interventions": 0,
+   "noncompliant_fallbacks": 0,
+   "gate_errors": {},
+   "gate_ms_median": null,
+   "replay_verdicts": {}
+  }
+ },
+ "per_family": {
+  "shared": {
+   "CalculatorEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "CodeExecutorEnv": {
+    "n": 8,
+    "success": 8
+   },
+   "DecodingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 6,
+    "success": 6
+   },
+   "ScheduleEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 6,
+    "success": 6
+   },
+   "decline": {
+    "n": 6,
+    "success": 5
+   },
+   "general": {
+    "n": 6,
+    "success": 6
+   },
+   "repo_fact": {
+    "n": 4,
+    "success": 0
+   },
+   "weather": {
+    "n": 4,
+    "success": 2
+   },
+   "weather_compare": {
+    "n": 6,
+    "success": 2
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 4
+   },
+   "weather_f": {
+    "n": 6,
+    "success": 1
+   },
+   "web": {
+    "n": 6,
+    "success": 0
+   },
+   "web_email": {
+    "n": 6,
+    "success": 0
+   }
+  },
+  "rules": {
+   "CalculatorEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "CodeExecutorEnv": {
+    "n": 8,
+    "success": 8
+   },
+   "DecodingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 6,
+    "success": 6
+   },
+   "ScheduleEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 6,
+    "success": 5
+   },
+   "decline": {
+    "n": 6,
+    "success": 3
+   },
+   "general": {
+    "n": 6,
+    "success": 6
+   },
+   "repo_fact": {
+    "n": 4,
+    "success": 0
+   },
+   "weather": {
+    "n": 4,
+    "success": 0
+   },
+   "weather_compare": {
+    "n": 6,
+    "success": 3
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 1
+   },
+   "weather_f": {
+    "n": 6,
+    "success": 1
+   },
+   "web": {
+    "n": 6,
+    "success": 0
+   },
+   "web_email": {
+    "n": 6,
+    "success": 0
+   }
+  },
+  "adapted": {
+   "CalculatorEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "CodeExecutorEnv": {
+    "n": 8,
+    "success": 8
+   },
+   "DecodingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 6,
+    "success": 6
+   },
+   "ScheduleEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 6,
+    "success": 5
+   },
+   "decline": {
+    "n": 6,
+    "success": 4
+   },
+   "general": {
+    "n": 6,
+    "success": 6
+   },
+   "repo_fact": {
+    "n": 4,
+    "success": 2
+   },
+   "weather": {
+    "n": 4,
+    "success": 4
+   },
+   "weather_compare": {
+    "n": 6,
+    "success": 2
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_f": {
+    "n": 6,
+    "success": 1
+   },
+   "web": {
+    "n": 6,
+    "success": 0
+   },
+   "web_email": {
+    "n": 6,
+    "success": 0
+   }
+  },
+  "none": {
+   "CalculatorEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "CodeExecutorEnv": {
+    "n": 8,
+    "success": 8
+   },
+   "DecodingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 6,
+    "success": 6
+   },
+   "ScheduleEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 6,
+    "success": 5
+   },
+   "decline": {
+    "n": 6,
+    "success": 3
+   },
+   "general": {
+    "n": 6,
+    "success": 6
+   },
+   "repo_fact": {
+    "n": 4,
+    "success": 4
+   },
+   "weather": {
+    "n": 4,
+    "success": 4
+   },
+   "weather_compare": {
+    "n": 6,
+    "success": 5
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_f": {
+    "n": 6,
+    "success": 4
+   },
+   "web": {
+    "n": 6,
+    "success": 0
+   },
+   "web_email": {
+    "n": 6,
+    "success": 4
+   }
+  }
+ }
+}
