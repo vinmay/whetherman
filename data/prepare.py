@@ -226,17 +226,40 @@ def apply_dedup() -> None:
     print(f"probe: {len(rows)} -> {len(keep)} (removed {len(rows) - len(keep)})")
 
 
+def build_probe_extra(per_cell: int = 3, seed: int = SEED + 1) -> list[dict]:
+    """Fresh When2Tool train tasks for a larger probe pack: disjoint from e2_train and from every task
+    ever drawn into probe (including dedup removals)."""
+    import pandas as pd
+
+    used = {json.loads(x)["id"] for f in ("e2_train.jsonl", "probe.jsonl") for x in (FIX / "w2t" / f).open()}
+    man = json.loads((FIX / "manifest.json").read_text())
+    used |= set(man["files"]["w2t/probe.jsonl"].get("dedup_removed", []))
+    df = pd.read_parquet(RAW / "when2tool" / "single_hop/train-00000-of-00001.parquet")
+    pool = [t for r in df.to_dict("records") if (t := w2t_task(r, "train", "single_hop")) and t["id"] not in used]
+    take, _ = _strat(pool, per_cell, random.Random(seed))
+    for t in take:
+        t["source"] = "when2tool_single_hop_train_probe_extra"
+    return take
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--download", action="store_true")
     ap.add_argument("--e1-train", type=int, default=4500)
     ap.add_argument("--e1-val", type=int, default=600)
     ap.add_argument("--e1-test", type=int, default=900)
+    ap.add_argument("--probe-extra", action="store_true",
+                    help="write w2t/probe_extra.jsonl (fresh tasks for the large probe pack), then exit")
     ap.add_argument("--apply-dedup", action="store_true",
                     help="drop probe tasks flagged by eval/dedup.py from the probe pack, then exit")
     a = ap.parse_args()
     if a.apply_dedup:
         apply_dedup()
+        return
+    if a.probe_extra:
+        rows = build_probe_extra()
+        sha = write_jsonl(rows, FIX / "w2t" / "probe_extra.jsonl")
+        print(f"probe_extra {len(rows)} {sha[:12]} {dict(Counter(r['meta']['env'] for r in rows))}")
         return
     if a.download:
         download()

@@ -18,7 +18,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 FIX = ROOT / "data" / "fixtures"
-TRAIN_SIDE = {"e1_train", "multistep", "e2_train", "probe", "probe_dev"}
+TRAIN_SIDE = {"e1_train", "multistep", "e2_train", "probe", "probe_dev", "probe_extra"}
 
 
 def text_of(messages: list[dict]) -> str:
@@ -38,7 +38,8 @@ def load() -> dict[str, list[tuple[str, str]]]:
         "multistep": FIX / "train/multistep.jsonl", "e2_train": FIX / "w2t/e2_train.jsonl",
         "probe": FIX / "w2t/probe.jsonl", "e2_test": FIX / "w2t/e2_test.jsonl",
         "multihop_train": FIX / "w2t/multihop_train.jsonl", "multihop_test": FIX / "w2t/multihop_test.jsonl",
-        "probe_dev": FIX / "probe_pack/probe_dev.jsonl", "e3": FIX / "e3/e3.jsonl",
+        "probe_dev": FIX / "probe_pack/probe_dev.jsonl", "probe_extra": FIX / "w2t/probe_extra.jsonl",
+        "e3": FIX / "e3/e3.jsonl",
         "ab_dev": FIX / "ab/ab_dev.jsonl", "ab_final": FIX / "ab/ab_final.jsonl",
     }
     out = {}

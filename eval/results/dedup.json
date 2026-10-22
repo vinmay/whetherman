@@ -10,6 +10,7 @@
   "multihop_train": 54,
   "multihop_test": 36,
   "probe_dev": 30,
+  "probe_extra": 120,
   "e3": 88,
   "ab_dev": 40,
   "ab_final": 80
@@ -739,6 +740,28 @@
    [
     "e2_test",
     "w2t-single_hop-test-102512"
+   ],
+   [
+    "probe_extra",
+    "w2t-single_hop-train-101008"
+   ],
+   [
+    "probe_extra",
+    "w2t-single_hop-train-101017"
+   ],
+   [
+    "probe_extra",
+    "w2t-single_hop-train-102008"
+   ]
+  ],
+  [
+   [
+    "probe_extra",
+    "w2t-single_hop-train-132015"
+   ],
+   [
+    "ab_dev",
+    "w2t-single_hop-train-132015"
    ]
   ]
  ],
@@ -2891,6 +2914,45 @@
   {
    "a": [
     "e2_train",
+    "w2t-single_hop-train-101005"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-101008"
+   ],
+   "cos": 0.9887,
+   "text_a": "Decode this Morse code: '-... .. .-. -..'. Answer with only the decoded text in uppercase.",
+   "text_b": "Decode this Morse code: '-.-- . ...'. Answer with only the decoded text in uppercase."
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-101005"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-101017"
+   ],
+   "cos": 0.9763,
+   "text_a": "Decode this Morse code: '-... .. .-. -..'. Answer with only the decoded text in uppercase.",
+   "text_b": "Decode this Morse code: '... .... .. .--.'. Answer with only the decoded text in uppercase."
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-101005"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-102008"
+   ],
+   "cos": 0.9914,
+   "text_a": "Decode this Morse code: '-... .. .-. -..'. Answer with only the decoded text in uppercase.",
+   "text_b": "Decode this Morse code: '-... .-. .. -.. --. .'. Answer with only the decoded text in uppercase."
+  },
+  {
+   "a": [
+    "e2_train",
     "w2t-single_hop-train-151016"
    ],
    "b": [
@@ -2956,6 +3018,19 @@
   {
    "a": [
     "e2_train",
+    "w2t-single_hop-train-153009"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-153012"
+   ],
+   "cos": 0.9599,
+   "text_a": "What does re.findall(r'<(\\w+)>[^<]+</\\1>', \"<span> babfe</span> <strong>ebeafd</strong> <pre>bgbbe f</pre>\") return? Ans",
+   "text_b": "What does re.findall(r'<(\\w+)>[^<]+</\\1>', \"<p>b f</p> <a>gae ae </a> <span>eba</span>\") return? Answer with only the Py"
+  },
+  {
+   "a": [
+    "e2_train",
     "w2t-single_hop-train-153001"
    ],
    "b": [
@@ -2978,6 +3053,19 @@
    "cos": 0.964,
    "text_a": "What does re.findall(r'(\\w+)=(\\w+)', \"k73=v617&k31=v741&k50=v784&k79=v137&k8=v743&k50=v923&k3=v275&k56=v609&k92=v604&k30",
    "text_b": "What does re.findall(r'(\\w+)=(\\w+)', \"k39=v125&k61=v819&k99=v835&k85=v948&k78=v265&k46=v281&k90=v818&k58=v743&k25=v858&k"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-152010"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-152019"
+   ],
+   "cos": 0.9725,
+   "text_a": "What does re.findall(r'\\b\\w+[^aeiou\\W]\\b', \"cat dog fish bird ant\") return? Answer with only the Python list.",
+   "text_b": "What does re.findall(r'\\b\\w+[^aeiouAEIOU\\W]\\b', \"cat dog fish jump walk run\") return? Answer with only the Python list."
   },
   {
    "a": [
@@ -3017,6 +3105,32 @@
    "cos": 0.9717,
    "text_a": "Given these meetings: [['09:14', '09:59'], ['10:40', '12:10'], ['12:42', '13:42']]. How many free 1-hour slots are avail",
    "text_b": "Given these meetings: [['09:10', '10:10'], ['10:29', '11:59'], ['12:46', '13:46'], ['13:56', '15:26'], ['15:28', '16:28'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141016"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-141007"
+   ],
+   "cos": 0.967,
+   "text_a": "Given these meetings: [['09:14', '09:59'], ['10:40', '12:10'], ['12:42', '13:42']]. How many free 1-hour slots are avail",
+   "text_b": "Given these meetings: [['09:47', '10:32'], ['11:19', '11:49']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141016"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142005"
+   ],
+   "cos": 0.9672,
+   "text_a": "Given these meetings: [['09:14', '09:59'], ['10:40', '12:10'], ['12:42', '13:42']]. How many free 1-hour slots are avail",
+   "text_b": "Given these meetings: [['09:28', '10:13'], ['11:12', '12:42'], ['13:09', '14:09'], ['14:56', '16:26']]. How many free 1-"
   },
   {
    "a": [
@@ -3086,6 +3200,32 @@
   {
    "a": [
     "e2_train",
+    "w2t-single_hop-train-141001"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-141007"
+   ],
+   "cos": 0.9814,
+   "text_a": "Given these meetings: [['09:09', '10:39'], ['10:41', '11:11']]. How many free 1-hour slots are available between 09:00 a",
+   "text_b": "Given these meetings: [['09:47', '10:32'], ['11:19', '11:49']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141001"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142005"
+   ],
+   "cos": 0.9727,
+   "text_a": "Given these meetings: [['09:09', '10:39'], ['10:41', '11:11']]. How many free 1-hour slots are available between 09:00 a",
+   "text_b": "Given these meetings: [['09:28', '10:13'], ['11:12', '12:42'], ['13:09', '14:09'], ['14:56', '16:26']]. How many free 1-"
+  },
+  {
+   "a": [
+    "e2_train",
     "w2t-single_hop-train-141004"
    ],
    "b": [
@@ -3125,6 +3265,58 @@
   {
    "a": [
     "e2_train",
+    "w2t-single_hop-train-141004"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-141007"
+   ],
+   "cos": 0.9647,
+   "text_a": "Given these meetings: [['09:24', '10:24'], ['10:56', '11:26'], ['12:00', '13:00']]. How many free 1-hour slots are avail",
+   "text_b": "Given these meetings: [['09:47', '10:32'], ['11:19', '11:49']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141004"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142005"
+   ],
+   "cos": 0.9708,
+   "text_a": "Given these meetings: [['09:24', '10:24'], ['10:56', '11:26'], ['12:00', '13:00']]. How many free 1-hour slots are avail",
+   "text_b": "Given these meetings: [['09:28', '10:13'], ['11:12', '12:42'], ['13:09', '14:09'], ['14:56', '16:26']]. How many free 1-"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141005"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-141011"
+   ],
+   "cos": 0.9692,
+   "text_a": "Given these meetings: [['09:49', '10:49'], ['11:39', '12:24'], ['12:58', '14:28']]. How many free 30-minute slots are av",
+   "text_b": "Given these meetings: [['09:40', '10:40'], ['11:37', '12:22']]. How many free 30-minute slots are available between 09:0"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-141005"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-141020"
+   ],
+   "cos": 0.9827,
+   "text_a": "Given these meetings: [['09:49', '10:49'], ['11:39', '12:24'], ['12:58', '14:28']]. How many free 30-minute slots are av",
+   "text_b": "Given these meetings: [['09:17', '10:17'], ['11:05', '12:35'], ['13:22', '13:52']]. How many free 30-minute slots are av"
+  },
+  {
+   "a": [
+    "e2_train",
     "w2t-single_hop-train-143019"
    ],
    "b": [
@@ -3160,6 +3352,45 @@
    "cos": 0.9776,
    "text_a": "Given these meetings: [['08:27', '09:57'], ['10:21', '11:21'], ['12:11', '12:41'], ['12:41', '13:11'], ['14:11', '14:41'",
    "text_b": "Given these meetings: [['09:56', '11:26'], ['11:42', '12:42'], ['12:46', '13:31'], ['13:43', '14:43'], ['15:40', '17:00'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143019"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143001"
+   ],
+   "cos": 0.9937,
+   "text_a": "Given these meetings: [['08:27', '09:57'], ['10:21', '11:21'], ['12:11', '12:41'], ['12:41', '13:11'], ['14:11', '14:41'",
+   "text_b": "Given these meetings: [['08:48', '09:18'], ['09:49', '10:19'], ['11:17', '12:17'], ['12:51', '13:21'], ['13:38', '14:38'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143019"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143010"
+   ],
+   "cos": 0.9948,
+   "text_a": "Given these meetings: [['08:27', '09:57'], ['10:21', '11:21'], ['12:11', '12:41'], ['12:41', '13:11'], ['14:11', '14:41'",
+   "text_b": "Given these meetings: [['08:25', '09:10'], ['09:43', '10:43'], ['11:41', '12:11'], ['12:25', '13:55'], ['14:29', '15:29'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143019"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142019"
+   ],
+   "cos": 0.9771,
+   "text_a": "Given these meetings: [['08:27', '09:57'], ['10:21', '11:21'], ['12:11', '12:41'], ['12:41', '13:11'], ['14:11', '14:41'",
+   "text_b": "Given these meetings: [['09:23', '09:53'], ['10:29', '10:59'], ['11:19', '12:19'], ['13:01', '14:01'], ['14:43', '15:28'"
   },
   {
    "a": [
@@ -3219,6 +3450,45 @@
     "w2t-single_hop-train-143004"
    ],
    "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143001"
+   ],
+   "cos": 0.9917,
+   "text_a": "Given these meetings: [['08:16', '09:46'], ['10:19', '11:49'], ['12:27', '13:57'], ['14:46', '15:46'], ['16:25', '17:25'",
+   "text_b": "Given these meetings: [['08:48', '09:18'], ['09:49', '10:19'], ['11:17', '12:17'], ['12:51', '13:21'], ['13:38', '14:38'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143004"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143010"
+   ],
+   "cos": 0.9909,
+   "text_a": "Given these meetings: [['08:16', '09:46'], ['10:19', '11:49'], ['12:27', '13:57'], ['14:46', '15:46'], ['16:25', '17:25'",
+   "text_b": "Given these meetings: [['08:25', '09:10'], ['09:43', '10:43'], ['11:41', '12:11'], ['12:25', '13:55'], ['14:29', '15:29'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143004"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142019"
+   ],
+   "cos": 0.979,
+   "text_a": "Given these meetings: [['08:16', '09:46'], ['10:19', '11:49'], ['12:27', '13:57'], ['14:46', '15:46'], ['16:25', '17:25'",
+   "text_b": "Given these meetings: [['09:23', '09:53'], ['10:29', '10:59'], ['11:19', '12:19'], ['13:01', '14:01'], ['14:43', '15:28'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143004"
+   ],
+   "b": [
     "ab_dev",
     "w2t-single_hop-train-142004"
    ],
@@ -3264,6 +3534,45 @@
    "cos": 0.977,
    "text_a": "Given these meetings: [['08:57', '09:27'], ['10:10', '11:40'], ['11:56', '12:56'], ['12:58', '13:58'], ['14:17', '14:47'",
    "text_b": "Given these meetings: [['09:56', '11:26'], ['11:42', '12:42'], ['12:46', '13:31'], ['13:43', '14:43'], ['15:40', '17:00'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143013"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143001"
+   ],
+   "cos": 0.9924,
+   "text_a": "Given these meetings: [['08:57', '09:27'], ['10:10', '11:40'], ['11:56', '12:56'], ['12:58', '13:58'], ['14:17', '14:47'",
+   "text_b": "Given these meetings: [['08:48', '09:18'], ['09:49', '10:19'], ['11:17', '12:17'], ['12:51', '13:21'], ['13:38', '14:38'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143013"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143010"
+   ],
+   "cos": 0.995,
+   "text_a": "Given these meetings: [['08:57', '09:27'], ['10:10', '11:40'], ['11:56', '12:56'], ['12:58', '13:58'], ['14:17', '14:47'",
+   "text_b": "Given these meetings: [['08:25', '09:10'], ['09:43', '10:43'], ['11:41', '12:11'], ['12:25', '13:55'], ['14:29', '15:29'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-143013"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142019"
+   ],
+   "cos": 0.9759,
+   "text_a": "Given these meetings: [['08:57', '09:27'], ['10:10', '11:40'], ['11:56', '12:56'], ['12:58', '13:58'], ['14:17', '14:47'",
+   "text_b": "Given these meetings: [['09:23', '09:53'], ['10:29', '10:59'], ['11:19', '12:19'], ['13:01', '14:01'], ['14:43', '15:28'"
   },
   {
    "a": [
@@ -3320,6 +3629,32 @@
   {
    "a": [
     "e2_train",
+    "w2t-single_hop-train-142020"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-141007"
+   ],
+   "cos": 0.9613,
+   "text_a": "Given these meetings: [['09:56', '10:26'], ['10:56', '11:41'], ['12:23', '13:53'], ['14:40', '15:40'], ['16:10', '16:55'",
+   "text_b": "Given these meetings: [['09:47', '10:32'], ['11:19', '11:49']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142020"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142005"
+   ],
+   "cos": 0.977,
+   "text_a": "Given these meetings: [['09:56', '10:26'], ['10:56', '11:41'], ['12:23', '13:53'], ['14:40', '15:40'], ['16:10', '16:55'",
+   "text_b": "Given these meetings: [['09:28', '10:13'], ['11:12', '12:42'], ['13:09', '14:09'], ['14:56', '16:26']]. How many free 1-"
+  },
+  {
+   "a": [
+    "e2_train",
     "w2t-single_hop-train-142011"
    ],
    "b": [
@@ -3355,6 +3690,32 @@
    "cos": 0.9756,
    "text_a": "Given these meetings: [['09:16', '10:46'], ['11:26', '11:56'], ['12:50', '13:35'], ['14:35', '15:35']]. How many free 1-",
    "text_b": "Given these meetings: [['09:10', '10:10'], ['10:29', '11:59'], ['12:46', '13:46'], ['13:56', '15:26'], ['15:28', '16:28'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142011"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-141007"
+   ],
+   "cos": 0.9634,
+   "text_a": "Given these meetings: [['09:16', '10:46'], ['11:26', '11:56'], ['12:50', '13:35'], ['14:35', '15:35']]. How many free 1-",
+   "text_b": "Given these meetings: [['09:47', '10:32'], ['11:19', '11:49']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142011"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142005"
+   ],
+   "cos": 0.9834,
+   "text_a": "Given these meetings: [['09:16', '10:46'], ['11:26', '11:56'], ['12:50', '13:35'], ['14:35', '15:35']]. How many free 1-",
+   "text_b": "Given these meetings: [['09:28', '10:13'], ['11:12', '12:42'], ['13:09', '14:09'], ['14:56', '16:26']]. How many free 1-"
   },
   {
    "a": [
@@ -3401,6 +3762,45 @@
     "w2t-single_hop-train-142010"
    ],
    "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143001"
+   ],
+   "cos": 0.9737,
+   "text_a": "Given these meetings: [['09:41', '10:26'], ['10:53', '12:23'], ['13:08', '13:53'], ['14:37', '15:22'], ['16:09', '16:54'",
+   "text_b": "Given these meetings: [['08:48', '09:18'], ['09:49', '10:19'], ['11:17', '12:17'], ['12:51', '13:21'], ['13:38', '14:38'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142010"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143010"
+   ],
+   "cos": 0.9746,
+   "text_a": "Given these meetings: [['09:41', '10:26'], ['10:53', '12:23'], ['13:08', '13:53'], ['14:37', '15:22'], ['16:09', '16:54'",
+   "text_b": "Given these meetings: [['08:25', '09:10'], ['09:43', '10:43'], ['11:41', '12:11'], ['12:25', '13:55'], ['14:29', '15:29'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142010"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142019"
+   ],
+   "cos": 0.9934,
+   "text_a": "Given these meetings: [['09:41', '10:26'], ['10:53', '12:23'], ['13:08', '13:53'], ['14:37', '15:22'], ['16:09', '16:54'",
+   "text_b": "Given these meetings: [['09:23', '09:53'], ['10:29', '10:59'], ['11:19', '12:19'], ['13:01', '14:01'], ['14:43', '15:28'"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-142010"
+   ],
+   "b": [
     "ab_dev",
     "w2t-single_hop-train-142004"
    ],
@@ -3437,6 +3837,19 @@
   {
    "a": [
     "e2_train",
+    "w2t-single_hop-train-142006"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142003"
+   ],
+   "cos": 0.9744,
+   "text_a": "Given these meetings: [['09:44', '11:14'], ['11:54', '13:24'], ['13:29', '13:59'], ['14:53', '15:38'], ['16:08', '17:00'",
+   "text_b": "Given these meetings: [['09:57', '10:42'], ['11:18', '12:48'], ['13:05', '14:35'], ['15:08', '16:08']]. How many free 45"
+  },
+  {
+   "a": [
+    "e2_train",
     "w2t-single_hop-train-142015"
    ],
    "b": [
@@ -3463,6 +3876,19 @@
   {
    "a": [
     "e2_train",
+    "w2t-single_hop-train-142015"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142003"
+   ],
+   "cos": 0.9774,
+   "text_a": "Given these meetings: [['09:52', '10:52'], ['11:40', '13:10'], ['13:56', '14:56'], ['15:28', '15:58'], ['16:11', '16:56'",
+   "text_b": "Given these meetings: [['09:57', '10:42'], ['11:18', '12:48'], ['13:05', '14:35'], ['15:08', '16:08']]. How many free 45"
+  },
+  {
+   "a": [
+    "e2_train",
     "w2t-single_hop-train-23013"
    ],
    "b": [
@@ -3472,6 +3898,19 @@
    "cos": 0.9701,
    "text_a": "What is the Pearson correlation coefficient between X=[149, 7, 84, 92, 132, 42, 161, 1, 25, 54, 185, 51, 76, 178, 98, 19",
    "text_b": "What is the Pearson correlation coefficient between X=[22, 194, 36, 139, 136, 159, 167, 170, 44, 157, 71, 29, 105, 69, 1"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-23013"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-23010"
+   ],
+   "cos": 0.9744,
+   "text_a": "What is the Pearson correlation coefficient between X=[149, 7, 84, 92, 132, 42, 161, 1, 25, 54, 185, 51, 76, 178, 98, 19",
+   "text_b": "What is the Pearson correlation coefficient between X=[198, 195, 94, 56, 99, 182, 45, 42, 63, 163, 187, 29, 40, 144, 55,"
   },
   {
    "a": [
@@ -3489,6 +3928,19 @@
   {
    "a": [
     "e2_train",
+    "w2t-single_hop-train-23019"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-23010"
+   ],
+   "cos": 0.9717,
+   "text_a": "What is the Pearson correlation coefficient between X=[63, 65, 194, 125, 159, 68, 156, 91, 53, 15, 36, 51, 12, 90, 142, ",
+   "text_b": "What is the Pearson correlation coefficient between X=[198, 195, 94, 56, 99, 182, 45, 42, 63, 163, 187, 29, 40, 144, 55,"
+  },
+  {
+   "a": [
+    "e2_train",
     "w2t-single_hop-train-23004"
    ],
    "b": [
@@ -3498,6 +3950,227 @@
    "cos": 0.9588,
    "text_a": "What is the Pearson correlation coefficient between X=[170, 137, 20, 134, 188, 29, 121, 20, 39, 49, 75, 145, 136, 105, 5",
    "text_b": "What is the Pearson correlation coefficient between X=[22, 194, 36, 139, 136, 159, 167, 170, 44, 157, 71, 29, 105, 69, 1"
+  },
+  {
+   "a": [
+    "e2_train",
+    "w2t-single_hop-train-23004"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-23010"
+   ],
+   "cos": 0.9578,
+   "text_a": "What is the Pearson correlation coefficient between X=[170, 137, 20, 134, 188, 29, 121, 20, 39, 49, 75, 145, 136, 105, 5",
+   "text_b": "What is the Pearson correlation coefficient between X=[198, 195, 94, 56, 99, 182, 45, 42, 63, 163, 187, 29, 40, 144, 55,"
+  },
+  {
+   "a": [
+    "probe",
+    "w2t-single_hop-train-153011"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-153012"
+   ],
+   "cos": 0.9591,
+   "text_a": "What does re.findall(r'<(\\w+)>[^<]+</\\1>', \"<a>geacbgaaaa</a> <p>cecebe</p> <strong>aaafdefeg</strong> <code> g ceaaga</",
+   "text_b": "What does re.findall(r'<(\\w+)>[^<]+</\\1>', \"<p>b f</p> <a>gae ae </a> <span>eba</span>\") return? Answer with only the Py"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-101542"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-101008"
+   ],
+   "cos": 0.9721,
+   "text_a": "Decode this Morse code: '..-. --- .-. -.-'. Answer with only the decoded text in uppercase.",
+   "text_b": "Decode this Morse code: '-.-- . ...'. Answer with only the decoded text in uppercase."
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-101542"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-101017"
+   ],
+   "cos": 0.9643,
+   "text_a": "Decode this Morse code: '..-. --- .-. -.-'. Answer with only the decoded text in uppercase.",
+   "text_b": "Decode this Morse code: '... .... .. .--.'. Answer with only the decoded text in uppercase."
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-101542"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-102008"
+   ],
+   "cos": 0.9794,
+   "text_a": "Decode this Morse code: '..-. --- .-. -.-'. Answer with only the decoded text in uppercase.",
+   "text_b": "Decode this Morse code: '-... .-. .. -.. --. .'. Answer with only the decoded text in uppercase."
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-102512"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-101008"
+   ],
+   "cos": 0.9669,
+   "text_a": "Decode this Morse code: '.-.. --- -.-. -.- . -'. Answer with only the decoded text in uppercase.",
+   "text_b": "Decode this Morse code: '-.-- . ...'. Answer with only the decoded text in uppercase."
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-102512"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-101017"
+   ],
+   "cos": 0.968,
+   "text_a": "Decode this Morse code: '.-.. --- -.-. -.- . -'. Answer with only the decoded text in uppercase.",
+   "text_b": "Decode this Morse code: '... .... .. .--.'. Answer with only the decoded text in uppercase."
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-102512"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-102008"
+   ],
+   "cos": 0.9788,
+   "text_a": "Decode this Morse code: '.-.. --- -.-. -.- . -'. Answer with only the decoded text in uppercase.",
+   "text_b": "Decode this Morse code: '-... .-. .. -.. --. .'. Answer with only the decoded text in uppercase."
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-43503"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-43014"
+   ],
+   "cos": 0.9584,
+   "text_a": "What is the determinant of the 5x5 matrix [[4, 12, 7, -7, 4], [-3, -6, 9, 8, -9], [15, 10, 1, 14, -2], [14, 14, -3, -4, ",
+   "text_b": "What is the determinant of the 5x5 matrix [[15, -4, 2, -3, 15], [4, 7, -9, 8, 11], [-3, 14, 12, -9, 6], [5, 5, 5, 1, 8],"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-141550"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-141007"
+   ],
+   "cos": 0.9798,
+   "text_a": "Given these meetings: [['09:46', '10:31'], ['11:10', '11:55']]. How many free 1-hour slots are available between 09:00 a",
+   "text_b": "Given these meetings: [['09:47', '10:32'], ['11:19', '11:49']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-141550"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142005"
+   ],
+   "cos": 0.9619,
+   "text_a": "Given these meetings: [['09:46', '10:31'], ['11:10', '11:55']]. How many free 1-hour slots are available between 09:00 a",
+   "text_b": "Given these meetings: [['09:28', '10:13'], ['11:12', '12:42'], ['13:09', '14:09'], ['14:56', '16:26']]. How many free 1-"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-141514"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-141011"
+   ],
+   "cos": 0.9584,
+   "text_a": "Given these meetings: [['09:10', '10:40'], ['11:17', '12:17']]. How many free 1-hour slots are available between 09:00 a",
+   "text_b": "Given these meetings: [['09:40', '10:40'], ['11:37', '12:22']]. How many free 30-minute slots are available between 09:0"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-141514"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-141007"
+   ],
+   "cos": 0.9784,
+   "text_a": "Given these meetings: [['09:10', '10:40'], ['11:17', '12:17']]. How many free 1-hour slots are available between 09:00 a",
+   "text_b": "Given these meetings: [['09:47', '10:32'], ['11:19', '11:49']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-141514"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142005"
+   ],
+   "cos": 0.9708,
+   "text_a": "Given these meetings: [['09:10', '10:40'], ['11:17', '12:17']]. How many free 1-hour slots are available between 09:00 a",
+   "text_b": "Given these meetings: [['09:28', '10:13'], ['11:12', '12:42'], ['13:09', '14:09'], ['14:56', '16:26']]. How many free 1-"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-143502"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143001"
+   ],
+   "cos": 0.9947,
+   "text_a": "Given these meetings: [['08:17', '09:17'], ['09:31', '10:01'], ['10:56', '12:26'], ['13:15', '14:00'], ['14:26', '14:56'",
+   "text_b": "Given these meetings: [['08:48', '09:18'], ['09:49', '10:19'], ['11:17', '12:17'], ['12:51', '13:21'], ['13:38', '14:38'"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-143502"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143010"
+   ],
+   "cos": 0.994,
+   "text_a": "Given these meetings: [['08:17', '09:17'], ['09:31', '10:01'], ['10:56', '12:26'], ['13:15', '14:00'], ['14:26', '14:56'",
+   "text_b": "Given these meetings: [['08:25', '09:10'], ['09:43', '10:43'], ['11:41', '12:11'], ['12:25', '13:55'], ['14:29', '15:29'"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-143502"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142019"
+   ],
+   "cos": 0.9815,
+   "text_a": "Given these meetings: [['08:17', '09:17'], ['09:31', '10:01'], ['10:56', '12:26'], ['13:15', '14:00'], ['14:26', '14:56'",
+   "text_b": "Given these meetings: [['09:23', '09:53'], ['10:29', '10:59'], ['11:19', '12:19'], ['13:01', '14:01'], ['14:43', '15:28'"
   },
   {
    "a": [
@@ -3515,6 +4188,58 @@
   {
    "a": [
     "e2_test",
+    "w2t-single_hop-test-143501"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143003"
+   ],
+   "cos": 0.989,
+   "text_a": "Given these meetings: [['08:28', '09:28'], ['09:28', '10:58'], ['11:44', '12:29'], ['12:45', '13:45'], ['14:03', '14:33'",
+   "text_b": "Given these meetings: [['08:38', '10:08'], ['11:01', '11:46'], ['12:23', '13:08'], ['13:25', '13:55'], ['13:59', '14:44'"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-143517"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143001"
+   ],
+   "cos": 0.9962,
+   "text_a": "Given these meetings: [['08:18', '09:48'], ['10:23', '11:23'], ['11:33', '12:18'], ['12:18', '13:48'], ['14:33', '16:03'",
+   "text_b": "Given these meetings: [['08:48', '09:18'], ['09:49', '10:19'], ['11:17', '12:17'], ['12:51', '13:21'], ['13:38', '14:38'"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-143517"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143010"
+   ],
+   "cos": 0.9937,
+   "text_a": "Given these meetings: [['08:18', '09:48'], ['10:23', '11:23'], ['11:33', '12:18'], ['12:18', '13:48'], ['14:33', '16:03'",
+   "text_b": "Given these meetings: [['08:25', '09:10'], ['09:43', '10:43'], ['11:41', '12:11'], ['12:25', '13:55'], ['14:29', '15:29'"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-143517"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142019"
+   ],
+   "cos": 0.9782,
+   "text_a": "Given these meetings: [['08:18', '09:48'], ['10:23', '11:23'], ['11:33', '12:18'], ['12:18', '13:48'], ['14:33', '16:03'",
+   "text_b": "Given these meetings: [['09:23', '09:53'], ['10:29', '10:59'], ['11:19', '12:19'], ['13:01', '14:01'], ['14:43', '15:28'"
+  },
+  {
+   "a": [
+    "e2_test",
     "w2t-single_hop-test-143517"
    ],
    "b": [
@@ -3528,6 +4253,110 @@
   {
    "a": [
     "e2_test",
+    "w2t-single_hop-test-143546"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143003"
+   ],
+   "cos": 0.9861,
+   "text_a": "Given these meetings: [['08:51', '09:21'], ['10:05', '10:35'], ['10:47', '12:17'], ['12:40', '13:10'], ['13:55', '14:40'",
+   "text_b": "Given these meetings: [['08:38', '10:08'], ['11:01', '11:46'], ['12:23', '13:08'], ['13:25', '13:55'], ['13:59', '14:44'"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-142528"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142003"
+   ],
+   "cos": 0.9909,
+   "text_a": "Given these meetings: [['09:57', '10:27'], ['11:16', '11:46'], ['12:06', '13:06'], ['14:02', '14:47'], ['15:18', '16:18'",
+   "text_b": "Given these meetings: [['09:57', '10:42'], ['11:18', '12:48'], ['13:05', '14:35'], ['15:08', '16:08']]. How many free 45"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-142539"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-141007"
+   ],
+   "cos": 0.9639,
+   "text_a": "Given these meetings: [['09:10', '10:10'], ['10:29', '11:59'], ['12:46', '13:46'], ['13:56', '15:26'], ['15:28', '16:28'",
+   "text_b": "Given these meetings: [['09:47', '10:32'], ['11:19', '11:49']]. How many free 1-hour slots are available between 09:00 a"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-142539"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142005"
+   ],
+   "cos": 0.9807,
+   "text_a": "Given these meetings: [['09:10', '10:10'], ['10:29', '11:59'], ['12:46', '13:46'], ['13:56', '15:26'], ['15:28', '16:28'",
+   "text_b": "Given these meetings: [['09:28', '10:13'], ['11:12', '12:42'], ['13:09', '14:09'], ['14:56', '16:26']]. How many free 1-"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-142501"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142003"
+   ],
+   "cos": 0.9749,
+   "text_a": "Given these meetings: [['09:54', '10:39'], ['10:45', '11:15'], ['11:19', '11:49'], ['11:57', '12:42'], ['13:36', '15:06'",
+   "text_b": "Given these meetings: [['09:57', '10:42'], ['11:18', '12:48'], ['13:05', '14:35'], ['15:08', '16:08']]. How many free 45"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-142538"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143001"
+   ],
+   "cos": 0.9749,
+   "text_a": "Given these meetings: [['09:56', '11:26'], ['11:42', '12:42'], ['12:46', '13:31'], ['13:43', '14:43'], ['15:40', '17:00'",
+   "text_b": "Given these meetings: [['08:48', '09:18'], ['09:49', '10:19'], ['11:17', '12:17'], ['12:51', '13:21'], ['13:38', '14:38'"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-142538"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-143010"
+   ],
+   "cos": 0.976,
+   "text_a": "Given these meetings: [['09:56', '11:26'], ['11:42', '12:42'], ['12:46', '13:31'], ['13:43', '14:43'], ['15:40', '17:00'",
+   "text_b": "Given these meetings: [['08:25', '09:10'], ['09:43', '10:43'], ['11:41', '12:11'], ['12:25', '13:55'], ['14:29', '15:29'"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-142538"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-142019"
+   ],
+   "cos": 0.9923,
+   "text_a": "Given these meetings: [['09:56', '11:26'], ['11:42', '12:42'], ['12:46', '13:31'], ['13:43', '14:43'], ['15:40', '17:00'",
+   "text_b": "Given these meetings: [['09:23', '09:53'], ['10:29', '10:59'], ['11:19', '12:19'], ['13:01', '14:01'], ['14:43', '15:28'"
+  },
+  {
+   "a": [
+    "e2_test",
     "w2t-single_hop-test-142538"
    ],
    "b": [
@@ -3537,6 +4366,19 @@
    "cos": 0.9935,
    "text_a": "Given these meetings: [['09:56', '11:26'], ['11:42', '12:42'], ['12:46', '13:31'], ['13:43', '14:43'], ['15:40', '17:00'",
    "text_b": "Given these meetings: [['09:16', '10:16'], ['11:16', '11:46'], ['12:08', '12:53'], ['13:16', '13:46'], ['14:29', '15:14'"
+  },
+  {
+   "a": [
+    "e2_test",
+    "w2t-single_hop-test-23526"
+   ],
+   "b": [
+    "probe_extra",
+    "w2t-single_hop-train-23010"
+   ],
+   "cos": 0.968,
+   "text_a": "What is the Pearson correlation coefficient between X=[22, 194, 36, 139, 136, 159, 167, 170, 44, 157, 71, 29, 105, 69, 1",
+   "text_b": "What is the Pearson correlation coefficient between X=[198, 195, 94, 56, 99, 182, 45, 42, 63, 163, 187, 29, 40, 144, 55,"
   },
   {
    "a": [
@@ -3602,6 +4444,58 @@
    "cos": 0.9632,
    "text_a": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\nprint(sum([19, 24, 30, 25, 7, 15, 11])",
    "text_b": "Three-step code execution: Step 1: Run the following code. Call the result x.\n```\nprint(sum([22, 25, 30, 17]))\n```\nStep "
+  },
+  {
+   "a": [
+    "probe_extra",
+    "w2t-single_hop-train-132015"
+   ],
+   "b": [
+    "ab_dev",
+    "w2t-single_hop-train-132015"
+   ],
+   "cos": 1.0,
+   "text_a": "What is the exact output of this Python code?\n```\nnums = [1,2,3,4,5]\nprint(nums[::-1])\n```\nAnswer with only the output, ",
+   "text_b": "What is the exact output of this Python code?\n```\nnums = [1,2,3,4,5]\nprint(nums[::-1])\n```\nAnswer with only the output, "
+  },
+  {
+   "a": [
+    "probe_extra",
+    "w2t-single_hop-train-143001"
+   ],
+   "b": [
+    "ab_dev",
+    "w2t-single_hop-train-142004"
+   ],
+   "cos": 0.9714,
+   "text_a": "Given these meetings: [['08:48', '09:18'], ['09:49', '10:19'], ['11:17', '12:17'], ['12:51', '13:21'], ['13:38', '14:38'",
+   "text_b": "Given these meetings: [['09:16', '10:16'], ['11:16', '11:46'], ['12:08', '12:53'], ['13:16', '13:46'], ['14:29', '15:14'"
+  },
+  {
+   "a": [
+    "probe_extra",
+    "w2t-single_hop-train-143010"
+   ],
+   "b": [
+    "ab_dev",
+    "w2t-single_hop-train-142004"
+   ],
+   "cos": 0.972,
+   "text_a": "Given these meetings: [['08:25', '09:10'], ['09:43', '10:43'], ['11:41', '12:11'], ['12:25', '13:55'], ['14:29', '15:29'",
+   "text_b": "Given these meetings: [['09:16', '10:16'], ['11:16', '11:46'], ['12:08', '12:53'], ['13:16', '13:46'], ['14:29', '15:14'"
+  },
+  {
+   "a": [
+    "probe_extra",
+    "w2t-single_hop-train-142019"
+   ],
+   "b": [
+    "ab_dev",
+    "w2t-single_hop-train-142004"
+   ],
+   "cos": 0.9909,
+   "text_a": "Given these meetings: [['09:23', '09:53'], ['10:29', '10:59'], ['11:19', '12:19'], ['13:01', '14:01'], ['14:43', '15:28'",
+   "text_b": "Given these meetings: [['09:16', '10:16'], ['11:16', '11:46'], ['12:08', '12:53'], ['13:16', '13:46'], ['14:29', '15:14'"
   },
   {
    "a": [
@@ -4233,6 +5127,62 @@
   [
    "e2_train",
    "w2t-single_hop-train-23019"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-101008"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-101017"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-102008"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-132015"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-141007"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-141011"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-142003"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-142005"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-142019"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-143001"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-143003"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-143010"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-23010"
+  ],
+  [
+   "probe_extra",
+   "w2t-single_hop-train-43014"
   ]
  ],
  "threshold": 0.95,

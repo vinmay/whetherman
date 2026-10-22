@@ -1,0 +1,15 @@
+{
+ "name": "whetherman-large-probe-pack",
+ "version": "1.0.0",
+ "description": "Default probe pack plus 106 fresh When2Tool train tasks (disjoint from backbone training and every test set). About twice the labeling time; sharper per-agent profiles.",
+ "task_files": [
+  "../probe_pack/probe_dev.jsonl",
+  "../w2t/probe.jsonl",
+  "../w2t/probe_extra.jsonl"
+ ],
+ "fixtures": [
+  "../probe_pack/fixture_repo",
+  "../probe_pack/web_search.json",
+  "../probe_pack/weather.json"
+ ]
+}

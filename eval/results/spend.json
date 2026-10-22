@@ -92,9 +92,29 @@
    "kind": "hosted",
    "what": "A/B ab_dev L none+adapted+shared+rules",
    "usd": 0.074206
+  },
+  {
+   "ts": "2026-10-22T07:46:48",
+   "kind": "hosted",
+   "what": "A/B ab_dev L none+adapted+shared+rules",
+   "usd": 0.071198
+  },
+  {
+   "ts": "2026-10-22T08:27:09",
+   "kind": "hosted",
+   "what": "label L ab/ab_dev",
+   "usd": 0.06854,
+   "tasks": 40
+  },
+  {
+   "ts": "2026-10-22T08:57:39",
+   "kind": "hosted",
+   "what": "label L w2t/probe_extra",
+   "usd": 0.213457,
+   "tasks": 106
   }
  ],
  "totals_usd": {
-  "hosted": 1.46839
+  "hosted": 1.821585
  }
 }
