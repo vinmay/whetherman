@@ -43,7 +43,7 @@ def get_router(name: str, device: str):
                 return [r.predict_untuned(f) for f in fs]
 
         return U()
-    if name.startswith("shared"):
+    if name.startswith("shared") or (ROOT / "checkpoints" / name).is_dir():
         from whetherman.adapters.functiongemma import FunctionGemmaRouter
 
         ck = f"checkpoints/{SHARED}" if name == "shared" else f"checkpoints/{name}"
@@ -170,6 +170,8 @@ def main() -> None:
     ap.add_argument("--device", default="auto")
     ap.add_argument("--shared-checkpoint", default=SHARED, help="checkpoint name under checkpoints/")
     ap.add_argument("--profiles", default="profiles")
+    ap.add_argument("--identity-checkpoint", default=None,
+                    help="P1 row: identity-conditioned checkpoint, agent ID in the input, default policy")
     a = ap.parse_args()
     SHARED = a.shared_checkpoint
     cache: dict = {}
@@ -195,10 +197,19 @@ def main() -> None:
     results: dict = {"phase": a.phase, "fixed": {}, "per_agent": {}}
     ident = VectorScaling()
     # agent-agnostic sets: routers with default policy only
+    idc = a.identity_checkpoint
+    if idc:
+        from whetherman.adapters.functiongemma import with_identity
+
+        def as_agent(pts: list[dict], agent: str) -> list[dict]:
+            return [dict(p, messages=with_identity(p["messages"], agent)) for p in pts]
     for sname, pts in sets_fixed.items():
         for rn in a.routers:
             raw = raw_outputs(rn, sname, pts, a.device, cache)
             results["fixed"][f"{rn}/{sname}"] = evaluate(pts, raw, ident, 0.5)
+        if idc:
+            raw = raw_outputs(idc, f"{sname}_as_any", as_agent(pts, "any"), a.device, cache)
+            results["fixed"][f"identity/{sname}"] = evaluate(pts, raw, ident, 0.5)
     for ag in a.agents:
         prof = profiles.get(ag)
         for sname, pts in sets_agent[ag].items():
@@ -207,6 +218,9 @@ def main() -> None:
                 # cache per point id across agents: same input -> same raw output
                 raw = raw_outputs(rn, sname, pts_all, a.device, cache)
                 results["per_agent"].setdefault(ag, {})[f"{rn}/{sname}"] = evaluate(pts_all, raw, ident, 0.5)
+            if idc:
+                raw = raw_outputs(idc, f"{sname}_as_{ag}", as_agent(pts_all, ag), a.device, cache)
+                results["per_agent"][ag][f"identity/{sname}"] = evaluate(pts_all, raw, ident, 0.5)
             if prof and "shared" in a.routers:
                 raw = raw_outputs("shared", sname, pts_all, a.device, cache)
                 probe_raw = raw_outputs("shared", f"probe_{ag}", points.probe(ag), a.device, cache)
@@ -225,6 +239,7 @@ def main() -> None:
                     results["per_agent"][ag][f"swap_profile_{o}/{sname}"] = {
                         **evaluate(pts_all, raw, po.adjust, po.tau), "tau": po.tau}
     results["shared_checkpoint"] = SHARED
+    results["identity_checkpoint"] = idc
     out = ROOT / "eval" / "results" / f"ladder_{a.phase}_{SHARED}.json"
     out.write_text(json.dumps(results, indent=1))
     # compact console table

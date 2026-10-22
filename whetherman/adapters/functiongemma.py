@@ -41,6 +41,14 @@ def _parse_args(a: Any) -> dict[str, Any]:
         return {"value": str(a)}
 
 
+IDENTITY_TAG = "Agent identity: {}"
+
+
+def with_identity(messages: list[dict[str, Any]], agent: str) -> list[dict[str, Any]]:
+    """Identity-conditioned comparison only (P1 ladder row): the shipped backbone never sees an agent ID."""
+    return [{"role": "system", "content": IDENTITY_TAG.format(agent)}, *messages]
+
+
 def to_native_messages(messages: list[dict[str, Any]],
                        max_result_chars: int = MAX_TOOL_RESULT_CHARS) -> list[dict[str, Any]]:
     """OpenAI-format history -> messages FunctionGemma's template accepts."""

@@ -1,4 +1,5 @@
 """Shared FunctionGemma backbone: LoRA + 4-class head, no agent identity in the input.
+(`--identity-from CKPT` trains the P1 identity-conditioned comparison model instead.)
 
 uv run python -m training.train_backbone --out checkpoints/shared-v1 [--epochs 2] [--max-train N]
 
@@ -61,6 +62,34 @@ def e2_agreement_points(agents: list[str], soft: bool = False) -> list[dict]:
     return out
 
 
+def identity_points(agents: list[str], e2_ids: set[str]) -> list[dict]:
+    """Identity-conditioned comparison: each agent's own E2-train labels (restricted to `e2_ids`, the tasks
+    the shared backbone trained on) and probe labels, with that agent's ID in the input."""
+    from whetherman.adapters.functiongemma import with_identity
+    from whetherman.calibrate.probe_pack import load_probe_pack
+    from whetherman.calibrate.run import decision_points
+    from whetherman.tools.registry import REGISTRY, load_all
+
+    load_all()
+    tasks = {t["id"]: t for t in read(FIX / "w2t" / "e2_train.jsonl")}
+    pack = load_probe_pack(FIX / "probe_pack_large")
+    pack_ids = {t.id for t in pack.tasks}
+    out = []
+    for ag in agents:
+        for r in read(FIX / "labels" / ag / "e2_train.jsonl"):
+            if r["task_id"] in e2_ids and r["label"] in ("ACT", "ANSWER") and not infra_error(r):
+                t = tasks[r["task_id"]]
+                out.append({"id": f"e2i-{ag}-{t['id']}", "source": "e2_train_identity", "label": r["label"],
+                            "messages": with_identity(t["messages"], ag),
+                            "tools": [REGISTRY[n].schema() for n in t["tools"]], "meta": {"agent": ag}})
+        labs = [r for f in ("probe.jsonl", "probe_dev.jsonl", "probe_extra.jsonl")
+                for r in read(FIX / "labels" / ag / f) if r["task_id"] in pack_ids and not infra_error(r)]
+        for p in decision_points(pack, labs):
+            out.append({**p, "id": f"probe-{ag}-{p['id']}", "source": "probe_identity",
+                        "messages": with_identity(p["messages"], ag), "meta": {"agent": ag}})
+    return out
+
+
 def split_multistep(pts: list[dict], val_frac: float, rng: random.Random):
     convs = sorted({p["id"].rsplit("-", 1)[0] for p in pts})
     rng.shuffle(convs)
@@ -96,6 +125,9 @@ def main() -> None:
     ap.add_argument("--eval-every", type=int, default=0, help="optimizer steps; 0 = per epoch")
     ap.add_argument("--soft-disagreement", action="store_true",
                     help="train on E2 items the agents disagree on, with soft P(ACT) targets")
+    ap.add_argument("--identity-from", default=None, metavar="CKPT",
+                    help="identity-conditioned comparison: agent ID in the input, each agent's own E2 labels on "
+                         "the E2 tasks CKPT trained on, plus probe labels; agent-agnostic data tagged 'any'")
     a = ap.parse_args()
 
     import torch
@@ -117,12 +149,23 @@ def main() -> None:
     e2s = [x for x in e2all if "target" in x]
     n_e2v, n_e2s = len(e2a) // 5, len(e2s) // 5  # held out: 20% of agreement (val) and of disagreement (ladder)
     train = read(FIX / "e1" / "train.jsonl") + ms_train + e2a[n_e2v:] + e2s[n_e2s:]
+    if a.identity_from:
+        from whetherman.adapters.functiongemma import with_identity
+
+        ref = json.loads((ROOT / a.identity_from / "train_meta.json").read_text())
+        e2a, e2s, n_e2v, n_e2s = [], [], 0, 0
+        train = [{**x, "messages": with_identity(x["messages"], "any")}
+                 for x in read(FIX / "e1" / "train.jsonl") + ms_train]
+        train += identity_points(agents, set(ref["e2_train_ids_trained"]))
+        ms_val = [{**x, "messages": with_identity(x["messages"], "any")} for x in ms_val]
     dd = ROOT / "eval" / "results" / "dedup.json"
     removed = {i for _, i in json.loads(dd.read_text())["train_side_removals"]} if dd.exists() else set()
     n0 = len(train)
     train = [x for x in train if x["id"] not in removed and x["id"].removeprefix("e2a-") not in removed]
     print(f"dedup: removed {n0 - len(train)} training items colliding with eval items")
     val = read(FIX / "e1" / "val.jsonl") + ms_val + e2a[:n_e2v]
+    if a.identity_from:
+        val = [{**x, "messages": with_identity(x["messages"], "any")} for x in read(FIX / "e1" / "val.jsonl")] + ms_val
     rng.shuffle(train)
     if a.max_train:
         train = train[: a.max_train]
@@ -234,10 +277,14 @@ def main() -> None:
             model.save_pretrained(out)
             torch.save(head.state_dict(), out / "head.pt")
     meta = {"args": vars(a), "agents_for_agreement": agents, "n_train": len(tr), "n_val": len(va),
-            "e2_train_ids_trained": sorted(x["id"].removeprefix("e2a-") for x in train if x["id"].startswith("e2a-")),
+            "e2_train_ids_trained": sorted({x["id"].removeprefix("e2a-") if x["id"].startswith("e2a-") else
+                                            x["id"].split("-", 2)[2] for x in train
+                                            if x["id"].startswith(("e2a-", "e2i-"))}),
             "e2_train_ids_val": sorted(x["id"].removeprefix("e2a-") for x in e2a[:n_e2v]),
             "train_labels": dict(Counter(LABELS[x[1]] for x in tr)), "class_weight": w.tolist(),
-            "n_soft_train": sum("target" in x for x in train), "e2_disagreement_ids_heldout":
+            "n_soft_train": sum("target" in x for x in train), "identity_from": a.identity_from,
+            "n_identity_train": dict(Counter(x["source"] for x in train if "identity" in x["source"])),
+            "e2_disagreement_ids_heldout":
                 sorted(x["id"].removeprefix("e2a-") for x in e2s[:n_e2s]),
             "history": history, "best_val_macro_f1": best,
             "peak_vram_mib": torch.cuda.max_memory_allocated() / 2**20, "precision": "fp32",
