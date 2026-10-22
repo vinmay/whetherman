@@ -1,4 +1,7 @@
 {
+ "guessable_families": [
+  "weather_compare"
+ ],
  "configs": {
   "shared": {
    "episodes": 80,
@@ -87,6 +90,90 @@
    "gate_errors": {},
    "gate_ms_median": null,
    "replay_verdicts": {}
+  }
+ },
+ "headline": {
+  "shared": {
+   "episodes": 74,
+   "success": 49,
+   "success_rate": 0.6621621621621622,
+   "success_ci": [
+    0.5487829947311834,
+    0.7595354365446382
+   ],
+   "tool_calls_mean": 0.5
+  },
+  "rules": {
+   "episodes": 74,
+   "success": 40,
+   "success_rate": 0.5405405405405406,
+   "success_ci": [
+    0.42781145210146765,
+    0.6492681557174879
+   ],
+   "tool_calls_mean": 0.6081081081081081
+  },
+  "adapted": {
+   "episodes": 74,
+   "success": 52,
+   "success_rate": 0.7027027027027027,
+   "success_ci": [
+    0.5906687497464007,
+    0.7947292893483764
+   ],
+   "tool_calls_mean": 1.472972972972973
+  },
+  "none": {
+   "episodes": 74,
+   "success": 57,
+   "success_rate": 0.7702702702702703,
+   "success_ci": [
+    0.6625347073337733,
+    0.8513293447925963
+   ],
+   "tool_calls_mean": 1.7837837837837838
+  }
+ },
+ "guessable": {
+  "shared": {
+   "episodes": 6,
+   "success": 6,
+   "success_rate": 1.0,
+   "success_ci": [
+    0.6096569663469354,
+    0.9999999999999999
+   ],
+   "tool_calls_mean": 1.8333333333333333
+  },
+  "rules": {
+   "episodes": 6,
+   "success": 3,
+   "success_rate": 0.5,
+   "success_ci": [
+    0.18761280689940868,
+    0.8123871931005913
+   ],
+   "tool_calls_mean": 2.0
+  },
+  "adapted": {
+   "episodes": 6,
+   "success": 3,
+   "success_rate": 0.5,
+   "success_ci": [
+    0.18761280689940868,
+    0.8123871931005913
+   ],
+   "tool_calls_mean": 2.1666666666666665
+  },
+  "none": {
+   "episodes": 6,
+   "success": 6,
+   "success_rate": 1.0,
+   "success_ci": [
+    0.6096569663469354,
+    0.9999999999999999
+   ],
+   "tool_calls_mean": 3.8333333333333335
   }
  },
  "per_family": {

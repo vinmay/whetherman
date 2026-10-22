@@ -14,15 +14,29 @@ import numpy as np
 
 from whetherman.labeling import wilson
 
+# Two-choice oracles an agent can pass by guessing (DATA.md, "Guessable tasks"): reported separately,
+# excluded from headline success and tool-call savings.
+GUESSABLE = {"weather_compare"}
+
+
+def _success(rs: list[dict]) -> dict:
+    n, k = len(rs), sum(r["success"] for r in rs)
+    return {"episodes": n, "success": k, "success_rate": k / n if n else None,
+            "success_ci": list(wilson(k, n)) if n else None,
+            "tool_calls_mean": float(np.mean([r["n_tool_calls"] for r in rs])) if n else None}
+
 
 def summarize(rows: list[dict], replays: list[dict]) -> dict:
     by: dict[str, list[dict]] = defaultdict(list)
     for r in rows:
         by[r["config"]].append(r)
-    out: dict = {"configs": {}, "per_family": {}}
+    out: dict = {"guessable_families": sorted(GUESSABLE), "configs": {}, "headline": {}, "guessable": {},
+                 "per_family": {}}
     for c, rs in by.items():
         n, k = len(rs), sum(r["success"] for r in rs)
         gates = [g for r in rs for g in (r.get("gate") or [])]
+        out["headline"][c] = _success([r for r in rs if r.get("family") not in GUESSABLE])
+        out["guessable"][c] = _success([r for r in rs if r.get("family") in GUESSABLE])
         out["configs"][c] = {
             "episodes": n, "success": k, "success_rate": k / n, "success_ci": list(wilson(k, n)),
             "tool_calls_mean": float(np.mean([r["n_tool_calls"] for r in rs])),
@@ -56,12 +70,20 @@ def main() -> None:
     replays = [json.loads(x) for x in rp.open()] if rp.exists() else []
     s = summarize(rows, replays)
     p.with_suffix(".summary.json").write_text(json.dumps(s, indent=1))
+    print("all tasks:")
     for c, m in s["configs"].items():
         lo, hi = m["success_ci"]
         print(f"{c:12s} success {m['success']}/{m['episodes']} ({m['success_rate']:.2f}, CI {lo:.2f}-{hi:.2f}) "
               f"tools {m['tool_calls_mean']:.2f} tokens {m['tokens_mean']:.0f} ${m['cost_usd']:.4f} "
               f"wall {m['wall_s_median']:.1f}s interventions {m['interventions']}/{m['gate_steps']} "
               f"noncompliant {m['noncompliant_fallbacks']} replay {m['replay_verdicts']}")
+    for grp in ("headline", "guessable"):
+        print(f"{grp} ({'excluding' if grp == 'headline' else 'only'} {', '.join(s['guessable_families'])}):")
+        for c, m in s[grp].items():
+            if m["episodes"]:
+                lo, hi = m["success_ci"]
+                print(f"{c:12s} success {m['success']}/{m['episodes']} ({m['success_rate']:.2f}, CI {lo:.2f}-{hi:.2f}) "
+                      f"tools {m['tool_calls_mean']:.2f}")
 
 
 if __name__ == "__main__":
