@@ -14,6 +14,7 @@ from pathlib import Path
 
 DATA = Path(__file__).resolve().parents[1] / "demo" / "data.js"
 LABELS = ["ACT", "ANSWER", "ASK", "DECLINE"]
+GUESSABLE = {"weather_compare"}  # two-choice tasks; excluded from headline claims (DATA.md)
 
 
 def decide(probs: list[float], tau: float) -> str:
@@ -55,6 +56,7 @@ def main() -> None:
 
     say("3. A gated episode where a skip saved a call", 1.5)
     ep = next(e for e in d["agents"]["L"]["episodes"] if e["success"] and e["baseline"]
+              and e["family"] not in GUESSABLE
               and e["tool_calls"] < e["baseline"]["tool_calls"] and any(s["decision"] != "ACT" for s in e["steps"]))
     say(f"   {ep['prompt'][:100]}", 2)
     for i, s in enumerate(ep["steps"]):
