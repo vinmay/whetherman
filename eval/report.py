@@ -60,8 +60,9 @@ def ab_section(agent: str, s: dict, profile: dict | None) -> list[str]:
         out += ["", f"Whetherman vs no gate: tool calls {dc:+.0%} (headline), tokens {dt:+.0%}, "
                     f"success {ha['success'] - hn['success']:+d} of {hn['episodes']}."]
         if profile and n["cost_usd"] == 0:
-            out.append(f"Local agent (no dollar cost). Calibration took {profile['meta']['calibration_seconds'] / 60:.0f} "
-                       "min of wall time; savings are calls, tokens and time.")
+            mins = profile["meta"]["calibration_seconds"] / 60
+            out.append(f"Local agent (no dollar cost). Calibration took {mins:.0f} min of wall time; "
+                       "savings are calls, tokens and time.")
         elif profile and n["cost_usd"] > a["cost_usd"]:
             per_ep = (n["cost_usd"] - a["cost_usd"]) / n["episodes"]
             cal = profile["meta"]["calibration_usd"]
