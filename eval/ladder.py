@@ -23,7 +23,7 @@ from whetherman.policy.gate import Profile
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "eval" / "results" / "routing"
 AGENTS = ["L", "S"]
-SHARED = "shared-v1"  # checkpoint behind the "shared" router; set by --shared-checkpoint
+SHARED = "shared-v3"  # checkpoint behind the "shared" router; set by --shared-checkpoint
 
 
 # ---------------------------------------------------------------- raw router outputs (cached)

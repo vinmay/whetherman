@@ -163,7 +163,7 @@ def fit_profile(agent: str, points: list[dict], logits: np.ndarray, backbone: st
 
 
 def calibrate(endpoint: str, model: str, probe_pack: str | None = None, name: str | None = None,
-              backbone: str = "checkpoints/shared-v1", yes: bool = False, parallel: int = 1,
+              backbone: str = "checkpoints/shared-v3", yes: bool = False, parallel: int = 1,
               labels_dir: str | None = None, out_dir: str = "profiles", device: str = "auto",
               api_key: str | None = None, client_factory=None, router=None) -> Path:
     t_start = time.time()

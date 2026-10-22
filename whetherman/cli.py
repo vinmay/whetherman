@@ -26,7 +26,7 @@ def main(argv: list[str] | None = None) -> None:
     c.add_argument("--model", required=True)
     c.add_argument("--probe-pack", default=None, help="probe pack directory (default: bundled pack)")
     c.add_argument("--name", default=None, help="profile name (default: model slug)")
-    c.add_argument("--backbone", default="checkpoints/shared-v1")
+    c.add_argument("--backbone", default="checkpoints/shared-v3")
     c.add_argument("--api-key-env", default=None, help="env var holding the endpoint API key")
     c.add_argument("--parallel", type=int, default=1)
     c.add_argument("--labels-dir", default=None)

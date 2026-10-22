@@ -1,6 +1,6 @@
 """Fit the experiment profiles (profiles/<agent>.json) through the same `calibrate` path users run.
 
-uv run python -m eval.calibrate_agents --agents L S [--backbone checkpoints/shared-v1] [--probe-pack DIR]
+uv run python -m eval.calibrate_agents --agents L S [--backbone checkpoints/shared-v3] [--probe-pack DIR]
 
 The probe labels collected by eval.label_tasks (data/fixtures/labels/<agent>/{probe,probe_dev,probe_extra}.jsonl)
 are seeded into calibrate's resumable label file, so no agent episode is run twice. Tasks missing a
@@ -37,7 +37,7 @@ def seed_labels(agent: str, pack: str | None = None) -> int:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--agents", nargs="+", default=["L", "S"])
-    ap.add_argument("--backbone", default="checkpoints/shared-v1")
+    ap.add_argument("--backbone", default="checkpoints/shared-v3")
     ap.add_argument("--device", default="auto")
     ap.add_argument("--out-dir", default="profiles")
     ap.add_argument("--probe-pack", default=None, help="pack directory (default: the standard pack)")

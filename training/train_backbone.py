@@ -1,7 +1,7 @@
 """Shared FunctionGemma backbone: LoRA + 4-class head, no agent identity in the input.
 (`--identity-from CKPT` trains the P1 identity-conditioned comparison model instead.)
 
-uv run python -m training.train_backbone --out checkpoints/shared-v1 [--epochs 2] [--max-train N]
+uv run python -m training.train_backbone --out checkpoints/shared-v3 --epochs 3 --soft-disagreement [--max-train N]
 
 Train: E1 train (ACT/ASK/DECLINE), templated multi-step points, E2-train items where all
 labeled agents agree. Validation: E1 val, held-out multi-step families, E2 agreement val.
@@ -110,7 +110,7 @@ def macro_f1(y: np.ndarray, p: np.ndarray, classes: list[int]) -> float:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default="checkpoints/shared-v1")
+    ap.add_argument("--out", default="checkpoints/shared-v3")
     ap.add_argument("--epochs", type=int, default=2)
     ap.add_argument("--lr", type=float, default=2e-4)
     ap.add_argument("--head-lr", type=float, default=1e-3)
