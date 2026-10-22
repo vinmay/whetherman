@@ -13,7 +13,7 @@ from __future__ import annotations
 import json
 import re
 import time
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
@@ -83,7 +83,9 @@ def collect_labels(pack: ProbePack, client_factory, cfg: dict[str, Any], out: Pa
             c.close()
 
     with ThreadPoolExecutor(parallel) as ex, out.open("a") as f:
-        for i, lab in enumerate(ex.map(one, todo), 1):
+        # write each label as soon as it finishes, so an interrupted run keeps all completed work
+        for i, fut in enumerate(as_completed([ex.submit(one, t) for t in todo]), 1):
+            lab = fut.result()
             if infra_error(lab):
                 log(f"  {lab['task_id']}: endpoint error, not labeled (rerun calibrate to retry)")
                 continue
