@@ -1,0 +1,356 @@
+{
+ "configs": {
+  "shared": {
+   "episodes": 80,
+   "success": 48,
+   "success_rate": 0.6,
+   "success_ci": [
+    0.49045264548149986,
+    0.700383407265585
+   ],
+   "tool_calls_mean": 0.725,
+   "model_calls_mean": 1.65,
+   "tokens_mean": 696.825,
+   "cost_usd": 0.0,
+   "wall_s_median": 1.9368005094584078,
+   "gate_steps": 132,
+   "interventions": 70,
+   "noncompliant_fallbacks": 0,
+   "gate_errors": {},
+   "gate_ms_median": 84.1761194751598,
+   "replay_verdicts": {
+    "restored_with_act (evidence, not proof)": 18
+   }
+  },
+  "rules": {
+   "episodes": 80,
+   "success": 32,
+   "success_rate": 0.4,
+   "success_ci": [
+    0.29961659273441493,
+    0.5095473545185001
+   ],
+   "tool_calls_mean": 0.55,
+   "model_calls_mean": 1.475,
+   "tokens_mean": 562.5,
+   "cost_usd": 0.0,
+   "wall_s_median": 1.8911791695281863,
+   "gate_steps": 118,
+   "interventions": 68,
+   "noncompliant_fallbacks": 0,
+   "gate_errors": {},
+   "gate_ms_median": 0.43799850391224027,
+   "replay_verdicts": {
+    "restored_with_act (evidence, not proof)": 32
+   }
+  },
+  "adapted": {
+   "episodes": 80,
+   "success": 58,
+   "success_rate": 0.725,
+   "success_ci": [
+    0.618557347158301,
+    0.8108237715226401
+   ],
+   "tool_calls_mean": 1.2,
+   "model_calls_mean": 2.2,
+   "tokens_mean": 1563.925,
+   "cost_usd": 0.0,
+   "wall_s_median": 2.4439379284740426,
+   "gate_steps": 176,
+   "interventions": 18,
+   "noncompliant_fallbacks": 0,
+   "gate_errors": {},
+   "gate_ms_median": 90.28692048741505,
+   "replay_verdicts": {
+    "restored_with_act (evidence, not proof)": 4
+   }
+  },
+  "none": {
+   "episodes": 80,
+   "success": 62,
+   "success_rate": 0.775,
+   "success_ci": [
+    0.6721300467523076,
+    0.8526690983021762
+   ],
+   "tool_calls_mean": 1.45,
+   "model_calls_mean": 2.375,
+   "tokens_mean": 1889.85,
+   "cost_usd": 0.0,
+   "wall_s_median": 2.504891353484709,
+   "gate_steps": 190,
+   "interventions": 0,
+   "noncompliant_fallbacks": 0,
+   "gate_errors": {},
+   "gate_ms_median": null,
+   "replay_verdicts": {}
+  }
+ },
+ "per_family": {
+  "shared": {
+   "CalculatorEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "CodeExecutorEnv": {
+    "n": 8,
+    "success": 4
+   },
+   "DecodingEnv": {
+    "n": 2,
+    "success": 0
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 6,
+    "success": 6
+   },
+   "ScheduleEnv": {
+    "n": 2,
+    "success": 0
+   },
+   "ask": {
+    "n": 6,
+    "success": 6
+   },
+   "decline": {
+    "n": 6,
+    "success": 6
+   },
+   "general": {
+    "n": 6,
+    "success": 6
+   },
+   "repo_fact": {
+    "n": 4,
+    "success": 0
+   },
+   "weather": {
+    "n": 4,
+    "success": 4
+   },
+   "weather_compare": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 4
+   },
+   "weather_f": {
+    "n": 6,
+    "success": 0
+   },
+   "web": {
+    "n": 6,
+    "success": 0
+   },
+   "web_email": {
+    "n": 6,
+    "success": 0
+   }
+  },
+  "rules": {
+   "CalculatorEnv": {
+    "n": 4,
+    "success": 2
+   },
+   "CodeExecutorEnv": {
+    "n": 8,
+    "success": 4
+   },
+   "DecodingEnv": {
+    "n": 2,
+    "success": 0
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 6,
+    "success": 4
+   },
+   "ScheduleEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 6,
+    "success": 2
+   },
+   "decline": {
+    "n": 6,
+    "success": 4
+   },
+   "general": {
+    "n": 6,
+    "success": 6
+   },
+   "repo_fact": {
+    "n": 4,
+    "success": 0
+   },
+   "weather": {
+    "n": 4,
+    "success": 0
+   },
+   "weather_compare": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 0
+   },
+   "weather_f": {
+    "n": 6,
+    "success": 0
+   },
+   "web": {
+    "n": 6,
+    "success": 0
+   },
+   "web_email": {
+    "n": 6,
+    "success": 0
+   }
+  },
+  "adapted": {
+   "CalculatorEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "CodeExecutorEnv": {
+    "n": 8,
+    "success": 8
+   },
+   "DecodingEnv": {
+    "n": 2,
+    "success": 0
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 6,
+    "success": 6
+   },
+   "ScheduleEnv": {
+    "n": 2,
+    "success": 0
+   },
+   "ask": {
+    "n": 6,
+    "success": 4
+   },
+   "decline": {
+    "n": 6,
+    "success": 4
+   },
+   "general": {
+    "n": 6,
+    "success": 6
+   },
+   "repo_fact": {
+    "n": 4,
+    "success": 4
+   },
+   "weather": {
+    "n": 4,
+    "success": 4
+   },
+   "weather_compare": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_f": {
+    "n": 6,
+    "success": 2
+   },
+   "web": {
+    "n": 6,
+    "success": 2
+   },
+   "web_email": {
+    "n": 6,
+    "success": 0
+   }
+  },
+  "none": {
+   "CalculatorEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "CodeExecutorEnv": {
+    "n": 8,
+    "success": 8
+   },
+   "DecodingEnv": {
+    "n": 2,
+    "success": 0
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 6,
+    "success": 6
+   },
+   "ScheduleEnv": {
+    "n": 2,
+    "success": 0
+   },
+   "ask": {
+    "n": 6,
+    "success": 4
+   },
+   "decline": {
+    "n": 6,
+    "success": 4
+   },
+   "general": {
+    "n": 6,
+    "success": 6
+   },
+   "repo_fact": {
+    "n": 4,
+    "success": 4
+   },
+   "weather": {
+    "n": 4,
+    "success": 4
+   },
+   "weather_compare": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_f": {
+    "n": 6,
+    "success": 2
+   },
+   "web": {
+    "n": 6,
+    "success": 4
+   },
+   "web_email": {
+    "n": 6,
+    "success": 2
+   }
+  }
+ }
+}
