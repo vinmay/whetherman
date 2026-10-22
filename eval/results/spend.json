@@ -112,9 +112,15 @@
    "what": "label L w2t/probe_extra",
    "usd": 0.213457,
    "tasks": 106
+  },
+  {
+   "ts": "2026-10-22T10:20:23",
+   "kind": "hosted",
+   "what": "A/B ab_dev L adapted",
+   "usd": 0.023032
   }
  ],
  "totals_usd": {
-  "hosted": 1.821585
+  "hosted": 1.844617
  }
 }

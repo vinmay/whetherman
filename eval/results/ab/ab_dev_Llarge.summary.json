@@ -1,0 +1,119 @@
+{
+ "guessable_families": [
+  "weather_compare"
+ ],
+ "configs": {
+  "adapted": {
+   "episodes": 80,
+   "success": 55,
+   "success_rate": 0.6875,
+   "success_ci": [
+    0.5793201821792608,
+    0.7784974167215235
+   ],
+   "tool_calls_mean": 1.6375,
+   "model_calls_mean": 2.6,
+   "tokens_mean": 1349.6375,
+   "cost_usd": 0.0230323,
+   "wall_s_median": 4.715514235547744,
+   "gate_steps": 208,
+   "interventions": 55,
+   "noncompliant_fallbacks": 19,
+   "gate_errors": {},
+   "gate_ms_median": 241.95791949750856,
+   "replay_verdicts": {}
+  }
+ },
+ "headline": {
+  "adapted": {
+   "episodes": 74,
+   "success": 51,
+   "success_rate": 0.6891891891891891,
+   "success_ci": [
+    0.5766117525232517,
+    0.7830930839652068
+   ],
+   "tool_calls_mean": 1.5810810810810811
+  }
+ },
+ "guessable": {
+  "adapted": {
+   "episodes": 6,
+   "success": 4,
+   "success_rate": 0.6666666666666666,
+   "success_ci": [
+    0.29998832134152864,
+    0.9032306674407831
+   ],
+   "tool_calls_mean": 2.3333333333333335
+  }
+ },
+ "per_family": {
+  "adapted": {
+   "CalculatorEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "CodeExecutorEnv": {
+    "n": 8,
+    "success": 8
+   },
+   "DecodingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 6,
+    "success": 6
+   },
+   "ScheduleEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 6,
+    "success": 5
+   },
+   "decline": {
+    "n": 6,
+    "success": 1
+   },
+   "general": {
+    "n": 6,
+    "success": 6
+   },
+   "repo_fact": {
+    "n": 4,
+    "success": 4
+   },
+   "weather": {
+    "n": 4,
+    "success": 4
+   },
+   "weather_compare": {
+    "n": 6,
+    "success": 4
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_f": {
+    "n": 6,
+    "success": 1
+   },
+   "web": {
+    "n": 6,
+    "success": 0
+   },
+   "web_email": {
+    "n": 6,
+    "success": 0
+   }
+  }
+ }
+}

@@ -62,6 +62,15 @@ that skips the lookup can still pass by guessing from climate. Dev labeling show
 **guessable** group and excluded from headline A/B success and tool-call savings. No other family has a
 two-choice oracle.
 
+### Large probe pack (dev experiment, not adopted)
+
+`probe_pack_large/` adds 106 fresh When2Tool train tasks (`w2t/probe_extra.jsonl`, disjoint from E2-train,
+the default probe and every test set). Rule fixed before running: adopt it for an agent if its dev-A/B
+success is at least the default-pack profile's minus one and it makes fewer tool calls. Dev A/B, headline
+tasks (guessable excluded), 37 tasks × 2 repeats: L 51/74 vs 55/74 (1.58 vs 1.50 tools/episode); S 52/74 vs
+54/74 (1.22 vs 1.22). Neither agent adopts it; the shipped profiles use the default pack. The S default-pack
+profile was fit before the two relabeled probe tasks had labels (see below) and is kept as validated.
+
 ## Tool-necessity labels
 
 `whetherman/labeling.py::label_necessity` with `configs/labeling.yaml` (shared by E2 and `calibrate`):
