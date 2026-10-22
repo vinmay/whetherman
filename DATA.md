@@ -54,6 +54,14 @@ evaluated and nothing is tuned on those labels before the freeze.
   were run through the prompted Qwen3.5-4B router and the rules router to confirm that Ollama returns
   log-probabilities. Outputs were seen; no code, prompt, threshold or data was changed in response.
 
+### Guessable tasks (rule fixed 2026-10-22, before any final A/B run)
+
+`weather_compare` tasks ("Which is warmer right now, A or B?") accept either named city, so an agent
+that skips the lookup can still pass by guessing from climate. Dev labeling showed this: Agent S
+"answered unaided" on all three dev instances. These tasks (3 dev, 5 final) are reported as a separate
+**guessable** group and excluded from headline A/B success and tool-call savings. No other family has a
+two-choice oracle.
+
 ## Tool-necessity labels
 
 `whetherman/labeling.py::label_necessity` with `configs/labeling.yaml` (shared by E2 and `calibrate`):
