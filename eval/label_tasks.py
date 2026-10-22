@@ -14,7 +14,7 @@ from pathlib import Path
 
 from eval import spend
 from whetherman.agents import agent_config, make_client
-from whetherman.labeling import infra_error, label_necessity, load_config
+from whetherman.labeling import INFRA, infra_error, label_necessity, load_config
 from whetherman.tasks import load_tasks
 
 FIX = Path(__file__).resolve().parents[1] / "data" / "fixtures"
@@ -62,6 +62,8 @@ def main() -> None:
                     d = lab.to_dict()
                     if infra_error(d):
                         failed += 1
+                        err = next(e["error"] for e in d["episodes"] if (e.get("error") or "").startswith(INFRA))
+                        print(f"  {d['task_id']}: {err[:200]}", flush=True)
                         continue
                     f.write(json.dumps(d) + "\n")
                     f.flush()

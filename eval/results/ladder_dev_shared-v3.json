@@ -1,0 +1,4312 @@
+{
+ "phase": "dev",
+ "fixed": {
+  "untuned/e1_val": {
+   "all": {
+    "n": 600,
+    "accuracy": 0.5916666666666667,
+    "macro_f1": 0.577353474412298,
+    "confusion": [
+     [
+      193,
+      2,
+      3,
+      2
+     ],
+     [
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      138,
+      2,
+      59,
+      1
+     ],
+     [
+      85,
+      1,
+      11,
+      103
+     ]
+    ],
+    "labels": [
+     "ACT",
+     "ANSWER",
+     "ASK",
+     "DECLINE"
+    ],
+    "false_skip": {
+     "k": 7,
+     "n": 200,
+     "rate": 0.035,
+     "ci95": [
+      0.0171,
+      0.0705
+     ]
+    },
+    "false_skip_by_class": {
+     "ANSWER": {
+      "k": 2,
+      "n": 200,
+      "rate": 0.01,
+      "ci95": [
+       0.0027,
+       0.0357
+      ]
+     },
+     "ASK": {
+      "k": 3,
+      "n": 200,
+      "rate": 0.015,
+      "ci95": [
+       0.0051,
+       0.0432
+      ]
+     },
+     "DECLINE": {
+      "k": 2,
+      "n": 200,
+      "rate": 0.01,
+      "ci95": [
+       0.0027,
+       0.0357
+      ]
+     }
+    },
+    "correct_suppression": {
+     "k": 177,
+     "n": 400,
+     "rate": 0.4425,
+     "ci95": [
+      0.3946,
+      0.4915
+     ]
+    },
+    "exact_non_act": {
+     "k": 162,
+     "n": 400,
+     "rate": 0.405,
+     "ci95": [
+      0.358,
+      0.4538
+     ]
+    },
+    "intervention": {
+     "k": 184,
+     "n": 600,
+     "rate": 0.30666666666666664,
+     "ci95": [
+      0.2711,
+      0.3447
+     ]
+    },
+    "ece": 0.3863904265817119,
+    "risk_coverage": [
+     {
+      "coverage": 0.1,
+      "risk": 0.01666666666666672
+     },
+     {
+      "coverage": 0.2,
+      "risk": 0.1333333333333333
+     },
+     {
+      "coverage": 0.3,
+      "risk": 0.19444444444444442
+     },
+     {
+      "coverage": 0.4,
+      "risk": 0.2583333333333333
+     },
+     {
+      "coverage": 0.5,
+      "risk": 0.2766666666666666
+     },
+     {
+      "coverage": 0.6,
+      "risk": 0.3138888888888889
+     },
+     {
+      "coverage": 0.7,
+      "risk": 0.32619047619047614
+     },
+     {
+      "coverage": 0.8,
+      "risk": 0.35624999999999996
+     },
+     {
+      "coverage": 0.9,
+      "risk": 0.3907407407407407
+     },
+     {
+      "coverage": 1.0,
+      "risk": 0.4083333333333333
+     }
+    ]
+   },
+   "decisions": {
+    "w2c-sft-10212": "ACT",
+    "w2c-sft-5647": "ACT",
+    "w2c-pref-4404": "ACT",
+    "w2c-pref-8069": "DECLINE",
+    "w2c-pref-3622": "ACT",
+    "w2c-sft-8107": "DECLINE",
+    "w2c-pref-8349": "ACT",
+    "w2c-pref-166": "ACT",
+    "w2c-sft-11460": "ASK",
+    "w2c-sft-14164": "ANSWER",
+    "w2c-pref-8972": "ACT",
+    "w2c-pref-7104": "ACT",
+    "w2c-sft-3897": "ACT",
+    "w2c-pref-6128": "DECLINE",
+    "w2c-sft-14312": "ACT",
+    "w2c-sft-1615": "ACT",
+    "w2c-sft-14845": "ASK",
+    "w2c-pref-74": "ACT",
+    "w2c-sft-10150": "ASK",
+    "w2c-sft-6208": "ACT",
+    "w2c-pref-3996": "ACT",
+    "w2c-sft-14582": "DECLINE",
+    "w2c-sft-8387": "DECLINE",
+    "w2c-sft-10676": "ACT",
+    "w2c-sft-5000": "ACT",
+    "w2c-pref-8821": "DECLINE",
+    "w2c-pref-5689": "ACT",
+    "w2c-sft-9184": "ACT",
+    "w2c-sft-6801": "ACT",
+    "w2c-pref-8301": "DECLINE",
+    "w2c-pref-4768": "ACT",
+    "w2c-sft-14536": "ASK",
+    "w2c-pref-4018": "ACT",
+    "w2c-sft-4504": "ACT",
+    "w2c-sft-542": "ACT",
+    "w2c-sft-5649": "ASK",
+    "w2c-pref-7367": "ACT",
+    "w2c-pref-520": "ACT",
+    "w2c-sft-9126": "ACT",
+    "w2c-sft-5785": "ACT",
+    "w2c-pref-4883": "DECLINE",
+    "w2c-pref-3599": "ACT",
+    "w2c-pref-1410": "ACT",
+    "w2c-pref-16": "ACT",
+    "w2c-pref-8288": "ACT",
+    "w2c-pref-5625": "ACT",
+    "w2c-pref-8681": "ACT",
+    "w2c-sft-13149": "ACT",
+    "w2c-pref-8931": "ACT",
+    "w2c-sft-3548": "ACT",
+    "w2c-sft-2149": "ACT",
+    "w2c-pref-1665": "ACT",
+    "w2c-pref-4142": "ACT",
+    "w2c-sft-14864": "DECLINE",
+    "w2c-pref-176": "ACT",
+    "w2c-pref-6617": "ACT",
+    "w2c-pref-2056": "ACT",
+    "w2c-sft-6481": "ACT",
+    "w2c-pref-2351": "ACT",
+    "w2c-pref-4432": "ASK",
+    "w2c-pref-2008": "ACT",
+    "w2c-sft-8386": "DECLINE",
+    "w2c-sft-10034": "ASK",
+    "w2c-sft-1715": "DECLINE",
+    "w2c-sft-12167": "ACT",
+    "w2c-pref-7206": "ACT",
+    "w2c-sft-4694": "DECLINE",
+    "w2c-pref-8493": "ACT",
+    "w2c-sft-10810": "ASK",
+    "w2c-sft-3414": "ASK",
+    "w2c-sft-9361": "DECLINE",
+    "w2c-sft-13019": "ACT",
+    "w2c-sft-8076": "ACT",
+    "w2c-pref-5115": "ACT",
+    "w2c-pref-3109": "ACT",
+    "w2c-pref-8087": "ACT",
+    "w2c-sft-179": "ACT",
+    "w2c-sft-8504": "ACT",
+    "w2c-sft-11816": "DECLINE",
+    "w2c-sft-14934": "ACT",
+    "w2c-pref-7478": "DECLINE",
+    "w2c-sft-11054": "DECLINE",
+    "w2c-pref-6683": "ACT",
+    "w2c-pref-7182": "DECLINE",
+    "w2c-pref-1871": "DECLINE",
+    "w2c-sft-11727": "ACT",
+    "w2c-pref-831": "DECLINE",
+    "w2c-pref-6179": "ASK",
+    "w2c-pref-196": "ACT",
+    "w2c-sft-1841": "ACT",
+    "w2c-sft-1645": "ACT",
+    "w2c-sft-3917": "DECLINE",
+    "w2c-sft-7403": "ACT",
+    "w2c-pref-2099": "ACT",
+    "w2c-sft-4531": "ACT",
+    "w2c-pref-2284": "ACT",
+    "w2c-sft-5910": "ACT",
+    "w2c-sft-9069": "ACT",
+    "w2c-pref-7619": "ACT",
+    "w2c-sft-5579": "ACT",
+    "w2c-pref-648": "ACT",
+    "w2c-pref-1174": "ACT",
+    "w2c-sft-6100": "DECLINE",
+    "w2c-pref-8753": "ACT",
+    "w2c-sft-8447": "ACT",
+    "w2c-pref-1541": "ACT",
+    "w2c-sft-10616": "ACT",
+    "w2c-sft-13352": "ACT",
+    "w2c-pref-1679": "ACT",
+    "w2c-pref-4363": "ACT",
+    "w2c-pref-3797": "ACT",
+    "w2c-sft-9672": "DECLINE",
+    "w2c-sft-13675": "ACT",
+    "w2c-sft-3245": "ACT",
+    "w2c-sft-9643": "DECLINE",
+    "w2c-sft-5889": "DECLINE",
+    "w2c-pref-5511": "ACT",
+    "w2c-pref-3821": "ACT",
+    "w2c-sft-8490": "ASK",
+    "w2c-sft-11665": "ASK",
+    "w2c-pref-5249": "ACT",
+    "w2c-pref-2697": "ACT",
+    "w2c-pref-3636": "ACT",
+    "w2c-sft-5398": "DECLINE",
+    "w2c-pref-593": "DECLINE",
+    "w2c-pref-6966": "ACT",
+    "w2c-pref-8097": "ACT",
+    "w2c-pref-1086": "ACT",
+    "w2c-pref-2950": "ACT",
+    "w2c-pref-1332": "ACT",
+    "w2c-sft-1158": "DECLINE",
+    "w2c-sft-13899": "ACT",
+    "w2c-sft-13796": "ACT",
+    "w2c-pref-3768": "ACT",
+    "w2c-sft-162": "ACT",
+    "w2c-pref-3401": "ACT",
+    "w2c-pref-5773": "ACT",
+    "w2c-pref-8128": "ACT",
+    "w2c-pref-1449": "ACT",
+    "w2c-pref-5382": "ACT",
+    "w2c-pref-2823": "DECLINE",
+    "w2c-sft-11058": "DECLINE",
+    "w2c-pref-6764": "ACT",
+    "w2c-sft-8086": "ASK",
+    "w2c-sft-14058": "ASK",
+    "w2c-pref-587": "ACT",
+    "w2c-pref-6351": "ACT",
+    "w2c-sft-11873": "DECLINE",
+    "w2c-sft-13748": "ACT",
+    "w2c-pref-1857": "DECLINE",
+    "w2c-pref-6777": "DECLINE",
+    "w2c-pref-757": "ACT",
+    "w2c-pref-7463": "ACT",
+    "w2c-pref-2375": "ACT",
+    "w2c-pref-1448": "ACT",
+    "w2c-sft-13573": "ACT",
+    "w2c-sft-936": "ACT",
+    "w2c-pref-6103": "ACT",
+    "w2c-pref-7594": "ACT",
+    "w2c-sft-12075": "ACT",
+    "w2c-sft-8542": "ACT",
+    "w2c-sft-11613": "ASK",
+    "w2c-sft-11257": "ACT",
+    "w2c-pref-173": "ACT",
+    "w2c-sft-12885": "ACT",
+    "w2c-pref-1002": "ACT",
+    "w2c-sft-3163": "ASK",
+    "w2c-sft-3262": "ACT",
+    "w2c-pref-666": "DECLINE",
+    "w2c-sft-1992": "ACT",
+    "w2c-pref-3787": "ACT",
+    "w2c-sft-14123": "ASK",
+    "w2c-sft-11592": "DECLINE",
+    "w2c-sft-10271": "ACT",
+    "w2c-sft-5247": "ACT",
+    "w2c-sft-14279": "DECLINE",
+    "w2c-pref-198": "ACT",
+    "w2c-pref-4675": "ACT",
+    "w2c-pref-404": "ACT",
+    "w2c-sft-5302": "DECLINE",
+    "w2c-sft-12177": "ACT",
+    "w2c-pref-7802": "ACT",
+    "w2c-pref-7284": "ACT",
+    "w2c-sft-14262": "ACT",
+    "w2c-pref-4529": "ACT",
+    "w2c-sft-850": "DECLINE",
+    "w2c-sft-3821": "ACT",
+    "w2c-pref-2248": "DECLINE",
+    "w2c-sft-12832": "ASK",
+    "w2c-pref-7111": "ACT",
+    "w2c-pref-5353": "ACT",
+    "w2c-sft-6348": "ACT",
+    "w2c-sft-14714": "ASK",
+    "w2c-sft-10527": "DECLINE",
+    "w2c-sft-6637": "ACT",
+    "w2c-sft-4542": "ACT",
+    "w2c-sft-10241": "ASK",
+    "w2c-sft-3951": "ACT",
+    "w2c-pref-7901": "ASK",
+    "w2c-pref-636": "ACT",
+    "w2c-pref-5434": "ASK",
+    "w2c-pref-1966": "ACT",
+    "w2c-pref-8504": "ASK",
+    "w2c-sft-619": "ACT",
+    "w2c-sft-3607": "DECLINE",
+    "w2c-pref-8014": "ACT",
+    "w2c-pref-4171": "ACT",
+    "w2c-pref-7891": "ACT",
+    "w2c-sft-361": "ACT",
+    "w2c-pref-5418": "ACT",
+    "w2c-pref-7775": "ACT",
+    "w2c-pref-7365": "ACT",
+    "w2c-pref-1017": "ACT",
+    "w2c-pref-7633": "ACT",
+    "w2c-pref-6433": "ACT",
+    "w2c-pref-2303": "ACT",
+    "w2c-pref-2150": "ACT",
+    "w2c-pref-1977": "ACT",
+    "w2c-pref-3309": "ACT",
+    "w2c-sft-5366": "ASK",
+    "w2c-pref-7529": "ACT",
+    "w2c-pref-743": "ACT",
+    "w2c-sft-13264": "DECLINE",
+    "w2c-sft-12093": "ACT",
+    "w2c-sft-3704": "ACT",
+    "w2c-sft-6010": "ACT",
+    "w2c-sft-7872": "DECLINE",
+    "w2c-sft-13754": "ASK",
+    "w2c-pref-1928": "ACT",
+    "w2c-pref-6420": "ACT",
+    "w2c-sft-14353": "ACT",
+    "w2c-sft-7408": "ACT",
+    "w2c-sft-12989": "DECLINE",
+    "w2c-sft-1904": "DECLINE",
+    "w2c-pref-5046": "ACT",
+    "w2c-pref-4801": "ANSWER",
+    "w2c-pref-6255": "ACT",
+    "w2c-pref-5169": "ACT",
+    "w2c-sft-536": "DECLINE",
+    "w2c-sft-6201": "ASK",
+    "w2c-sft-5572": "ACT",
+    "w2c-sft-4309": "ACT",
+    "w2c-sft-10630": "ACT",
+    "w2c-pref-977": "ACT",
+    "w2c-sft-7497": "ACT",
+    "w2c-sft-7677": "DECLINE",
+    "w2c-pref-4313": "ACT",
+    "w2c-pref-6594": "ASK",
+    "w2c-pref-6531": "ACT",
+    "w2c-pref-8161": "ACT",
+    "w2c-pref-1827": "ACT",
+    "w2c-pref-3561": "ACT",
+    "w2c-pref-4844": "ACT",
+    "w2c-pref-962": "ACT",
+    "w2c-sft-14762": "ACT",
+    "w2c-sft-5675": "ASK",
+    "w2c-sft-12971": "ACT",
+    "w2c-pref-123": "ACT",
+    "w2c-pref-339": "ACT",
+    "w2c-sft-13898": "DECLINE",
+    "w2c-pref-7076": "ACT",
+    "w2c-sft-9728": "ACT",
+    "w2c-pref-92": "ACT",
+    "w2c-pref-4383": "ACT",
+    "w2c-pref-6944": "ACT",
+    "w2c-pref-714": "ACT",
+    "w2c-pref-2631": "ACT",
+    "w2c-pref-1697": "ACT",
+    "w2c-sft-12231": "ACT",
+    "w2c-sft-12337": "ASK",
+    "w2c-pref-6638": "ACT",
+    "w2c-sft-1242": "ACT",
+    "w2c-sft-11371": "ACT",
+    "w2c-pref-8672": "ACT",
+    "w2c-pref-2189": "ACT",
+    "w2c-sft-13138": "ACT",
+    "w2c-sft-5614": "ASK",
+    "w2c-sft-13217": "DECLINE",
+    "w2c-sft-7373": "DECLINE",
+    "w2c-pref-4978": "ACT",
+    "w2c-pref-8232": "ACT",
+    "w2c-sft-8377": "ACT",
+    "w2c-pref-4054": "ACT",
+    "w2c-pref-4246": "ACT",
+    "w2c-pref-4066": "ACT",
+    "w2c-pref-4984": "ACT",
+    "w2c-pref-320": "ACT",
+    "w2c-sft-6737": "ACT",
+    "w2c-sft-6446": "ACT",
+    "w2c-pref-6706": "DECLINE",
+    "w2c-pref-902": "ASK",
+    "w2c-pref-3540": "ASK",
+    "w2c-sft-9316": "ASK",
+    "w2c-sft-12826": "ASK",
+    "w2c-pref-3624": "ACT",
+    "w2c-pref-921": "ACT",
+    "w2c-sft-7156": "ACT",
+    "w2c-sft-11508": "DECLINE",
+    "w2c-sft-14606": "ASK",
+    "w2c-sft-8060": "ACT",
+    "w2c-sft-7984": "ASK",
+    "w2c-sft-4491": "DECLINE",
+    "w2c-sft-14492": "DECLINE",
+    "w2c-sft-13268": "DECLINE",
+    "w2c-pref-2783": "ACT",
+    "w2c-pref-3160": "ACT",
+    "w2c-sft-3793": "DECLINE",
+    "w2c-sft-1903": "ACT",
+    "w2c-pref-4642": "ACT",
+    "w2c-sft-1320": "ASK",
+    "w2c-pref-6370": "ACT",
+    "w2c-pref-2718": "ACT",
+    "w2c-pref-775": "ACT",
+    "w2c-pref-6516": "ACT",
+    "w2c-sft-5383": "DECLINE",
+    "w2c-sft-13801": "ACT",
+    "w2c-pref-557": "ASK",
+    "w2c-pref-1248": "ACT",
+    "w2c-sft-7874": "ACT",
+    "w2c-sft-898": "ACT",
+    "w2c-sft-12119": "ACT",
+    "w2c-sft-8733": "ACT",
+    "w2c-sft-9395": "ACT",
+    "w2c-sft-7852": "ACT",
+    "w2c-pref-4522": "ACT",
+    "w2c-sft-5902": "ACT",
+    "w2c-pref-8724": "ACT",
+    "w2c-pref-6192": "ACT",
+    "w2c-sft-3741": "DECLINE",
+    "w2c-sft-3357": "ACT",
+    "w2c-sft-5078": "ACT",
+    "w2c-sft-4826": "ACT",
+    "w2c-pref-7644": "ACT",
+    "w2c-sft-1795": "DECLINE",
+    "w2c-sft-14954": "ASK",
+    "w2c-pref-3661": "ACT",
+    "w2c-sft-3217": "DECLINE",
+    "w2c-sft-14491": "ACT",
+    "w2c-pref-8530": "ACT",
+    "w2c-sft-349": "ACT",
+    "w2c-sft-8448": "ACT",
+    "w2c-pref-6624": "ACT",
+    "w2c-pref-6954": "ACT",
+    "w2c-sft-12305": "ACT",
+    "w2c-pref-7889": "ACT",
+    "w2c-sft-1529": "ACT",
+    "w2c-sft-10054": "ASK",
+    "w2c-pref-8800": "ASK",
+    "w2c-sft-13066": "ACT",
+    "w2c-sft-12691": "ANSWER",
+    "w2c-pref-7212": "ACT",
+    "w2c-pref-5596": "ACT",
+    "w2c-pref-7859": "DECLINE",
+    "w2c-pref-6788": "ACT",
+    "w2c-pref-892": "ACT",
+    "w2c-sft-1430": "ACT",
+    "w2c-sft-4176": "ASK",
+    "w2c-sft-1349": "ASK",
+    "w2c-sft-6670": "ACT",
+    "w2c-sft-5443": "ASK",
+    "w2c-pref-7110": "ACT",
+    "w2c-pref-3049": "ACT",
+    "w2c-pref-1890": "ACT",
+    "w2c-pref-3900": "ACT",
+    "w2c-pref-7058": "ASK",
+    "w2c-pref-7818": "ACT",
+    "w2c-pref-8480": "ACT",
+    "w2c-sft-5999": "DECLINE",
+    "w2c-pref-4539": "ACT",
+    "w2c-sft-8839": "ACT",
+    "w2c-pref-4161": "ACT",
+    "w2c-pref-856": "ACT",
+    "w2c-sft-12920": "ACT",
+    "w2c-pref-1992": "ANSWER",
+    "w2c-sft-13337": "DECLINE",
+    "w2c-pref-8049": "ACT",
+    "w2c-sft-13946": "DECLINE",
+    "w2c-sft-10424": "ACT",
+    "w2c-pref-3662": "ACT",
+    "w2c-pref-1236": "ACT",
+    "w2c-pref-7648": "ANSWER",
+    "w2c-sft-4211": "DECLINE",
+    "w2c-sft-11701": "DECLINE",
+    "w2c-sft-9615": "ACT",
+    "w2c-pref-5392": "ACT",
+    "w2c-pref-3376": "ACT",
+    "w2c-pref-6804": "ASK",
+    "w2c-sft-14435": "ACT",
+    "w2c-pref-6265": "ACT",
+    "w2c-pref-4868": "ACT",
+    "w2c-sft-2605": "DECLINE",
+    "w2c-sft-2727": "ACT",
+    "w2c-pref-6092": "DECLINE",
+    "w2c-sft-4497": "DECLINE",
+    "w2c-pref-1197": "DECLINE",
+    "w2c-sft-4791": "ASK",
+    "w2c-sft-11039": "ACT",
+    "w2c-sft-12988": "ACT",
+    "w2c-pref-6665": "ACT",
+    "w2c-pref-5486": "ACT",
+    "w2c-sft-7569": "ACT",
+    "w2c-sft-6189": "ASK",
+    "w2c-pref-6904": "ACT",
+    "w2c-sft-1326": "ACT",
+    "w2c-sft-14758": "ASK",
+    "w2c-pref-4467": "ACT",
+    "w2c-sft-8763": "DECLINE",
+    "w2c-pref-1630": "ACT",
+    "w2c-sft-9913": "DECLINE",
+    "w2c-sft-14943": "DECLINE",
+    "w2c-sft-12544": "ASK",
+    "w2c-pref-319": "ACT",
+    "w2c-pref-8174": "ACT",
+    "w2c-pref-7216": "ACT",
+    "w2c-pref-5431": "ACT",
+    "w2c-pref-2498": "ACT",
+    "w2c-sft-2255": "ASK",
+    "w2c-sft-2666": "ACT",
+    "w2c-sft-10923": "ACT",
+    "w2c-sft-852": "ACT",
+    "w2c-sft-2339": "ACT",
+    "w2c-sft-4099": "ACT",
+    "w2c-sft-558": "DECLINE",
+    "w2c-pref-4254": "ACT",
+    "w2c-pref-6487": "ACT",
+    "w2c-pref-1303": "ACT",
+    "w2c-pref-556": "ACT",
+    "w2c-pref-1194": "ACT",
+    "w2c-pref-7805": "ACT",
+    "w2c-pref-5829": "ACT",
+    "w2c-sft-8152": "ACT",
+    "w2c-sft-10904": "ACT",
+    "w2c-sft-11775": "ASK",
+    "w2c-pref-5810": "ACT",
+    "w2c-pref-4105": "ACT",
+    "w2c-pref-3458": "ACT",
+    "w2c-sft-5427": "ACT",
+    "w2c-sft-8411": "ASK",
+    "w2c-pref-4141": "DECLINE",
+    "w2c-pref-974": "ACT",
+    "w2c-sft-14271": "ACT",
+    "w2c-sft-12809": "DECLINE",
+    "w2c-pref-7146": "ACT",
+    "w2c-sft-5354": "ACT",
+    "w2c-sft-1168": "ACT",
+    "w2c-pref-8636": "ASK",
+    "w2c-pref-3273": "DECLINE",
+    "w2c-sft-1274": "DECLINE",
+    "w2c-pref-429": "ACT",
+    "w2c-pref-8281": "ACT",
+    "w2c-sft-213": "ACT",
+    "w2c-sft-3519": "ACT",
+    "w2c-sft-10373": "ASK",
+    "w2c-sft-10625": "ACT",
+    "w2c-pref-5876": "ACT",
+    "w2c-pref-5569": "DECLINE",
+    "w2c-sft-14638": "ACT",
+    "w2c-pref-6290": "ACT",
+    "w2c-pref-2074": "ACT",
+    "w2c-sft-8813": "ACT",
+    "w2c-sft-14751": "ACT",
+    "w2c-sft-3568": "ASK",
+    "w2c-sft-11300": "ACT",
+    "w2c-sft-10131": "ASK",
+    "w2c-pref-5426": "ACT",
+    "w2c-sft-9374": "ACT",
+    "w2c-sft-3581": "ACT",
+    "w2c-pref-280": "ACT",
+    "w2c-pref-6449": "ACT",
+    "w2c-pref-3648": "ACT",
+    "w2c-pref-9": "ACT",
+    "w2c-pref-1182": "DECLINE",
+    "w2c-pref-6357": "ACT",
+    "w2c-sft-4852": "ACT",
+    "w2c-sft-539": "ASK",
+    "w2c-pref-5743": "DECLINE",
+    "w2c-sft-13434": "ACT",
+    "w2c-pref-6608": "ASK",
+    "w2c-pref-5932": "ACT",
+    "w2c-sft-4322": "ASK",
+    "w2c-pref-7608": "ACT",
+    "w2c-pref-3520": "ACT",
+    "w2c-pref-5316": "ACT",
+    "w2c-sft-1287": "ACT",
+    "w2c-pref-1388": "ACT",
+    "w2c-sft-7176": "ACT",
+    "w2c-pref-2597": "ACT",
+    "w2c-sft-13286": "ASK",
+    "w2c-sft-11697": "DECLINE",
+    "w2c-sft-9975": "ACT",
+    "w2c-sft-5468": "DECLINE",
+    "w2c-pref-1131": "ACT",
+    "w2c-sft-8104": "ACT",
+    "w2c-sft-7329": "ACT",
+    "w2c-sft-11368": "ACT",
+    "w2c-pref-2200": "ACT",
+    "w2c-pref-6742": "ACT",
+    "w2c-sft-2169": "ASK",
+    "w2c-pref-3771": "ACT",
+    "w2c-sft-8059": "ACT",
+    "w2c-sft-9073": "ACT",
+    "w2c-pref-4138": "ACT",
+    "w2c-pref-1637": "ACT",
+    "w2c-pref-866": "ACT",
+    "w2c-sft-10476": "ASK",
+    "w2c-pref-413": "ACT",
+    "w2c-sft-14329": "DECLINE",
+    "w2c-sft-4574": "DECLINE",
+    "w2c-pref-3268": "DECLINE",
+    "w2c-pref-8448": "ACT",
+    "w2c-pref-8170": "ACT",
+    "w2c-sft-14230": "DECLINE",
+    "w2c-sft-72": "ACT",
+    "w2c-pref-8984": "ACT",
+    "w2c-pref-6623": "ACT",
+    "w2c-sft-6849": "ASK",
+    "w2c-sft-7228": "DECLINE",
+    "w2c-pref-3824": "ACT",
+    "w2c-pref-2363": "ACT",
+    "w2c-sft-12836": "DECLINE",
+    "w2c-pref-657": "ACT",
+    "w2c-sft-13385": "ACT",
+    "w2c-pref-6493": "ACT",
+    "w2c-sft-1505": "ASK",
+    "w2c-pref-8262": "ACT",
+    "w2c-sft-4390": "DECLINE",
+    "w2c-pref-2186": "ACT",
+    "w2c-pref-4165": "ACT",
+    "w2c-sft-11174": "DECLINE",
+    "w2c-sft-11835": "ACT",
+    "w2c-pref-7458": "ACT",
+    "w2c-pref-6355": "ACT",
+    "w2c-pref-691": "ACT",
+    "w2c-sft-11032": "ACT",
+    "w2c-sft-13226": "DECLINE",
+    "w2c-pref-2999": "ACT",
+    "w2c-sft-9551": "DECLINE",
+    "w2c-sft-4701": "ACT",
+    "w2c-sft-5075": "ACT",
+    "w2c-pref-4552": "ACT",
+    "w2c-pref-4440": "ACT",
+    "w2c-pref-5779": "ACT",
+    "w2c-sft-7476": "ACT",
+    "w2c-sft-6398": "ASK",
+    "w2c-sft-14573": "ACT",
+    "w2c-pref-82": "ACT",
+    "w2c-sft-13415": "ASK",
+    "w2c-pref-3876": "DECLINE",
+    "w2c-pref-2345": "DECLINE",
+    "w2c-sft-6070": "DECLINE",
+    "w2c-pref-6424": "ACT",
+    "w2c-pref-3276": "ACT",
+    "w2c-pref-5091": "ACT",
+    "w2c-sft-11750": "ACT",
+    "w2c-pref-5543": "ACT",
+    "w2c-pref-7615": "ACT",
+    "w2c-pref-7945": "ACT",
+    "w2c-sft-7997": "ASK",
+    "w2c-sft-10355": "DECLINE",
+    "w2c-sft-6535": "ACT",
+    "w2c-pref-8785": "ACT",
+    "w2c-pref-8100": "DECLINE",
+    "w2c-pref-2588": "ACT",
+    "w2c-pref-6560": "ACT",
+    "w2c-sft-2874": "ACT",
+    "w2c-pref-8205": "ACT",
+    "w2c-pref-7037": "ACT",
+    "w2c-pref-1021": "ACT",
+    "w2c-sft-176": "ASK",
+    "w2c-pref-2134": "ACT",
+    "w2c-sft-12096": "ACT",
+    "w2c-sft-11249": "DECLINE",
+    "w2c-pref-4055": "ACT",
+    "w2c-sft-8136": "DECLINE",
+    "w2c-sft-12255": "ACT",
+    "w2c-sft-9476": "DECLINE",
+    "w2c-pref-3244": "ASK",
+    "w2c-pref-6505": "ACT",
+    "w2c-sft-9993": "ACT",
+    "w2c-sft-9742": "ACT",
+    "w2c-sft-10331": "ACT",
+    "w2c-sft-2916": "DECLINE",
+    "w2c-sft-6744": "ASK",
+    "w2c-sft-8800": "DECLINE",
+    "w2c-sft-13500": "ACT",
+    "w2c-pref-3664": "ACT",
+    "w2c-pref-2942": "ACT",
+    "w2c-sft-5581": "DECLINE",
+    "w2c-pref-653": "ACT",
+    "w2c-pref-3241": "ASK",
+    "w2c-sft-10803": "ASK",
+    "w2c-pref-620": "ACT",
+    "w2c-sft-8862": "ACT",
+    "w2c-sft-8227": "DECLINE",
+    "w2c-sft-709": "ACT",
+    "w2c-pref-7333": "ACT",
+    "w2c-sft-9107": "ACT",
+    "w2c-pref-639": "DECLINE",
+    "w2c-sft-10829": "DECLINE",
+    "w2c-sft-2451": "ACT"
+   }
+  },
+  "shared/e1_val": {
+   "all": {
+    "n": 600,
+    "accuracy": 0.895,
+    "macro_f1": 0.895387543123043,
+    "confusion": [
+     [
+      171,
+      0,
+      25,
+      4
+     ],
+     [
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      26,
+      0,
+      174,
+      0
+     ],
+     [
+      6,
+      0,
+      2,
+      192
+     ]
+    ],
+    "labels": [
+     "ACT",
+     "ANSWER",
+     "ASK",
+     "DECLINE"
+    ],
+    "false_skip": {
+     "k": 29,
+     "n": 200,
+     "rate": 0.145,
+     "ci95": [
+      0.1029,
+      0.2005
+     ]
+    },
+    "false_skip_by_class": {
+     "ANSWER": {
+      "k": 0,
+      "n": 200,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.0188
+      ]
+     },
+     "ASK": {
+      "k": 25,
+      "n": 200,
+      "rate": 0.125,
+      "ci95": [
+       0.0861,
+       0.178
+      ]
+     },
+     "DECLINE": {
+      "k": 4,
+      "n": 200,
+      "rate": 0.02,
+      "ci95": [
+       0.0078,
+       0.0503
+      ]
+     }
+    },
+    "correct_suppression": {
+     "k": 368,
+     "n": 400,
+     "rate": 0.92,
+     "ci95": [
+      0.8892,
+      0.9428
+     ]
+    },
+    "exact_non_act": {
+     "k": 366,
+     "n": 400,
+     "rate": 0.915,
+     "ci95": [
+      0.8836,
+      0.9385
+     ]
+    },
+    "intervention": {
+     "k": 397,
+     "n": 600,
+     "rate": 0.6616666666666666,
+     "ci95": [
+      0.6229,
+      0.6984
+     ]
+    },
+    "ece": 0.05737751453282077,
+    "risk_coverage": [
+     {
+      "coverage": 0.1,
+      "risk": 0.01666666666666672
+     },
+     {
+      "coverage": 0.2,
+      "risk": 0.008333333333333304
+     },
+     {
+      "coverage": 0.3,
+      "risk": 0.005555555555555536
+     },
+     {
+      "coverage": 0.4,
+      "risk": 0.01666666666666672
+     },
+     {
+      "coverage": 0.5,
+      "risk": 0.01666666666666672
+     },
+     {
+      "coverage": 0.6,
+      "risk": 0.02777777777777779
+     },
+     {
+      "coverage": 0.7,
+      "risk": 0.042857142857142816
+     },
+     {
+      "coverage": 0.8,
+      "risk": 0.05833333333333335
+     },
+     {
+      "coverage": 0.9,
+      "risk": 0.07592592592592595
+     },
+     {
+      "coverage": 1.0,
+      "risk": 0.10333333333333339
+     }
+    ]
+   },
+   "decisions": {
+    "w2c-sft-10212": "DECLINE",
+    "w2c-sft-5647": "DECLINE",
+    "w2c-pref-4404": "ACT",
+    "w2c-pref-8069": "DECLINE",
+    "w2c-pref-3622": "ASK",
+    "w2c-sft-8107": "DECLINE",
+    "w2c-pref-8349": "ACT",
+    "w2c-pref-166": "ASK",
+    "w2c-sft-11460": "ASK",
+    "w2c-sft-14164": "ASK",
+    "w2c-pref-8972": "ACT",
+    "w2c-pref-7104": "ASK",
+    "w2c-sft-3897": "ACT",
+    "w2c-pref-6128": "ACT",
+    "w2c-sft-14312": "DECLINE",
+    "w2c-sft-1615": "ASK",
+    "w2c-sft-14845": "ASK",
+    "w2c-pref-74": "ACT",
+    "w2c-sft-10150": "ASK",
+    "w2c-sft-6208": "ASK",
+    "w2c-pref-3996": "ACT",
+    "w2c-sft-14582": "DECLINE",
+    "w2c-sft-8387": "DECLINE",
+    "w2c-sft-10676": "DECLINE",
+    "w2c-sft-5000": "ASK",
+    "w2c-pref-8821": "DECLINE",
+    "w2c-pref-5689": "ACT",
+    "w2c-sft-9184": "ASK",
+    "w2c-sft-6801": "ACT",
+    "w2c-pref-8301": "DECLINE",
+    "w2c-pref-4768": "ACT",
+    "w2c-sft-14536": "ASK",
+    "w2c-pref-4018": "DECLINE",
+    "w2c-sft-4504": "DECLINE",
+    "w2c-sft-542": "DECLINE",
+    "w2c-sft-5649": "DECLINE",
+    "w2c-pref-7367": "ASK",
+    "w2c-pref-520": "ACT",
+    "w2c-sft-9126": "ASK",
+    "w2c-sft-5785": "DECLINE",
+    "w2c-pref-4883": "DECLINE",
+    "w2c-pref-3599": "ACT",
+    "w2c-pref-1410": "ACT",
+    "w2c-pref-16": "ASK",
+    "w2c-pref-8288": "ASK",
+    "w2c-pref-5625": "ACT",
+    "w2c-pref-8681": "ACT",
+    "w2c-sft-13149": "ASK",
+    "w2c-pref-8931": "ASK",
+    "w2c-sft-3548": "ASK",
+    "w2c-sft-2149": "ASK",
+    "w2c-pref-1665": "ACT",
+    "w2c-pref-4142": "ACT",
+    "w2c-sft-14864": "DECLINE",
+    "w2c-pref-176": "ASK",
+    "w2c-pref-6617": "DECLINE",
+    "w2c-pref-2056": "ACT",
+    "w2c-sft-6481": "ASK",
+    "w2c-pref-2351": "ACT",
+    "w2c-pref-4432": "ASK",
+    "w2c-pref-2008": "ACT",
+    "w2c-sft-8386": "DECLINE",
+    "w2c-sft-10034": "ASK",
+    "w2c-sft-1715": "DECLINE",
+    "w2c-sft-12167": "DECLINE",
+    "w2c-pref-7206": "ACT",
+    "w2c-sft-4694": "DECLINE",
+    "w2c-pref-8493": "ASK",
+    "w2c-sft-10810": "ASK",
+    "w2c-sft-3414": "ASK",
+    "w2c-sft-9361": "DECLINE",
+    "w2c-sft-13019": "ASK",
+    "w2c-sft-8076": "ASK",
+    "w2c-pref-5115": "ACT",
+    "w2c-pref-3109": "ACT",
+    "w2c-pref-8087": "ACT",
+    "w2c-sft-179": "ASK",
+    "w2c-sft-8504": "ACT",
+    "w2c-sft-11816": "DECLINE",
+    "w2c-sft-14934": "ASK",
+    "w2c-pref-7478": "DECLINE",
+    "w2c-sft-11054": "DECLINE",
+    "w2c-pref-6683": "ASK",
+    "w2c-pref-7182": "DECLINE",
+    "w2c-pref-1871": "DECLINE",
+    "w2c-sft-11727": "ASK",
+    "w2c-pref-831": "DECLINE",
+    "w2c-pref-6179": "ASK",
+    "w2c-pref-196": "ACT",
+    "w2c-sft-1841": "DECLINE",
+    "w2c-sft-1645": "ASK",
+    "w2c-sft-3917": "DECLINE",
+    "w2c-sft-7403": "ASK",
+    "w2c-pref-2099": "ACT",
+    "w2c-sft-4531": "ASK",
+    "w2c-pref-2284": "ACT",
+    "w2c-sft-5910": "DECLINE",
+    "w2c-sft-9069": "ASK",
+    "w2c-pref-7619": "ASK",
+    "w2c-sft-5579": "DECLINE",
+    "w2c-pref-648": "ACT",
+    "w2c-pref-1174": "ACT",
+    "w2c-sft-6100": "DECLINE",
+    "w2c-pref-8753": "ACT",
+    "w2c-sft-8447": "DECLINE",
+    "w2c-pref-1541": "ASK",
+    "w2c-sft-10616": "ASK",
+    "w2c-sft-13352": "ASK",
+    "w2c-pref-1679": "DECLINE",
+    "w2c-pref-4363": "ACT",
+    "w2c-pref-3797": "ASK",
+    "w2c-sft-9672": "DECLINE",
+    "w2c-sft-13675": "ASK",
+    "w2c-sft-3245": "DECLINE",
+    "w2c-sft-9643": "DECLINE",
+    "w2c-sft-5889": "DECLINE",
+    "w2c-pref-5511": "ACT",
+    "w2c-pref-3821": "ACT",
+    "w2c-sft-8490": "DECLINE",
+    "w2c-sft-11665": "ASK",
+    "w2c-pref-5249": "ASK",
+    "w2c-pref-2697": "ACT",
+    "w2c-pref-3636": "ACT",
+    "w2c-sft-5398": "DECLINE",
+    "w2c-pref-593": "DECLINE",
+    "w2c-pref-6966": "ACT",
+    "w2c-pref-8097": "ASK",
+    "w2c-pref-1086": "ACT",
+    "w2c-pref-2950": "ACT",
+    "w2c-pref-1332": "ACT",
+    "w2c-sft-1158": "DECLINE",
+    "w2c-sft-13899": "ASK",
+    "w2c-sft-13796": "ASK",
+    "w2c-pref-3768": "DECLINE",
+    "w2c-sft-162": "ACT",
+    "w2c-pref-3401": "ACT",
+    "w2c-pref-5773": "ASK",
+    "w2c-pref-8128": "ASK",
+    "w2c-pref-1449": "ASK",
+    "w2c-pref-5382": "ACT",
+    "w2c-pref-2823": "ACT",
+    "w2c-sft-11058": "DECLINE",
+    "w2c-pref-6764": "ASK",
+    "w2c-sft-8086": "ASK",
+    "w2c-sft-14058": "ASK",
+    "w2c-pref-587": "ACT",
+    "w2c-pref-6351": "ACT",
+    "w2c-sft-11873": "DECLINE",
+    "w2c-sft-13748": "ASK",
+    "w2c-pref-1857": "DECLINE",
+    "w2c-pref-6777": "DECLINE",
+    "w2c-pref-757": "ACT",
+    "w2c-pref-7463": "ACT",
+    "w2c-pref-2375": "ACT",
+    "w2c-pref-1448": "ASK",
+    "w2c-sft-13573": "DECLINE",
+    "w2c-sft-936": "DECLINE",
+    "w2c-pref-6103": "ACT",
+    "w2c-pref-7594": "ASK",
+    "w2c-sft-12075": "DECLINE",
+    "w2c-sft-8542": "DECLINE",
+    "w2c-sft-11613": "ASK",
+    "w2c-sft-11257": "DECLINE",
+    "w2c-pref-173": "ACT",
+    "w2c-sft-12885": "DECLINE",
+    "w2c-pref-1002": "DECLINE",
+    "w2c-sft-3163": "ASK",
+    "w2c-sft-3262": "DECLINE",
+    "w2c-pref-666": "DECLINE",
+    "w2c-sft-1992": "ACT",
+    "w2c-pref-3787": "ACT",
+    "w2c-sft-14123": "ASK",
+    "w2c-sft-11592": "DECLINE",
+    "w2c-sft-10271": "ASK",
+    "w2c-sft-5247": "DECLINE",
+    "w2c-sft-14279": "DECLINE",
+    "w2c-pref-198": "ACT",
+    "w2c-pref-4675": "ACT",
+    "w2c-pref-404": "ACT",
+    "w2c-sft-5302": "DECLINE",
+    "w2c-sft-12177": "ASK",
+    "w2c-pref-7802": "ACT",
+    "w2c-pref-7284": "ACT",
+    "w2c-sft-14262": "DECLINE",
+    "w2c-pref-4529": "ACT",
+    "w2c-sft-850": "DECLINE",
+    "w2c-sft-3821": "ASK",
+    "w2c-pref-2248": "DECLINE",
+    "w2c-sft-12832": "ASK",
+    "w2c-pref-7111": "ACT",
+    "w2c-pref-5353": "ACT",
+    "w2c-sft-6348": "DECLINE",
+    "w2c-sft-14714": "ASK",
+    "w2c-sft-10527": "DECLINE",
+    "w2c-sft-6637": "DECLINE",
+    "w2c-sft-4542": "DECLINE",
+    "w2c-sft-10241": "DECLINE",
+    "w2c-sft-3951": "DECLINE",
+    "w2c-pref-7901": "ACT",
+    "w2c-pref-636": "ACT",
+    "w2c-pref-5434": "ACT",
+    "w2c-pref-1966": "ACT",
+    "w2c-pref-8504": "ASK",
+    "w2c-sft-619": "ACT",
+    "w2c-sft-3607": "DECLINE",
+    "w2c-pref-8014": "ACT",
+    "w2c-pref-4171": "DECLINE",
+    "w2c-pref-7891": "ACT",
+    "w2c-sft-361": "ASK",
+    "w2c-pref-5418": "ACT",
+    "w2c-pref-7775": "ACT",
+    "w2c-pref-7365": "ACT",
+    "w2c-pref-1017": "ACT",
+    "w2c-pref-7633": "ACT",
+    "w2c-pref-6433": "ASK",
+    "w2c-pref-2303": "ACT",
+    "w2c-pref-2150": "ASK",
+    "w2c-pref-1977": "ACT",
+    "w2c-pref-3309": "ACT",
+    "w2c-sft-5366": "ASK",
+    "w2c-pref-7529": "ACT",
+    "w2c-pref-743": "ACT",
+    "w2c-sft-13264": "DECLINE",
+    "w2c-sft-12093": "DECLINE",
+    "w2c-sft-3704": "DECLINE",
+    "w2c-sft-6010": "ACT",
+    "w2c-sft-7872": "DECLINE",
+    "w2c-sft-13754": "ASK",
+    "w2c-pref-1928": "ACT",
+    "w2c-pref-6420": "ASK",
+    "w2c-sft-14353": "ASK",
+    "w2c-sft-7408": "ASK",
+    "w2c-sft-12989": "DECLINE",
+    "w2c-sft-1904": "DECLINE",
+    "w2c-pref-5046": "DECLINE",
+    "w2c-pref-4801": "ACT",
+    "w2c-pref-6255": "ASK",
+    "w2c-pref-5169": "ACT",
+    "w2c-sft-536": "DECLINE",
+    "w2c-sft-6201": "ASK",
+    "w2c-sft-5572": "DECLINE",
+    "w2c-sft-4309": "ACT",
+    "w2c-sft-10630": "DECLINE",
+    "w2c-pref-977": "ASK",
+    "w2c-sft-7497": "ASK",
+    "w2c-sft-7677": "DECLINE",
+    "w2c-pref-4313": "ASK",
+    "w2c-pref-6594": "ASK",
+    "w2c-pref-6531": "ACT",
+    "w2c-pref-8161": "ACT",
+    "w2c-pref-1827": "ACT",
+    "w2c-pref-3561": "ACT",
+    "w2c-pref-4844": "ASK",
+    "w2c-pref-962": "ASK",
+    "w2c-sft-14762": "ASK",
+    "w2c-sft-5675": "ASK",
+    "w2c-sft-12971": "DECLINE",
+    "w2c-pref-123": "ACT",
+    "w2c-pref-339": "ASK",
+    "w2c-sft-13898": "DECLINE",
+    "w2c-pref-7076": "ACT",
+    "w2c-sft-9728": "ASK",
+    "w2c-pref-92": "ACT",
+    "w2c-pref-4383": "ACT",
+    "w2c-pref-6944": "ACT",
+    "w2c-pref-714": "ACT",
+    "w2c-pref-2631": "ACT",
+    "w2c-pref-1697": "DECLINE",
+    "w2c-sft-12231": "ACT",
+    "w2c-sft-12337": "DECLINE",
+    "w2c-pref-6638": "ACT",
+    "w2c-sft-1242": "ACT",
+    "w2c-sft-11371": "ACT",
+    "w2c-pref-8672": "ACT",
+    "w2c-pref-2189": "ASK",
+    "w2c-sft-13138": "DECLINE",
+    "w2c-sft-5614": "ASK",
+    "w2c-sft-13217": "DECLINE",
+    "w2c-sft-7373": "DECLINE",
+    "w2c-pref-4978": "DECLINE",
+    "w2c-pref-8232": "ACT",
+    "w2c-sft-8377": "ASK",
+    "w2c-pref-4054": "ASK",
+    "w2c-pref-4246": "ACT",
+    "w2c-pref-4066": "DECLINE",
+    "w2c-pref-4984": "ACT",
+    "w2c-pref-320": "ACT",
+    "w2c-sft-6737": "DECLINE",
+    "w2c-sft-6446": "DECLINE",
+    "w2c-pref-6706": "DECLINE",
+    "w2c-pref-902": "ASK",
+    "w2c-pref-3540": "ASK",
+    "w2c-sft-9316": "DECLINE",
+    "w2c-sft-12826": "ASK",
+    "w2c-pref-3624": "ACT",
+    "w2c-pref-921": "ASK",
+    "w2c-sft-7156": "ASK",
+    "w2c-sft-11508": "DECLINE",
+    "w2c-sft-14606": "ASK",
+    "w2c-sft-8060": "ASK",
+    "w2c-sft-7984": "ASK",
+    "w2c-sft-4491": "DECLINE",
+    "w2c-sft-14492": "DECLINE",
+    "w2c-sft-13268": "DECLINE",
+    "w2c-pref-2783": "ACT",
+    "w2c-pref-3160": "ASK",
+    "w2c-sft-3793": "DECLINE",
+    "w2c-sft-1903": "DECLINE",
+    "w2c-pref-4642": "ACT",
+    "w2c-sft-1320": "ASK",
+    "w2c-pref-6370": "ACT",
+    "w2c-pref-2718": "ACT",
+    "w2c-pref-775": "ACT",
+    "w2c-pref-6516": "ACT",
+    "w2c-sft-5383": "DECLINE",
+    "w2c-sft-13801": "ACT",
+    "w2c-pref-557": "ASK",
+    "w2c-pref-1248": "ACT",
+    "w2c-sft-7874": "ASK",
+    "w2c-sft-898": "DECLINE",
+    "w2c-sft-12119": "DECLINE",
+    "w2c-sft-8733": "ASK",
+    "w2c-sft-9395": "ASK",
+    "w2c-sft-7852": "ASK",
+    "w2c-pref-4522": "ACT",
+    "w2c-sft-5902": "DECLINE",
+    "w2c-pref-8724": "ACT",
+    "w2c-pref-6192": "ACT",
+    "w2c-sft-3741": "DECLINE",
+    "w2c-sft-3357": "ASK",
+    "w2c-sft-5078": "DECLINE",
+    "w2c-sft-4826": "DECLINE",
+    "w2c-pref-7644": "ASK",
+    "w2c-sft-1795": "DECLINE",
+    "w2c-sft-14954": "ASK",
+    "w2c-pref-3661": "ACT",
+    "w2c-sft-3217": "DECLINE",
+    "w2c-sft-14491": "ASK",
+    "w2c-pref-8530": "ACT",
+    "w2c-sft-349": "DECLINE",
+    "w2c-sft-8448": "ASK",
+    "w2c-pref-6624": "ACT",
+    "w2c-pref-6954": "ACT",
+    "w2c-sft-12305": "ACT",
+    "w2c-pref-7889": "ACT",
+    "w2c-sft-1529": "ASK",
+    "w2c-sft-10054": "DECLINE",
+    "w2c-pref-8800": "ASK",
+    "w2c-sft-13066": "ASK",
+    "w2c-sft-12691": "DECLINE",
+    "w2c-pref-7212": "ASK",
+    "w2c-pref-5596": "DECLINE",
+    "w2c-pref-7859": "DECLINE",
+    "w2c-pref-6788": "ASK",
+    "w2c-pref-892": "ACT",
+    "w2c-sft-1430": "DECLINE",
+    "w2c-sft-4176": "ASK",
+    "w2c-sft-1349": "ASK",
+    "w2c-sft-6670": "ASK",
+    "w2c-sft-5443": "ASK",
+    "w2c-pref-7110": "ACT",
+    "w2c-pref-3049": "ACT",
+    "w2c-pref-1890": "ACT",
+    "w2c-pref-3900": "ACT",
+    "w2c-pref-7058": "ASK",
+    "w2c-pref-7818": "ASK",
+    "w2c-pref-8480": "ACT",
+    "w2c-sft-5999": "DECLINE",
+    "w2c-pref-4539": "ACT",
+    "w2c-sft-8839": "ASK",
+    "w2c-pref-4161": "ACT",
+    "w2c-pref-856": "ACT",
+    "w2c-sft-12920": "DECLINE",
+    "w2c-pref-1992": "ACT",
+    "w2c-sft-13337": "DECLINE",
+    "w2c-pref-8049": "ACT",
+    "w2c-sft-13946": "DECLINE",
+    "w2c-sft-10424": "ASK",
+    "w2c-pref-3662": "ACT",
+    "w2c-pref-1236": "ACT",
+    "w2c-pref-7648": "ACT",
+    "w2c-sft-4211": "DECLINE",
+    "w2c-sft-11701": "DECLINE",
+    "w2c-sft-9615": "ASK",
+    "w2c-pref-5392": "ACT",
+    "w2c-pref-3376": "ACT",
+    "w2c-pref-6804": "ASK",
+    "w2c-sft-14435": "DECLINE",
+    "w2c-pref-6265": "ACT",
+    "w2c-pref-4868": "ACT",
+    "w2c-sft-2605": "DECLINE",
+    "w2c-sft-2727": "ACT",
+    "w2c-pref-6092": "DECLINE",
+    "w2c-sft-4497": "DECLINE",
+    "w2c-pref-1197": "DECLINE",
+    "w2c-sft-4791": "ASK",
+    "w2c-sft-11039": "ASK",
+    "w2c-sft-12988": "ACT",
+    "w2c-pref-6665": "ASK",
+    "w2c-pref-5486": "ASK",
+    "w2c-sft-7569": "ASK",
+    "w2c-sft-6189": "ASK",
+    "w2c-pref-6904": "ASK",
+    "w2c-sft-1326": "ASK",
+    "w2c-sft-14758": "ASK",
+    "w2c-pref-4467": "DECLINE",
+    "w2c-sft-8763": "DECLINE",
+    "w2c-pref-1630": "ASK",
+    "w2c-sft-9913": "DECLINE",
+    "w2c-sft-14943": "DECLINE",
+    "w2c-sft-12544": "ASK",
+    "w2c-pref-319": "ASK",
+    "w2c-pref-8174": "ACT",
+    "w2c-pref-7216": "ACT",
+    "w2c-pref-5431": "DECLINE",
+    "w2c-pref-2498": "ASK",
+    "w2c-sft-2255": "ASK",
+    "w2c-sft-2666": "ASK",
+    "w2c-sft-10923": "ACT",
+    "w2c-sft-852": "ASK",
+    "w2c-sft-2339": "ACT",
+    "w2c-sft-4099": "ASK",
+    "w2c-sft-558": "DECLINE",
+    "w2c-pref-4254": "ASK",
+    "w2c-pref-6487": "DECLINE",
+    "w2c-pref-1303": "ACT",
+    "w2c-pref-556": "ACT",
+    "w2c-pref-1194": "ACT",
+    "w2c-pref-7805": "ACT",
+    "w2c-pref-5829": "ACT",
+    "w2c-sft-8152": "ACT",
+    "w2c-sft-10904": "DECLINE",
+    "w2c-sft-11775": "DECLINE",
+    "w2c-pref-5810": "ACT",
+    "w2c-pref-4105": "ASK",
+    "w2c-pref-3458": "ASK",
+    "w2c-sft-5427": "ACT",
+    "w2c-sft-8411": "ASK",
+    "w2c-pref-4141": "DECLINE",
+    "w2c-pref-974": "DECLINE",
+    "w2c-sft-14271": "ASK",
+    "w2c-sft-12809": "DECLINE",
+    "w2c-pref-7146": "ACT",
+    "w2c-sft-5354": "DECLINE",
+    "w2c-sft-1168": "ASK",
+    "w2c-pref-8636": "ACT",
+    "w2c-pref-3273": "DECLINE",
+    "w2c-sft-1274": "DECLINE",
+    "w2c-pref-429": "ASK",
+    "w2c-pref-8281": "ACT",
+    "w2c-sft-213": "ASK",
+    "w2c-sft-3519": "ASK",
+    "w2c-sft-10373": "ASK",
+    "w2c-sft-10625": "ASK",
+    "w2c-pref-5876": "ACT",
+    "w2c-pref-5569": "DECLINE",
+    "w2c-sft-14638": "DECLINE",
+    "w2c-pref-6290": "ASK",
+    "w2c-pref-2074": "ACT",
+    "w2c-sft-8813": "ASK",
+    "w2c-sft-14751": "DECLINE",
+    "w2c-sft-3568": "ASK",
+    "w2c-sft-11300": "DECLINE",
+    "w2c-sft-10131": "ASK",
+    "w2c-pref-5426": "ACT",
+    "w2c-sft-9374": "ASK",
+    "w2c-sft-3581": "DECLINE",
+    "w2c-pref-280": "ACT",
+    "w2c-pref-6449": "ASK",
+    "w2c-pref-3648": "ACT",
+    "w2c-pref-9": "ASK",
+    "w2c-pref-1182": "DECLINE",
+    "w2c-pref-6357": "ACT",
+    "w2c-sft-4852": "ACT",
+    "w2c-sft-539": "DECLINE",
+    "w2c-pref-5743": "ASK",
+    "w2c-sft-13434": "ACT",
+    "w2c-pref-6608": "ASK",
+    "w2c-pref-5932": "DECLINE",
+    "w2c-sft-4322": "ASK",
+    "w2c-pref-7608": "ACT",
+    "w2c-pref-3520": "ACT",
+    "w2c-pref-5316": "ACT",
+    "w2c-sft-1287": "ASK",
+    "w2c-pref-1388": "ASK",
+    "w2c-sft-7176": "DECLINE",
+    "w2c-pref-2597": "ACT",
+    "w2c-sft-13286": "ASK",
+    "w2c-sft-11697": "DECLINE",
+    "w2c-sft-9975": "ASK",
+    "w2c-sft-5468": "DECLINE",
+    "w2c-pref-1131": "ACT",
+    "w2c-sft-8104": "ASK",
+    "w2c-sft-7329": "DECLINE",
+    "w2c-sft-11368": "ASK",
+    "w2c-pref-2200": "DECLINE",
+    "w2c-pref-6742": "ASK",
+    "w2c-sft-2169": "ASK",
+    "w2c-pref-3771": "ACT",
+    "w2c-sft-8059": "ASK",
+    "w2c-sft-9073": "ASK",
+    "w2c-pref-4138": "ACT",
+    "w2c-pref-1637": "ACT",
+    "w2c-pref-866": "ASK",
+    "w2c-sft-10476": "ASK",
+    "w2c-pref-413": "ACT",
+    "w2c-sft-14329": "DECLINE",
+    "w2c-sft-4574": "DECLINE",
+    "w2c-pref-3268": "DECLINE",
+    "w2c-pref-8448": "ACT",
+    "w2c-pref-8170": "ASK",
+    "w2c-sft-14230": "DECLINE",
+    "w2c-sft-72": "DECLINE",
+    "w2c-pref-8984": "ACT",
+    "w2c-pref-6623": "ACT",
+    "w2c-sft-6849": "DECLINE",
+    "w2c-sft-7228": "DECLINE",
+    "w2c-pref-3824": "ACT",
+    "w2c-pref-2363": "DECLINE",
+    "w2c-sft-12836": "DECLINE",
+    "w2c-pref-657": "ASK",
+    "w2c-sft-13385": "DECLINE",
+    "w2c-pref-6493": "ACT",
+    "w2c-sft-1505": "DECLINE",
+    "w2c-pref-8262": "ACT",
+    "w2c-sft-4390": "DECLINE",
+    "w2c-pref-2186": "ASK",
+    "w2c-pref-4165": "ACT",
+    "w2c-sft-11174": "DECLINE",
+    "w2c-sft-11835": "DECLINE",
+    "w2c-pref-7458": "ACT",
+    "w2c-pref-6355": "ASK",
+    "w2c-pref-691": "ACT",
+    "w2c-sft-11032": "ASK",
+    "w2c-sft-13226": "DECLINE",
+    "w2c-pref-2999": "ACT",
+    "w2c-sft-9551": "DECLINE",
+    "w2c-sft-4701": "ASK",
+    "w2c-sft-5075": "DECLINE",
+    "w2c-pref-4552": "ASK",
+    "w2c-pref-4440": "ACT",
+    "w2c-pref-5779": "ACT",
+    "w2c-sft-7476": "ASK",
+    "w2c-sft-6398": "DECLINE",
+    "w2c-sft-14573": "ACT",
+    "w2c-pref-82": "ASK",
+    "w2c-sft-13415": "ASK",
+    "w2c-pref-3876": "DECLINE",
+    "w2c-pref-2345": "DECLINE",
+    "w2c-sft-6070": "DECLINE",
+    "w2c-pref-6424": "ACT",
+    "w2c-pref-3276": "ACT",
+    "w2c-pref-5091": "ACT",
+    "w2c-sft-11750": "ACT",
+    "w2c-pref-5543": "ACT",
+    "w2c-pref-7615": "ASK",
+    "w2c-pref-7945": "ACT",
+    "w2c-sft-7997": "ASK",
+    "w2c-sft-10355": "DECLINE",
+    "w2c-sft-6535": "ACT",
+    "w2c-pref-8785": "ACT",
+    "w2c-pref-8100": "DECLINE",
+    "w2c-pref-2588": "ACT",
+    "w2c-pref-6560": "ASK",
+    "w2c-sft-2874": "ASK",
+    "w2c-pref-8205": "ACT",
+    "w2c-pref-7037": "DECLINE",
+    "w2c-pref-1021": "ACT",
+    "w2c-sft-176": "ASK",
+    "w2c-pref-2134": "DECLINE",
+    "w2c-sft-12096": "ASK",
+    "w2c-sft-11249": "DECLINE",
+    "w2c-pref-4055": "DECLINE",
+    "w2c-sft-8136": "DECLINE",
+    "w2c-sft-12255": "DECLINE",
+    "w2c-sft-9476": "DECLINE",
+    "w2c-pref-3244": "ASK",
+    "w2c-pref-6505": "ACT",
+    "w2c-sft-9993": "ASK",
+    "w2c-sft-9742": "ACT",
+    "w2c-sft-10331": "ASK",
+    "w2c-sft-2916": "DECLINE",
+    "w2c-sft-6744": "ASK",
+    "w2c-sft-8800": "DECLINE",
+    "w2c-sft-13500": "ASK",
+    "w2c-pref-3664": "ACT",
+    "w2c-pref-2942": "DECLINE",
+    "w2c-sft-5581": "DECLINE",
+    "w2c-pref-653": "ACT",
+    "w2c-pref-3241": "ASK",
+    "w2c-sft-10803": "ASK",
+    "w2c-pref-620": "ACT",
+    "w2c-sft-8862": "ASK",
+    "w2c-sft-8227": "DECLINE",
+    "w2c-sft-709": "DECLINE",
+    "w2c-pref-7333": "ACT",
+    "w2c-sft-9107": "ASK",
+    "w2c-pref-639": "DECLINE",
+    "w2c-sft-10829": "DECLINE",
+    "w2c-sft-2451": "DECLINE"
+   }
+  },
+  "rules/e1_val": {
+   "all": {
+    "n": 600,
+    "accuracy": 0.32666666666666666,
+    "macro_f1": 0.19867621271098634,
+    "confusion": [
+     [
+      192,
+      8,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      192,
+      7,
+      1,
+      0
+     ],
+     [
+      106,
+      91,
+      0,
+      3
+     ]
+    ],
+    "labels": [
+     "ACT",
+     "ANSWER",
+     "ASK",
+     "DECLINE"
+    ],
+    "false_skip": {
+     "k": 8,
+     "n": 200,
+     "rate": 0.04,
+     "ci95": [
+      0.0204,
+      0.0769
+     ]
+    },
+    "false_skip_by_class": {
+     "ANSWER": {
+      "k": 8,
+      "n": 200,
+      "rate": 0.04,
+      "ci95": [
+       0.0204,
+       0.0769
+      ]
+     },
+     "ASK": {
+      "k": 0,
+      "n": 200,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.0188
+      ]
+     },
+     "DECLINE": {
+      "k": 0,
+      "n": 200,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.0188
+      ]
+     }
+    },
+    "correct_suppression": {
+     "k": 102,
+     "n": 400,
+     "rate": 0.255,
+     "ci95": [
+      0.2148,
+      0.2999
+     ]
+    },
+    "exact_non_act": {
+     "k": 4,
+     "n": 400,
+     "rate": 0.01,
+     "ci95": [
+      0.0039,
+      0.0254
+     ]
+    },
+    "intervention": {
+     "k": 110,
+     "n": 600,
+     "rate": 0.18333333333333332,
+     "ci95": [
+      0.1544,
+      0.2163
+     ]
+    },
+    "ece": 0.5743333333333336,
+    "risk_coverage": [
+     {
+      "coverage": 0.1,
+      "risk": 0.7666666666666666
+     },
+     {
+      "coverage": 0.2,
+      "risk": 0.7083333333333333
+     },
+     {
+      "coverage": 0.3,
+      "risk": 0.6833333333333333
+     },
+     {
+      "coverage": 0.4,
+      "risk": 0.6833333333333333
+     },
+     {
+      "coverage": 0.5,
+      "risk": 0.6833333333333333
+     },
+     {
+      "coverage": 0.6,
+      "risk": 0.7
+     },
+     {
+      "coverage": 0.7,
+      "risk": 0.6976190476190476
+     },
+     {
+      "coverage": 0.8,
+      "risk": 0.6875
+     },
+     {
+      "coverage": 0.9,
+      "risk": 0.6851851851851851
+     },
+     {
+      "coverage": 1.0,
+      "risk": 0.6733333333333333
+     }
+    ]
+   },
+   "decisions": {
+    "w2c-sft-10212": "ACT",
+    "w2c-sft-5647": "ACT",
+    "w2c-pref-4404": "ACT",
+    "w2c-pref-8069": "ACT",
+    "w2c-pref-3622": "ACT",
+    "w2c-sft-8107": "ANSWER",
+    "w2c-pref-8349": "ACT",
+    "w2c-pref-166": "ANSWER",
+    "w2c-sft-11460": "ACT",
+    "w2c-sft-14164": "ACT",
+    "w2c-pref-8972": "ANSWER",
+    "w2c-pref-7104": "ACT",
+    "w2c-sft-3897": "ACT",
+    "w2c-pref-6128": "ACT",
+    "w2c-sft-14312": "ACT",
+    "w2c-sft-1615": "ACT",
+    "w2c-sft-14845": "ACT",
+    "w2c-pref-74": "ANSWER",
+    "w2c-sft-10150": "ACT",
+    "w2c-sft-6208": "ACT",
+    "w2c-pref-3996": "ACT",
+    "w2c-sft-14582": "ACT",
+    "w2c-sft-8387": "ANSWER",
+    "w2c-sft-10676": "ACT",
+    "w2c-sft-5000": "ACT",
+    "w2c-pref-8821": "ACT",
+    "w2c-pref-5689": "ACT",
+    "w2c-sft-9184": "ACT",
+    "w2c-sft-6801": "ACT",
+    "w2c-pref-8301": "ANSWER",
+    "w2c-pref-4768": "ACT",
+    "w2c-sft-14536": "ACT",
+    "w2c-pref-4018": "ANSWER",
+    "w2c-sft-4504": "ACT",
+    "w2c-sft-542": "ACT",
+    "w2c-sft-5649": "ACT",
+    "w2c-pref-7367": "ACT",
+    "w2c-pref-520": "ACT",
+    "w2c-sft-9126": "ACT",
+    "w2c-sft-5785": "ACT",
+    "w2c-pref-4883": "ANSWER",
+    "w2c-pref-3599": "ACT",
+    "w2c-pref-1410": "ACT",
+    "w2c-pref-16": "ACT",
+    "w2c-pref-8288": "ACT",
+    "w2c-pref-5625": "ACT",
+    "w2c-pref-8681": "ACT",
+    "w2c-sft-13149": "ACT",
+    "w2c-pref-8931": "ACT",
+    "w2c-sft-3548": "ACT",
+    "w2c-sft-2149": "ACT",
+    "w2c-pref-1665": "ACT",
+    "w2c-pref-4142": "ACT",
+    "w2c-sft-14864": "ACT",
+    "w2c-pref-176": "ACT",
+    "w2c-pref-6617": "ACT",
+    "w2c-pref-2056": "ACT",
+    "w2c-sft-6481": "ACT",
+    "w2c-pref-2351": "ACT",
+    "w2c-pref-4432": "ACT",
+    "w2c-pref-2008": "ACT",
+    "w2c-sft-8386": "DECLINE",
+    "w2c-sft-10034": "ACT",
+    "w2c-sft-1715": "ANSWER",
+    "w2c-sft-12167": "ACT",
+    "w2c-pref-7206": "ANSWER",
+    "w2c-sft-4694": "ACT",
+    "w2c-pref-8493": "ACT",
+    "w2c-sft-10810": "ANSWER",
+    "w2c-sft-3414": "ACT",
+    "w2c-sft-9361": "ANSWER",
+    "w2c-sft-13019": "ACT",
+    "w2c-sft-8076": "ACT",
+    "w2c-pref-5115": "ACT",
+    "w2c-pref-3109": "ACT",
+    "w2c-pref-8087": "ACT",
+    "w2c-sft-179": "ACT",
+    "w2c-sft-8504": "ACT",
+    "w2c-sft-11816": "ANSWER",
+    "w2c-sft-14934": "ACT",
+    "w2c-pref-7478": "ANSWER",
+    "w2c-sft-11054": "ACT",
+    "w2c-pref-6683": "ACT",
+    "w2c-pref-7182": "ACT",
+    "w2c-pref-1871": "ANSWER",
+    "w2c-sft-11727": "ACT",
+    "w2c-pref-831": "ACT",
+    "w2c-pref-6179": "ACT",
+    "w2c-pref-196": "ACT",
+    "w2c-sft-1841": "ANSWER",
+    "w2c-sft-1645": "ACT",
+    "w2c-sft-3917": "ACT",
+    "w2c-sft-7403": "ACT",
+    "w2c-pref-2099": "ACT",
+    "w2c-sft-4531": "ACT",
+    "w2c-pref-2284": "ANSWER",
+    "w2c-sft-5910": "ANSWER",
+    "w2c-sft-9069": "ACT",
+    "w2c-pref-7619": "ACT",
+    "w2c-sft-5579": "ACT",
+    "w2c-pref-648": "ACT",
+    "w2c-pref-1174": "ACT",
+    "w2c-sft-6100": "ANSWER",
+    "w2c-pref-8753": "ANSWER",
+    "w2c-sft-8447": "ACT",
+    "w2c-pref-1541": "ACT",
+    "w2c-sft-10616": "ACT",
+    "w2c-sft-13352": "ACT",
+    "w2c-pref-1679": "ANSWER",
+    "w2c-pref-4363": "ACT",
+    "w2c-pref-3797": "ACT",
+    "w2c-sft-9672": "ANSWER",
+    "w2c-sft-13675": "ACT",
+    "w2c-sft-3245": "ANSWER",
+    "w2c-sft-9643": "ANSWER",
+    "w2c-sft-5889": "ANSWER",
+    "w2c-pref-5511": "ACT",
+    "w2c-pref-3821": "ACT",
+    "w2c-sft-8490": "ACT",
+    "w2c-sft-11665": "ANSWER",
+    "w2c-pref-5249": "ACT",
+    "w2c-pref-2697": "ACT",
+    "w2c-pref-3636": "ACT",
+    "w2c-sft-5398": "ANSWER",
+    "w2c-pref-593": "ANSWER",
+    "w2c-pref-6966": "ACT",
+    "w2c-pref-8097": "ACT",
+    "w2c-pref-1086": "ACT",
+    "w2c-pref-2950": "ACT",
+    "w2c-pref-1332": "ACT",
+    "w2c-sft-1158": "ACT",
+    "w2c-sft-13899": "ACT",
+    "w2c-sft-13796": "ACT",
+    "w2c-pref-3768": "ACT",
+    "w2c-sft-162": "ACT",
+    "w2c-pref-3401": "ACT",
+    "w2c-pref-5773": "ACT",
+    "w2c-pref-8128": "ACT",
+    "w2c-pref-1449": "ACT",
+    "w2c-pref-5382": "ACT",
+    "w2c-pref-2823": "ANSWER",
+    "w2c-sft-11058": "ANSWER",
+    "w2c-pref-6764": "ACT",
+    "w2c-sft-8086": "ACT",
+    "w2c-sft-14058": "ACT",
+    "w2c-pref-587": "ACT",
+    "w2c-pref-6351": "ACT",
+    "w2c-sft-11873": "ACT",
+    "w2c-sft-13748": "ACT",
+    "w2c-pref-1857": "ACT",
+    "w2c-pref-6777": "ANSWER",
+    "w2c-pref-757": "ACT",
+    "w2c-pref-7463": "ACT",
+    "w2c-pref-2375": "ACT",
+    "w2c-pref-1448": "ACT",
+    "w2c-sft-13573": "ACT",
+    "w2c-sft-936": "ACT",
+    "w2c-pref-6103": "ACT",
+    "w2c-pref-7594": "ACT",
+    "w2c-sft-12075": "ACT",
+    "w2c-sft-8542": "ACT",
+    "w2c-sft-11613": "ACT",
+    "w2c-sft-11257": "ANSWER",
+    "w2c-pref-173": "ACT",
+    "w2c-sft-12885": "ACT",
+    "w2c-pref-1002": "ACT",
+    "w2c-sft-3163": "ACT",
+    "w2c-sft-3262": "ACT",
+    "w2c-pref-666": "ANSWER",
+    "w2c-sft-1992": "ANSWER",
+    "w2c-pref-3787": "ACT",
+    "w2c-sft-14123": "ACT",
+    "w2c-sft-11592": "ANSWER",
+    "w2c-sft-10271": "ACT",
+    "w2c-sft-5247": "ANSWER",
+    "w2c-sft-14279": "ANSWER",
+    "w2c-pref-198": "ACT",
+    "w2c-pref-4675": "ACT",
+    "w2c-pref-404": "ACT",
+    "w2c-sft-5302": "ACT",
+    "w2c-sft-12177": "ACT",
+    "w2c-pref-7802": "ACT",
+    "w2c-pref-7284": "ACT",
+    "w2c-sft-14262": "ACT",
+    "w2c-pref-4529": "ACT",
+    "w2c-sft-850": "ACT",
+    "w2c-sft-3821": "ACT",
+    "w2c-pref-2248": "ANSWER",
+    "w2c-sft-12832": "ACT",
+    "w2c-pref-7111": "ACT",
+    "w2c-pref-5353": "ACT",
+    "w2c-sft-6348": "ANSWER",
+    "w2c-sft-14714": "ACT",
+    "w2c-sft-10527": "ACT",
+    "w2c-sft-6637": "ANSWER",
+    "w2c-sft-4542": "ACT",
+    "w2c-sft-10241": "ANSWER",
+    "w2c-sft-3951": "ACT",
+    "w2c-pref-7901": "ACT",
+    "w2c-pref-636": "ACT",
+    "w2c-pref-5434": "ACT",
+    "w2c-pref-1966": "ACT",
+    "w2c-pref-8504": "ACT",
+    "w2c-sft-619": "ACT",
+    "w2c-sft-3607": "ANSWER",
+    "w2c-pref-8014": "ACT",
+    "w2c-pref-4171": "ACT",
+    "w2c-pref-7891": "ACT",
+    "w2c-sft-361": "ACT",
+    "w2c-pref-5418": "ACT",
+    "w2c-pref-7775": "ACT",
+    "w2c-pref-7365": "ACT",
+    "w2c-pref-1017": "ACT",
+    "w2c-pref-7633": "ACT",
+    "w2c-pref-6433": "ACT",
+    "w2c-pref-2303": "ACT",
+    "w2c-pref-2150": "ACT",
+    "w2c-pref-1977": "ACT",
+    "w2c-pref-3309": "ACT",
+    "w2c-sft-5366": "ACT",
+    "w2c-pref-7529": "ACT",
+    "w2c-pref-743": "ACT",
+    "w2c-sft-13264": "ANSWER",
+    "w2c-sft-12093": "ACT",
+    "w2c-sft-3704": "ACT",
+    "w2c-sft-6010": "ACT",
+    "w2c-sft-7872": "ACT",
+    "w2c-sft-13754": "ACT",
+    "w2c-pref-1928": "ACT",
+    "w2c-pref-6420": "ACT",
+    "w2c-sft-14353": "ACT",
+    "w2c-sft-7408": "ANSWER",
+    "w2c-sft-12989": "ANSWER",
+    "w2c-sft-1904": "ANSWER",
+    "w2c-pref-5046": "ACT",
+    "w2c-pref-4801": "ACT",
+    "w2c-pref-6255": "ACT",
+    "w2c-pref-5169": "ACT",
+    "w2c-sft-536": "ANSWER",
+    "w2c-sft-6201": "ACT",
+    "w2c-sft-5572": "ANSWER",
+    "w2c-sft-4309": "ACT",
+    "w2c-sft-10630": "ACT",
+    "w2c-pref-977": "ACT",
+    "w2c-sft-7497": "ACT",
+    "w2c-sft-7677": "ANSWER",
+    "w2c-pref-4313": "ACT",
+    "w2c-pref-6594": "ACT",
+    "w2c-pref-6531": "ACT",
+    "w2c-pref-8161": "ACT",
+    "w2c-pref-1827": "ACT",
+    "w2c-pref-3561": "ACT",
+    "w2c-pref-4844": "ACT",
+    "w2c-pref-962": "ACT",
+    "w2c-sft-14762": "ACT",
+    "w2c-sft-5675": "ACT",
+    "w2c-sft-12971": "ACT",
+    "w2c-pref-123": "ACT",
+    "w2c-pref-339": "ACT",
+    "w2c-sft-13898": "ANSWER",
+    "w2c-pref-7076": "ACT",
+    "w2c-sft-9728": "ACT",
+    "w2c-pref-92": "ACT",
+    "w2c-pref-4383": "ACT",
+    "w2c-pref-6944": "ACT",
+    "w2c-pref-714": "ACT",
+    "w2c-pref-2631": "ACT",
+    "w2c-pref-1697": "ANSWER",
+    "w2c-sft-12231": "ACT",
+    "w2c-sft-12337": "ACT",
+    "w2c-pref-6638": "ACT",
+    "w2c-sft-1242": "ACT",
+    "w2c-sft-11371": "ACT",
+    "w2c-pref-8672": "ACT",
+    "w2c-pref-2189": "ACT",
+    "w2c-sft-13138": "ACT",
+    "w2c-sft-5614": "ACT",
+    "w2c-sft-13217": "ACT",
+    "w2c-sft-7373": "ANSWER",
+    "w2c-pref-4978": "ACT",
+    "w2c-pref-8232": "ACT",
+    "w2c-sft-8377": "ACT",
+    "w2c-pref-4054": "ACT",
+    "w2c-pref-4246": "ACT",
+    "w2c-pref-4066": "ACT",
+    "w2c-pref-4984": "ACT",
+    "w2c-pref-320": "ACT",
+    "w2c-sft-6737": "ACT",
+    "w2c-sft-6446": "ACT",
+    "w2c-pref-6706": "ANSWER",
+    "w2c-pref-902": "ACT",
+    "w2c-pref-3540": "ACT",
+    "w2c-sft-9316": "ANSWER",
+    "w2c-sft-12826": "ACT",
+    "w2c-pref-3624": "ACT",
+    "w2c-pref-921": "ACT",
+    "w2c-sft-7156": "ACT",
+    "w2c-sft-11508": "ACT",
+    "w2c-sft-14606": "ACT",
+    "w2c-sft-8060": "ACT",
+    "w2c-sft-7984": "ASK",
+    "w2c-sft-4491": "ANSWER",
+    "w2c-sft-14492": "ACT",
+    "w2c-sft-13268": "ANSWER",
+    "w2c-pref-2783": "ACT",
+    "w2c-pref-3160": "ACT",
+    "w2c-sft-3793": "ANSWER",
+    "w2c-sft-1903": "ACT",
+    "w2c-pref-4642": "ACT",
+    "w2c-sft-1320": "ACT",
+    "w2c-pref-6370": "ACT",
+    "w2c-pref-2718": "ACT",
+    "w2c-pref-775": "ACT",
+    "w2c-pref-6516": "ACT",
+    "w2c-sft-5383": "ACT",
+    "w2c-sft-13801": "ACT",
+    "w2c-pref-557": "ACT",
+    "w2c-pref-1248": "ACT",
+    "w2c-sft-7874": "ACT",
+    "w2c-sft-898": "ACT",
+    "w2c-sft-12119": "DECLINE",
+    "w2c-sft-8733": "ACT",
+    "w2c-sft-9395": "ACT",
+    "w2c-sft-7852": "ACT",
+    "w2c-pref-4522": "ACT",
+    "w2c-sft-5902": "ANSWER",
+    "w2c-pref-8724": "ACT",
+    "w2c-pref-6192": "ACT",
+    "w2c-sft-3741": "ANSWER",
+    "w2c-sft-3357": "ACT",
+    "w2c-sft-5078": "ACT",
+    "w2c-sft-4826": "ACT",
+    "w2c-pref-7644": "ACT",
+    "w2c-sft-1795": "ANSWER",
+    "w2c-sft-14954": "ACT",
+    "w2c-pref-3661": "ACT",
+    "w2c-sft-3217": "ANSWER",
+    "w2c-sft-14491": "ACT",
+    "w2c-pref-8530": "ACT",
+    "w2c-sft-349": "ACT",
+    "w2c-sft-8448": "ACT",
+    "w2c-pref-6624": "ACT",
+    "w2c-pref-6954": "ACT",
+    "w2c-sft-12305": "ACT",
+    "w2c-pref-7889": "ACT",
+    "w2c-sft-1529": "ACT",
+    "w2c-sft-10054": "ACT",
+    "w2c-pref-8800": "ACT",
+    "w2c-sft-13066": "ACT",
+    "w2c-sft-12691": "ACT",
+    "w2c-pref-7212": "ACT",
+    "w2c-pref-5596": "ANSWER",
+    "w2c-pref-7859": "ANSWER",
+    "w2c-pref-6788": "ACT",
+    "w2c-pref-892": "ACT",
+    "w2c-sft-1430": "ANSWER",
+    "w2c-sft-4176": "ACT",
+    "w2c-sft-1349": "ACT",
+    "w2c-sft-6670": "ACT",
+    "w2c-sft-5443": "ACT",
+    "w2c-pref-7110": "ACT",
+    "w2c-pref-3049": "ACT",
+    "w2c-pref-1890": "ACT",
+    "w2c-pref-3900": "ACT",
+    "w2c-pref-7058": "ACT",
+    "w2c-pref-7818": "ACT",
+    "w2c-pref-8480": "ACT",
+    "w2c-sft-5999": "ANSWER",
+    "w2c-pref-4539": "ACT",
+    "w2c-sft-8839": "ACT",
+    "w2c-pref-4161": "ACT",
+    "w2c-pref-856": "ACT",
+    "w2c-sft-12920": "ACT",
+    "w2c-pref-1992": "ACT",
+    "w2c-sft-13337": "ACT",
+    "w2c-pref-8049": "ACT",
+    "w2c-sft-13946": "ANSWER",
+    "w2c-sft-10424": "ACT",
+    "w2c-pref-3662": "ACT",
+    "w2c-pref-1236": "ACT",
+    "w2c-pref-7648": "ACT",
+    "w2c-sft-4211": "ANSWER",
+    "w2c-sft-11701": "ANSWER",
+    "w2c-sft-9615": "ACT",
+    "w2c-pref-5392": "ACT",
+    "w2c-pref-3376": "ACT",
+    "w2c-pref-6804": "ACT",
+    "w2c-sft-14435": "ANSWER",
+    "w2c-pref-6265": "ACT",
+    "w2c-pref-4868": "ACT",
+    "w2c-sft-2605": "ACT",
+    "w2c-sft-2727": "ACT",
+    "w2c-pref-6092": "ANSWER",
+    "w2c-sft-4497": "ANSWER",
+    "w2c-pref-1197": "ANSWER",
+    "w2c-sft-4791": "ACT",
+    "w2c-sft-11039": "ACT",
+    "w2c-sft-12988": "ACT",
+    "w2c-pref-6665": "ACT",
+    "w2c-pref-5486": "ACT",
+    "w2c-sft-7569": "ACT",
+    "w2c-sft-6189": "ACT",
+    "w2c-pref-6904": "ACT",
+    "w2c-sft-1326": "ACT",
+    "w2c-sft-14758": "ACT",
+    "w2c-pref-4467": "ANSWER",
+    "w2c-sft-8763": "ANSWER",
+    "w2c-pref-1630": "ACT",
+    "w2c-sft-9913": "ACT",
+    "w2c-sft-14943": "ANSWER",
+    "w2c-sft-12544": "ACT",
+    "w2c-pref-319": "ACT",
+    "w2c-pref-8174": "ACT",
+    "w2c-pref-7216": "ACT",
+    "w2c-pref-5431": "ACT",
+    "w2c-pref-2498": "ACT",
+    "w2c-sft-2255": "ACT",
+    "w2c-sft-2666": "ACT",
+    "w2c-sft-10923": "ACT",
+    "w2c-sft-852": "ACT",
+    "w2c-sft-2339": "ANSWER",
+    "w2c-sft-4099": "ACT",
+    "w2c-sft-558": "ANSWER",
+    "w2c-pref-4254": "ACT",
+    "w2c-pref-6487": "ACT",
+    "w2c-pref-1303": "ACT",
+    "w2c-pref-556": "ACT",
+    "w2c-pref-1194": "ACT",
+    "w2c-pref-7805": "ACT",
+    "w2c-pref-5829": "ACT",
+    "w2c-sft-8152": "ACT",
+    "w2c-sft-10904": "ACT",
+    "w2c-sft-11775": "ACT",
+    "w2c-pref-5810": "ACT",
+    "w2c-pref-4105": "ACT",
+    "w2c-pref-3458": "ACT",
+    "w2c-sft-5427": "ACT",
+    "w2c-sft-8411": "ACT",
+    "w2c-pref-4141": "ANSWER",
+    "w2c-pref-974": "ACT",
+    "w2c-sft-14271": "ACT",
+    "w2c-sft-12809": "ACT",
+    "w2c-pref-7146": "ACT",
+    "w2c-sft-5354": "ANSWER",
+    "w2c-sft-1168": "ACT",
+    "w2c-pref-8636": "ACT",
+    "w2c-pref-3273": "ACT",
+    "w2c-sft-1274": "ANSWER",
+    "w2c-pref-429": "ACT",
+    "w2c-pref-8281": "ACT",
+    "w2c-sft-213": "ACT",
+    "w2c-sft-3519": "ANSWER",
+    "w2c-sft-10373": "ACT",
+    "w2c-sft-10625": "ACT",
+    "w2c-pref-5876": "ACT",
+    "w2c-pref-5569": "ACT",
+    "w2c-sft-14638": "ANSWER",
+    "w2c-pref-6290": "ACT",
+    "w2c-pref-2074": "ACT",
+    "w2c-sft-8813": "ACT",
+    "w2c-sft-14751": "ACT",
+    "w2c-sft-3568": "ACT",
+    "w2c-sft-11300": "ANSWER",
+    "w2c-sft-10131": "ACT",
+    "w2c-pref-5426": "ACT",
+    "w2c-sft-9374": "ACT",
+    "w2c-sft-3581": "ACT",
+    "w2c-pref-280": "ACT",
+    "w2c-pref-6449": "ACT",
+    "w2c-pref-3648": "ACT",
+    "w2c-pref-9": "ACT",
+    "w2c-pref-1182": "ACT",
+    "w2c-pref-6357": "ACT",
+    "w2c-sft-4852": "ACT",
+    "w2c-sft-539": "ANSWER",
+    "w2c-pref-5743": "ANSWER",
+    "w2c-sft-13434": "ACT",
+    "w2c-pref-6608": "ACT",
+    "w2c-pref-5932": "ACT",
+    "w2c-sft-4322": "ANSWER",
+    "w2c-pref-7608": "ACT",
+    "w2c-pref-3520": "ACT",
+    "w2c-pref-5316": "ACT",
+    "w2c-sft-1287": "ACT",
+    "w2c-pref-1388": "ACT",
+    "w2c-sft-7176": "ACT",
+    "w2c-pref-2597": "ACT",
+    "w2c-sft-13286": "ACT",
+    "w2c-sft-11697": "ACT",
+    "w2c-sft-9975": "ACT",
+    "w2c-sft-5468": "ACT",
+    "w2c-pref-1131": "ACT",
+    "w2c-sft-8104": "ACT",
+    "w2c-sft-7329": "ACT",
+    "w2c-sft-11368": "ACT",
+    "w2c-pref-2200": "ACT",
+    "w2c-pref-6742": "ACT",
+    "w2c-sft-2169": "ACT",
+    "w2c-pref-3771": "ACT",
+    "w2c-sft-8059": "ACT",
+    "w2c-sft-9073": "ACT",
+    "w2c-pref-4138": "ANSWER",
+    "w2c-pref-1637": "ACT",
+    "w2c-pref-866": "ACT",
+    "w2c-sft-10476": "ACT",
+    "w2c-pref-413": "ACT",
+    "w2c-sft-14329": "ANSWER",
+    "w2c-sft-4574": "ANSWER",
+    "w2c-pref-3268": "ACT",
+    "w2c-pref-8448": "ACT",
+    "w2c-pref-8170": "ACT",
+    "w2c-sft-14230": "ACT",
+    "w2c-sft-72": "ACT",
+    "w2c-pref-8984": "ACT",
+    "w2c-pref-6623": "ACT",
+    "w2c-sft-6849": "ANSWER",
+    "w2c-sft-7228": "ACT",
+    "w2c-pref-3824": "ACT",
+    "w2c-pref-2363": "ACT",
+    "w2c-sft-12836": "ANSWER",
+    "w2c-pref-657": "ACT",
+    "w2c-sft-13385": "ACT",
+    "w2c-pref-6493": "ACT",
+    "w2c-sft-1505": "ACT",
+    "w2c-pref-8262": "ACT",
+    "w2c-sft-4390": "ANSWER",
+    "w2c-pref-2186": "ACT",
+    "w2c-pref-4165": "ACT",
+    "w2c-sft-11174": "ANSWER",
+    "w2c-sft-11835": "ACT",
+    "w2c-pref-7458": "ACT",
+    "w2c-pref-6355": "ACT",
+    "w2c-pref-691": "ACT",
+    "w2c-sft-11032": "ACT",
+    "w2c-sft-13226": "ANSWER",
+    "w2c-pref-2999": "ACT",
+    "w2c-sft-9551": "DECLINE",
+    "w2c-sft-4701": "ACT",
+    "w2c-sft-5075": "ACT",
+    "w2c-pref-4552": "ACT",
+    "w2c-pref-4440": "ACT",
+    "w2c-pref-5779": "ACT",
+    "w2c-sft-7476": "ACT",
+    "w2c-sft-6398": "ACT",
+    "w2c-sft-14573": "ACT",
+    "w2c-pref-82": "ACT",
+    "w2c-sft-13415": "ACT",
+    "w2c-pref-3876": "ANSWER",
+    "w2c-pref-2345": "ACT",
+    "w2c-sft-6070": "ANSWER",
+    "w2c-pref-6424": "ACT",
+    "w2c-pref-3276": "ACT",
+    "w2c-pref-5091": "ACT",
+    "w2c-sft-11750": "ACT",
+    "w2c-pref-5543": "ACT",
+    "w2c-pref-7615": "ACT",
+    "w2c-pref-7945": "ACT",
+    "w2c-sft-7997": "ACT",
+    "w2c-sft-10355": "ANSWER",
+    "w2c-sft-6535": "ACT",
+    "w2c-pref-8785": "ACT",
+    "w2c-pref-8100": "ANSWER",
+    "w2c-pref-2588": "ACT",
+    "w2c-pref-6560": "ACT",
+    "w2c-sft-2874": "ACT",
+    "w2c-pref-8205": "ACT",
+    "w2c-pref-7037": "ANSWER",
+    "w2c-pref-1021": "ACT",
+    "w2c-sft-176": "ACT",
+    "w2c-pref-2134": "ACT",
+    "w2c-sft-12096": "ACT",
+    "w2c-sft-11249": "ANSWER",
+    "w2c-pref-4055": "ACT",
+    "w2c-sft-8136": "ACT",
+    "w2c-sft-12255": "ACT",
+    "w2c-sft-9476": "ANSWER",
+    "w2c-pref-3244": "ACT",
+    "w2c-pref-6505": "ACT",
+    "w2c-sft-9993": "ACT",
+    "w2c-sft-9742": "ACT",
+    "w2c-sft-10331": "ACT",
+    "w2c-sft-2916": "ACT",
+    "w2c-sft-6744": "ACT",
+    "w2c-sft-8800": "ANSWER",
+    "w2c-sft-13500": "ACT",
+    "w2c-pref-3664": "ACT",
+    "w2c-pref-2942": "ACT",
+    "w2c-sft-5581": "ACT",
+    "w2c-pref-653": "ACT",
+    "w2c-pref-3241": "ACT",
+    "w2c-sft-10803": "ACT",
+    "w2c-pref-620": "ACT",
+    "w2c-sft-8862": "ACT",
+    "w2c-sft-8227": "ANSWER",
+    "w2c-sft-709": "ANSWER",
+    "w2c-pref-7333": "ACT",
+    "w2c-sft-9107": "ACT",
+    "w2c-pref-639": "ACT",
+    "w2c-sft-10829": "ANSWER",
+    "w2c-sft-2451": "ANSWER"
+   }
+  }
+ },
+ "per_agent": {
+  "L": {
+   "untuned/e2_train_val": {
+    "all": {
+     "n": 48,
+     "accuracy": 0.08333333333333333,
+     "macro_f1": 0.0784313725490196,
+     "confusion": [
+      [
+       4,
+       0,
+       0,
+       0
+      ],
+      [
+       43,
+       0,
+       0,
+       1
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ]
+     ],
+     "labels": [
+      "ACT",
+      "ANSWER",
+      "ASK",
+      "DECLINE"
+     ],
+     "false_skip": {
+      "k": 0,
+      "n": 4,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.4899
+      ]
+     },
+     "false_skip_by_class": {
+      "ANSWER": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      },
+      "ASK": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      },
+      "DECLINE": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      }
+     },
+     "correct_suppression": {
+      "k": 1,
+      "n": 44,
+      "rate": 0.022727272727272728,
+      "ci95": [
+       0.004,
+       0.1181
+      ]
+     },
+     "exact_non_act": {
+      "k": 0,
+      "n": 44,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.0803
+      ]
+     },
+     "intervention": {
+      "k": 1,
+      "n": 48,
+      "rate": 0.020833333333333332,
+      "ci95": [
+       0.0037,
+       0.109
+      ]
+     },
+     "ece": 0.9161193563525489,
+     "risk_coverage": [
+      {
+       "coverage": 0.1,
+       "risk": 0.8
+      },
+      {
+       "coverage": 0.2,
+       "risk": 0.8
+      },
+      {
+       "coverage": 0.3,
+       "risk": 0.8571428571428572
+      },
+      {
+       "coverage": 0.4,
+       "risk": 0.8947368421052632
+      },
+      {
+       "coverage": 0.5,
+       "risk": 0.9166666666666666
+      },
+      {
+       "coverage": 0.6,
+       "risk": 0.9310344827586207
+      },
+      {
+       "coverage": 0.7,
+       "risk": 0.9411764705882353
+      },
+      {
+       "coverage": 0.8,
+       "risk": 0.9473684210526316
+      },
+      {
+       "coverage": 0.9,
+       "risk": 0.9069767441860466
+      },
+      {
+       "coverage": 1.0,
+       "risk": 0.9166666666666666
+      }
+     ]
+    },
+    "disagreement": {
+     "n": 17,
+     "accuracy": 0.0,
+     "macro_f1": 0.0,
+     "confusion": [
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       17,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ]
+     ],
+     "labels": [
+      "ACT",
+      "ANSWER",
+      "ASK",
+      "DECLINE"
+     ],
+     "false_skip": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       1.0
+      ]
+     },
+     "false_skip_by_class": {
+      "ANSWER": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      },
+      "ASK": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      },
+      "DECLINE": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      }
+     },
+     "correct_suppression": {
+      "k": 0,
+      "n": 17,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.1843
+      ]
+     },
+     "exact_non_act": {
+      "k": 0,
+      "n": 17,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.1843
+      ]
+     },
+     "intervention": {
+      "k": 0,
+      "n": 17,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.1843
+      ]
+     },
+     "ece": 0.9999629139753327,
+     "risk_coverage": [
+      {
+       "coverage": 0.1,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.2,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.3,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.4,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.5,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.6,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.7,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.8,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.9,
+       "risk": 1.0
+      },
+      {
+       "coverage": 1.0,
+       "risk": 1.0
+      }
+     ]
+    },
+    "decisions": {
+     "w2t-single_hop-train-13016": "ACT",
+     "w2t-single_hop-train-12001": "ACT",
+     "w2t-single_hop-train-133016": "ACT",
+     "w2t-single_hop-train-133001": "ACT",
+     "w2t-single_hop-train-132016": "ACT",
+     "w2t-single_hop-train-31016": "ACT",
+     "w2t-single_hop-train-31011": "ACT",
+     "w2t-single_hop-train-33014": "ACT",
+     "w2t-single_hop-train-32008": "ACT",
+     "w2t-single_hop-train-121018": "ACT",
+     "w2t-single_hop-train-123008": "ACT",
+     "w2t-single_hop-train-123005": "ACT",
+     "w2t-single_hop-train-122005": "ACT",
+     "w2t-single_hop-train-101006": "ACT",
+     "w2t-single_hop-train-101005": "ACT",
+     "w2t-single_hop-train-81008": "ACT",
+     "w2t-single_hop-train-81002": "ACT",
+     "w2t-single_hop-train-91009": "ACT",
+     "w2t-single_hop-train-92020": "ACT",
+     "w2t-single_hop-train-73015": "ACT",
+     "w2t-single_hop-train-72017": "ACT",
+     "w2t-single_hop-train-72005": "ACT",
+     "w2t-single_hop-train-41007": "ACT",
+     "w2t-single_hop-train-43007": "ACT",
+     "w2t-single_hop-train-51006": "ACT",
+     "w2t-single_hop-train-53008": "ACT",
+     "w2t-single_hop-train-151004": "ACT",
+     "w2t-single_hop-train-151015": "ACT",
+     "w2t-single_hop-train-151016": "ACT",
+     "w2t-single_hop-train-151008": "ACT",
+     "w2t-single_hop-train-153020": "ACT",
+     "w2t-single_hop-train-153015": "ACT",
+     "w2t-single_hop-train-153001": "ACT",
+     "w2t-single_hop-train-152003": "ACT",
+     "w2t-single_hop-train-61011": "DECLINE",
+     "w2t-single_hop-train-63004": "ACT",
+     "w2t-single_hop-train-63016": "ACT",
+     "w2t-single_hop-train-62007": "ACT",
+     "w2t-single_hop-train-141003": "ACT",
+     "w2t-single_hop-train-143019": "ACT",
+     "w2t-single_hop-train-143004": "ACT",
+     "w2t-single_hop-train-143013": "ACT",
+     "w2t-single_hop-train-142020": "ACT",
+     "w2t-single_hop-train-142011": "ACT",
+     "w2t-single_hop-train-142010": "ACT",
+     "w2t-single_hop-train-23019": "ACT",
+     "w2t-single_hop-train-23004": "ACT",
+     "w2t-single_hop-train-22005": "ACT"
+    }
+   },
+   "shared/e2_train_val": {
+    "all": {
+     "n": 48,
+     "accuracy": 0.8541666666666666,
+     "macro_f1": 0.6886005560704356,
+     "confusion": [
+      [
+       3,
+       1,
+       0,
+       0
+      ],
+      [
+       6,
+       38,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ]
+     ],
+     "labels": [
+      "ACT",
+      "ANSWER",
+      "ASK",
+      "DECLINE"
+     ],
+     "false_skip": {
+      "k": 1,
+      "n": 4,
+      "rate": 0.25,
+      "ci95": [
+       0.0456,
+       0.6994
+      ]
+     },
+     "false_skip_by_class": {
+      "ANSWER": {
+       "k": 1,
+       "n": 4,
+       "rate": 0.25,
+       "ci95": [
+        0.0456,
+        0.6994
+       ]
+      },
+      "ASK": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      },
+      "DECLINE": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      }
+     },
+     "correct_suppression": {
+      "k": 38,
+      "n": 44,
+      "rate": 0.8636363636363636,
+      "ci95": [
+       0.7329,
+       0.936
+      ]
+     },
+     "exact_non_act": {
+      "k": 38,
+      "n": 44,
+      "rate": 0.8636363636363636,
+      "ci95": [
+       0.7329,
+       0.936
+      ]
+     },
+     "intervention": {
+      "k": 39,
+      "n": 48,
+      "rate": 0.8125,
+      "ci95": [
+       0.6806,
+       0.8981
+      ]
+     },
+     "ece": 0.09781332886637262,
+     "risk_coverage": [
+      {
+       "coverage": 0.1,
+       "risk": 0.4
+      },
+      {
+       "coverage": 0.2,
+       "risk": 0.19999999999999996
+      },
+      {
+       "coverage": 0.3,
+       "risk": 0.1428571428571429
+      },
+      {
+       "coverage": 0.4,
+       "risk": 0.10526315789473684
+      },
+      {
+       "coverage": 0.5,
+       "risk": 0.125
+      },
+      {
+       "coverage": 0.6,
+       "risk": 0.10344827586206895
+      },
+      {
+       "coverage": 0.7,
+       "risk": 0.08823529411764708
+      },
+      {
+       "coverage": 0.8,
+       "risk": 0.13157894736842102
+      },
+      {
+       "coverage": 0.9,
+       "risk": 0.16279069767441856
+      },
+      {
+       "coverage": 1.0,
+       "risk": 0.14583333333333337
+      }
+     ]
+    },
+    "disagreement": {
+     "n": 17,
+     "accuracy": 0.9411764705882353,
+     "macro_f1": 0.9696969696969697,
+     "confusion": [
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       1,
+       16,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ]
+     ],
+     "labels": [
+      "ACT",
+      "ANSWER",
+      "ASK",
+      "DECLINE"
+     ],
+     "false_skip": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       1.0
+      ]
+     },
+     "false_skip_by_class": {
+      "ANSWER": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      },
+      "ASK": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      },
+      "DECLINE": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      }
+     },
+     "correct_suppression": {
+      "k": 16,
+      "n": 17,
+      "rate": 0.9411764705882353,
+      "ci95": [
+       0.7302,
+       0.9895
+      ]
+     },
+     "exact_non_act": {
+      "k": 16,
+      "n": 17,
+      "rate": 0.9411764705882353,
+      "ci95": [
+       0.7302,
+       0.9895
+      ]
+     },
+     "intervention": {
+      "k": 16,
+      "n": 17,
+      "rate": 0.9411764705882353,
+      "ci95": [
+       0.7302,
+       0.9895
+      ]
+     },
+     "ece": 0.12044932531485325,
+     "risk_coverage": [
+      {
+       "coverage": 0.1,
+       "risk": 0.5
+      },
+      {
+       "coverage": 0.2,
+       "risk": 0.33333333333333337
+      },
+      {
+       "coverage": 0.3,
+       "risk": 0.19999999999999996
+      },
+      {
+       "coverage": 0.4,
+       "risk": 0.1428571428571429
+      },
+      {
+       "coverage": 0.5,
+       "risk": 0.125
+      },
+      {
+       "coverage": 0.6,
+       "risk": 0.09999999999999998
+      },
+      {
+       "coverage": 0.7,
+       "risk": 0.08333333333333337
+      },
+      {
+       "coverage": 0.8,
+       "risk": 0.0714285714285714
+      },
+      {
+       "coverage": 0.9,
+       "risk": 0.06666666666666665
+      },
+      {
+       "coverage": 1.0,
+       "risk": 0.05882352941176472
+      }
+     ]
+    },
+    "decisions": {
+     "w2t-single_hop-train-13016": "ANSWER",
+     "w2t-single_hop-train-12001": "ANSWER",
+     "w2t-single_hop-train-133016": "ANSWER",
+     "w2t-single_hop-train-133001": "ANSWER",
+     "w2t-single_hop-train-132016": "ANSWER",
+     "w2t-single_hop-train-31016": "ANSWER",
+     "w2t-single_hop-train-31011": "ANSWER",
+     "w2t-single_hop-train-33014": "ANSWER",
+     "w2t-single_hop-train-32008": "ANSWER",
+     "w2t-single_hop-train-121018": "ANSWER",
+     "w2t-single_hop-train-123008": "ANSWER",
+     "w2t-single_hop-train-123005": "ANSWER",
+     "w2t-single_hop-train-122005": "ANSWER",
+     "w2t-single_hop-train-101006": "ANSWER",
+     "w2t-single_hop-train-101005": "ANSWER",
+     "w2t-single_hop-train-81008": "ANSWER",
+     "w2t-single_hop-train-81002": "ANSWER",
+     "w2t-single_hop-train-91009": "ANSWER",
+     "w2t-single_hop-train-92020": "ACT",
+     "w2t-single_hop-train-73015": "ANSWER",
+     "w2t-single_hop-train-72017": "ANSWER",
+     "w2t-single_hop-train-72005": "ANSWER",
+     "w2t-single_hop-train-41007": "ANSWER",
+     "w2t-single_hop-train-43007": "ANSWER",
+     "w2t-single_hop-train-51006": "ANSWER",
+     "w2t-single_hop-train-53008": "ANSWER",
+     "w2t-single_hop-train-151004": "ANSWER",
+     "w2t-single_hop-train-151015": "ANSWER",
+     "w2t-single_hop-train-151016": "ANSWER",
+     "w2t-single_hop-train-151008": "ANSWER",
+     "w2t-single_hop-train-153020": "ANSWER",
+     "w2t-single_hop-train-153015": "ANSWER",
+     "w2t-single_hop-train-153001": "ANSWER",
+     "w2t-single_hop-train-152003": "ANSWER",
+     "w2t-single_hop-train-61011": "ACT",
+     "w2t-single_hop-train-63004": "ACT",
+     "w2t-single_hop-train-63016": "ACT",
+     "w2t-single_hop-train-62007": "ACT",
+     "w2t-single_hop-train-141003": "ANSWER",
+     "w2t-single_hop-train-143019": "ACT",
+     "w2t-single_hop-train-143004": "ACT",
+     "w2t-single_hop-train-143013": "ACT",
+     "w2t-single_hop-train-142020": "ANSWER",
+     "w2t-single_hop-train-142011": "ANSWER",
+     "w2t-single_hop-train-142010": "ACT",
+     "w2t-single_hop-train-23019": "ANSWER",
+     "w2t-single_hop-train-23004": "ANSWER",
+     "w2t-single_hop-train-22005": "ANSWER"
+    }
+   },
+   "rules/e2_train_val": {
+    "all": {
+     "n": 48,
+     "accuracy": 0.125,
+     "macro_f1": 0.12347826086956522,
+     "confusion": [
+      [
+       4,
+       0,
+       0,
+       0
+      ],
+      [
+       42,
+       2,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ]
+     ],
+     "labels": [
+      "ACT",
+      "ANSWER",
+      "ASK",
+      "DECLINE"
+     ],
+     "false_skip": {
+      "k": 0,
+      "n": 4,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.4899
+      ]
+     },
+     "false_skip_by_class": {
+      "ANSWER": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      },
+      "ASK": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      },
+      "DECLINE": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      }
+     },
+     "correct_suppression": {
+      "k": 2,
+      "n": 44,
+      "rate": 0.045454545454545456,
+      "ci95": [
+       0.0126,
+       0.1514
+      ]
+     },
+     "exact_non_act": {
+      "k": 2,
+      "n": 44,
+      "rate": 0.045454545454545456,
+      "ci95": [
+       0.0126,
+       0.1514
+      ]
+     },
+     "intervention": {
+      "k": 2,
+      "n": 48,
+      "rate": 0.041666666666666664,
+      "ci95": [
+       0.0115,
+       0.1398
+      ]
+     },
+     "ece": 0.7750000000000002,
+     "risk_coverage": [
+      {
+       "coverage": 0.1,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.2,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.3,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.4,
+       "risk": 0.8947368421052632
+      },
+      {
+       "coverage": 0.5,
+       "risk": 0.875
+      },
+      {
+       "coverage": 0.6,
+       "risk": 0.896551724137931
+      },
+      {
+       "coverage": 0.7,
+       "risk": 0.9117647058823529
+      },
+      {
+       "coverage": 0.8,
+       "risk": 0.8421052631578947
+      },
+      {
+       "coverage": 0.9,
+       "risk": 0.8604651162790697
+      },
+      {
+       "coverage": 1.0,
+       "risk": 0.875
+      }
+     ]
+    },
+    "disagreement": {
+     "n": 17,
+     "accuracy": 0.0,
+     "macro_f1": 0.0,
+     "confusion": [
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       17,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ]
+     ],
+     "labels": [
+      "ACT",
+      "ANSWER",
+      "ASK",
+      "DECLINE"
+     ],
+     "false_skip": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       1.0
+      ]
+     },
+     "false_skip_by_class": {
+      "ANSWER": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      },
+      "ASK": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      },
+      "DECLINE": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      }
+     },
+     "correct_suppression": {
+      "k": 0,
+      "n": 17,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.1843
+      ]
+     },
+     "exact_non_act": {
+      "k": 0,
+      "n": 17,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.1843
+      ]
+     },
+     "intervention": {
+      "k": 0,
+      "n": 17,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.1843
+      ]
+     },
+     "ece": 0.9000000000000001,
+     "risk_coverage": [
+      {
+       "coverage": 0.1,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.2,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.3,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.4,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.5,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.6,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.7,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.8,
+       "risk": 1.0
+      },
+      {
+       "coverage": 0.9,
+       "risk": 1.0
+      },
+      {
+       "coverage": 1.0,
+       "risk": 1.0
+      }
+     ]
+    },
+    "decisions": {
+     "w2t-single_hop-train-13016": "ACT",
+     "w2t-single_hop-train-12001": "ACT",
+     "w2t-single_hop-train-133016": "ACT",
+     "w2t-single_hop-train-133001": "ACT",
+     "w2t-single_hop-train-132016": "ACT",
+     "w2t-single_hop-train-31016": "ACT",
+     "w2t-single_hop-train-31011": "ACT",
+     "w2t-single_hop-train-33014": "ACT",
+     "w2t-single_hop-train-32008": "ACT",
+     "w2t-single_hop-train-121018": "ACT",
+     "w2t-single_hop-train-123008": "ACT",
+     "w2t-single_hop-train-123005": "ACT",
+     "w2t-single_hop-train-122005": "ACT",
+     "w2t-single_hop-train-101006": "ACT",
+     "w2t-single_hop-train-101005": "ACT",
+     "w2t-single_hop-train-81008": "ACT",
+     "w2t-single_hop-train-81002": "ANSWER",
+     "w2t-single_hop-train-91009": "ACT",
+     "w2t-single_hop-train-92020": "ACT",
+     "w2t-single_hop-train-73015": "ACT",
+     "w2t-single_hop-train-72017": "ACT",
+     "w2t-single_hop-train-72005": "ACT",
+     "w2t-single_hop-train-41007": "ACT",
+     "w2t-single_hop-train-43007": "ACT",
+     "w2t-single_hop-train-51006": "ACT",
+     "w2t-single_hop-train-53008": "ACT",
+     "w2t-single_hop-train-151004": "ACT",
+     "w2t-single_hop-train-151015": "ACT",
+     "w2t-single_hop-train-151016": "ACT",
+     "w2t-single_hop-train-151008": "ACT",
+     "w2t-single_hop-train-153020": "ACT",
+     "w2t-single_hop-train-153015": "ACT",
+     "w2t-single_hop-train-153001": "ACT",
+     "w2t-single_hop-train-152003": "ACT",
+     "w2t-single_hop-train-61011": "ANSWER",
+     "w2t-single_hop-train-63004": "ACT",
+     "w2t-single_hop-train-63016": "ACT",
+     "w2t-single_hop-train-62007": "ACT",
+     "w2t-single_hop-train-141003": "ACT",
+     "w2t-single_hop-train-143019": "ACT",
+     "w2t-single_hop-train-143004": "ACT",
+     "w2t-single_hop-train-143013": "ACT",
+     "w2t-single_hop-train-142020": "ACT",
+     "w2t-single_hop-train-142011": "ACT",
+     "w2t-single_hop-train-142010": "ACT",
+     "w2t-single_hop-train-23019": "ACT",
+     "w2t-single_hop-train-23004": "ACT",
+     "w2t-single_hop-train-22005": "ACT"
+    }
+   },
+   "threshold_only/e2_train_val": {
+    "all": {
+     "n": 48,
+     "accuracy": 0.4166666666666667,
+     "macro_f1": 0.37777777777777777,
+     "confusion": [
+      [
+       4,
+       0,
+       0,
+       0
+      ],
+      [
+       28,
+       16,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ]
+     ],
+     "labels": [
+      "ACT",
+      "ANSWER",
+      "ASK",
+      "DECLINE"
+     ],
+     "false_skip": {
+      "k": 0,
+      "n": 4,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.4899
+      ]
+     },
+     "false_skip_by_class": {
+      "ANSWER": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      },
+      "ASK": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      },
+      "DECLINE": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      }
+     },
+     "correct_suppression": {
+      "k": 16,
+      "n": 44,
+      "rate": 0.36363636363636365,
+      "ci95": [
+       0.2378,
+       0.5113
+      ]
+     },
+     "exact_non_act": {
+      "k": 16,
+      "n": 44,
+      "rate": 0.36363636363636365,
+      "ci95": [
+       0.2378,
+       0.5113
+      ]
+     },
+     "intervention": {
+      "k": 16,
+      "n": 48,
+      "rate": 0.3333333333333333,
+      "ci95": [
+       0.2168,
+       0.4746
+      ]
+     },
+     "ece": 0.09781332886637262,
+     "risk_coverage": [
+      {
+       "coverage": 0.1,
+       "risk": 0.4
+      },
+      {
+       "coverage": 0.2,
+       "risk": 0.19999999999999996
+      },
+      {
+       "coverage": 0.3,
+       "risk": 0.1428571428571429
+      },
+      {
+       "coverage": 0.4,
+       "risk": 0.10526315789473684
+      },
+      {
+       "coverage": 0.5,
+       "risk": 0.125
+      },
+      {
+       "coverage": 0.6,
+       "risk": 0.10344827586206895
+      },
+      {
+       "coverage": 0.7,
+       "risk": 0.08823529411764708
+      },
+      {
+       "coverage": 0.8,
+       "risk": 0.13157894736842102
+      },
+      {
+       "coverage": 0.9,
+       "risk": 0.16279069767441856
+      },
+      {
+       "coverage": 1.0,
+       "risk": 0.14583333333333337
+      }
+     ]
+    },
+    "disagreement": {
+     "n": 17,
+     "accuracy": 0.35294117647058826,
+     "macro_f1": 0.5217391304347826,
+     "confusion": [
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       11,
+       6,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ]
+     ],
+     "labels": [
+      "ACT",
+      "ANSWER",
+      "ASK",
+      "DECLINE"
+     ],
+     "false_skip": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       1.0
+      ]
+     },
+     "false_skip_by_class": {
+      "ANSWER": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      },
+      "ASK": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      },
+      "DECLINE": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      }
+     },
+     "correct_suppression": {
+      "k": 6,
+      "n": 17,
+      "rate": 0.35294117647058826,
+      "ci95": [
+       0.1731,
+       0.587
+      ]
+     },
+     "exact_non_act": {
+      "k": 6,
+      "n": 17,
+      "rate": 0.35294117647058826,
+      "ci95": [
+       0.1731,
+       0.587
+      ]
+     },
+     "intervention": {
+      "k": 6,
+      "n": 17,
+      "rate": 0.35294117647058826,
+      "ci95": [
+       0.1731,
+       0.587
+      ]
+     },
+     "ece": 0.12044932531485325,
+     "risk_coverage": [
+      {
+       "coverage": 0.1,
+       "risk": 0.5
+      },
+      {
+       "coverage": 0.2,
+       "risk": 0.33333333333333337
+      },
+      {
+       "coverage": 0.3,
+       "risk": 0.19999999999999996
+      },
+      {
+       "coverage": 0.4,
+       "risk": 0.1428571428571429
+      },
+      {
+       "coverage": 0.5,
+       "risk": 0.125
+      },
+      {
+       "coverage": 0.6,
+       "risk": 0.09999999999999998
+      },
+      {
+       "coverage": 0.7,
+       "risk": 0.08333333333333337
+      },
+      {
+       "coverage": 0.8,
+       "risk": 0.0714285714285714
+      },
+      {
+       "coverage": 0.9,
+       "risk": 0.06666666666666665
+      },
+      {
+       "coverage": 1.0,
+       "risk": 0.05882352941176472
+      }
+     ]
+    },
+    "decisions": {
+     "w2t-single_hop-train-13016": "ACT",
+     "w2t-single_hop-train-12001": "ACT",
+     "w2t-single_hop-train-133016": "ANSWER",
+     "w2t-single_hop-train-133001": "ANSWER",
+     "w2t-single_hop-train-132016": "ANSWER",
+     "w2t-single_hop-train-31016": "ANSWER",
+     "w2t-single_hop-train-31011": "ANSWER",
+     "w2t-single_hop-train-33014": "ANSWER",
+     "w2t-single_hop-train-32008": "ANSWER",
+     "w2t-single_hop-train-121018": "ACT",
+     "w2t-single_hop-train-123008": "ANSWER",
+     "w2t-single_hop-train-123005": "ANSWER",
+     "w2t-single_hop-train-122005": "ACT",
+     "w2t-single_hop-train-101006": "ANSWER",
+     "w2t-single_hop-train-101005": "ANSWER",
+     "w2t-single_hop-train-81008": "ACT",
+     "w2t-single_hop-train-81002": "ACT",
+     "w2t-single_hop-train-91009": "ACT",
+     "w2t-single_hop-train-92020": "ACT",
+     "w2t-single_hop-train-73015": "ACT",
+     "w2t-single_hop-train-72017": "ANSWER",
+     "w2t-single_hop-train-72005": "ANSWER",
+     "w2t-single_hop-train-41007": "ANSWER",
+     "w2t-single_hop-train-43007": "ACT",
+     "w2t-single_hop-train-51006": "ACT",
+     "w2t-single_hop-train-53008": "ANSWER",
+     "w2t-single_hop-train-151004": "ACT",
+     "w2t-single_hop-train-151015": "ACT",
+     "w2t-single_hop-train-151016": "ACT",
+     "w2t-single_hop-train-151008": "ACT",
+     "w2t-single_hop-train-153020": "ACT",
+     "w2t-single_hop-train-153015": "ACT",
+     "w2t-single_hop-train-153001": "ACT",
+     "w2t-single_hop-train-152003": "ACT",
+     "w2t-single_hop-train-61011": "ACT",
+     "w2t-single_hop-train-63004": "ACT",
+     "w2t-single_hop-train-63016": "ACT",
+     "w2t-single_hop-train-62007": "ACT",
+     "w2t-single_hop-train-141003": "ANSWER",
+     "w2t-single_hop-train-143019": "ACT",
+     "w2t-single_hop-train-143004": "ACT",
+     "w2t-single_hop-train-143013": "ACT",
+     "w2t-single_hop-train-142020": "ACT",
+     "w2t-single_hop-train-142011": "ACT",
+     "w2t-single_hop-train-142010": "ACT",
+     "w2t-single_hop-train-23019": "ACT",
+     "w2t-single_hop-train-23004": "ACT",
+     "w2t-single_hop-train-22005": "ACT"
+    },
+    "tau": 0.92
+   },
+   "adapted/e2_train_val": {
+    "all": {
+     "n": 48,
+     "accuracy": 0.6041666666666666,
+     "macro_f1": 0.5104669887278583,
+     "confusion": [
+      [
+       4,
+       0,
+       0,
+       0
+      ],
+      [
+       19,
+       25,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ]
+     ],
+     "labels": [
+      "ACT",
+      "ANSWER",
+      "ASK",
+      "DECLINE"
+     ],
+     "false_skip": {
+      "k": 0,
+      "n": 4,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.4899
+      ]
+     },
+     "false_skip_by_class": {
+      "ANSWER": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      },
+      "ASK": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      },
+      "DECLINE": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      }
+     },
+     "correct_suppression": {
+      "k": 25,
+      "n": 44,
+      "rate": 0.5681818181818182,
+      "ci95": [
+       0.4222,
+       0.7032
+      ]
+     },
+     "exact_non_act": {
+      "k": 25,
+      "n": 44,
+      "rate": 0.5681818181818182,
+      "ci95": [
+       0.4222,
+       0.7032
+      ]
+     },
+     "intervention": {
+      "k": 25,
+      "n": 48,
+      "rate": 0.5208333333333334,
+      "ci95": [
+       0.3833,
+       0.6553
+      ]
+     },
+     "ece": 0.17830771226153838,
+     "risk_coverage": [
+      {
+       "coverage": 0.1,
+       "risk": 0.0
+      },
+      {
+       "coverage": 0.2,
+       "risk": 0.0
+      },
+      {
+       "coverage": 0.3,
+       "risk": 0.0
+      },
+      {
+       "coverage": 0.4,
+       "risk": 0.0
+      },
+      {
+       "coverage": 0.5,
+       "risk": 0.0
+      },
+      {
+       "coverage": 0.6,
+       "risk": 0.03448275862068961
+      },
+      {
+       "coverage": 0.7,
+       "risk": 0.02941176470588236
+      },
+      {
+       "coverage": 0.8,
+       "risk": 0.052631578947368474
+      },
+      {
+       "coverage": 0.9,
+       "risk": 0.06976744186046513
+      },
+      {
+       "coverage": 1.0,
+       "risk": 0.08333333333333337
+      }
+     ]
+    },
+    "disagreement": {
+     "n": 17,
+     "accuracy": 0.6470588235294118,
+     "macro_f1": 0.7857142857142857,
+     "confusion": [
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       6,
+       11,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ]
+     ],
+     "labels": [
+      "ACT",
+      "ANSWER",
+      "ASK",
+      "DECLINE"
+     ],
+     "false_skip": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       1.0
+      ]
+     },
+     "false_skip_by_class": {
+      "ANSWER": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      },
+      "ASK": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      },
+      "DECLINE": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      }
+     },
+     "correct_suppression": {
+      "k": 11,
+      "n": 17,
+      "rate": 0.6470588235294118,
+      "ci95": [
+       0.413,
+       0.8269
+      ]
+     },
+     "exact_non_act": {
+      "k": 11,
+      "n": 17,
+      "rate": 0.6470588235294118,
+      "ci95": [
+       0.413,
+       0.8269
+      ]
+     },
+     "intervention": {
+      "k": 11,
+      "n": 17,
+      "rate": 0.6470588235294118,
+      "ci95": [
+       0.413,
+       0.8269
+      ]
+     },
+     "ece": 0.09516986482436296,
+     "risk_coverage": [
+      {
+       "coverage": 0.1,
+       "risk": 0.0
+      },
+      {
+       "coverage": 0.2,
+       "risk": 0.0
+      },
+      {
+       "coverage": 0.3,
+       "risk": 0.0
+      },
+      {
+       "coverage": 0.4,
+       "risk": 0.0
+      },
+      {
+       "coverage": 0.5,
+       "risk": 0.0
+      },
+      {
+       "coverage": 0.6,
+       "risk": 0.0
+      },
+      {
+       "coverage": 0.7,
+       "risk": 0.0
+      },
+      {
+       "coverage": 0.8,
+       "risk": 0.0714285714285714
+      },
+      {
+       "coverage": 0.9,
+       "risk": 0.06666666666666665
+      },
+      {
+       "coverage": 1.0,
+       "risk": 0.11764705882352944
+      }
+     ]
+    },
+    "decisions": {
+     "w2t-single_hop-train-13016": "ANSWER",
+     "w2t-single_hop-train-12001": "ANSWER",
+     "w2t-single_hop-train-133016": "ANSWER",
+     "w2t-single_hop-train-133001": "ANSWER",
+     "w2t-single_hop-train-132016": "ANSWER",
+     "w2t-single_hop-train-31016": "ANSWER",
+     "w2t-single_hop-train-31011": "ANSWER",
+     "w2t-single_hop-train-33014": "ANSWER",
+     "w2t-single_hop-train-32008": "ANSWER",
+     "w2t-single_hop-train-121018": "ACT",
+     "w2t-single_hop-train-123008": "ACT",
+     "w2t-single_hop-train-123005": "ACT",
+     "w2t-single_hop-train-122005": "ACT",
+     "w2t-single_hop-train-101006": "ANSWER",
+     "w2t-single_hop-train-101005": "ANSWER",
+     "w2t-single_hop-train-81008": "ACT",
+     "w2t-single_hop-train-81002": "ANSWER",
+     "w2t-single_hop-train-91009": "ACT",
+     "w2t-single_hop-train-92020": "ACT",
+     "w2t-single_hop-train-73015": "ACT",
+     "w2t-single_hop-train-72017": "ACT",
+     "w2t-single_hop-train-72005": "ACT",
+     "w2t-single_hop-train-41007": "ANSWER",
+     "w2t-single_hop-train-43007": "ANSWER",
+     "w2t-single_hop-train-51006": "ACT",
+     "w2t-single_hop-train-53008": "ANSWER",
+     "w2t-single_hop-train-151004": "ACT",
+     "w2t-single_hop-train-151015": "ANSWER",
+     "w2t-single_hop-train-151016": "ACT",
+     "w2t-single_hop-train-151008": "ACT",
+     "w2t-single_hop-train-153020": "ANSWER",
+     "w2t-single_hop-train-153015": "ANSWER",
+     "w2t-single_hop-train-153001": "ANSWER",
+     "w2t-single_hop-train-152003": "ANSWER",
+     "w2t-single_hop-train-61011": "ACT",
+     "w2t-single_hop-train-63004": "ACT",
+     "w2t-single_hop-train-63016": "ACT",
+     "w2t-single_hop-train-62007": "ACT",
+     "w2t-single_hop-train-141003": "ANSWER",
+     "w2t-single_hop-train-143019": "ACT",
+     "w2t-single_hop-train-143004": "ACT",
+     "w2t-single_hop-train-143013": "ACT",
+     "w2t-single_hop-train-142020": "ANSWER",
+     "w2t-single_hop-train-142011": "ACT",
+     "w2t-single_hop-train-142010": "ACT",
+     "w2t-single_hop-train-23019": "ANSWER",
+     "w2t-single_hop-train-23004": "ANSWER",
+     "w2t-single_hop-train-22005": "ANSWER"
+    },
+    "tau": 0.79
+   },
+   "adapted_vecscale/e2_train_val": {
+    "all": {
+     "n": 48,
+     "accuracy": 0.4166666666666667,
+     "macro_f1": 0.37777777777777777,
+     "confusion": [
+      [
+       4,
+       0,
+       0,
+       0
+      ],
+      [
+       28,
+       16,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ]
+     ],
+     "labels": [
+      "ACT",
+      "ANSWER",
+      "ASK",
+      "DECLINE"
+     ],
+     "false_skip": {
+      "k": 0,
+      "n": 4,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.4899
+      ]
+     },
+     "false_skip_by_class": {
+      "ANSWER": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      },
+      "ASK": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      },
+      "DECLINE": {
+       "k": 0,
+       "n": 4,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.4899
+       ]
+      }
+     },
+     "correct_suppression": {
+      "k": 16,
+      "n": 44,
+      "rate": 0.36363636363636365,
+      "ci95": [
+       0.2378,
+       0.5113
+      ]
+     },
+     "exact_non_act": {
+      "k": 16,
+      "n": 44,
+      "rate": 0.36363636363636365,
+      "ci95": [
+       0.2378,
+       0.5113
+      ]
+     },
+     "intervention": {
+      "k": 16,
+      "n": 48,
+      "rate": 0.3333333333333333,
+      "ci95": [
+       0.2168,
+       0.4746
+      ]
+     },
+     "ece": 0.1404337135263931,
+     "risk_coverage": [
+      {
+       "coverage": 0.1,
+       "risk": 0.4
+      },
+      {
+       "coverage": 0.2,
+       "risk": 0.19999999999999996
+      },
+      {
+       "coverage": 0.3,
+       "risk": 0.1428571428571429
+      },
+      {
+       "coverage": 0.4,
+       "risk": 0.10526315789473684
+      },
+      {
+       "coverage": 0.5,
+       "risk": 0.125
+      },
+      {
+       "coverage": 0.6,
+       "risk": 0.10344827586206895
+      },
+      {
+       "coverage": 0.7,
+       "risk": 0.08823529411764708
+      },
+      {
+       "coverage": 0.8,
+       "risk": 0.07894736842105265
+      },
+      {
+       "coverage": 0.9,
+       "risk": 0.13953488372093026
+      },
+      {
+       "coverage": 1.0,
+       "risk": 0.14583333333333337
+      }
+     ]
+    },
+    "disagreement": {
+     "n": 17,
+     "accuracy": 0.35294117647058826,
+     "macro_f1": 0.5217391304347826,
+     "confusion": [
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       11,
+       6,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       0,
+       0
+      ]
+     ],
+     "labels": [
+      "ACT",
+      "ANSWER",
+      "ASK",
+      "DECLINE"
+     ],
+     "false_skip": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       1.0
+      ]
+     },
+     "false_skip_by_class": {
+      "ANSWER": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      },
+      "ASK": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      },
+      "DECLINE": {
+       "k": 0,
+       "n": 0,
+       "rate": null,
+       "ci95": [
+        0.0,
+        1.0
+       ]
+      }
+     },
+     "correct_suppression": {
+      "k": 6,
+      "n": 17,
+      "rate": 0.35294117647058826,
+      "ci95": [
+       0.1731,
+       0.587
+      ]
+     },
+     "exact_non_act": {
+      "k": 6,
+      "n": 17,
+      "rate": 0.35294117647058826,
+      "ci95": [
+       0.1731,
+       0.587
+      ]
+     },
+     "intervention": {
+      "k": 6,
+      "n": 17,
+      "rate": 0.35294117647058826,
+      "ci95": [
+       0.1731,
+       0.587
+      ]
+     },
+     "ece": 0.2508325948379132,
+     "risk_coverage": [
+      {
+       "coverage": 0.1,
+       "risk": 0.5
+      },
+      {
+       "coverage": 0.2,
+       "risk": 0.33333333333333337
+      },
+      {
+       "coverage": 0.3,
+       "risk": 0.19999999999999996
+      },
+      {
+       "coverage": 0.4,
+       "risk": 0.1428571428571429
+      },
+      {
+       "coverage": 0.5,
+       "risk": 0.125
+      },
+      {
+       "coverage": 0.6,
+       "risk": 0.09999999999999998
+      },
+      {
+       "coverage": 0.7,
+       "risk": 0.08333333333333337
+      },
+      {
+       "coverage": 0.8,
+       "risk": 0.0714285714285714
+      },
+      {
+       "coverage": 0.9,
+       "risk": 0.06666666666666665
+      },
+      {
+       "coverage": 1.0,
+       "risk": 0.05882352941176472
+      }
+     ]
+    },
+    "decisions": {
+     "w2t-single_hop-train-13016": "ACT",
+     "w2t-single_hop-train-12001": "ACT",
+     "w2t-single_hop-train-133016": "ANSWER",
+     "w2t-single_hop-train-133001": "ANSWER",
+     "w2t-single_hop-train-132016": "ANSWER",
+     "w2t-single_hop-train-31016": "ANSWER",
+     "w2t-single_hop-train-31011": "ANSWER",
+     "w2t-single_hop-train-33014": "ANSWER",
+     "w2t-single_hop-train-32008": "ANSWER",
+     "w2t-single_hop-train-121018": "ACT",
+     "w2t-single_hop-train-123008": "ANSWER",
+     "w2t-single_hop-train-123005": "ANSWER",
+     "w2t-single_hop-train-122005": "ACT",
+     "w2t-single_hop-train-101006": "ANSWER",
+     "w2t-single_hop-train-101005": "ANSWER",
+     "w2t-single_hop-train-81008": "ACT",
+     "w2t-single_hop-train-81002": "ACT",
+     "w2t-single_hop-train-91009": "ACT",
+     "w2t-single_hop-train-92020": "ACT",
+     "w2t-single_hop-train-73015": "ACT",
+     "w2t-single_hop-train-72017": "ANSWER",
+     "w2t-single_hop-train-72005": "ANSWER",
+     "w2t-single_hop-train-41007": "ANSWER",
+     "w2t-single_hop-train-43007": "ACT",
+     "w2t-single_hop-train-51006": "ACT",
+     "w2t-single_hop-train-53008": "ANSWER",
+     "w2t-single_hop-train-151004": "ACT",
+     "w2t-single_hop-train-151015": "ACT",
+     "w2t-single_hop-train-151016": "ACT",
+     "w2t-single_hop-train-151008": "ACT",
+     "w2t-single_hop-train-153020": "ACT",
+     "w2t-single_hop-train-153015": "ACT",
+     "w2t-single_hop-train-153001": "ACT",
+     "w2t-single_hop-train-152003": "ACT",
+     "w2t-single_hop-train-61011": "ACT",
+     "w2t-single_hop-train-63004": "ACT",
+     "w2t-single_hop-train-63016": "ACT",
+     "w2t-single_hop-train-62007": "ACT",
+     "w2t-single_hop-train-141003": "ANSWER",
+     "w2t-single_hop-train-143019": "ACT",
+     "w2t-single_hop-train-143004": "ACT",
+     "w2t-single_hop-train-143013": "ACT",
+     "w2t-single_hop-train-142020": "ACT",
+     "w2t-single_hop-train-142011": "ACT",
+     "w2t-single_hop-train-142010": "ACT",
+     "w2t-single_hop-train-23019": "ACT",
+     "w2t-single_hop-train-23004": "ACT",
+     "w2t-single_hop-train-22005": "ACT"
+    },
+    "tau": 0.81
+   }
+  }
+ },
+ "shared_checkpoint": "shared-v3"
+}
