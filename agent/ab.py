@@ -38,8 +38,8 @@ def build_gate(config: str, agent: str, device: str, routers: dict) -> Gate | No
     profile_for = {"adapted": f"profiles/{agent}.json", "shared": None, "swap": None}
     if config.startswith("adapted"):
         prof = Profile.load(ROOT / profile_for["adapted"])
-    elif config == "shared":  # shared backbone, identity adjustment, default tau 0.5
-        prof = Profile(agent="shared", tau=0.5, backbone="checkpoints/shared-v1")
+    elif config == "shared":  # same backbone as the agent's profile, identity adjustment, default tau 0.5
+        prof = Profile(agent="shared", tau=0.5, backbone=Profile.load(ROOT / profile_for["adapted"]).backbone)
     elif config.startswith("profile:"):  # profile swap, e.g. profile:L
         prof = Profile.load(ROOT / f"profiles/{config.split(':', 1)[1]}.json")
     elif config == "rules":
