@@ -154,6 +154,44 @@ def followup_answerable(rng: random.Random, i: int) -> list[dict]:
     return [conv.point("ANSWER", "followup_from_history", f"ms-fu-{i}")]
 
 
+def error_recovery(rng: random.Random, i: int) -> list[dict]:
+    """A tool call fails or comes back empty -> the agent should try again (ACT), then stop."""
+    city = rng.choice(CITIES)
+    kind = rng.choice(["bad_arg", "empty_search", "missing_file"])
+    if kind == "bad_arg":
+        conv = Conv(["get_weather", "calculator"], f"How humid is it in {city.title()} at the moment?")
+        conv.call("get_weather", location=city)  # wrong argument name -> error result
+        pts = [conv.point("ACT", "retry_after_error", f"ms-err-{i}-0")]
+        conv.call("get_weather", city=city)
+    elif kind == "empty_search":
+        conv = Conv(["web_search", "get_weather"], f"Look up the current conditions in {city.title()} for me.")
+        conv.call("web_search", query=f"{city} conditions today")  # fixture has no hits -> empty
+        pts = [conv.point("ACT", "retry_after_empty", f"ms-err-{i}-0")]
+        conv.call("get_weather", city=city)
+    else:
+        conv = Conv(["read_file", "search_repo"], "What does our pricing module charge for shipping?")
+        conv.call("read_file", path="pricing.py")  # wrong path -> FileNotFoundError
+        pts = [conv.point("ACT", "retry_after_error", f"ms-err-{i}-0")]
+        conv.call("read_file", path="shopcart/pricing.py")
+    pts.append(conv.point("ANSWER", "stop_after_recovery", f"ms-err-{i}-stop"))
+    return pts
+
+
+def multi_entity(rng: random.Random, i: int) -> list[dict]:
+    """Several entities to look up: continue (ACT) until every lookup is done, then stop."""
+    cities = rng.sample(CITIES, rng.choice([2, 3]))
+    names = [c.title() for c in cities]
+    q = (f"Tell me the difference in humidity between {names[0]} and {names[1]}." if len(cities) == 2 else
+         f"Fetch the current temperature for {', '.join(names[:-1])} and {names[-1]}, then give me the average.")
+    conv = Conv(["get_weather", "calculator"], q)
+    pts = []
+    for k, c in enumerate(cities):
+        pts.append(conv.point("ACT", "multi_entity_next", f"ms-multi-{i}-{k}"))
+        conv.call("get_weather", city=c)
+    pts.append(conv.point("ANSWER", "multi_entity_stop", f"ms-multi-{i}-stop"))
+    return pts
+
+
 def main() -> None:
     rng = random.Random(SEED)
     corpus = [json.loads(x) for x in open(OUT.parents[1] / "w2t" / "e2_train.jsonl")]
@@ -171,6 +209,10 @@ def main() -> None:
         pts += email_flow(rng, i)
     for i in range(30):
         pts += followup_answerable(rng, i)
+    for i in range(40):
+        pts += error_recovery(rng, i)
+    for i in range(40):
+        pts += multi_entity(rng, i)
     rng.shuffle(pts)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w") as f:

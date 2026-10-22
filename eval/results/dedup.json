@@ -3,7 +3,7 @@
   "e1_train": 4500,
   "e1_val": 600,
   "e1_test": 900,
-  "multistep": 131,
+  "multistep": 185,
   "e2_train": 200,
   "probe": 103,
   "e2_test": 160,
@@ -600,31 +600,31 @@
   [
    [
     "multistep",
-    "ms-ret-35-stop"
+    "ms-ret-32-0"
    ],
    [
     "e2_train",
-    "w2t-single_hop-train-63016"
+    "w2t-single_hop-train-63014"
    ]
   ],
   [
    [
     "multistep",
-    "ms-ret-16-0"
+    "ms-ret-19-stop"
    ],
    [
     "e2_train",
-    "w2t-single_hop-train-61015"
+    "w2t-single_hop-train-61005"
    ]
   ],
   [
    [
     "multistep",
-    "ms-ret-39-stop"
+    "ms-ret-3-1"
    ],
    [
     "e2_train",
-    "w2t-single_hop-train-63008"
+    "w2t-single_hop-train-62008"
    ]
   ],
   [
@@ -640,47 +640,37 @@
   [
    [
     "multistep",
-    "ms-ret-21-0"
+    "ms-ret-34-stop"
    ],
    [
     "e2_train",
-    "w2t-single_hop-train-63014"
+    "w2t-single_hop-train-61015"
    ]
   ],
   [
    [
     "multistep",
-    "ms-ret-1-0"
+    "ms-ret-10-stop"
    ],
    [
     "e2_train",
-    "w2t-single_hop-train-61005"
+    "w2t-single_hop-train-63016"
    ]
   ],
   [
    [
     "multistep",
-    "ms-ret-27-1"
+    "ms-ret-11-1"
    ],
    [
     "e2_train",
-    "w2t-single_hop-train-61006"
+    "w2t-single_hop-train-63019"
    ]
   ],
   [
    [
     "multistep",
-    "ms-ret-37-1"
-   ],
-   [
-    "e2_train",
-    "w2t-single_hop-train-62008"
-   ]
-  ],
-  [
-   [
-    "multistep",
-    "ms-ret-7-stop"
+    "ms-ret-7-0"
    ],
    [
     "e2_train",
@@ -690,31 +680,11 @@
   [
    [
     "multistep",
-    "ms-ret-17-stop"
+    "ms-ret-17-0"
    ],
    [
     "e2_train",
     "w2t-single_hop-train-62016"
-   ]
-  ],
-  [
-   [
-    "multistep",
-    "ms-ret-31-0"
-   ],
-   [
-    "e2_train",
-    "w2t-single_hop-train-62007"
-   ]
-  ],
-  [
-   [
-    "multistep",
-    "ms-ret-11-0"
-   ],
-   [
-    "e2_train",
-    "w2t-single_hop-train-63019"
    ]
   ],
   [
@@ -725,6 +695,36 @@
    [
     "e2_train",
     "w2t-single_hop-train-61014"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-27-0"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-61006"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-39-stop"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-63008"
+   ]
+  ],
+  [
+   [
+    "multistep",
+    "ms-ret-31-0"
+   ],
+   [
+    "e2_train",
+    "w2t-single_hop-train-62007"
    ]
   ],
   [
@@ -2670,41 +2670,41 @@
   {
    "a": [
     "multistep",
-    "ms-ret-35-stop"
+    "ms-ret-32-0"
    ],
    "b": [
     "e2_train",
-    "w2t-single_hop-train-63016"
+    "w2t-single_hop-train-63014"
    ],
    "cos": 1.0,
-   "text_a": "From local corpus only: How many noun cases does the Ashkari grammatical system have? Return the number only.",
-   "text_b": "From local corpus only: How many noun cases does the Ashkari grammatical system have? Return the number only."
+   "text_a": "From local corpus only: What is the area of the continuous tree canopy in the Verdant Abyss? Return the area only.",
+   "text_b": "From local corpus only: What is the area of the continuous tree canopy in the Verdant Abyss? Return the area only."
   },
   {
    "a": [
     "multistep",
-    "ms-ret-16-0"
+    "ms-ret-19-stop"
    ],
    "b": [
     "e2_train",
-    "w2t-single_hop-train-61015"
+    "w2t-single_hop-train-61005"
    ],
    "cos": 1.0,
-   "text_a": "What is an official language of Egypt? Return one language.",
-   "text_b": "What is an official language of Egypt? Return one language."
+   "text_a": "What currency is used in Mexico? Return currency name only.",
+   "text_b": "What currency is used in Mexico? Return currency name only."
   },
   {
    "a": [
     "multistep",
-    "ms-ret-39-stop"
+    "ms-ret-3-1"
    ],
    "b": [
     "e2_train",
-    "w2t-single_hop-train-63008"
+    "w2t-single_hop-train-62008"
    ],
    "cos": 1.0,
-   "text_a": "From local corpus only: What is the defining element of Moonhaven Civic architecture? Return the feature only.",
-   "text_b": "From local corpus only: What is the defining element of Moonhaven Civic architecture? Return the feature only."
+   "text_a": "From local corpus: What is an official language of Austria? Return one language.",
+   "text_b": "From local corpus: What is an official language of Austria? Return one language."
   },
   {
    "a": [
@@ -2722,59 +2722,46 @@
   {
    "a": [
     "multistep",
-    "ms-ret-21-0"
+    "ms-ret-34-stop"
    ],
    "b": [
     "e2_train",
-    "w2t-single_hop-train-63014"
+    "w2t-single_hop-train-61015"
    ],
    "cos": 1.0,
-   "text_a": "From local corpus only: What is the area of the continuous tree canopy in the Verdant Abyss? Return the area only.",
-   "text_b": "From local corpus only: What is the area of the continuous tree canopy in the Verdant Abyss? Return the area only."
+   "text_a": "What is an official language of Egypt? Return one language.",
+   "text_b": "What is an official language of Egypt? Return one language."
   },
   {
    "a": [
     "multistep",
-    "ms-ret-1-0"
+    "ms-ret-10-stop"
    ],
    "b": [
     "e2_train",
-    "w2t-single_hop-train-61005"
+    "w2t-single_hop-train-63016"
    ],
    "cos": 1.0,
-   "text_a": "What currency is used in Mexico? Return currency name only.",
-   "text_b": "What currency is used in Mexico? Return currency name only."
+   "text_a": "From local corpus only: How many noun cases does the Ashkari grammatical system have? Return the number only.",
+   "text_b": "From local corpus only: How many noun cases does the Ashkari grammatical system have? Return the number only."
   },
   {
    "a": [
     "multistep",
-    "ms-ret-27-1"
+    "ms-ret-11-1"
    ],
    "b": [
     "e2_train",
-    "w2t-single_hop-train-61006"
+    "w2t-single_hop-train-63019"
    ],
    "cos": 1.0,
-   "text_a": "What is the highest mountain in Tanzania? Return mountain name only.",
-   "text_b": "What is the highest mountain in Tanzania? Return mountain name only."
+   "text_a": "From local corpus only: Who discovered the Deeplight Effect? Return the full name only.",
+   "text_b": "From local corpus only: Who discovered the Deeplight Effect? Return the full name only."
   },
   {
    "a": [
     "multistep",
-    "ms-ret-37-1"
-   ],
-   "b": [
-    "e2_train",
-    "w2t-single_hop-train-62008"
-   ],
-   "cos": 1.0,
-   "text_a": "From local corpus: What is an official language of Austria? Return one language.",
-   "text_b": "From local corpus: What is an official language of Austria? Return one language."
-  },
-  {
-   "a": [
-    "multistep",
-    "ms-ret-7-stop"
+    "ms-ret-7-0"
    ],
    "b": [
     "e2_train",
@@ -2787,7 +2774,7 @@
   {
    "a": [
     "multistep",
-    "ms-ret-17-stop"
+    "ms-ret-17-0"
    ],
    "b": [
     "e2_train",
@@ -2796,32 +2783,6 @@
    "cos": 1.0,
    "text_a": "From local corpus: What currency is used in Switzerland? Return currency name only.",
    "text_b": "From local corpus: What currency is used in Switzerland? Return currency name only."
-  },
-  {
-   "a": [
-    "multistep",
-    "ms-ret-31-0"
-   ],
-   "b": [
-    "e2_train",
-    "w2t-single_hop-train-62007"
-   ],
-   "cos": 1.0,
-   "text_a": "From local corpus: What currency is used in Brazil? Return currency name only.",
-   "text_b": "From local corpus: What currency is used in Brazil? Return currency name only."
-  },
-  {
-   "a": [
-    "multistep",
-    "ms-ret-11-0"
-   ],
-   "b": [
-    "e2_train",
-    "w2t-single_hop-train-63019"
-   ],
-   "cos": 1.0,
-   "text_a": "From local corpus only: Who discovered the Deeplight Effect? Return the full name only.",
-   "text_b": "From local corpus only: Who discovered the Deeplight Effect? Return the full name only."
   },
   {
    "a": [
@@ -2835,6 +2796,45 @@
    "cos": 1.0,
    "text_a": "What is the chemical symbol for Hydrogen? Return symbol only.",
    "text_b": "What is the chemical symbol for Hydrogen? Return symbol only."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-27-0"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-61006"
+   ],
+   "cos": 1.0,
+   "text_a": "What is the highest mountain in Tanzania? Return mountain name only.",
+   "text_b": "What is the highest mountain in Tanzania? Return mountain name only."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-39-stop"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-63008"
+   ],
+   "cos": 1.0,
+   "text_a": "From local corpus only: What is the defining element of Moonhaven Civic architecture? Return the feature only.",
+   "text_b": "From local corpus only: What is the defining element of Moonhaven Civic architecture? Return the feature only."
+  },
+  {
+   "a": [
+    "multistep",
+    "ms-ret-31-0"
+   ],
+   "b": [
+    "e2_train",
+    "w2t-single_hop-train-62007"
+   ],
+   "cos": 1.0,
+   "text_a": "From local corpus: What currency is used in Brazil? Return currency name only.",
+   "text_b": "From local corpus: What currency is used in Brazil? Return currency name only."
   },
   {
    "a": [
