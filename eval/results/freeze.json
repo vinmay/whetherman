@@ -1,0 +1,21 @@
+{
+ "frozen_at": "2026-10-22T11:23:50-0400",
+ "code_commit": "9fdc2e00eb8d82e19ec21a509beb64b8dcface0e",
+ "sha256": {
+  "checkpoints/shared-v3/adapter_model.safetensors": "cc5cb8ae6d7e6503cb66a26103d939087dcd266f0b499452ecf61ec365d434d1",
+  "checkpoints/shared-v3/head.pt": "33b04608e3881c200821a09c5326c8076aa43071935fad84b4dac34254943091",
+  "checkpoints/shared-v3/adapter_config.json": "499eb30f359f54cbca7c29fe8aa17ea7a74c0363cfd7c6eab7a735b0072bc979",
+  "checkpoints/identity-v3/adapter_model.safetensors": "3b6dae1e20a29cd5e0850b66e8a26a4ee56a2fbffe0490e5420f8d94500888db",
+  "checkpoints/identity-v3/head.pt": "6f4616b7795f0ed57eb86714850f64df6abf92315e1f8662ffdd7a76f8dd02b2",
+  "profiles/L.json": "cade6f6d1c3337fd5235b0fdb2c0dede373c1ea314ab2434c50415e48e435192",
+  "profiles/S.json": "1d9d5b265ea1e3dc9dcd46c780da11d0dc41b884cdc1e18d21cc197c3a83b897",
+  "profiles/U.json": "43fc188abb9f8e768a2476bf3d029e797f12f18c7fc85c3201be4e471668e8fb",
+  "configs/labeling.yaml": "4aeacc917f3ebd1ebe0c4b7d09633b9157393f42c616978cccb5ecdb67f30e80",
+  "configs/agents.yaml": "ebeffb08745a38b102543ae57954caca7ae974b88b9670c573d289f0cf7e6649",
+  "data/fixtures/ab/ab_final.jsonl": "eeeeb8f03172e9e53bf868432546ca4886397de91cd8c5fdfabaf3be72155281",
+  "data/fixtures/e3/e3.jsonl": "f15a957a226350df1918a5fa6b5626251e4d8263b369624b6b3a3bc663da87dd",
+  "data/fixtures/e1/test.jsonl": "dc9184f2cbb777f9590fa729fc1aa3f56dc645aad1aaa4df3195ded3437c9ecb",
+  "data/fixtures/w2t/e2_test.jsonl": "6814f67a6cee86ea1f6fdef3736d1d5c0ef075ca93907e1f7b37a308b6eb64e8",
+  "data/fixtures/w2t/multihop_test.jsonl": "e317c0da16b1d856189e368ae814074bdb8b8413fe6148288f1032624e016e3a"
+ }
+}
