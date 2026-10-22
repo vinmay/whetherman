@@ -20,7 +20,7 @@ from fastapi.responses import Response
 from whetherman.policy.gate import Gate
 from whetherman.providers.base import ChatResult
 from whetherman.providers.openai_compat import ChatClient, normalize_message, parse_usage
-from whetherman.proxy.rewrite import decision_input, rewrite, route_reason
+from whetherman.proxy.rewrite import decision_input, has_tool_calls, rewrite, route_reason
 
 HOP_HEADERS = {"host", "content-length", "connection", "accept-encoding", "transfer-encoding"}
 
@@ -35,6 +35,13 @@ class DecisionLog:
         if self.path:
             with self.path.open("a") as f:
                 f.write(json.dumps(rec) + "\n")
+
+
+def _calls_tool(r: httpx.Response) -> bool:
+    try:
+        return has_tool_calls(r.json())
+    except ValueError:
+        return False
 
 
 def gate_request(gate: Gate | None, body: Any, profile_name: str = "") -> tuple[Any, dict[str, Any]]:
@@ -85,6 +92,10 @@ def create_app(gate: Gate | None, upstream: str, api_key: str | None = None, pro
         h["content-type"] = "application/json"
         t0 = time.perf_counter()
         r = await client.post("/chat/completions", content=content, headers=h)
+        if new_body is not None and new_body is not body and r.status_code == 200 and _calls_tool(r):
+            # the model called a tool although the gate removed them: fail open, re-send the original
+            info.update({"noncompliant": True, "decision": "ACT"})
+            r = await client.post("/chat/completions", content=raw, headers=h)
         info["upstream_ms"] = (time.perf_counter() - t0) * 1000
         info["upstream_status"] = r.status_code
         log.write(info)
@@ -120,14 +131,20 @@ class GatedClient:
                                       **params)
         new_body, info = gate_request(self.gate, body, self.profile_name)
         raw, latency = self.client.post_raw(new_body)
-        choice = (raw.get("choices") or [{}])[0]
         usage = parse_usage(raw)
+        if new_body is not body and has_tool_calls(raw):
+            # the model called a tool although the gate removed them: fail open, re-send the original
+            raw, latency2 = self.client.post_raw(body)
+            usage = usage + parse_usage(raw)  # both calls are paid for
+            latency += latency2
+            info.update({"noncompliant": True, "decision": "ACT"})
+        choice = (raw.get("choices") or [{}])[0]
         res = ChatResult(message=normalize_message(choice.get("message") or {}), usage=usage,
                          latency_ms=latency + (info.get("latency_ms") or 0.0),
                          cost_usd=self.client.pricing.cost(usage), finish_reason=choice.get("finish_reason"),
                          raw=raw)
         info["agent_ms"] = latency
-        info["tools_removed"] = "tools" in body and "tools" not in new_body
+        info["tools_removed"] = "tools" in body and "tools" not in new_body and not info.get("noncompliant")
         res.gate = info  # type: ignore[attr-defined]
         return res
 

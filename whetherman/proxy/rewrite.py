@@ -17,6 +17,9 @@ DECLINE_INSTRUCTION = (
     "None of your available tools can do what the user is asking. Briefly explain that limitation "
     "and, if possible, suggest what the user could do instead. Do not pretend to perform the action."
 )
+ANSWER_INSTRUCTION = (
+    "Answer the user now using only the information already in this conversation. Do not call any tools."
+)
 TOOL_KEYS = ("tools", "tool_choice", "parallel_tool_calls", "functions", "function_call")
 
 
@@ -71,9 +74,20 @@ def rewrite(body: dict[str, Any], decision: str) -> dict[str, Any]:
         out["messages"] = _with_instruction(body["messages"], ASK_INSTRUCTION)
     elif decision == "DECLINE":
         out["messages"] = _with_instruction(body["messages"], DECLINE_INSTRUCTION)
-    elif decision != "ANSWER":
+    elif decision == "ANSWER":
+        out["messages"] = _with_instruction(body["messages"], ANSWER_INSTRUCTION)
+    else:
         return body  # unknown decision: fail open
     return out
+
+
+def has_tool_calls(response: Any) -> bool:
+    """True if a Chat Completions response asks for a tool call (used to detect non-compliance)."""
+    try:
+        msg = (response.get("choices") or [{}])[0].get("message") or {}
+    except AttributeError:
+        return False
+    return bool(msg.get("tool_calls") or msg.get("function_call"))
 
 
 def schema_tokens_estimate(tools: list[dict[str, Any]]) -> int:

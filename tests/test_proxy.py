@@ -9,7 +9,7 @@ from fastapi.testclient import TestClient
 
 from whetherman.calibrate.adjust import VectorScaling
 from whetherman.policy.gate import Gate, Profile
-from whetherman.proxy.rewrite import ASK_INSTRUCTION, DECLINE_INSTRUCTION, rewrite, route_reason
+from whetherman.proxy.rewrite import ANSWER_INSTRUCTION, ASK_INSTRUCTION, DECLINE_INSTRUCTION, rewrite, route_reason
 from whetherman.proxy.server import create_app
 
 REQ = json.loads((Path(__file__).parent / "fixtures" / "multicall_request.json").read_text())
@@ -69,7 +69,7 @@ def test_rewrite_removes_tools_and_preserves_history(decision):
     elif decision == "DECLINE":
         assert DECLINE_INSTRUCTION in sys0
     else:
-        assert sys0 == "Be concise."
+        assert sys0 == "Be concise.\n\n" + ANSWER_INSTRUCTION
 
 
 def test_rewrite_inserts_system_when_missing():
@@ -178,3 +178,35 @@ def test_gate_fails_open_when_feature_head_gets_no_hidden_state():
     g = Gate(FakeRouter("ANSWER"), prof, timeout_ms=100)
     out = g.decide({"messages": [{"role": "user", "content": "x"}], "tools": []})
     assert out["decision"] == "ACT" and out["error"].startswith("error:")
+
+
+class ToolCallingUpstream(Upstream):
+    """A model that emits a tool call even when the request offers no tools."""
+
+    def __call__(self, request: httpx.Request) -> httpx.Response:
+        self.seen.append((request.url.path, request.content))
+        msg = {"role": "assistant", "content": None, "tool_calls": [
+            {"id": "c1", "type": "function", "function": {"name": "get_weather", "arguments": "{}"}}]}
+        return httpx.Response(200, json={"id": "x", "choices": [{"message": msg, "finish_reason": "tool_calls"}],
+                                         "usage": {"prompt_tokens": 10, "completion_tokens": 2}})
+
+
+def test_noncompliant_tool_call_fails_open_to_original_request(tmp_path):
+    up = ToolCallingUpstream()
+    app = create_app(gate("ANSWER"), "http://upstream/v1", profile_name="t", log_path=str(tmp_path / "l.jsonl"),
+                     transport=httpx.MockTransport(up))
+    r = TestClient(app).post("/v1/chat/completions", json=REQ)
+    assert r.headers["x-whetherman-decision"] == "ACT" and len(up.seen) == 2
+    assert "tools" not in json.loads(up.seen[0][1]) and json.loads(up.seen[1][1]) == REQ
+    assert json.loads((tmp_path / "l.jsonl").read_text().splitlines()[0])["noncompliant"] is True
+
+
+def test_gated_client_noncompliance_counts_both_calls():
+    from whetherman.providers.openai_compat import ChatClient
+    from whetherman.proxy.server import GatedClient
+
+    up = ToolCallingUpstream()
+    base = ChatClient("m", "digitalocean", api_key="k", transport=httpx.MockTransport(up))
+    res = GatedClient(base, gate("ANSWER")).chat(REQ["messages"], tools=REQ["tools"])
+    assert res.gate["noncompliant"] and res.gate["decision"] == "ACT" and not res.gate["tools_removed"]
+    assert res.usage.prompt_tokens == 20 and len(up.seen) == 2
