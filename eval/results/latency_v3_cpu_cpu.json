@@ -1,0 +1,40 @@
+{
+ "device": "cpu",
+ "checkpoint": "checkpoints/shared-v3",
+ "threads": 8,
+ "max_input_tokens": 1536,
+ "scenarios": {
+  "short_2tools": {
+   "n": 30,
+   "p50_ms": 187.72069353144616,
+   "p95_ms": 203.8689223176334,
+   "format_p50_ms": 0.7052019936963916,
+   "input_tokens": 128,
+   "truncated": false
+  },
+  "medium_8tools": {
+   "n": 30,
+   "p50_ms": 1074.6315260184929,
+   "p95_ms": 1203.4130614832973,
+   "format_p50_ms": 9.180217457469553,
+   "input_tokens": 830,
+   "truncated": false
+  },
+  "multistep_2results": {
+   "n": 30,
+   "p50_ms": 1139.740582962986,
+   "p95_ms": 1213.0531766684724,
+   "format_p50_ms": 10.526350466534495,
+   "input_tokens": 868,
+   "truncated": false
+  },
+  "long_near_budget": {
+   "n": 30,
+   "p50_ms": 2151.929747487884,
+   "p95_ms": 3434.2782107007224,
+   "format_p50_ms": 37.904313940089196,
+   "input_tokens": 1504,
+   "truncated": true
+  }
+ }
+}

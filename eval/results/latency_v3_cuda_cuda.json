@@ -1,0 +1,41 @@
+{
+ "device": "cuda",
+ "checkpoint": "checkpoints/shared-v3",
+ "threads": 8,
+ "max_input_tokens": 1536,
+ "scenarios": {
+  "short_2tools": {
+   "n": 30,
+   "p50_ms": 54.76901901420206,
+   "p95_ms": 104.77139614522454,
+   "format_p50_ms": 0.5382830277085304,
+   "input_tokens": 128,
+   "truncated": false
+  },
+  "medium_8tools": {
+   "n": 30,
+   "p50_ms": 121.67759804287925,
+   "p95_ms": 126.57268846523948,
+   "format_p50_ms": 1.4652299578301609,
+   "input_tokens": 830,
+   "truncated": false
+  },
+  "multistep_2results": {
+   "n": 30,
+   "p50_ms": 122.67209304263815,
+   "p95_ms": 133.70095894206315,
+   "format_p50_ms": 1.8354179919697344,
+   "input_tokens": 868,
+   "truncated": false
+  },
+  "long_near_budget": {
+   "n": 30,
+   "p50_ms": 249.04810904990882,
+   "p95_ms": 410.238615371054,
+   "format_p50_ms": 32.53516450058669,
+   "input_tokens": 1504,
+   "truncated": true
+  }
+ },
+ "peak_vram_mib": 1225.48583984375
+}
