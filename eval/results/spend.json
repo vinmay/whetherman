@@ -125,9 +125,15 @@
    "what": "calibrate U (whetherman calibrate, default probe pack)",
    "usd": 0.353158,
    "tasks": 133
+  },
+  {
+   "ts": "2026-10-22T13:00:06",
+   "kind": "hosted",
+   "what": "A/B ab_final L none+adapted+shared+rules+qwen_prompted+profile:S",
+   "usd": 0.288172
   }
  ],
  "totals_usd": {
-  "hosted": 2.197775
+  "hosted": 2.485947
  }
 }

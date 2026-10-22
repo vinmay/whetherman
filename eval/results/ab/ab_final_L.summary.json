@@ -1,0 +1,810 @@
+{
+ "guessable_families": [
+  "weather_compare"
+ ],
+ "configs": {
+  "qwen_prompted": {
+   "episodes": 160,
+   "success": 118,
+   "success_rate": 0.7375,
+   "success_ci": [
+    0.6643280015812724,
+    0.7995346560099622
+   ],
+   "tool_calls_mean": 0.94375,
+   "model_calls_mean": 1.94375,
+   "tokens_mean": 831.76875,
+   "cost_usd": 0.0314175,
+   "wall_s_median": 5.167968305933755,
+   "gate_steps": 311,
+   "interventions": 131,
+   "noncompliant_fallbacks": 15,
+   "gate_errors": {},
+   "gate_ms_median": 1366.5444439975545,
+   "replay_verdicts": {
+    "restored_with_act (evidence, not proof)": 13,
+    "unresolved": 4,
+    "no_intervention_found": 1
+   }
+  },
+  "adapted": {
+   "episodes": 160,
+   "success": 115,
+   "success_rate": 0.71875,
+   "success_ci": [
+    0.644584094736341,
+    0.7826578267292696
+   ],
+   "tool_calls_mean": 2.20625,
+   "model_calls_mean": 3.09375,
+   "tokens_mean": 1896.78125,
+   "cost_usd": 0.0651461,
+   "wall_s_median": 4.343876609986182,
+   "gate_steps": 495,
+   "interventions": 76,
+   "noncompliant_fallbacks": 20,
+   "gate_errors": {},
+   "gate_ms_median": 168.1551750516519,
+   "replay_verdicts": {
+    "no_intervention_found": 6,
+    "restored_with_act (evidence, not proof)": 11
+   }
+  },
+  "rules": {
+   "episodes": 160,
+   "success": 96,
+   "success_rate": 0.6,
+   "success_ci": [
+    0.5226034047446808,
+    0.6727071879253126
+   ],
+   "tool_calls_mean": 0.79375,
+   "model_calls_mean": 1.76875,
+   "tokens_mean": 849.93125,
+   "cost_usd": 0.0322979,
+   "wall_s_median": 2.533031379978638,
+   "gate_steps": 283,
+   "interventions": 132,
+   "noncompliant_fallbacks": 55,
+   "gate_errors": {},
+   "gate_ms_median": 0.45121205039322376,
+   "replay_verdicts": {
+    "restored_with_act (evidence, not proof)": 39,
+    "unresolved": 3,
+    "no_intervention_found": 1
+   }
+  },
+  "profile:S": {
+   "episodes": 160,
+   "success": 120,
+   "success_rate": 0.75,
+   "success_ci": [
+    0.6775748906186185,
+    0.8107015910563651
+   ],
+   "tool_calls_mean": 2.375,
+   "model_calls_mean": 3.23125,
+   "tokens_mean": 1887.7,
+   "cost_usd": 0.0525754,
+   "wall_s_median": 4.0820840955129825,
+   "gate_steps": 517,
+   "interventions": 24,
+   "noncompliant_fallbacks": 2,
+   "gate_errors": {},
+   "gate_ms_median": 169.1854610107839,
+   "replay_verdicts": {
+    "no_intervention_found": 6,
+    "restored_with_act (evidence, not proof)": 6
+   }
+  },
+  "shared": {
+   "episodes": 160,
+   "success": 108,
+   "success_rate": 0.675,
+   "success_ci": [
+    0.5990599383865775,
+    0.742733598785911
+   ],
+   "tool_calls_mean": 1.2125,
+   "model_calls_mean": 2.175,
+   "tokens_mean": 1351.6375,
+   "cost_usd": 0.0545704,
+   "wall_s_median": 3.558698602486402,
+   "gate_steps": 348,
+   "interventions": 134,
+   "noncompliant_fallbacks": 65,
+   "gate_errors": {},
+   "gate_ms_median": 225.04883556393906,
+   "replay_verdicts": {
+    "restored_with_act (evidence, not proof)": 27,
+    "no_intervention_found": 1
+   }
+  },
+  "none": {
+   "episodes": 160,
+   "success": 130,
+   "success_rate": 0.8125,
+   "success_ci": [
+    0.7449590373864503,
+    0.8653865647072791
+   ],
+   "tool_calls_mean": 2.4375,
+   "model_calls_mean": 3.31875,
+   "tokens_mean": 1906.1125,
+   "cost_usd": 0.0521644,
+   "wall_s_median": 3.7132713195169345,
+   "gate_steps": 531,
+   "interventions": 0,
+   "noncompliant_fallbacks": 0,
+   "gate_errors": {},
+   "gate_ms_median": null,
+   "replay_verdicts": {}
+  }
+ },
+ "headline": {
+  "qwen_prompted": {
+   "episodes": 150,
+   "success": 108,
+   "success_rate": 0.72,
+   "success_ci": [
+    0.6433420194970179,
+    0.7856706792788659
+   ],
+   "tool_calls_mean": 0.8133333333333334
+  },
+  "adapted": {
+   "episodes": 150,
+   "success": 105,
+   "success_rate": 0.7,
+   "success_ci": [
+    0.6224187104297283,
+    0.7675928339119842
+   ],
+   "tool_calls_mean": 2.1466666666666665
+  },
+  "rules": {
+   "episodes": 150,
+   "success": 90,
+   "success_rate": 0.6,
+   "success_ci": [
+    0.5200476798506317,
+    0.6749580923202245
+   ],
+   "tool_calls_mean": 0.7333333333333333
+  },
+  "profile:S": {
+   "episodes": 150,
+   "success": 113,
+   "success_rate": 0.7533333333333333,
+   "success_ci": [
+    0.6785952428848271,
+    0.8154193799480086
+   ],
+   "tool_calls_mean": 2.3933333333333335
+  },
+  "shared": {
+   "episodes": 150,
+   "success": 99,
+   "success_rate": 0.66,
+   "success_ci": [
+    0.5810413820559243,
+    0.7309678534174459
+   ],
+   "tool_calls_mean": 1.1533333333333333
+  },
+  "none": {
+   "episodes": 150,
+   "success": 120,
+   "success_rate": 0.8,
+   "success_ci": [
+    0.7288572445686363,
+    0.8561600719439326
+   ],
+   "tool_calls_mean": 2.36
+  }
+ },
+ "guessable": {
+  "qwen_prompted": {
+   "episodes": 10,
+   "success": 10,
+   "success_rate": 1.0,
+   "success_ci": [
+    0.7224598312333834,
+    1.0
+   ],
+   "tool_calls_mean": 2.9
+  },
+  "adapted": {
+   "episodes": 10,
+   "success": 10,
+   "success_rate": 1.0,
+   "success_ci": [
+    0.7224598312333834,
+    1.0
+   ],
+   "tool_calls_mean": 3.1
+  },
+  "rules": {
+   "episodes": 10,
+   "success": 6,
+   "success_rate": 0.6,
+   "success_ci": [
+    0.3126695474501864,
+    0.8318224187964902
+   ],
+   "tool_calls_mean": 1.7
+  },
+  "profile:S": {
+   "episodes": 10,
+   "success": 7,
+   "success_rate": 0.7,
+   "success_ci": [
+    0.39677321997956516,
+    0.892210712513788
+   ],
+   "tool_calls_mean": 2.1
+  },
+  "shared": {
+   "episodes": 10,
+   "success": 9,
+   "success_rate": 0.9,
+   "success_ci": [
+    0.5958436145024278,
+    0.9821242504842788
+   ],
+   "tool_calls_mean": 2.1
+  },
+  "none": {
+   "episodes": 10,
+   "success": 10,
+   "success_rate": 1.0,
+   "success_ci": [
+    0.7224598312333834,
+    1.0
+   ],
+   "tool_calls_mean": 3.6
+  }
+ },
+ "per_family": {
+  "qwen_prompted": {
+   "CalculatorEnv": {
+    "n": 12,
+    "success": 11
+   },
+   "CodeExecutorEnv": {
+    "n": 12,
+    "success": 12
+   },
+   "CountingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "GameRuleEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "HistoricalYearEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "MatrixEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "PrimeEnv": {
+    "n": 2,
+    "success": 1
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 18,
+    "success": 18
+   },
+   "StatisticsEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 10,
+    "success": 10
+   },
+   "decline": {
+    "n": 10,
+    "success": 4
+   },
+   "general": {
+    "n": 8,
+    "success": 8
+   },
+   "repo_fact": {
+    "n": 6,
+    "success": 3
+   },
+   "tests_explain": {
+    "n": 2,
+    "success": 2
+   },
+   "tests_issue": {
+    "n": 2,
+    "success": 1
+   },
+   "weather": {
+    "n": 10,
+    "success": 10
+   },
+   "weather_compare": {
+    "n": 10,
+    "success": 10
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_f": {
+    "n": 10,
+    "success": 6
+   },
+   "web": {
+    "n": 16,
+    "success": 0
+   },
+   "web_email": {
+    "n": 10,
+    "success": 0
+   }
+  },
+  "adapted": {
+   "CalculatorEnv": {
+    "n": 12,
+    "success": 11
+   },
+   "CodeExecutorEnv": {
+    "n": 12,
+    "success": 12
+   },
+   "CountingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "GameRuleEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "HistoricalYearEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "MatrixEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "PrimeEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 18,
+    "success": 11
+   },
+   "StatisticsEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 10,
+    "success": 5
+   },
+   "decline": {
+    "n": 10,
+    "success": 4
+   },
+   "general": {
+    "n": 8,
+    "success": 8
+   },
+   "repo_fact": {
+    "n": 6,
+    "success": 6
+   },
+   "tests_explain": {
+    "n": 2,
+    "success": 2
+   },
+   "tests_issue": {
+    "n": 2,
+    "success": 2
+   },
+   "weather": {
+    "n": 10,
+    "success": 10
+   },
+   "weather_compare": {
+    "n": 10,
+    "success": 10
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_f": {
+    "n": 10,
+    "success": 5
+   },
+   "web": {
+    "n": 16,
+    "success": 3
+   },
+   "web_email": {
+    "n": 10,
+    "success": 2
+   }
+  },
+  "rules": {
+   "CalculatorEnv": {
+    "n": 12,
+    "success": 11
+   },
+   "CodeExecutorEnv": {
+    "n": 12,
+    "success": 12
+   },
+   "CountingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "GameRuleEnv": {
+    "n": 4,
+    "success": 2
+   },
+   "HistoricalYearEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "MatrixEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "PrimeEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 18,
+    "success": 18
+   },
+   "StatisticsEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 10,
+    "success": 7
+   },
+   "decline": {
+    "n": 10,
+    "success": 10
+   },
+   "general": {
+    "n": 8,
+    "success": 8
+   },
+   "repo_fact": {
+    "n": 6,
+    "success": 0
+   },
+   "tests_explain": {
+    "n": 2,
+    "success": 2
+   },
+   "tests_issue": {
+    "n": 2,
+    "success": 1
+   },
+   "weather": {
+    "n": 10,
+    "success": 0
+   },
+   "weather_compare": {
+    "n": 10,
+    "success": 6
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 1
+   },
+   "weather_f": {
+    "n": 10,
+    "success": 3
+   },
+   "web": {
+    "n": 16,
+    "success": 0
+   },
+   "web_email": {
+    "n": 10,
+    "success": 1
+   }
+  },
+  "profile:S": {
+   "CalculatorEnv": {
+    "n": 12,
+    "success": 11
+   },
+   "CodeExecutorEnv": {
+    "n": 12,
+    "success": 12
+   },
+   "CountingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "GameRuleEnv": {
+    "n": 4,
+    "success": 2
+   },
+   "HistoricalYearEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "MatrixEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "PrimeEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 18,
+    "success": 18
+   },
+   "StatisticsEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 10,
+    "success": 5
+   },
+   "decline": {
+    "n": 10,
+    "success": 5
+   },
+   "general": {
+    "n": 8,
+    "success": 8
+   },
+   "repo_fact": {
+    "n": 6,
+    "success": 6
+   },
+   "tests_explain": {
+    "n": 2,
+    "success": 2
+   },
+   "tests_issue": {
+    "n": 2,
+    "success": 2
+   },
+   "weather": {
+    "n": 10,
+    "success": 10
+   },
+   "weather_compare": {
+    "n": 10,
+    "success": 7
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_f": {
+    "n": 10,
+    "success": 7
+   },
+   "web": {
+    "n": 16,
+    "success": 1
+   },
+   "web_email": {
+    "n": 10,
+    "success": 4
+   }
+  },
+  "shared": {
+   "CalculatorEnv": {
+    "n": 12,
+    "success": 12
+   },
+   "CodeExecutorEnv": {
+    "n": 12,
+    "success": 12
+   },
+   "CountingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "GameRuleEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "HistoricalYearEnv": {
+    "n": 2,
+    "success": 0
+   },
+   "MatrixEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "PrimeEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 18,
+    "success": 14
+   },
+   "StatisticsEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 10,
+    "success": 4
+   },
+   "decline": {
+    "n": 10,
+    "success": 10
+   },
+   "general": {
+    "n": 8,
+    "success": 8
+   },
+   "repo_fact": {
+    "n": 6,
+    "success": 2
+   },
+   "tests_explain": {
+    "n": 2,
+    "success": 2
+   },
+   "tests_issue": {
+    "n": 2,
+    "success": 2
+   },
+   "weather": {
+    "n": 10,
+    "success": 10
+   },
+   "weather_compare": {
+    "n": 10,
+    "success": 9
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 4
+   },
+   "weather_f": {
+    "n": 10,
+    "success": 3
+   },
+   "web": {
+    "n": 16,
+    "success": 0
+   },
+   "web_email": {
+    "n": 10,
+    "success": 0
+   }
+  },
+  "none": {
+   "CalculatorEnv": {
+    "n": 12,
+    "success": 11
+   },
+   "CodeExecutorEnv": {
+    "n": 12,
+    "success": 12
+   },
+   "CountingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "GameRuleEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "HistoricalYearEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "MatrixEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "PrimeEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 18,
+    "success": 18
+   },
+   "StatisticsEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 10,
+    "success": 6
+   },
+   "decline": {
+    "n": 10,
+    "success": 5
+   },
+   "general": {
+    "n": 8,
+    "success": 8
+   },
+   "repo_fact": {
+    "n": 6,
+    "success": 6
+   },
+   "tests_explain": {
+    "n": 2,
+    "success": 2
+   },
+   "tests_issue": {
+    "n": 2,
+    "success": 2
+   },
+   "weather": {
+    "n": 10,
+    "success": 10
+   },
+   "weather_compare": {
+    "n": 10,
+    "success": 10
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_f": {
+    "n": 10,
+    "success": 8
+   },
+   "web": {
+    "n": 16,
+    "success": 4
+   },
+   "web_email": {
+    "n": 10,
+    "success": 4
+   }
+  }
+ }
+}
