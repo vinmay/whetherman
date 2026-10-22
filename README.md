@@ -54,7 +54,7 @@ git clone https://github.com/vinmay/whetherman && cd whetherman
 uv sync --extra ml
 ```
 
-<!-- BACKBONE: link the released adapter here once published; until then, train it: -->
+<!-- BACKBONE: replace with the hf download line once vinmaynair/whetherman-functiongemma-270m is published -->
 Train the shared backbone (about 50 minutes on a 6 GB GTX 1660 Ti, FP32):
 
 ```bash
