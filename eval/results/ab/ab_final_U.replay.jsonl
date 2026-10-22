@@ -1,0 +1,8 @@
+{"task_id": "ab_final-web-Ravi Men", "repeat": 0, "points": [], "verdict": "no_intervention_found", "config": "adapted"}
+{"task_id": "ab_final-web-96", "repeat": 1, "points": [], "verdict": "no_intervention_found", "config": "adapted"}
+{"task_id": "ab_final-wxf-tbilisi", "repeat": 0, "points": [{"step": 3, "decision": "ANSWER", "replays": [{"success": true, "n_tool_calls": 1}, {"success": true, "n_tool_calls": 2}]}], "verdict": "restored_with_act (evidence, not proof)", "config": "adapted"}
+{"task_id": "ab_final-wxf-nairobi", "repeat": 0, "points": [{"step": 3, "decision": "ANSWER", "replays": [{"success": true, "n_tool_calls": 1}, {"success": false, "n_tool_calls": 3}]}], "verdict": "restored_with_act (evidence, not proof)", "config": "adapted"}
+{"task_id": "ab_final-webmail-7.1.4", "repeat": 0, "points": [{"step": 4, "decision": "ANSWER", "replays": [{"success": true, "n_tool_calls": 1}, {"success": false, "n_tool_calls": 5}]}], "verdict": "restored_with_act (evidence, not proof)", "config": "adapted"}
+{"task_id": "ab_final-webmail-96", "repeat": 1, "points": [], "verdict": "no_intervention_found", "config": "adapted"}
+{"task_id": "ab_final-tests-explain", "repeat": 1, "points": [], "verdict": "no_intervention_found", "config": "adapted"}
+{"task_id": "w2t-single_hop-test-53520", "repeat": 1, "points": [], "verdict": "no_intervention_found", "config": "adapted"}

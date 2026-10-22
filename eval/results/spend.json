@@ -131,9 +131,15 @@
    "kind": "hosted",
    "what": "A/B ab_final L none+adapted+shared+rules+qwen_prompted+profile:S",
    "usd": 0.288172
+  },
+  {
+   "ts": "2026-10-22T18:16:48",
+   "kind": "hosted",
+   "what": "A/B ab_final U none+adapted",
+   "usd": 0.089894
   }
  ],
  "totals_usd": {
-  "hosted": 2.485947
+  "hosted": 2.575841
  }
 }

@@ -1,0 +1,276 @@
+{
+ "guessable_families": [
+  "weather_compare"
+ ],
+ "configs": {
+  "adapted": {
+   "episodes": 160,
+   "success": 124,
+   "success_rate": 0.775,
+   "success_ci": [
+    0.7042857994110268,
+    0.8328183304314551
+   ],
+   "tool_calls_mean": 1.95625,
+   "model_calls_mean": 2.85625,
+   "tokens_mean": 1823.68125,
+   "cost_usd": 0.04376865,
+   "wall_s_median": 3.0515268005547114,
+   "gate_steps": 457,
+   "interventions": 41,
+   "noncompliant_fallbacks": 4,
+   "gate_errors": {},
+   "gate_ms_median": 150.80618299543858,
+   "replay_verdicts": {
+    "no_intervention_found": 5,
+    "restored_with_act (evidence, not proof)": 3
+   }
+  },
+  "none": {
+   "episodes": 160,
+   "success": 125,
+   "success_rate": 0.78125,
+   "success_ci": [
+    0.7110115967895942,
+    0.8382994450947623
+   ],
+   "tool_calls_mean": 2.11875,
+   "model_calls_mean": 3.04375,
+   "tokens_mean": 2062.1625,
+   "cost_usd": 0.0461253,
+   "wall_s_median": 2.597821114992257,
+   "gate_steps": 487,
+   "interventions": 0,
+   "noncompliant_fallbacks": 0,
+   "gate_errors": {},
+   "gate_ms_median": null,
+   "replay_verdicts": {}
+  }
+ },
+ "headline": {
+  "adapted": {
+   "episodes": 150,
+   "success": 114,
+   "success_rate": 0.76,
+   "success_ci": [
+    0.6857071477257108,
+    0.8213078599185155
+   ],
+   "tool_calls_mean": 1.9266666666666667
+  },
+  "none": {
+   "episodes": 150,
+   "success": 115,
+   "success_rate": 0.7666666666666667,
+   "success_ci": [
+    0.6928407309593593,
+    0.8271746614962575
+   ],
+   "tool_calls_mean": 2.0866666666666664
+  }
+ },
+ "guessable": {
+  "adapted": {
+   "episodes": 10,
+   "success": 10,
+   "success_rate": 1.0,
+   "success_ci": [
+    0.7224598312333834,
+    1.0
+   ],
+   "tool_calls_mean": 2.4
+  },
+  "none": {
+   "episodes": 10,
+   "success": 10,
+   "success_rate": 1.0,
+   "success_ci": [
+    0.7224598312333834,
+    1.0
+   ],
+   "tool_calls_mean": 2.6
+  }
+ },
+ "per_family": {
+  "adapted": {
+   "CalculatorEnv": {
+    "n": 12,
+    "success": 12
+   },
+   "CodeExecutorEnv": {
+    "n": 12,
+    "success": 12
+   },
+   "CountingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "GameRuleEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "HistoricalYearEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "MatrixEnv": {
+    "n": 4,
+    "success": 3
+   },
+   "PrimeEnv": {
+    "n": 2,
+    "success": 1
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 18,
+    "success": 18
+   },
+   "StatisticsEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 10,
+    "success": 6
+   },
+   "decline": {
+    "n": 10,
+    "success": 1
+   },
+   "general": {
+    "n": 8,
+    "success": 8
+   },
+   "repo_fact": {
+    "n": 6,
+    "success": 5
+   },
+   "tests_explain": {
+    "n": 2,
+    "success": 1
+   },
+   "tests_issue": {
+    "n": 2,
+    "success": 2
+   },
+   "weather": {
+    "n": 10,
+    "success": 10
+   },
+   "weather_compare": {
+    "n": 10,
+    "success": 10
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_f": {
+    "n": 10,
+    "success": 8
+   },
+   "web": {
+    "n": 16,
+    "success": 6
+   },
+   "web_email": {
+    "n": 10,
+    "success": 3
+   }
+  },
+  "none": {
+   "CalculatorEnv": {
+    "n": 12,
+    "success": 12
+   },
+   "CodeExecutorEnv": {
+    "n": 12,
+    "success": 12
+   },
+   "CountingEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "GameRuleEnv": {
+    "n": 4,
+    "success": 4
+   },
+   "HistoricalYearEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "MatrixEnv": {
+    "n": 4,
+    "success": 3
+   },
+   "PrimeEnv": {
+    "n": 2,
+    "success": 1
+   },
+   "RegexMatchEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "RetrieverEnv": {
+    "n": 18,
+    "success": 18
+   },
+   "StatisticsEnv": {
+    "n": 2,
+    "success": 2
+   },
+   "ask": {
+    "n": 10,
+    "success": 3
+   },
+   "decline": {
+    "n": 10,
+    "success": 0
+   },
+   "general": {
+    "n": 8,
+    "success": 8
+   },
+   "repo_fact": {
+    "n": 6,
+    "success": 5
+   },
+   "tests_explain": {
+    "n": 2,
+    "success": 2
+   },
+   "tests_issue": {
+    "n": 2,
+    "success": 2
+   },
+   "weather": {
+    "n": 10,
+    "success": 10
+   },
+   "weather_compare": {
+    "n": 10,
+    "success": 10
+   },
+   "weather_email": {
+    "n": 6,
+    "success": 6
+   },
+   "weather_f": {
+    "n": 10,
+    "success": 9
+   },
+   "web": {
+    "n": 16,
+    "success": 8
+   },
+   "web_email": {
+    "n": 10,
+    "success": 4
+   }
+  }
+ }
+}
