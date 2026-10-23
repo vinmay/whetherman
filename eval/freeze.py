@@ -18,6 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "eval" / "results" / "freeze.json"
+OUT_LAYA = ROOT / "eval" / "results" / "freeze_laya.json"
 FROZEN = ["checkpoints/shared-v3/adapter_model.safetensors", "checkpoints/shared-v3/head.pt",
           "checkpoints/shared-v3/adapter_config.json", "checkpoints/identity-v3/adapter_model.safetensors",
           "checkpoints/identity-v3/head.pt", "profiles/L.json", "profiles/S.json", "profiles/U.json",
@@ -26,12 +27,19 @@ FROZEN = ["checkpoints/shared-v3/adapter_model.safetensors", "checkpoints/shared
           "data/fixtures/w2t/multihop_test.jsonl"]
 
 
+# Laya (P2 comparison) was trained after the main freeze; its own record is written before its held-out run.
+FROZEN_LAYA = ["checkpoints/laya-lora/adapter_model.safetensors", "checkpoints/laya-lora/head.pt",
+               "checkpoints/laya-lora/adapter_config.json", "profiles/laya/L.json", "profiles/laya/S.json",
+               "data/fixtures/e3/e3.jsonl", "data/fixtures/e1/test.jsonl", "data/fixtures/w2t/e2_test.jsonl",
+               "data/fixtures/w2t/multihop_test.jsonl"]
+
+
 def sha(p: Path) -> str:
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
-def snapshot() -> dict:
-    return {f: sha(ROOT / f) for f in FROZEN}
+def snapshot(files: list[str]) -> dict:
+    return {f: sha(ROOT / f) for f in files}
 
 
 def main() -> None:
@@ -39,19 +47,21 @@ def main() -> None:
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--write", action="store_true")
     g.add_argument("--check", action="store_true")
+    ap.add_argument("--laya", action="store_true", help="the Laya comparison's own record")
     a = ap.parse_args()
+    out, files = (OUT_LAYA, FROZEN_LAYA) if a.laya else (OUT, FROZEN)
     if a.write:
         dirty = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no"], cwd=ROOT,
                                capture_output=True, text=True).stdout.strip()
         if dirty:
             sys.exit(f"commit first; tracked changes:\n{dirty}")
         commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
-        OUT.write_text(json.dumps({"frozen_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "code_commit": commit,
-                                   "sha256": snapshot()}, indent=1))
-        print(f"frozen at {commit[:10]}; wrote {OUT.relative_to(ROOT)}")
+        out.write_text(json.dumps({"frozen_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "code_commit": commit,
+                                   "sha256": snapshot(files)}, indent=1))
+        print(f"frozen at {commit[:10]}; wrote {out.relative_to(ROOT)}")
         return
-    rec = json.loads(OUT.read_text())
-    changed = [f for f, h in snapshot().items() if rec["sha256"].get(f) != h]
+    rec = json.loads(out.read_text())
+    changed = [f for f, h in snapshot(files).items() if rec["sha256"].get(f) != h]
     if changed:
         sys.exit(f"frozen files changed since {rec['frozen_at']}: {changed}")
     print(f"freeze intact ({rec['frozen_at']}, code {rec['code_commit'][:10]})")

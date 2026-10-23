@@ -71,7 +71,8 @@ def main() -> None:
     if a.checkpoint == "laya":  # P2 comparison router
         from whetherman.adapters.laya import LayaRouter
 
-        r = LayaRouter(head=ROOT / "checkpoints" / "laya-head", device=a.device)
+        ck = ROOT / "checkpoints" / "laya-lora"
+        r = LayaRouter(head=ck, adapter=ck, device=a.device)
     else:
         r = FunctionGemmaRouter(checkpoint=None if a.checkpoint == "none" else ROOT / a.checkpoint, device=a.device)
     if a.device == "cuda":

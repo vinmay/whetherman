@@ -47,7 +47,7 @@ def fit_profiles(device: str, cache: dict) -> dict[str, Profile]:
         raw = ladder.raw_outputs("laya", f"probe_{ag}", pts, device, cache)
         logits = np.array([raw[p["id"]] for p in pts])
         hidden = np.array([raw.hidden[p["id"]] for p in pts])
-        prof, report = fit_profile(ag, pts, logits, "checkpoints/laya-head", hidden=hidden)
+        prof, report = fit_profile(ag, pts, logits, "checkpoints/laya-lora", hidden=hidden)
         same = set(report["adapt_ids"]) == set(shipped["adapt_ids"]) and \
             set(report["threshold_ids"]) == set(shipped["threshold_ids"])
         if not same:
@@ -79,7 +79,7 @@ def main() -> None:
         per_agent = {ag: {"e2_test": [dict(p, disagree=p["id"] in dis) for p in points.e2("e2_test", ag)],
                           "multihop_test": points.e2("multihop_test", ag), "e3": points.e3(ag)}
                      for ag in AGENTS}
-    res: dict = {"phase": a.phase, "router": "laya (frozen encoder + 4-class head)", "fixed": {}, "per_agent": {},
+    res: dict = {"phase": a.phase, "router": "laya option (b): LoRA-fine-tuned encoder + 4-class head", "fixed": {}, "per_agent": {},
                  "truncation": {}, "profiles": {ag: p.tau for ag, p in profiles.items()}}
     for sname, pts in fixed.items():
         raw = ladder.raw_outputs("laya", sname, pts, a.device, cache)

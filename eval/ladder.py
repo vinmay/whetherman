@@ -51,7 +51,8 @@ def get_router(name: str, device: str):
     if name == "laya":  # P2 comparison router (eval/laya_eval.py)
         from whetherman.adapters.laya import LayaRouter
 
-        return LayaRouter(head=ROOT / "checkpoints" / "laya-head", device=device)
+        ck = ROOT / "checkpoints" / "laya-lora"  # option (b), selected on validation macro-F1 over option (a)
+        return LayaRouter(head=ck, adapter=ck, device=device)
     if name == "rules":
         from whetherman.adapters.baselines import RulesRouter
 
