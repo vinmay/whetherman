@@ -207,10 +207,13 @@ and its held-out sets run once.
 | Peak VRAM, inference / training | **1.2** / 2.2 GB | 1.5 / **2.1** GB |
 
 Laya truncation (inputs over 512 tokens; oldest history dropped first, schemas and latest tool results
-kept): 11/900 E1-test items (1.2%), 4/121 E3 (3.3%), none on E2. **Verdict:** on this task FunctionGemma
-routes better on every held-out set except S's E2 skips (more skips, more false skips). Laya is faster
-on short GPU inputs and on the longest CPU input (where it has truncated to 512 tokens), slower elsewhere. Full
-rows: `eval/results/laya_final.json`, dev and option (a): `laya_dev*.json`.
+kept): 11/900 E1-test items (1.2%), 4/121 E3 (3.3%), none on E2. **Verdict:** FunctionGemma is far ahead on
+E1 and on every set for L, where Laya's profile found no safe threshold and never skips. On S the two are
+close: Laya's macro-F1 is slightly higher (E2 0.627 vs 0.616, E3 0.329 vs 0.319), with more false skips on
+E2 (7/70 vs 4/70) and fewer correct skips on E3 (7/60 vs 14/60). Laya is faster on short GPU inputs and on
+the longest CPU input (where it has truncated to 512 tokens), slower elsewhere. Every row with CIs:
+`eval/results/REPORT_final.md`.
+Raw: `eval/results/laya_final.json`; dev and option (a): `laya_dev*.json`.
 
 ## Limitations
 

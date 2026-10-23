@@ -147,6 +147,29 @@ Overlap with training text: {'irrelevance': 0, 'live_irrelevance': 0, 'live_rele
 | shared | 187/240 (0.78) | 764/884 (0.86) | 6/16 (0.38) |
 | qwen_prompted | 95/240 (0.40) | 533/884 (0.60) | 10/16 (0.62) |
 
+### Laya vs FunctionGemma (P2 comparison, offline, held-out)
+
+Laya router: laya option (b): LoRA-fine-tuned encoder + 4-class head. Same split, labels, seed and per-agent procedure.
+
+| Set | Router | Macro-F1 | ECE | False skips | Correct skips | τ |
+|---|---|---|---|---|---|---|
+| E1-test | FunctionGemma | 0.642 | 0.228 | 93/300 [0.26, 0.36] | 471/600 [0.75, 0.82] |  |
+| E1-test | Laya | 0.497 | 0.267 | 238/300 [0.74, 0.84] | 531/600 [0.86, 0.91] |  |
+| L e2_test | FunctionGemma | 0.609 | 0.086 | 1/17 [0.01, 0.27] | 86/129 [0.58, 0.74] | 0.79 |
+| L e2_test | Laya | 0.104 | 0.072 | 0/17 [0.00, 0.18] | 0/129 [0.00, 0.03] | 1.0 |
+| L multihop_test | FunctionGemma | 0.283 | 0.169 | 2/2 [0.34, 1.00] | 13/31 [0.26, 0.59] | 0.79 |
+| L multihop_test | Laya | 0.057 | 0.174 | 0/2 [0.00, 0.66] | 0/31 [0.00, 0.11] | 1.0 |
+| L e3 | FunctionGemma | 0.331 | 0.146 | 0/59 [0.00, 0.06] | 19/62 [0.21, 0.43] | 0.79 |
+| L e3 | Laya | 0.164 | 0.201 | 0/59 [0.00, 0.06] | 0/62 [0.00, 0.06] | 1.0 |
+| S e2_test | FunctionGemma | 0.616 | 0.067 | 4/70 [0.02, 0.14] | 23/66 [0.24, 0.47] | 0.68 |
+| S e2_test | Laya | 0.627 | 0.075 | 7/70 [0.05, 0.19] | 26/66 [0.28, 0.51] | 0.67 |
+| S multihop_test | FunctionGemma | 0.497 | 0.246 | 0/24 [0.00, 0.14] | 1/11 [0.02, 0.38] | 0.68 |
+| S multihop_test | Laya | 0.407 | 0.194 | 0/24 [0.00, 0.14] | 0/11 [0.00, 0.26] | 0.67 |
+| S e3 | FunctionGemma | 0.319 | 0.108 | 2/62 [0.01, 0.11] | 14/60 [0.14, 0.35] | 0.68 |
+| S e3 | Laya | 0.329 | 0.115 | 2/62 [0.01, 0.11] | 7/60 [0.06, 0.22] | 0.67 |
+
+Laya truncation (inputs over 512 tokens): e1_test 11/900, e2_test 0/146, multihop_test 0/33, e3 4/121
+
 ### Router latency (cuda, shared-v3)
 
 | Scenario | Input tokens | p50 | p95 |
@@ -164,5 +187,23 @@ Overlap with training text: {'irrelevance': 0, 'live_irrelevance': 0, 'live_rele
 | medium_8tools | 830 | 1075 ms | 1203 ms |
 | multistep_2results | 868 | 1140 ms | 1213 ms |
 | long_near_budget | 1504 | 2152 ms | 3434 ms |
+
+### Router latency (cuda, laya)
+
+| Scenario | Input tokens | p50 | p95 |
+|---|---|---|---|
+| short_2tools | 54 | 36 ms | 55 ms |
+| medium_8tools | 511 | 122 ms | 125 ms |
+| multistep_2results | 451 | 151 ms | 154 ms |
+| long_near_budget | 489 | 510 ms | 686 ms |
+
+### Router latency (cpu, laya)
+
+| Scenario | Input tokens | p50 | p95 |
+|---|---|---|---|
+| short_2tools | 54 | 396 ms | 425 ms |
+| medium_8tools | 511 | 1707 ms | 2143 ms |
+| multistep_2results | 451 | 1493 ms | 2054 ms |
+| long_near_budget | 489 | 2034 ms | 2583 ms |
 
 Hosted spend to date: $2.58 (cap $10).
