@@ -54,8 +54,14 @@ git clone https://github.com/vinmay/whetherman && cd whetherman
 uv sync --extra ml
 ```
 
-<!-- BACKBONE: replace with the hf download line once vinmaynair/whetherman-functiongemma-270m is published -->
-Train the shared backbone (about 50 minutes on a 6 GB GTX 1660 Ti, FP32):
+Download the released backbone ([vinmaynair/whetherman-functiongemma-270m](https://huggingface.co/vinmaynair/whetherman-functiongemma-270m),
+a LoRA adapter + 4-class head; research artifact, see the results first):
+
+```bash
+uv run hf download vinmaynair/whetherman-functiongemma-270m --local-dir checkpoints/shared-v3
+```
+
+Or train it yourself (about 50 minutes on a 6 GB GTX 1660 Ti, FP32):
 
 ```bash
 uv run python data/prepare.py --download && uv run python data/prepare.py
