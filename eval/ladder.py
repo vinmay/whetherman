@@ -48,6 +48,10 @@ def get_router(name: str, device: str):
 
         ck = f"checkpoints/{SHARED}" if name == "shared" else f"checkpoints/{name}"
         return FunctionGemmaRouter(checkpoint=ROOT / ck, device=device)
+    if name == "laya":  # P2 comparison router (eval/laya_eval.py)
+        from whetherman.adapters.laya import LayaRouter
+
+        return LayaRouter(head=ROOT / "checkpoints" / "laya-head", device=device)
     if name == "rules":
         from whetherman.adapters.baselines import RulesRouter
 
@@ -74,7 +78,7 @@ class RawOut(dict):
 
 def raw_outputs(router_name: str, set_name: str, pts: list[dict], device: str, cache: dict) -> RawOut:
     path = RAW / (SHARED if router_name == "shared" else router_name) / f"{set_name}.jsonl"
-    need_hidden = router_name.startswith("shared")
+    need_hidden = router_name.startswith("shared") or router_name == "laya"
     have = RawOut()
     if path.exists():
         for r in map(json.loads, path.open()):  # later rows win (a row may be re-run to add its hidden state)

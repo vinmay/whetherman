@@ -1,6 +1,6 @@
 """Whetherman per-decision latency, p50/p95, CPU and GPU, across four input scenarios.
 
-uv run python -m eval.latency --device cpu --checkpoint none   (untuned backbone)
+uv run python -m eval.latency --device cpu --checkpoint none   (untuned backbone; "laya" = Laya comparison)
 -> eval/results/latency_<tag>_<device>.json
 """
 
@@ -68,12 +68,16 @@ def main() -> None:
 
     if a.device == "cpu":
         torch.set_num_threads(8)
-    ck = None if a.checkpoint == "none" else ROOT / a.checkpoint
-    r = FunctionGemmaRouter(checkpoint=ck, device=a.device)
+    if a.checkpoint == "laya":  # P2 comparison router
+        from whetherman.adapters.laya import LayaRouter
+
+        r = LayaRouter(head=ROOT / "checkpoints" / "laya-head", device=a.device)
+    else:
+        r = FunctionGemmaRouter(checkpoint=None if a.checkpoint == "none" else ROOT / a.checkpoint, device=a.device)
     if a.device == "cuda":
         torch.cuda.reset_peak_memory_stats()
     res = {"device": a.device, "checkpoint": a.checkpoint, "threads": torch.get_num_threads(),
-           "max_input_tokens": r.max_input_tokens, "scenarios": {}}
+           "max_input_tokens": getattr(r, "max_input_tokens", getattr(r, "max_len", None)), "scenarios": {}}
     for name, d in scenarios().items():
         lat, fmt = [], []
         f = None
