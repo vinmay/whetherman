@@ -10,6 +10,7 @@ before any large run and updated here.
 | Agent L | `openai-gpt-oss-120b` (gpt-oss-120b) | DigitalOcean serverless inference | Apache-2.0 | 2026-10-21 (listed by `/v1/models`; sequential tool-calling test passes) |
 | Agent U (P1, unseen) | `openai-gpt-oss-20b` | DigitalOcean serverless inference | Apache-2.0 | 2026-10-22 (calibrated with `whetherman calibrate` as a new agent) |
 | Prompted router baseline | Qwen3.5-4B (same as Agent S) | local Ollama | Apache-2.0 | 2026-10-21 |
+| Laya comparison router (P2) | `convaiinnovations/laya`, revision `55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851` (the package's reviewed pin), ModernBERT-large encoder (395M), max input 512 tokens (`rl_agent_config.json`), via `laya` 0.4.13 | local (GTX 1660 Ti, FP32) or CPU | Apache-2.0 | 2026-10-22 |
 | Dedup embeddings | `embeddinggemma:300m` (digest `85462619ee72`) | local Ollama | Gemma Terms of Use | 2026-10-21 |
 
 ## Prices used in cost accounting

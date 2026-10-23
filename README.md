@@ -184,6 +184,34 @@ Calibration: L $0.24 (83 min of agent time), U $0.35 (154 min), S 19 min locally
 labels each. At the measured savings, U's calibration pays back after roughly 24,000 episodes; L's does not
 pay back. Total hosted spend for the whole project: see `eval/results/spend.json`.
 
+## Laya vs FunctionGemma
+
+A P2 comparison, offline only (no end-to-end runs), asking whether a calibrated encoder classifier routes as
+well as FunctionGemma and is faster. [Laya](https://huggingface.co/convaiinnovations/laya)
+(convaiinnovations, Apache-2.0, `laya` 0.4.13, checkpoint pinned at its reviewed revision `55cf4c4`) is a
+ModernBERT-large decision encoder with a 512-token input limit. It was trained on the same split, labels and
+seed as the backbone, with no agent identity, and calibrated per agent with the same probe points,
+adaptation/threshold split, feature head and τ rule. Two variants, chosen by a rule fixed in advance
+(validation macro-F1): (a) frozen encoder + 4-class head, 0.802; **(b) LoRA fine-tune, 0.837, selected**.
+FunctionGemma on the same validation set: 0.925. It was frozen separately (`eval/results/freeze_laya.json`)
+and its held-out sets run once.
+
+| Held-out | FunctionGemma (shipped) | Laya (b) |
+|---|---|---|
+| E1-test, default policy: macro-F1 / false skips / ECE | **0.642** / **93/300** / **0.228** | 0.497 / 238/300 / 0.267 |
+| L, E2-test adapted: false skips / correct skips | 1/17 / **86/129** | 0/17 / 0/129 (τ = 1.0: no safe threshold, never skips) |
+| S, E2-test adapted: false skips / correct skips | **4/70** / 23/66 | 7/70 / 26/66 |
+| S, E3 adapted: false skips / correct skips | 2/62 / **14/60** | 2/62 / 7/60 |
+| GPU p50: 2 tools / 8 tools / long history | 55 / 122 / **249** ms | **36** / 122 / 510 ms |
+| CPU p50: 2 tools / 8 tools / long history | **188** / **1075** / 2152 ms | 396 / 1707 / **2034** ms |
+| Peak VRAM, inference / training | **1.2** / 2.2 GB | 1.5 / **2.1** GB |
+
+Laya truncation (inputs over 512 tokens; oldest history dropped first, schemas and latest tool results
+kept): 11/900 E1-test items (1.2%), 4/121 E3 (3.3%), none on E2. **Verdict:** on this task FunctionGemma
+routes better on every held-out set except S's E2 skips (more skips, more false skips). Laya is faster
+on short GPU inputs and on the longest CPU input (where it has truncated to 512 tokens), slower elsewhere. Full
+rows: `eval/results/laya_final.json`, dev and option (a): `laya_dev*.json`.
+
 ## Limitations
 
 - **Two agents, one day each.** Labels are measured evidence about one agent on one serving stack on one
@@ -219,4 +247,5 @@ Models, versions and prices: [MODELS.md](MODELS.md).
 
 Code: Apache-2.0. The backbone is a derivative of Gemma (FunctionGemma-270M) and is subject to the
 [Gemma Terms of Use](https://ai.google.dev/gemma/terms) and its Prohibited Use Policy. Datasets keep their
-own licenses (When2Call CC-BY-4.0, When2Tool MIT); see DATA.md.
+own licenses (When2Call CC-BY-4.0, When2Tool MIT); see DATA.md. The Laya comparison uses
+[Laya](https://huggingface.co/convaiinnovations/laya) by convaiinnovations (Apache-2.0); thanks to its authors.
