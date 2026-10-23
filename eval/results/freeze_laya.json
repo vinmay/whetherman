@@ -1,0 +1,15 @@
+{
+ "frozen_at": "2026-10-22T21:53:59-0400",
+ "code_commit": "fcf9a40fbf114ab7e0fa393a1d8f1246c7d00766",
+ "sha256": {
+  "checkpoints/laya-lora/adapter_model.safetensors": "3a1777521ce9073edf812cac2e8df0631d42fa22dd8437277be734f06ef3dbb5",
+  "checkpoints/laya-lora/head.pt": "d815896dc9de1f6b41d206e34a265beb961e63abc7d16cb68182aa3050ca7542",
+  "checkpoints/laya-lora/adapter_config.json": "c9e8c7bf3fb576f9f17fd6fdc97913e4223748601f6954613ed7484f95ef8e65",
+  "profiles/laya/L.json": "36a727b2bee6f5ee89c7e7c7d52ddd932c765f3c8b1fc6008523323440a50aa9",
+  "profiles/laya/S.json": "474fe42696e04403fb5aa012edbad6af701028579a4710daa399ff866b04b396",
+  "data/fixtures/e3/e3.jsonl": "f15a957a226350df1918a5fa6b5626251e4d8263b369624b6b3a3bc663da87dd",
+  "data/fixtures/e1/test.jsonl": "dc9184f2cbb777f9590fa729fc1aa3f56dc645aad1aaa4df3195ded3437c9ecb",
+  "data/fixtures/w2t/e2_test.jsonl": "6814f67a6cee86ea1f6fdef3736d1d5c0ef075ca93907e1f7b37a308b6eb64e8",
+  "data/fixtures/w2t/multihop_test.jsonl": "e317c0da16b1d856189e368ae814074bdb8b8413fe6148288f1032624e016e3a"
+ }
+}
