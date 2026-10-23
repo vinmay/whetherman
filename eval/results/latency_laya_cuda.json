@@ -1,0 +1,41 @@
+{
+ "device": "cuda",
+ "checkpoint": "laya",
+ "threads": 8,
+ "max_input_tokens": 512,
+ "scenarios": {
+  "short_2tools": {
+   "n": 30,
+   "p50_ms": 36.32741596084088,
+   "p95_ms": 54.629635135643156,
+   "format_p50_ms": 0.3087605582550168,
+   "input_tokens": 54,
+   "truncated": false
+  },
+  "medium_8tools": {
+   "n": 30,
+   "p50_ms": 121.59695150330663,
+   "p95_ms": 125.39967086049728,
+   "format_p50_ms": 1.0121830273419619,
+   "input_tokens": 511,
+   "truncated": false
+  },
+  "multistep_2results": {
+   "n": 30,
+   "p50_ms": 150.80348250921816,
+   "p95_ms": 153.6915701290127,
+   "format_p50_ms": 2.5399885489605367,
+   "input_tokens": 451,
+   "truncated": true
+  },
+  "long_near_budget": {
+   "n": 30,
+   "p50_ms": 509.68835898675025,
+   "p95_ms": 685.608500777743,
+   "format_p50_ms": 392.9790814872831,
+   "input_tokens": 489,
+   "truncated": true
+  }
+ },
+ "peak_vram_mib": 1547.21435546875
+}

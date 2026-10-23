@@ -1,0 +1,40 @@
+{
+ "device": "cpu",
+ "checkpoint": "laya",
+ "threads": 8,
+ "max_input_tokens": 512,
+ "scenarios": {
+  "short_2tools": {
+   "n": 15,
+   "p50_ms": 396.4058549609035,
+   "p95_ms": 425.10816605063155,
+   "format_p50_ms": 0.3925840137526393,
+   "input_tokens": 54,
+   "truncated": false
+  },
+  "medium_8tools": {
+   "n": 15,
+   "p50_ms": 1707.2755299741402,
+   "p95_ms": 2143.0233879480497,
+   "format_p50_ms": 1.6636170912533998,
+   "input_tokens": 511,
+   "truncated": false
+  },
+  "multistep_2results": {
+   "n": 15,
+   "p50_ms": 1493.3464769273996,
+   "p95_ms": 2053.6766943288953,
+   "format_p50_ms": 3.7919209571555257,
+   "input_tokens": 451,
+   "truncated": true
+  },
+  "long_near_budget": {
+   "n": 15,
+   "p50_ms": 2034.3854710226879,
+   "p95_ms": 2583.0746907158746,
+   "format_p50_ms": 414.78751704562455,
+   "input_tokens": 489,
+   "truncated": true
+  }
+ }
+}
