@@ -130,6 +130,23 @@ False skip = the gate withholds tools from a decision point that needed them (th
 | adapted_vecscale/e3 | 122 | 0.449 | 7/62 [0.06, 0.22] | 27/60 [0.33, 0.58] | 0.61 |
 | swap_profile_L/e3 | 122 | 0.329 | 1/62 [0.00, 0.09] | 18/60 [0.20, 0.43] | 0.79 |
 
+### When2Call official MCQ test (n=3652, NVIDIA/When2Call @ ecc8d42, self-run)
+
+Classifier class mapped to the MCQ option; official metric code. acc_norm not applicable.
+
+| Router | Macro-F1 | Accuracy | Tool hallucination rate |
+|---|---|---|---|
+| shared | 0.472 | 0.628 | 0.070 |
+
+### BFCL relevance / irrelevance subsets (gorilla @ 6ea5797, self-run, not a leaderboard result)
+
+Overlap with training text: {'irrelevance': 0, 'live_irrelevance': 0, 'live_relevance': 0}.
+
+| Router | irrelevance | live_irrelevance | live_relevance |
+|---|---|---|---|
+| shared | 187/240 (0.78) | 764/884 (0.86) | 6/16 (0.38) |
+| qwen_prompted | 95/240 (0.40) | 533/884 (0.60) | 10/16 (0.62) |
+
 ### Router latency (cuda, shared-v3)
 
 | Scenario | Input tokens | p50 | p95 |

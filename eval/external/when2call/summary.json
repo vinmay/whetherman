@@ -1,0 +1,41 @@
+{
+ "repo": "https://github.com/NVIDIA/When2Call.git",
+ "commit": "ecc8d42388e91ab37e7e737d48e16e8ecea3d1dc",
+ "n": 3652,
+ "scoring": "classifier class -> MCQ option",
+ "shared_checkpoint": "shared-v3",
+ "routers": {
+  "shared": {
+   "macro_f1": 0.4719411298612897,
+   "acc": 0.6284227820372399,
+   "hallucination_rate": 0.06976744186046512,
+   "confusion_matrix": {
+    "true:direct": {
+     "pred:direct": 0,
+     "pred:tool_call": 0,
+     "pred:request_for_info": 0,
+     "pred:cannot_answer": 0
+    },
+    "true:tool_call": {
+     "pred:direct": 1,
+     "pred:tool_call": 810,
+     "pred:request_for_info": 315,
+     "pred:cannot_answer": 169
+    },
+    "true:request_for_info": {
+     "pred:direct": 0,
+     "pred:tool_call": 231,
+     "pred:request_for_info": 745,
+     "pred:cannot_answer": 86
+    },
+    "true:cannot_answer": {
+     "pred:direct": 5,
+     "pred:tool_call": 226,
+     "pred:request_for_info": 324,
+     "pred:cannot_answer": 740
+    }
+   },
+   "samples": "eval/external/when2call/shared_shared-v3.samples.jsonl"
+  }
+ }
+}

@@ -146,12 +146,25 @@ The shipped profiles are conservative: on the same held-out sets they skipped 86
 the agent's ID in its training input skipped far more (125/129 for L) with several times the false skips
 (6/17; S 11/70).
 
-### Agent-agnostic routing (When2Call)
+### Agent-agnostic routing (When2Call, BFCL)
 
 On 900 held-out When2Call MCQ items the shared backbone reaches macro-F1 0.642, against 0.519 for untuned
 FunctionGemma, 0.281 for the prompted Qwen router and 0.197 for rules. Its validation score was 0.925: the
-official test distribution is harder than our training-derived validation split. Official-code When2Call
-and BFCL relevance results: see [REPORT_final.md](eval/results/REPORT_final.md).
+official test distribution is harder than our training-derived validation split.
+
+Self-run with external code, tuned backbone only (baselines are compared on the 900-item subset above):
+
+| Benchmark | Result |
+|---|---|
+| When2Call official MCQ test, 3,652 items ([NVIDIA/When2Call](https://github.com/NVIDIA/When2Call) @ ecc8d42, official metric code) | accuracy 0.628, macro-F1 0.472*, tool hallucination rate 0.070 |
+| BFCL v4 irrelevance (no function fits; pass = not ACT) | 187/240 (0.78); prompted Qwen 95/240 |
+| BFCL v4 live irrelevance | 764/884 (0.86); prompted Qwen 533/884 |
+| BFCL v4 live relevance (pass = ACT) | 6/16 (0.38); prompted Qwen 10/16 |
+
+\*The router's class is mapped to the matching MCQ option. The official macro-F1 averages over every class
+seen in gold or predictions; "direct answer" is never gold but was predicted 6 times, adding a zero. Over the
+three gold classes it is 0.629. BFCL is a self-run out-of-distribution check, not a leaderboard result; no
+BFCL question overlaps our training text.
 
 ### Cost of running Whetherman
 
