@@ -36,7 +36,8 @@ false skips went up sharply (see the profile-swap rows in the results).
 So Whetherman has two parts:
 
 1. **A shared backbone** (FunctionGemma-270M + LoRA + a 4-class head, no agent identity in the input),
-   trained on When2Call, multi-step decision points, and When2Tool tasks where every measured agent agrees.
+   trained on When2Call, multi-step decision points, and When2Tool tasks labeled on L and S (where they
+   disagree or a label is ambiguous, the target is the agents' average no-tool failure rate).
 2. **A per-agent profile**, fitted by `whetherman calibrate` from a probe pack run against *your* agent:
    each probe task is run 3–5 times with and without tools, and the agent's own success decides the label
    (ANSWER if it reliably succeeds unaided, ACT if it needs the tool, otherwise "ambiguous" and unused).
